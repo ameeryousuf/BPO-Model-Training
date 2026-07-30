@@ -1,0 +1,179 @@
+{
+  "process_id": 412279,
+  "company_id": 1312279,
+  "created_at": "2017-12-11 14:52:35",
+  "updated_at": "2017-12-11 14:52:35",
+  "capacity_requirement_minutes": 328,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-412279",
+  "process_name": "check equipment afer use by client",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-412279\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-412279\" name=\"check equipment afer use by client\" isExecutable=\"false\"><bpmn:task id=\"sid-C83BC1B3-5B99-4508-A9BE-133945CEBF15\" name=\"send transport the details\" /><bpmn:task id=\"sid-0A73A633-33F0-4A2B-9B80-EA40D58FC435\" name=\"Evaluate state of equipment\" /><bpmn:startEvent id=\"sid-57A8BF52-400C-415A-BFF0-23F974596FEE\" name=\"A message from the client\" /><bpmn:startEvent id=\"sid-C3431AAC-C7B5-41C2-87F5-7B467DE7FD51\" name=\"receive equipment\" /><bpmn:endEvent id=\"sid-4BE86D62-4487-490E-A3CC-B534E5647045\" name=\"Refund guarantee\" /><bpmn:endEvent id=\"sid-7528D49C-633E-4A5E-91BD-001AD1313996\" name=\"No refund\" /><bpmn:exclusiveGateway id=\"sid-A5A19013-2E34-4FAE-99B0-7B40EB493CF7\" name=\"State?\" /><bpmn:sequenceFlow id=\"sid-B724546B-7894-4A4C-827D-9BA3293B4B6E\" targetRef=\"sid-C83BC1B3-5B99-4508-A9BE-133945CEBF15\" /><bpmn:sequenceFlow id=\"sid-44903642-07CF-46C0-B36F-5CE64C54FFDB\" targetRef=\"sid-0A73A633-33F0-4A2B-9B80-EA40D58FC435\" /><bpmn:sequenceFlow id=\"sid-F32A1B0A-3E42-428B-A886-6F6D2915FDDD\" targetRef=\"sid-A5A19013-2E34-4FAE-99B0-7B40EB493CF7\" /><bpmn:sequenceFlow id=\"sid-AF2281D3-E7EC-4458-9F2A-9A6397EB5CAE\" targetRef=\"sid-4BE86D62-4487-490E-A3CC-B534E5647045\" name=\"OK&#10;&#10;\" /><bpmn:sequenceFlow id=\"sid-6B5CE14A-4B0C-4208-A306-C5A223DA79BB\" targetRef=\"sid-7528D49C-633E-4A5E-91BD-001AD1313996\" name=\"NOK\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2017-12-11 14:52:35",
+  "company": {
+    "company_id": 1312279,
+    "companyCode": "SYN-412279",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "State?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "State?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.43
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "State?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.57
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 412279,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-412279-1",
+        "task_company_id": null,
+        "task_name": "send transport the details",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C83BC1B3-5B99-4508-A9BE-133945CEBF15.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 204,
+        "expected_rework_time": 27,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 5.9,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 97,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 412279,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-412279-2",
+        "task_company_id": null,
+        "task_name": "Evaluate state of equipment",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0A73A633-33F0-4A2B-9B80-EA40D58FC435.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 124,
+        "expected_rework_time": 6,
+        "expected_waiting_time": 5,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 9.97,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 101,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "9d93a7dfbf8747cb857f963b922573cc",
+    "model_id": "9e1424cac8514d07b31cd6c74e78ccd1",
+    "organization_id": "784041636152466aa42b58e79b3216cf"
+  }
+}

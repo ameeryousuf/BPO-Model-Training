@@ -1,0 +1,198 @@
+{
+  "process_id": 525881,
+  "company_id": 1425881,
+  "created_at": "2020-02-07 00:14:59",
+  "updated_at": "2020-02-07 00:14:59",
+  "capacity_requirement_minutes": 202,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-525881",
+  "process_name": "Thermal analysis",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-525881\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-525881\" name=\"Thermal analysis\" isExecutable=\"false\"><bpmn:task id=\"sid-EEBE0D48-31F9-4E34-BE94-E27B4DDD2657\" name=\"Change 3-D model\" /><bpmn:task id=\"sid-768876DA-1A31-4E2D-8A3B-7D5EDB866DCB\" name=\"Run a thermal analysis\" /><bpmn:startEvent id=\"sid-42039FD1-3D40-4C64-B9DB-929D45C3019B\" name=\"Begin design change\" /><bpmn:endEvent id=\"sid-C2990577-070D-4621-9C68-A19DED1C9DC4\" name=\"Analysis complete\" /><bpmn:exclusiveGateway id=\"sid-73CB0C33-43E8-4D00-BD6E-1C23A396927E\" name=\"Analysis passed?\" /><bpmn:sequenceFlow id=\"sid-252B723C-9E82-4F12-BF45-9140021B43CE\" targetRef=\"sid-EEBE0D48-31F9-4E34-BE94-E27B4DDD2657\" /><bpmn:sequenceFlow id=\"sid-D55B41E4-4DE2-4EEB-A8AA-D8F059B12D6E\" targetRef=\"sid-768876DA-1A31-4E2D-8A3B-7D5EDB866DCB\" /><bpmn:sequenceFlow id=\"sid-E02D5E84-1FF9-4C74-BD5A-FCBC99C8AFA4\" targetRef=\"sid-73CB0C33-43E8-4D00-BD6E-1C23A396927E\" /><bpmn:sequenceFlow id=\"sid-53CC1EBD-BA0E-4C2E-B2EC-544C39D914A2\" targetRef=\"sid-C2990577-070D-4621-9C68-A19DED1C9DC4\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-99D1B8EE-3379-4EE5-B3ED-E946BB0C59A2\" targetRef=\"sid-EEBE0D48-31F9-4E34-BE94-E27B4DDD2657\" name=\"No\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-02-07 00:14:59",
+  "company": {
+    "company_id": 1425881,
+    "companyCode": "SYN-525881",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Analysis passed?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Analysis passed?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.79
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Analysis passed?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.21
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 525881,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-525881-1",
+        "task_company_id": null,
+        "task_name": "Change 3-D model",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EEBE0D48-31F9-4E34-BE94-E27B4DDD2657.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 73,
+        "expected_rework_time": 9,
+        "expected_waiting_time": 6,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 6.56,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 59,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 525881,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-525881-2",
+        "task_company_id": null,
+        "task_name": "Run a thermal analysis",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-768876DA-1A31-4E2D-8A3B-7D5EDB866DCB.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 129,
+        "expected_rework_time": 19,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 2.39,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 120,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 15.21,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 35,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "382e20d0e9d14b3f836fe3250538425f",
+    "model_id": "80f513445684452687a266f32466a08d",
+    "organization_id": "1b9c649acb2f4d7d935bae99eb72b1fb"
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "process_id": 866651,
+  "company_id": 1766651,
+  "created_at": "2019-11-12 09:30:22",
+  "updated_at": "2019-11-12 09:30:22",
+  "capacity_requirement_minutes": 336,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-866651",
+  "process_name": "4.11 Login with exceptions (Kopie) (Kopie)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-866651\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-866651\" name=\"4.11 Login with exceptions (Kopie) (Kopie)\" isExecutable=\"false\"><bpmn:task id=\"sid-3A99799A-3F04-49E3-A7EF-FC811ED478C1\" name=\"Set attempts counter to zero\" /><bpmn:task id=\"sid-EC1284CD-E057-42AE-A9A9-683786ACB41D\" name=\"Increment attempts counter by one\" /><bpmn:startEvent id=\"sid-A20BABD5-5668-43D0-9F84-98FD313B8DD3\" name=\"Anmeldung\" /><bpmn:startEvent id=\"sid-31160D06-7D31-45CB-A2C6-89BB40C2FFF9\" name=\"Credentials retrieved\" /><bpmn:endEvent id=\"sid-4C89EE95-9DC1-4359-A7D1-8AA7E6123693\" name=\"invalid username\" /><bpmn:endEvent id=\"sid-822FFF30-5095-497A-96BD-6F6B6D808CB6\" name=\"successfull\" /><bpmn:endEvent id=\"sid-1A61EECE-7A85-42CB-BA68-6DA84ABC84C2\" name=\"max attempts exceeded\" /><bpmn:intermediateCatchEvent id=\"sid-FFA7E6EC-9AF8-4F7C-ACD1-1EDCFE88A547\" name=\"Server Failure\" /><bpmn:intermediateCatchEvent id=\"sid-40619FD8-F4DB-43F7-9148-297A4FD072AD\" name=\"Server Failure\" /><bpmn:intermediateCatchEvent id=\"sid-DE61FADA-A945-4139-AC73-0286A1D689C6\" name=\"Server Failure\" /><bpmn:endEvent id=\"sid-1FE52066-BD00-4A13-B144-1B2293F0F4B2\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-E95D572E-0CEE-4F44-A5AE-DCE3DE521855\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-48232CA0-6787-4C00-B479-101C136899BF\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-E16B03EF-C411-4065-A544-9DEFFAF91ED8\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-1AF387C2-610E-45E8-8EE1-E1F05DB085B8\" name=\"\" /><bpmn:sequenceFlow id=\"sid-0EF9CEBD-A90E-4A3C-8D28-61A51954C1E1\" targetRef=\"sid-16DE941E-08CD-4EDB-8A66-DAD3138C4311\" /><bpmn:sequenceFlow id=\"sid-5CFC82A3-2ECF-41FC-80F7-D7FD0668A054\" targetRef=\"sid-82664CAD-EC2E-40D4-A338-07A95064E1C3\" /><bpmn:sequenceFlow id=\"sid-DF38C385-7109-409F-87FF-885BD45EC889\" targetRef=\"sid-E95D572E-0CEE-4F44-A5AE-DCE3DE521855\" /><bpmn:sequenceFlow id=\"sid-A2462196-2968-464D-A3BB-A87427E9F328\" targetRef=\"sid-4C89EE95-9DC1-4359-A7D1-8AA7E6123693\" /><bpmn:sequenceFlow id=\"sid-E14B6683-1D62-49A2-9D6D-E6AE130E35FB\" targetRef=\"sid-3A99799A-3F04-49E3-A7EF-FC811ED478C1\" /><bpmn:sequenceFlow id=\"sid-828AC0B1-FE50-486C-B82D-8CE7094D21E5\" targetRef=\"sid-EAF2F465-6BA6-4C12-8CB4-C1E57B3F23AD\" /><bpmn:sequenceFlow id=\"sid-7A484289-792F-41CC-9895-E3FD4C33ACCE\" targetRef=\"sid-E16B03EF-C411-4065-A544-9DEFFAF91ED8\" /><bpmn:sequenceFlow id=\"sid-FDF7F9B9-3CD3-4E2A-A04A-4947409FFD2F\" targetRef=\"sid-1AF387C2-610E-45E8-8EE1-E1F05DB085B8\" /><bpmn:sequenceFlow id=\"sid-846660AD-CFD0-48BB-ABCC-95B901C16648\" targetRef=\"sid-1FE52066-BD00-4A13-B144-1B2293F0F4B2\" /><bpmn:sequenceFlow id=\"sid-50D8F166-227B-4DDB-9AB5-C021B8E67BA8\" targetRef=\"sid-48232CA0-6787-4C00-B479-101C136899BF\" /><bpmn:sequenceFlow id=\"sid-7CEC324D-5BE2-4728-904D-1B12A1CA8AD7\" targetRef=\"sid-864F37AA-F1A6-46FE-BB38-C1829891936F\" name=\"attempts &lt; 3\" /><bpmn:sequenceFlow id=\"sid-4F15FAE8-0FCB-4922-9630-733012016C95\" targetRef=\"sid-EC1284CD-E057-42AE-A9A9-683786ACB41D\" name=\"pwd invalid\" /><bpmn:sequenceFlow id=\"sid-9FF31D8D-A770-49A0-A57F-66EEAE599451\" targetRef=\"sid-EC1284CD-E057-42AE-A9A9-683786ACB41D\" name=\"CAPTCHA&#10;incorrect\" /><bpmn:sequenceFlow id=\"sid-7BC200AE-1B0A-4BA7-9096-AD0CC8F239BE\" targetRef=\"sid-EAF2F465-6BA6-4C12-8CB4-C1E57B3F23AD\" /><bpmn:sequenceFlow id=\"sid-0636AD02-5CC7-4F73-94DA-F53FBAF80FD2\" targetRef=\"sid-1A61EECE-7A85-42CB-BA68-6DA84ABC84C2\" name=\"attempts &gt; 2\" /><bpmn:sequenceFlow id=\"sid-BFC5AD13-402B-4F91-B0E9-F6B4F0AA5AEF\" targetRef=\"sid-822FFF30-5095-497A-96BD-6F6B6D808CB6\" name=\"password valid\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2019-11-12 09:30:22",
+  "company": {
+    "company_id": 1766651,
+    "companyCode": "SYN-866651",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.19
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.81
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.6
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.4
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.52
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.48
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 866651,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-866651-1",
+        "task_company_id": null,
+        "task_name": "Set attempts counter to zero",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3A99799A-3F04-49E3-A7EF-FC811ED478C1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 197,
+        "expected_rework_time": 14,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 2.57,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 79,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 866651,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-866651-2",
+        "task_company_id": null,
+        "task_name": "Increment attempts counter by one",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EC1284CD-E057-42AE-A9A9-683786ACB41D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 139,
+        "expected_rework_time": 28,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 9.4,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 88,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "ef3a11c118ff436f9d524be3c6fbac80",
+    "model_id": "44fcaa2273f64dca9ea9990a40ab896b",
+    "organization_id": "f97942cf4d2547a4b4ef0c501f89ee51"
+  }
+}

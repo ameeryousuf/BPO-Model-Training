@@ -1,0 +1,454 @@
+{
+  "process_id": 1021882,
+  "company_id": 1921882,
+  "created_at": "2020-11-03 15:18:50",
+  "updated_at": "2020-11-03 15:18:50",
+  "capacity_requirement_minutes": 360,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1021882",
+  "process_name": "03_Check which employee can participate",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1021882\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1021882\" name=\"03_Check which employee can participate\" isExecutable=\"false\"><bpmn:task id=\"sid-82D5B037-C321-4077-9D3D-CE58AEFA6F77\" name=\"Check Booking of Training\" /><bpmn:task id=\"sid-E752163F-B6D3-4F2F-B99D-F43F924A8357\" name=\"Enroll Employees for Training\" /><bpmn:task id=\"sid-E5B0A623-CC03-47A5-9263-1A74942D9227\" name=\"Check Employee Work Area\" /><bpmn:task id=\"sid-AF61F664-F502-4491-A1DD-81C61D6B7FA1\" name=\"Enroll Employee for Training\" /><bpmn:task id=\"sid-D585FD77-185F-4F88-B6DB-AED0D04AC959\" name=\"Assign Employee to another Training\" /><bpmn:startEvent id=\"sid-9D7D5F96-E24B-44E3-BF0C-A50FBBC1A078\" name=\"Start Capacity Check\" /><bpmn:endEvent id=\"sid-4619BCB6-47B0-4310-ACBC-8F9C5A697FAE\" name=\"Capacity Check finished\" /><bpmn:endEvent id=\"sid-8F510F43-0E29-41E7-8460-EEA05BE1FA95\" name=\"Capacity Check finished\" /><bpmn:exclusiveGateway id=\"sid-0A305D4F-2239-4498-B457-8D200BEF4DDF\" name=\"Overbooked?\" /><bpmn:exclusiveGateway id=\"sid-B662374F-6CFC-4F1D-A0E5-7C14EEE98EEC\" name=\"Appropiate?\" /><bpmn:exclusiveGateway id=\"sid-83D49807-708A-41B3-B674-FCC7A2625190\" name=\"\" /><bpmn:sequenceFlow id=\"sid-10EFEA75-651A-49C6-9533-4540007B0011\" targetRef=\"sid-82D5B037-C321-4077-9D3D-CE58AEFA6F77\" /><bpmn:sequenceFlow id=\"sid-A315E3E6-AC43-46B1-A4DE-46780A2F8F58\" targetRef=\"sid-0A305D4F-2239-4498-B457-8D200BEF4DDF\" /><bpmn:sequenceFlow id=\"sid-6863D62F-E119-4716-AB15-43F313930962\" targetRef=\"sid-E752163F-B6D3-4F2F-B99D-F43F924A8357\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-9C88C13A-E9F5-4A37-8E3E-B81DCC277521\" targetRef=\"sid-E5B0A623-CC03-47A5-9263-1A74942D9227\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-3A360BC1-21C9-4B97-86BF-FA83030CF8E0\" targetRef=\"sid-4619BCB6-47B0-4310-ACBC-8F9C5A697FAE\" /><bpmn:sequenceFlow id=\"sid-42F94209-84F6-4898-A507-AA63991B5F9B\" targetRef=\"sid-B662374F-6CFC-4F1D-A0E5-7C14EEE98EEC\" /><bpmn:sequenceFlow id=\"sid-F1B354FB-7736-49A3-ACC6-BA43643AF9D8\" targetRef=\"sid-AF61F664-F502-4491-A1DD-81C61D6B7FA1\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-EF68FDD7-CC23-49A8-BC5D-240793BCB858\" targetRef=\"sid-D585FD77-185F-4F88-B6DB-AED0D04AC959\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-FD7C28AF-615C-45CA-A5FD-03B0A56BAC6C\" targetRef=\"sid-83D49807-708A-41B3-B674-FCC7A2625190\" /><bpmn:sequenceFlow id=\"sid-803EF948-FD2B-457E-9A2E-8A26ED07241D\" targetRef=\"sid-83D49807-708A-41B3-B674-FCC7A2625190\" /><bpmn:sequenceFlow id=\"sid-E266B9F5-FD18-4BB2-A401-76B8BBC128CB\" targetRef=\"sid-8F510F43-0E29-41E7-8460-EEA05BE1FA95\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-11-03 15:18:50",
+  "company": {
+    "company_id": 1921882,
+    "companyCode": "SYN-1021882",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Overbooked?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Overbooked?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.67
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Overbooked?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.33
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Appropiate?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Appropiate?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.77
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Appropiate?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.23
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1021882,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1021882-1",
+        "task_company_id": null,
+        "task_name": "Check Booking of Training",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-82D5B037-C321-4077-9D3D-CE58AEFA6F77.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 177,
+        "expected_rework_time": 35,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 9.99,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 5,
+              "hourlyRate": 92,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 13.15,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1021882,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1021882-2",
+        "task_company_id": null,
+        "task_name": "Enroll Employees for Training",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E752163F-B6D3-4F2F-B99D-F43F924A8357.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 15,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 15,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 1.16,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 6,
+              "hourlyRate": 103,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 12.33,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 76,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1021882,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1021882-3",
+        "task_company_id": null,
+        "task_name": "Check Employee Work Area",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E5B0A623-CC03-47A5-9263-1A74942D9227.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 19,
+        "expected_rework_time": 2,
+        "expected_waiting_time": 10,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 17.55,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 1021882,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-1021882-4",
+        "task_company_id": null,
+        "task_name": "Enroll Employee for Training",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AF61F664-F502-4491-A1DD-81C61D6B7FA1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 45,
+        "expected_rework_time": 3,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 3.16,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 6,
+              "hourlyRate": 72,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 7,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 19.16,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 1,
+              "hourlyRate": 94,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 1021882,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-1021882-5",
+        "task_company_id": null,
+        "task_name": "Assign Employee to another Training",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D585FD77-185F-4F88-B6DB-AED0D04AC959.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 104,
+        "expected_rework_time": 20,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5005,
+            "role": "C",
+            "time_allocation_percentage": 19.59,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 4,
+              "hourlyRate": 58,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "4a3eaa6735e34011bdaf5b21373d2a91",
+    "model_id": "414c769e732149be97126aa6ad32435d",
+    "organization_id": "9ed44154976544d4b62a1bb16944bc91"
+  }
+}

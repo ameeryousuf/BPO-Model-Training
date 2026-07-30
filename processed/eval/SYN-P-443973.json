@@ -1,0 +1,682 @@
+{
+  "process_id": 443973,
+  "company_id": 1343973,
+  "created_at": "2021-04-17 17:56:31",
+  "updated_at": "2021-04-17 17:56:31",
+  "capacity_requirement_minutes": 1421,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-443973",
+  "process_name": "Receive purchased goods",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-443973\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-443973\" name=\"Receive purchased goods\" isExecutable=\"false\"><bpmn:task id=\"sid-32AC13FE-4840-4DD1-A10E-4BC9D256D231\" name=\"Select corresponding purchase order ACT - (1 day) TCT - (10 min)\" /><bpmn:task id=\"sid-8C048DAC-F519-4909-965A-68F735801CA7\" name=\"Check quantity and quality ACT - (1.6 days) TCT - (20 min)\" /><bpmn:task id=\"sid-E2D851C8-2A97-411E-A556-DB602949B3CB\" name=\"Generate goods receipt form ACT - (1.6 days) TCT - (20 min)\" /><bpmn:task id=\"sid-D742DB9D-C13E-4CC9-9FEE-C88AE235D931\" name=\"Return goods to vendor ACT - (2 days) TCT - (30 min)\" /><bpmn:task id=\"sid-B8F1A70E-3554-4574-AE31-EFA5BA8D7EED\" name=\"Send note to purchasing department and AP office ACT - (1.6 days) TCT - (20 min)\" /><bpmn:task id=\"sid-24F2F787-19E6-462C-8581-5FA217EEDE11\" name=\"Forward goods to employee ACT - (1.5 days) TCT - (15 min)\" /><bpmn:task id=\"sid-9C878003-4E0C-468A-A001-4820768FEE8C\" name=\"Send goods receipt form to AP ACT - (1.6 days) TCT - (15 min)\" /><bpmn:task id=\"sid-764E660D-BA0D-46BD-9B59-37A7AEBCA564\" name=\"Receive goods ACT - (4 days) TCT - (60 min)\" /><bpmn:task id=\"sid-567912F3-9DE5-46BA-8BE7-4E53A41D236A\" name=\"Receive form ACT - (3 days) TCT - (40 min)\" /><bpmn:startEvent id=\"sid-964AD7DE-31CF-4F40-92CC-E9B3106AC031\" name=\"Goods Received\" /><bpmn:endEvent id=\"sid-4BDCFB69-AD26-45E2-BE51-C2B20C4AE652\" name=\"Goods returned to vendor\" /><bpmn:endEvent id=\"sid-B12C2FB7-E4D3-44DC-96FD-42299A5AA46E\" name=\"Goods checked and received\" /><bpmn:exclusiveGateway id=\"sid-1EE561EC-1022-43DD-BFDF-E5E94EE11325\" name=\"\" /><bpmn:parallelGateway id=\"sid-C9F5541B-065F-44E8-992D-BCC8BF5344FE\" name=\"\" /><bpmn:parallelGateway id=\"sid-DE6ABE07-B914-4280-8F92-C7FF1E2C5723\" name=\"\" /><bpmn:parallelGateway id=\"sid-5625F4CA-4C6A-4298-A030-C633F3468CCB\" name=\"\" /><bpmn:parallelGateway id=\"sid-0B834497-3685-496A-BA1A-34A63F9ABA95\" name=\"\" /><bpmn:sequenceFlow id=\"sid-54E9B6C4-C678-427A-A61C-33D760D38DB3\" targetRef=\"sid-32AC13FE-4840-4DD1-A10E-4BC9D256D231\" /><bpmn:sequenceFlow id=\"sid-C63D2C59-7AC7-4111-905F-29C18ECC5607\" targetRef=\"sid-8C048DAC-F519-4909-965A-68F735801CA7\" /><bpmn:sequenceFlow id=\"sid-84400960-F6F7-43F1-8362-00A84302EA7F\" targetRef=\"sid-1EE561EC-1022-43DD-BFDF-E5E94EE11325\" /><bpmn:sequenceFlow id=\"sid-D78F6AD5-91E0-48A1-8691-47D0B6FA0904\" targetRef=\"sid-D742DB9D-C13E-4CC9-9FEE-C88AE235D931\" /><bpmn:sequenceFlow id=\"sid-EA580810-0AAA-46EE-820D-7B70B38B3216\" targetRef=\"sid-B8F1A70E-3554-4574-AE31-EFA5BA8D7EED\" /><bpmn:sequenceFlow id=\"sid-5C76DBF3-B6AB-4D37-8D03-29D23E503DF0\" targetRef=\"sid-DE6ABE07-B914-4280-8F92-C7FF1E2C5723\" /><bpmn:sequenceFlow id=\"sid-114C45E5-1F93-482C-9101-C8678EB6A337\" targetRef=\"sid-DE6ABE07-B914-4280-8F92-C7FF1E2C5723\" /><bpmn:sequenceFlow id=\"sid-9A2E5443-E13B-4A7A-B906-026A2FDBEC0B\" targetRef=\"sid-4BDCFB69-AD26-45E2-BE51-C2B20C4AE652\" /><bpmn:sequenceFlow id=\"sid-643A0607-64D2-4A3C-9AB0-9A3CAAA94D38\" targetRef=\"sid-5625F4CA-4C6A-4298-A030-C633F3468CCB\" /><bpmn:sequenceFlow id=\"sid-68637ABC-0128-4E3E-A6CE-EE0C21AE7101\" targetRef=\"sid-24F2F787-19E6-462C-8581-5FA217EEDE11\" /><bpmn:sequenceFlow id=\"sid-7D3ACE76-9600-4AD6-9517-3DED39D1C1A2\" targetRef=\"sid-764E660D-BA0D-46BD-9B59-37A7AEBCA564\" /><bpmn:sequenceFlow id=\"sid-C09EB5DA-61A4-4504-AA54-6199411BE1B9\" targetRef=\"sid-9C878003-4E0C-468A-A001-4820768FEE8C\" /><bpmn:sequenceFlow id=\"sid-8C5630CE-F539-404E-B81C-2D2DED5AC962\" targetRef=\"sid-567912F3-9DE5-46BA-8BE7-4E53A41D236A\" /><bpmn:sequenceFlow id=\"sid-EB9E96BE-3471-4160-B677-0523F359FEB4\" targetRef=\"sid-0B834497-3685-496A-BA1A-34A63F9ABA95\" /><bpmn:sequenceFlow id=\"sid-589E4A1E-CB55-42B4-A4DF-5D82058CF269\" targetRef=\"sid-0B834497-3685-496A-BA1A-34A63F9ABA95\" /><bpmn:sequenceFlow id=\"sid-0DC378A1-9773-4544-B0F4-BC22065D71DF\" targetRef=\"sid-B12C2FB7-E4D3-44DC-96FD-42299A5AA46E\" /><bpmn:sequenceFlow id=\"sid-057BB833-B81E-4CCF-8B76-527D4E9F0B00\" targetRef=\"sid-E2D851C8-2A97-411E-A556-DB602949B3CB\" name=\"correct (85%)\" /><bpmn:sequenceFlow id=\"sid-5ACAFEF1-6CDA-4F84-8F78-C2646DF75719\" targetRef=\"sid-C9F5541B-065F-44E8-992D-BCC8BF5344FE\" name=\"incorrect (15%)\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-04-17 17:56:31",
+  "company": {
+    "company_id": 1343973,
+    "companyCode": "SYN-443973",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.16
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.84
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.43
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.57
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.19
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.81
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.78
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.22
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 5",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.42
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.58
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 443973,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-443973-1",
+        "task_company_id": null,
+        "task_name": "Select corresponding purchase order ACT - (1 day) TCT - (10 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-32AC13FE-4840-4DD1-A10E-4BC9D256D231.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 180,
+        "expected_rework_time": 16,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 18.48,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 6,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 443973,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-443973-2",
+        "task_company_id": null,
+        "task_name": "Check quantity and quality ACT - (1.6 days) TCT - (20 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-8C048DAC-F519-4909-965A-68F735801CA7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 210,
+        "expected_rework_time": 36,
+        "expected_waiting_time": 19,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 13.04,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 42,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 443973,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-443973-3",
+        "task_company_id": null,
+        "task_name": "Generate goods receipt form ACT - (1.6 days) TCT - (20 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E2D851C8-2A97-411E-A556-DB602949B3CB.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 146,
+        "expected_rework_time": 23,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 1.08,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 6,
+              "hourlyRate": 31,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 443973,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-443973-4",
+        "task_company_id": null,
+        "task_name": "Return goods to vendor ACT - (2 days) TCT - (30 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D742DB9D-C13E-4CC9-9FEE-C88AE235D931.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 201,
+        "expected_rework_time": 28,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 12.29,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 17,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 443973,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-443973-5",
+        "task_company_id": null,
+        "task_name": "Send note to purchasing department and AP office ACT - (1.6 days) TCT - (20 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B8F1A70E-3554-4574-AE31-EFA5BA8D7EED.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 175,
+        "expected_rework_time": 37,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 18.6,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 17,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 443973,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-443973-6",
+        "task_company_id": null,
+        "task_name": "Forward goods to employee ACT - (1.5 days) TCT - (15 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-24F2F787-19E6-462C-8581-5FA217EEDE11.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 110,
+        "expected_rework_time": 14,
+        "expected_waiting_time": 3,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 6.1,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 2,
+              "hourlyRate": 89,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 443973,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-443973-7",
+        "task_company_id": null,
+        "task_name": "Send goods receipt form to AP ACT - (1.6 days) TCT - (15 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9C878003-4E0C-468A-A001-4820768FEE8C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 103,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5007,
+            "role": "A",
+            "time_allocation_percentage": 16.5,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 5,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 443973,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-443973-8",
+        "task_company_id": null,
+        "task_name": "Receive goods ACT - (4 days) TCT - (60 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-764E660D-BA0D-46BD-9B59-37A7AEBCA564.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 167,
+        "expected_rework_time": 22,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5008,
+            "role": "A",
+            "time_allocation_percentage": 1.72,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 3,
+              "hourlyRate": 120,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 443973,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-443973-9",
+        "task_company_id": null,
+        "task_name": "Receive form ACT - (3 days) TCT - (40 min)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-567912F3-9DE5-46BA-8BE7-4E53A41D236A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 129,
+        "expected_rework_time": 25,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5009,
+            "role": "A",
+            "time_allocation_percentage": 17.54,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 5,
+              "hourlyRate": 68,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 10,
+            "task_id": 5009,
+            "role": "R",
+            "time_allocation_percentage": 11.54,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 1,
+              "hourlyRate": 17,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "5548b597c2314e50bc7b4981e7866a75",
+    "model_id": "70fbc720f195426bb3b30a92b0a43e92",
+    "organization_id": "7973fe1261884a9bac69a1165c1a7b0c"
+  }
+}

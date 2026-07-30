@@ -1,0 +1,264 @@
+{
+  "process_id": 1119908,
+  "company_id": 2019908,
+  "created_at": "2021-02-23 18:45:55",
+  "updated_at": "2021-02-23 18:45:55",
+  "capacity_requirement_minutes": 484,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1119908",
+  "process_name": "Insurance check",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1119908\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1119908\" name=\"Insurance check\" isExecutable=\"false\"><bpmn:task id=\"sid-6CD79D1E-52E5-4B9D-A083-04A21DD36FE1\" name=\"Automated insurance check\" /><bpmn:task id=\"sid-268BF74B-2D51-45F0-8EE1-12125726AEB3\" name=\"Substitute drug found\" /><bpmn:task id=\"sid-9FAE72FE-2202-4AD9-9F33-47978E662626\" name=\"Information communicated to patient\" /><bpmn:startEvent id=\"sid-6EEFD5E2-5C4C-4483-9B90-6089C60DA5E0\" name=\"Begin insurance check\" /><bpmn:endEvent id=\"sid-9F439B1D-82B6-4F51-A9C0-EF737DF1B6F8\" name=\"Insurance check completed\" /><bpmn:exclusiveGateway id=\"sid-2FF82C64-B1A9-4E12-B7D6-930A25D6E161\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-AC8A130B-5894-4059-BD45-1EF63FEB3B73\" name=\"\" /><bpmn:sequenceFlow id=\"sid-1D800772-2EFB-44C8-8786-7A275806DDF5\" targetRef=\"sid-6CD79D1E-52E5-4B9D-A083-04A21DD36FE1\" /><bpmn:sequenceFlow id=\"sid-DA64378D-CA11-445D-935E-D75F21CBD142\" targetRef=\"sid-2FF82C64-B1A9-4E12-B7D6-930A25D6E161\" /><bpmn:sequenceFlow id=\"sid-A1F0F1A8-74EF-4E39-A47D-8F74DA96F40C\" targetRef=\"sid-268BF74B-2D51-45F0-8EE1-12125726AEB3\" name=\"Drug partially or &#10;not covered\" /><bpmn:sequenceFlow id=\"sid-D9C61FF9-0E58-41EB-9686-75179C24845F\" targetRef=\"sid-9F439B1D-82B6-4F51-A9C0-EF737DF1B6F8\" /><bpmn:sequenceFlow id=\"sid-30F00D35-57A7-429A-AACD-8BA27706B378\" targetRef=\"sid-AC8A130B-5894-4059-BD45-1EF63FEB3B73\" name=\"Check passes with no errors\" /><bpmn:sequenceFlow id=\"sid-721D1BF6-AF18-44FC-805C-4E36D7809130\" targetRef=\"sid-9FAE72FE-2202-4AD9-9F33-47978E662626\" /><bpmn:sequenceFlow id=\"sid-64522701-3BE9-4726-9996-19C11BD0A814\" targetRef=\"sid-AC8A130B-5894-4059-BD45-1EF63FEB3B73\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-02-23 18:45:55",
+  "company": {
+    "company_id": 2019908,
+    "companyCode": "SYN-1119908",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.37
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.63
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1119908,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1119908-1",
+        "task_company_id": null,
+        "task_name": "Automated insurance check",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6CD79D1E-52E5-4B9D-A083-04A21DD36FE1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 202,
+        "expected_rework_time": 20,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 9.61,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1119908,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1119908-2",
+        "task_company_id": null,
+        "task_name": "Substitute drug found",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-268BF74B-2D51-45F0-8EE1-12125726AEB3.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 76,
+        "expected_rework_time": 17,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 16.42,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 102,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1119908,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1119908-3",
+        "task_company_id": null,
+        "task_name": "Information communicated to patient",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9FAE72FE-2202-4AD9-9F33-47978E662626.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 206,
+        "expected_rework_time": 43,
+        "expected_waiting_time": 3,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 19.45,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 57,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "410f6985bc2343f29ab457e0bb95a839",
+    "model_id": "186800fb5bf946c5b898f7ce6f4cab1d",
+    "organization_id": "7973fe1261884a9bac69a1165c1a7b0c"
+  }
+}

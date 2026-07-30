@@ -1,0 +1,733 @@
+{
+  "process_id": 1036034,
+  "company_id": 1936034,
+  "created_at": "2018-01-11 09:55:05",
+  "updated_at": "2018-01-11 09:55:05",
+  "capacity_requirement_minutes": 838,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1036034",
+  "process_name": "Search a Flight",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1036034\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1036034\" name=\"Search a Flight\" isExecutable=\"false\"><bpmn:task id=\"sid-812451EB-6F32-4141-B217-045158453B0C_2\" name=\"Select departure, destination, dates and class\" /><bpmn:task id=\"sid-4316578D-E2A5-49A6-8742-B737C6DC11AB_2\" name=\"Select round or single ticket\" /><bpmn:task id=\"sid-4B053337-EB2B-4AA9-9139-6474681AA6C1_2\" name=\"select number of adults, children and enfants\" /><bpmn:task id=\"sid-265362BC-9056-4A2B-919B-928675E67F46_2\" name=\"Input promo code\" /><bpmn:task id=\"sid-24485762-B9E1-43F1-86DC-714EC618E1B5_2\" name=\"Select flexible dates\" /><bpmn:task id=\"sid-97C1D354-A944-4307-8E73-195FD3C8A5CD_2\" name=\"Get a search page\" /><bpmn:task id=\"sid-FAE56C63-D601-4BBC-9285-C73DD8D57A3A_2\" name=\"Submit\" /><bpmn:startEvent id=\"sid-2CE1A158-A354-49A3-9D0A-54692823430E_2\" name=\"Main page is loaded\" /><bpmn:startEvent id=\"sid-4FEC1E53-D249-4574-A303-55F45F9B9924_2\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-4D53A637-1F97-48CA-8CC8-B646AEF0B846_2\" name=\"flights information is got\" /><bpmn:endEvent id=\"sid-47AF4182-3717-40F8-B8AB-20C04CEB3376_2\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-EE740529-3986-4F0D-A699-BBDD1CAF76E2_2\" name=\"flight details are incomplete\" /><bpmn:endEvent id=\"sid-9EE10A4C-DF46-4F19-AE61-B68BC8A865D1_2\" name=\"Flights information is selected\" /><bpmn:intermediateCatchEvent id=\"sid-4D0E7635-A098-42BC-BD76-8FAC91E923F4_2\" name=\"Page timeout\" /><bpmn:parallelGateway id=\"sid-B8D2656E-F110-4531-8242-0AD64C7BAA81_2\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-28143D6C-FF5F-4272-A885-5FDDEF8CF57A_2\" name=\"Has the promo code?\" /><bpmn:exclusiveGateway id=\"sid-F71B34B6-64AE-4126-846A-7C95884001F8_2\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-A52583BA-55A4-42F2-8B4A-553BD2D6E700_2\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-ADCF7D93-9329-4A27-B719-F69D57A5F4B9_2\" name=\"Are dates precise?\" /><bpmn:parallelGateway id=\"sid-11ADBE73-9895-428E-871E-62841D406522_2\" name=\"\" /><bpmn:eventBasedGateway id=\"sid-6CDFC0FC-BDC8-4EE5-ACE9-FFA7750AA074_2\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-7625D339-53D6-490F-909A-6B7259D94716_2\" name=\"\" /><bpmn:sequenceFlow id=\"sid-EE6B3DC4-2334-4476-99AE-3949854C2382_2\" targetRef=\"sid-812451EB-6F32-4141-B217-045158453B0C_2\" /><bpmn:sequenceFlow id=\"sid-90DC08BA-080E-4444-B5D1-9AA299F0AE42_2\" targetRef=\"sid-4B053337-EB2B-4AA9-9139-6474681AA6C1_2\" /><bpmn:sequenceFlow id=\"sid-7580892E-7F48-46EE-91FA-597AB1A74CD0_2\" targetRef=\"sid-265362BC-9056-4A2B-919B-928675E67F46_2\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-5FC52F33-7BEF-4032-AF15-ED2DB1A527F0_2\" targetRef=\"sid-F71B34B6-64AE-4126-846A-7C95884001F8_2\" /><bpmn:sequenceFlow id=\"sid-E40D221A-492F-49FE-BB54-34F3451981D9_2\" targetRef=\"sid-97C1D354-A944-4307-8E73-195FD3C8A5CD_2\" /><bpmn:sequenceFlow id=\"sid-346B9954-37E9-495E-BE7A-E810B0375199_2\" targetRef=\"sid-A52583BA-55A4-42F2-8B4A-553BD2D6E700_2\" /><bpmn:sequenceFlow id=\"sid-E2C3D87B-F37F-449E-A6C0-9450FE78DE98_2\" targetRef=\"sid-11ADBE73-9895-428E-871E-62841D406522_2\" /><bpmn:sequenceFlow id=\"sid-A76CCD19-4D17-478A-89F4-1AB733E0E857_2\" targetRef=\"sid-11ADBE73-9895-428E-871E-62841D406522_2\" /><bpmn:sequenceFlow id=\"sid-6A6D7B29-6B9D-4DAC-B5D2-9FFE36E5930F_2\" targetRef=\"sid-11ADBE73-9895-428E-871E-62841D406522_2\" /><bpmn:sequenceFlow id=\"sid-971B3D98-9397-442B-9ED8-4458C649192D_2\" targetRef=\"sid-47AF4182-3717-40F8-B8AB-20C04CEB3376_2\" /><bpmn:sequenceFlow id=\"sid-8935DC36-3F4A-46C4-9C41-BB7840265B77_2\" targetRef=\"sid-4D53A637-1F97-48CA-8CC8-B646AEF0B846_2\" /><bpmn:sequenceFlow id=\"sid-67BA7B43-6CF6-49FF-AED8-1390B8758DEA_2\" targetRef=\"sid-EE740529-3986-4F0D-A699-BBDD1CAF76E2_2\" /><bpmn:sequenceFlow id=\"sid-31E895C0-AB8F-4D09-812E-5464A433A80D_2\" targetRef=\"sid-7625D339-53D6-490F-909A-6B7259D94716_2\" /><bpmn:sequenceFlow id=\"sid-07A1B2B3-E154-4C26-8A7F-A220AB8FC74E_2\" targetRef=\"sid-F71B34B6-64AE-4126-846A-7C95884001F8_2\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-C77830C2-D3B0-4142-8170-138D5CC8EB13_2\" targetRef=\"sid-A52583BA-55A4-42F2-8B4A-553BD2D6E700_2\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-4B147EF2-F62D-4DFF-9363-DA3D63320B84_2\" targetRef=\"sid-24485762-B9E1-43F1-86DC-714EC618E1B5_2\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-7302B60C-208D-4AB2-8BCF-39F861436B7B_2\" targetRef=\"sid-11ADBE73-9895-428E-871E-62841D406522_2\" /><bpmn:sequenceFlow id=\"sid-07C174C6-E4DE-4451-90EB-173C390EED44_2\" targetRef=\"sid-4316578D-E2A5-49A6-8742-B737C6DC11AB_2\" /><bpmn:sequenceFlow id=\"sid-5E089B73-BA01-4D50-BDA1-F2E5EB156F83_2\" targetRef=\"sid-6CDFC0FC-BDC8-4EE5-ACE9-FFA7750AA074_2\" /><bpmn:sequenceFlow id=\"sid-E87B6DD1-1C98-40D4-BCB0-3818BDEA0139_2\" targetRef=\"sid-FAE56C63-D601-4BBC-9285-C73DD8D57A3A_2\" /><bpmn:sequenceFlow id=\"sid-77294954-5C9A-4C3C-AC17-D49E1EC9D4A0_2\" targetRef=\"sid-7625D339-53D6-490F-909A-6B7259D94716_2\" /><bpmn:sequenceFlow id=\"sid-327C0C50-DC68-42EE-B5CE-3BF285E9FB5D_2\" targetRef=\"sid-28143D6C-FF5F-4272-A885-5FDDEF8CF57A_2\" /><bpmn:sequenceFlow id=\"sid-EA0A2FCC-B199-4BE8-B5DA-5806CDA96CA5_2\" targetRef=\"sid-11ADBE73-9895-428E-871E-62841D406522_2\" /><bpmn:sequenceFlow id=\"sid-6F49FD50-2078-446B-9BA5-C5194B66198C_2\" targetRef=\"sid-ADCF7D93-9329-4A27-B719-F69D57A5F4B9_2\" /><bpmn:sequenceFlow id=\"sid-ED7AF6FD-9B5A-4A33-A7A3-5E0C797F9E5C_2\" targetRef=\"sid-B8D2656E-F110-4531-8242-0AD64C7BAA81_2\" /><bpmn:sequenceFlow id=\"sid-A0F17AF4-E7DC-4C75-B078-307891158BCB_2\" targetRef=\"sid-9EE10A4C-DF46-4F19-AE61-B68BC8A865D1_2\" /><bpmn:sequenceFlow id=\"sid-E2F0EA75-3BBD-47B5-B937-3897BFF775B9_2\" targetRef=\"sid-7303EAB6-231A-47D4-948B-17C5FB6A21AA_2\" /><bpmn:sequenceFlow id=\"sid-8080D6A1-D72F-4450-9672-08AD753BF86E_2\" targetRef=\"sid-7303EAB6-231A-47D4-948B-17C5FB6A21AA_2\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-01-11 09:55:05",
+  "company": {
+    "company_id": 1936034,
+    "companyCode": "SYN-1036034",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.33
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.11
+        },
+        {
+          "id": 10012,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.04
+        },
+        {
+          "id": 10013,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_4",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.31
+        },
+        {
+          "id": 10014,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_5",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.21
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Has the promo code?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Has the promo code?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.62
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Has the promo code?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.38
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.69
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.31
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.66
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.34
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Are dates precise?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Are dates precise?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.71
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Are dates precise?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.29
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1006,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 6",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10060,
+          "gateway_pk_id": 1006,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.22
+        },
+        {
+          "id": 10061,
+          "gateway_pk_id": 1006,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.78
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1007,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Gateway 7",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10070,
+          "gateway_pk_id": 1007,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.79
+        },
+        {
+          "id": 10071,
+          "gateway_pk_id": 1007,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.21
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1008,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 8",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10080,
+          "gateway_pk_id": 1008,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.42
+        },
+        {
+          "id": 10081,
+          "gateway_pk_id": 1008,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.58
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1036034,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1036034-1",
+        "task_company_id": null,
+        "task_name": "Select departure, destination, dates and class",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-812451EB-6F32-4141-B217-045158453B0C_2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 70,
+        "expected_rework_time": 10,
+        "expected_waiting_time": 29,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 10.32,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 45,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 12.13,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 54,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1036034,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1036034-2",
+        "task_company_id": null,
+        "task_name": "Select round or single ticket",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4316578D-E2A5-49A6-8742-B737C6DC11AB_2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 16,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 15.41,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 18,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1036034,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1036034-3",
+        "task_company_id": null,
+        "task_name": "select number of adults, children and enfants",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4B053337-EB2B-4AA9-9139-6474681AA6C1_2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 227,
+        "expected_rework_time": 32,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 18.78,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 74,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 1036034,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-1036034-4",
+        "task_company_id": null,
+        "task_name": "Input promo code",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-265362BC-9056-4A2B-919B-928675E67F46_2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 29,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 2.56,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 5,
+              "hourlyRate": 77,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 1036034,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-1036034-5",
+        "task_company_id": null,
+        "task_name": "Select flexible dates",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-24485762-B9E1-43F1-86DC-714EC618E1B5_2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 131,
+        "expected_rework_time": 8,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "C",
+            "time_allocation_percentage": 14.31,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 1036034,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-1036034-6",
+        "task_company_id": null,
+        "task_name": "Get a search page",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-97C1D354-A944-4307-8E73-195FD3C8A5CD_2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 185,
+        "expected_rework_time": 43,
+        "expected_waiting_time": 2,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 10.17,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 3,
+              "hourlyRate": 111,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 1036034,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-1036034-7",
+        "task_company_id": null,
+        "task_name": "Submit",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FAE56C63-D601-4BBC-9285-C73DD8D57A3A_2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 180,
+        "expected_rework_time": 38,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 11.19,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 5,
+              "hourlyRate": 58,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "2d3ba1e7cb154da9ba5b82375cc41218",
+    "model_id": "c489ff732c944cf085f4067dd3a6d2ed",
+    "organization_id": "ca8bdaaec9384dfaac4a76934bb42709"
+  }
+}

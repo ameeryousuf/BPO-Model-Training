@@ -1,0 +1,606 @@
+{
+  "process_id": 560837,
+  "company_id": 1460837,
+  "created_at": "2018-05-25 05:39:00",
+  "updated_at": "2018-05-25 05:39:00",
+  "capacity_requirement_minutes": 723,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-560837",
+  "process_name": "Claim Checking Process",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-560837\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-560837\" name=\"Claim Checking Process\" isExecutable=\"false\"><bpmn:task id=\"sid-E12C6EBD-4EC3-4D81-B5F7-DC237A30A456\" name=\"Retrieve IS records\" /><bpmn:task id=\"sid-B1EFB7DE-A79F-4B60-B7F9-B3B1C516E802\" name=\"Check the prescription\" /><bpmn:task id=\"sid-5AB922D1-95DD-467F-9E1C-3164329D989D\" name=\"Contact agents\" /><bpmn:task id=\"sid-216BA973-135D-42B0-B7BB-9EBE51A663C9\" name=\"Generate new serial number\" /><bpmn:task id=\"sid-49ADC97C-7E1A-4292-97DB-3D521AED6AFF\" name=\"Remove from electronic claim data list\" /><bpmn:task id=\"sid-9222B0A0-11D4-4004-98FB-999B67551D60\" name=\"Enter prescription details into IS\" /><bpmn:task id=\"sid-70455A56-CA3B-4B37-9680-5FE86B038481\" name=\"Contact agents\" /><bpmn:endEvent id=\"sid-57548D13-F450-434A-BD19-39D4CB42A0DF\" name=\"Claim checked\" /><bpmn:startEvent id=\"sid-DBDE9174-D602-4D93-AA34-0984218A6B44\" name=\"Start checking the claim\" /><bpmn:endEvent id=\"sid-F6DA6D80-79DF-4A42-8CA1-E816451CB78A\" name=\"Claim unsuccessfully checked\" /><bpmn:endEvent id=\"sid-1D4B5A31-4BCA-44A8-86AB-00078B51C717\" name=\"Claim unsuccessfully checked\" /><bpmn:exclusiveGateway id=\"sid-241CF1B5-1E6D-450B-B477-50C54A4BBC21\" name=\"IS details complete?\" /><bpmn:exclusiveGateway id=\"sid-A17AEDF8-AA6A-403B-8C42-85F07CA228D8\" name=\"Record match with prescription?\" /><bpmn:exclusiveGateway id=\"sid-21CCB1C4-300D-4C1E-A810-49C7AF74F64D\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-14A93D2E-5255-48E4-A0F6-9DC256791455\" name=\"Prescription details complete?\" /><bpmn:sequenceFlow id=\"sid-9A19F004-3CFD-4533-909E-11900FC5E6FD\" targetRef=\"sid-14A93D2E-5255-48E4-A0F6-9DC256791455\" /><bpmn:sequenceFlow id=\"sid-26B87D5D-F612-4251-BDC6-8947665C7026\" targetRef=\"sid-E12C6EBD-4EC3-4D81-B5F7-DC237A30A456\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-3D437F5A-35BF-488F-A6F7-7AF2C890BBE3\" targetRef=\"sid-B1EFB7DE-A79F-4B60-B7F9-B3B1C516E802\" /><bpmn:sequenceFlow id=\"sid-AC49310F-74EA-4791-8A8D-4D912F433FC2\" targetRef=\"sid-241CF1B5-1E6D-450B-B477-50C54A4BBC21\" /><bpmn:sequenceFlow id=\"sid-AD4EEBBF-4401-4D73-9A18-091685FDB07E\" targetRef=\"sid-9222B0A0-11D4-4004-98FB-999B67551D60\" /><bpmn:sequenceFlow id=\"sid-88800724-549A-469B-845D-EEC87D2DD0FB\" targetRef=\"sid-21CCB1C4-300D-4C1E-A810-49C7AF74F64D\" /><bpmn:sequenceFlow id=\"sid-FAA03124-D0DE-4C18-B9EF-6900F28BA69D\" targetRef=\"sid-21CCB1C4-300D-4C1E-A810-49C7AF74F64D\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-4A0A4720-A525-41DB-8004-C18BFA772615\" targetRef=\"sid-A17AEDF8-AA6A-403B-8C42-85F07CA228D8\" /><bpmn:sequenceFlow id=\"sid-8A8B6CE0-37EB-4554-9DAC-D8630A569C02\" targetRef=\"sid-49ADC97C-7E1A-4292-97DB-3D521AED6AFF\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-EC4988C8-F099-447B-9FF7-A35E18B10E9B\" targetRef=\"sid-5AB922D1-95DD-467F-9E1C-3164329D989D\" /><bpmn:sequenceFlow id=\"sid-D2DE4399-446D-45BA-82D1-BE830CDA12BB\" targetRef=\"sid-216BA973-135D-42B0-B7BB-9EBE51A663C9\" /><bpmn:sequenceFlow id=\"sid-D261F559-6640-4295-A748-0976E3449E2C\" targetRef=\"sid-F6DA6D80-79DF-4A42-8CA1-E816451CB78A\" /><bpmn:sequenceFlow id=\"sid-C36178DC-4AEA-4A0F-9BFA-D9EBAE616C8D\" targetRef=\"sid-57548D13-F450-434A-BD19-39D4CB42A0DF\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-381EB7EE-D73A-410E-BA9E-3A89D97C16C3\" targetRef=\"sid-70455A56-CA3B-4B37-9680-5FE86B038481\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-60164225-A241-4435-82C6-0434B759952C\" targetRef=\"sid-1D4B5A31-4BCA-44A8-86AB-00078B51C717\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-05-25 05:39:00",
+  "company": {
+    "company_id": 1460837,
+    "companyCode": "SYN-560837",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "IS details complete?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "IS details complete?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.86
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "IS details complete?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.14
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Record match with prescription?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Record match with prescription?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.61
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Record match with prescription?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.39
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.68
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.32
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Prescription details complete?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Prescription details complete?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.63
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Prescription details complete?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.37
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 560837,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-560837-1",
+        "task_company_id": null,
+        "task_name": "Retrieve IS records",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E12C6EBD-4EC3-4D81-B5F7-DC237A30A456.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 144,
+        "expected_rework_time": 26,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 2.4,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 63,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 16.97,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 1,
+              "hourlyRate": 103,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 560837,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-560837-2",
+        "task_company_id": null,
+        "task_name": "Check the prescription",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B1EFB7DE-A79F-4B60-B7F9-B3B1C516E802.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 92,
+        "expected_rework_time": 8,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 14.24,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 57,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 11.57,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 62,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 560837,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-560837-3",
+        "task_company_id": null,
+        "task_name": "Contact agents",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5AB922D1-95DD-467F-9E1C-3164329D989D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 80,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 1.75,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 1,
+              "hourlyRate": 28,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 560837,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-560837-4",
+        "task_company_id": null,
+        "task_name": "Generate new serial number",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-216BA973-135D-42B0-B7BB-9EBE51A663C9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 230,
+        "expected_rework_time": 39,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 6.6,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 49,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 7,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 13.76,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 6,
+              "hourlyRate": 99,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 560837,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-560837-5",
+        "task_company_id": null,
+        "task_name": "Remove from electronic claim data list",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-49ADC97C-7E1A-4292-97DB-3D521AED6AFF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 11,
+        "expected_rework_time": 2,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 17.17,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 3,
+              "hourlyRate": 26,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 560837,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-560837-6",
+        "task_company_id": null,
+        "task_name": "Enter prescription details into IS",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9222B0A0-11D4-4004-98FB-999B67551D60.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 38,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 9.55,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 6,
+              "hourlyRate": 58,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 10,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 16.81,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 4,
+              "hourlyRate": 55,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 560837,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-560837-7",
+        "task_company_id": null,
+        "task_name": "Contact agents",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-70455A56-CA3B-4B37-9680-5FE86B038481.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 128,
+        "expected_rework_time": 8,
+        "expected_waiting_time": 21,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5007,
+            "role": "A",
+            "time_allocation_percentage": 8.61,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 2,
+              "hourlyRate": 54,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "cb5631009ccd49f3b5102e7d5d625ecf",
+    "model_id": "6b370350b53a4330bb3a4554c18802f2",
+    "organization_id": "433f8972649e4da4a1a7d77e10bfccfd"
+  }
+}

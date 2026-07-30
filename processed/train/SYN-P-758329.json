@@ -1,0 +1,361 @@
+{
+  "process_id": 758329,
+  "company_id": 1658329,
+  "created_at": "2021-09-01 15:43:45",
+  "updated_at": "2021-09-01 15:43:45",
+  "capacity_requirement_minutes": 662,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-758329",
+  "process_name": "global sub-process of addressing concerns",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-758329\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-758329\" name=\"global sub-process of addressing concerns\" isExecutable=\"false\"><bpmn:task id=\"sid-F18620D9-CA99-4265-ABD8-00A9FAFB1F14\" name=\"Seek advice from senior clinician\" /><bpmn:task id=\"sid-3477E1E6-BC18-42EF-A49F-40D722AACAF6\" name=\"Inform vaccinee to leave clinic\" /><bpmn:task id=\"sid-E2D7CD53-EDA5-4838-B27F-C2BD4C883E72\" name=\"Move to next stage\" /><bpmn:task id=\"sid-53FA720C-89B7-46E3-A3F6-66377359EF9A\" name=\"Advise vaccinee to leave\" /><bpmn:task id=\"sid-DDF1A0E0-5BAF-4AD0-9957-C9463FECD82C\" name=\"Destroy paper forms\" /><bpmn:endEvent id=\"sid-9F6D88B1-B6A6-4841-A7AD-A62A462E8811\" name=\"Concerns addressed\" /><bpmn:intermediateCatchEvent id=\"sid-870EDB71-FEFC-4936-BA2D-85007C00B8D9\" name=\"''No-vaccination'' decision made\" /><bpmn:endEvent id=\"sid-B5AD2817-9F96-4A1C-93F5-0A04408FB4CB\" name=\"Vaccination failed\" /><bpmn:startEvent id=\"sid-79DFBEFE-2F7A-4AD9-8C23-117E36297EB8\" name=\"Concerns received\" /><bpmn:exclusiveGateway id=\"sid-4BB0976D-4243-4251-8E30-F598AD2FCECE\" name=\"\" /><bpmn:sequenceFlow id=\"sid-6BF862BA-D311-415C-BE1B-9CA6B1B6D469\" targetRef=\"sid-F18620D9-CA99-4265-ABD8-00A9FAFB1F14\" /><bpmn:sequenceFlow id=\"sid-C228B46B-8463-4AC9-9D77-49CD1A409A4A\" targetRef=\"sid-4BB0976D-4243-4251-8E30-F598AD2FCECE\" /><bpmn:sequenceFlow id=\"sid-A3C0FC18-2CA0-4992-A048-D49F98401861\" targetRef=\"sid-3477E1E6-BC18-42EF-A49F-40D722AACAF6\" name=\"not proceed\" /><bpmn:sequenceFlow id=\"sid-19297ED5-1E37-4D9D-9177-350C238EDAD9\" targetRef=\"sid-E2D7CD53-EDA5-4838-B27F-C2BD4C883E72\" name=\"proceed\" /><bpmn:sequenceFlow id=\"sid-C8631999-F121-44C3-BF15-691D96B8E0D7\" targetRef=\"sid-9F6D88B1-B6A6-4841-A7AD-A62A462E8811\" /><bpmn:sequenceFlow id=\"sid-1442F155-987D-42B2-AF22-619268D7EA7A\" targetRef=\"sid-870EDB71-FEFC-4936-BA2D-85007C00B8D9\" /><bpmn:sequenceFlow id=\"sid-B19AE80E-1613-4EA1-A308-FB5ECA490289\" targetRef=\"sid-53FA720C-89B7-46E3-A3F6-66377359EF9A\" /><bpmn:sequenceFlow id=\"sid-0BA7C969-56FA-49C7-8E6F-36BD6DDCA896\" targetRef=\"sid-DDF1A0E0-5BAF-4AD0-9957-C9463FECD82C\" /><bpmn:sequenceFlow id=\"sid-6C25BC49-78B4-4008-9CB7-7D0B239FB844\" targetRef=\"sid-B5AD2817-9F96-4A1C-93F5-0A04408FB4CB\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-09-01 15:43:45",
+  "company": {
+    "company_id": 1658329,
+    "companyCode": "SYN-758329",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.37
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.63
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 758329,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-758329-1",
+        "task_company_id": null,
+        "task_name": "Seek advice from senior clinician",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F18620D9-CA99-4265-ABD8-00A9FAFB1F14.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 38,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 3.79,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 93,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 758329,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-758329-2",
+        "task_company_id": null,
+        "task_name": "Inform vaccinee to leave clinic",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3477E1E6-BC18-42EF-A49F-40D722AACAF6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 220,
+        "expected_rework_time": 15,
+        "expected_waiting_time": 28,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 2.1,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 758329,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-758329-3",
+        "task_company_id": null,
+        "task_name": "Move to next stage",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E2D7CD53-EDA5-4838-B27F-C2BD4C883E72.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 138,
+        "expected_rework_time": 14,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 14.85,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 105,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 2.55,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 5,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 758329,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-758329-4",
+        "task_company_id": null,
+        "task_name": "Advise vaccinee to leave",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-53FA720C-89B7-46E3-A3F6-66377359EF9A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 112,
+        "expected_rework_time": 8,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 5.75,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 1,
+              "hourlyRate": 77,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 758329,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-758329-5",
+        "task_company_id": null,
+        "task_name": "Destroy paper forms",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-DDF1A0E0-5BAF-4AD0-9957-C9463FECD82C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 154,
+        "expected_rework_time": 11,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "R",
+            "time_allocation_percentage": 2.37,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 59,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 7,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 15.72,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 2,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "81125db952c844bcbdf4cae61a7d266b",
+    "model_id": "6d71e925d6de466a8d3b22175624e5b2",
+    "organization_id": "6e2bbfee01e04852be9f8780265f1d1a"
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "process_id": 289779,
+  "company_id": 1189779,
+  "created_at": "2020-05-02 15:10:28",
+  "updated_at": "2020-05-02 15:10:28",
+  "capacity_requirement_minutes": 263,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-289779",
+  "process_name": "Sub-process: Receiving payment",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-289779\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-289779\" name=\"Sub-process: Receiving payment\" isExecutable=\"false\"><bpmn:task id=\"sid-DA98FEFC-7155-4034-8F40-3AE6AC91A0C9\" name=\"Send invoice\" /><bpmn:task id=\"sid-0E261514-4A3A-4588-A6A4-16056A7EBC85\" name=\"Notify cancellation to sevice bay\" /><bpmn:task id=\"sid-1F69D9E8-C400-473C-9AC9-0A1155F7A14D\" name=\"Notify cancelation to mechanic\" /><bpmn:startEvent id=\"sid-C9901ACA-4520-41C7-AD33-189CE37850B1\" name=\"\" /><bpmn:endEvent id=\"sid-2AE766EE-481F-455B-BB60-17A2DFEB11C1\" name=\"order terminated\" /><bpmn:endEvent id=\"sid-4ABE2335-4884-461C-A61E-9C396996482A\" name=\"payment completed\" /><bpmn:intermediateCatchEvent id=\"sid-FBE7BD68-46AA-4CCF-930F-456B9FEED062\" name=\"more than 1 week?\" /><bpmn:intermediateCatchEvent id=\"sid-4D7AA7C1-0235-44C6-AF23-69CAAEB2EAE0\" name=\"payment recieved\" /><bpmn:eventBasedGateway id=\"sid-0D7A993C-5273-4BEE-BA50-5085356143CA\" name=\"\" /><bpmn:parallelGateway id=\"sid-D85C6097-4D5B-4707-A261-19AF98A1158D\" name=\"\" /><bpmn:parallelGateway id=\"sid-C00AFDA4-A78F-44B2-9F37-B761EE358637\" name=\"\" /><bpmn:sequenceFlow id=\"sid-D9982867-967C-4271-A790-BC0DDF58D772\" targetRef=\"sid-0D7A993C-5273-4BEE-BA50-5085356143CA\" /><bpmn:sequenceFlow id=\"sid-CB01CD3C-6249-48E3-960B-F04EA439C5DF\" targetRef=\"sid-4D7AA7C1-0235-44C6-AF23-69CAAEB2EAE0\" /><bpmn:sequenceFlow id=\"sid-1DA9B500-EDC6-43E6-951C-17EEE007D0CE\" targetRef=\"sid-0E261514-4A3A-4588-A6A4-16056A7EBC85\" /><bpmn:sequenceFlow id=\"sid-C476418E-73CA-45CC-BFE3-CA042DB971DC\" targetRef=\"sid-1F69D9E8-C400-473C-9AC9-0A1155F7A14D\" /><bpmn:sequenceFlow id=\"sid-B9E9668B-D0FA-4316-8FF7-F6F3A8BD71DA\" targetRef=\"sid-C00AFDA4-A78F-44B2-9F37-B761EE358637\" /><bpmn:sequenceFlow id=\"sid-D1F03090-46D3-456D-8A88-5509F601311B\" targetRef=\"sid-C00AFDA4-A78F-44B2-9F37-B761EE358637\" /><bpmn:sequenceFlow id=\"sid-D4C6E24A-9DD0-4749-834D-575E9A4B33D9\" targetRef=\"sid-2AE766EE-481F-455B-BB60-17A2DFEB11C1\" /><bpmn:sequenceFlow id=\"sid-56D09387-E705-49C4-AED2-B2A1009D794E\" targetRef=\"sid-FBE7BD68-46AA-4CCF-930F-456B9FEED062\" /><bpmn:sequenceFlow id=\"sid-A3E3B61A-D720-486C-B40E-290C6D3FA5DA\" targetRef=\"sid-D85C6097-4D5B-4707-A261-19AF98A1158D\" /><bpmn:sequenceFlow id=\"sid-0EAB3F10-B4C9-4E4F-9904-48C3B04FF392\" targetRef=\"sid-4ABE2335-4884-461C-A61E-9C396996482A\" /><bpmn:sequenceFlow id=\"sid-788072A2-3002-4380-B5A0-F2E43C611124\" targetRef=\"sid-DA98FEFC-7155-4034-8F40-3AE6AC91A0C9\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-05-02 15:10:28",
+  "company": {
+    "company_id": 1189779,
+    "companyCode": "SYN-289779",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.41
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.59
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.57
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.43
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.43
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.57
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 289779,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-289779-1",
+        "task_company_id": null,
+        "task_name": "Send invoice",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-DA98FEFC-7155-4034-8F40-3AE6AC91A0C9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 174,
+        "expected_rework_time": 37,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 13.49,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 97,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 289779,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-289779-2",
+        "task_company_id": null,
+        "task_name": "Notify cancellation to sevice bay",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0E261514-4A3A-4588-A6A4-16056A7EBC85.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 18,
+        "expected_rework_time": 3,
+        "expected_waiting_time": 30,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 14.58,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 52,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 289779,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-289779-3",
+        "task_company_id": null,
+        "task_name": "Notify cancelation to mechanic",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1F69D9E8-C400-473C-9AC9-0A1155F7A14D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 71,
+        "expected_rework_time": 5,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 4.03,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 104,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "07e24570ba624abebbb4dee2487e0981",
+    "model_id": "68d0066827ac461db898ce48f7db3574",
+    "organization_id": "a1e9f39ba0a4497eb16615892ac947c1"
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "process_id": 399727,
+  "company_id": 1299727,
+  "created_at": "2018-02-14 16:03:28",
+  "updated_at": "2018-02-14 16:03:28",
+  "capacity_requirement_minutes": 586,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-399727",
+  "process_name": "CreateService",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-399727\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-399727\" name=\"CreateService\" isExecutable=\"false\"><bpmn:task id=\"sid-CF388E07-F511-4098-9942-2BA3736051B2\" name=\"decrement retry counter\" /><bpmn:task id=\"sid-BB8AD17E-DEE6-463D-BEDB-9568D9A28FA9\" name=\"create &lt;cloud resource&gt;\" /><bpmn:task id=\"sid-85EBAFA5-824F-47F1-872B-0FF55503A3CE\" name=\"check &lt;cloud resource&gt; create status\" /><bpmn:task id=\"sid-D91A2B77-3B2F-4B40-B973-0A8A175B8227\" name=\"dispose &lt;cloud resource&gt;\" /><bpmn:task id=\"sid-03F81A30-581D-4944-AE08-9BA41EF6BAC3\" name=\"await create notifications\" /><bpmn:endEvent id=\"sid-B11185EA-30CA-4F6E-B885-95E0262AD1E4\" name=\"&lt;cloud resource&gt; create error\" /><bpmn:intermediateCatchEvent id=\"sid-69DD5ED8-1872-4011-B2DA-AF30C0A0C03C\" name=\"check period\" /><bpmn:startEvent id=\"sid-26520EED-4A8C-403A-9EE4-7CD9C28A2610\" name=\"\" /><bpmn:endEvent id=\"sid-42B5FF82-F783-4E59-9750-FD8F439A69AC\" name=\"\" /><bpmn:endEvent id=\"sid-639C26E2-0D59-49C5-BCCB-E03A8B656D70\" name=\"create error\" /><bpmn:intermediateCatchEvent id=\"sid-0C01A850-9116-4F72-950C-97A9812DCAED\" name=\"error\" /><bpmn:endEvent id=\"sid-85FE7AA0-2430-47FE-A095-D6D9B97C0635\" name=\"&lt;cloud resource&gt; create timeout\" /><bpmn:intermediateCatchEvent id=\"sid-8670A9AF-261C-47F0-A629-EC0EA60BCE4F\" name=\"create error\" /><bpmn:intermediateCatchEvent id=\"sid-8ECAF647-F812-4298-9269-45C9D3947C92\" name=\"create timeout\" /><bpmn:intermediateCatchEvent id=\"sid-8BC2F431-0C73-4FC5-8B6A-26F5C6054A39\" name=\"&lt;cloud resource&gt; dispose\" /><bpmn:intermediateCatchEvent id=\"sid-4E47A59F-7F66-438B-8394-D102C9374AC6\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-5296E9C6-47EE-4199-BD8F-8A36574F4E6A\" name=\"error\" /><bpmn:endEvent id=\"sid-4852947E-1ED5-4D4D-AA32-DBEA2C331317\" name=\"&lt;cloud resource&gt; ready\" /><bpmn:startEvent id=\"sid-62A64BD8-4198-493B-9B2D-20405C4C6657\" name=\"&lt;cloud resource&gt; create start\" /><bpmn:exclusiveGateway id=\"sid-1CE4223D-D424-4121-926A-355E3C120DEE\" name=\"retry?\" /><bpmn:exclusiveGateway id=\"sid-693B5289-85B1-41D3-B374-569238537A2D\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-217DCF00-335C-4CF5-8498-F9DEEB2319AF\" name=\"\" /><bpmn:sequenceFlow id=\"sid-DB1481D0-6C1E-4692-B697-B8D4B8916CFB\" targetRef=\"sid-03F81A30-581D-4944-AE08-9BA41EF6BAC3\" /><bpmn:sequenceFlow id=\"sid-CD331D11-781A-4047-8C2C-7A309DB78C41\" targetRef=\"sid-693B5289-85B1-41D3-B374-569238537A2D\" /><bpmn:sequenceFlow id=\"sid-5682A6AB-ADC0-4680-BAA9-456E3C15E06B\" targetRef=\"sid-8BC2F431-0C73-4FC5-8B6A-26F5C6054A39\" /><bpmn:sequenceFlow id=\"sid-B8032E9C-8C7B-4700-BE87-1DBE7F33F239\" targetRef=\"sid-B11185EA-30CA-4F6E-B885-95E0262AD1E4\" name=\"NO\" /><bpmn:sequenceFlow id=\"sid-393FAD81-0742-4A10-904F-A729FAE6A12D\" targetRef=\"sid-BB8AD17E-DEE6-463D-BEDB-9568D9A28FA9\" /><bpmn:sequenceFlow id=\"sid-9CA2FC70-3725-4B47-958B-D82BD168BACE\" targetRef=\"sid-1CE4223D-D424-4121-926A-355E3C120DEE\" /><bpmn:sequenceFlow id=\"sid-0405412F-CBAD-4CD5-B56F-5843AE7D75FB\" targetRef=\"sid-85FE7AA0-2430-47FE-A095-D6D9B97C0635\" /><bpmn:sequenceFlow id=\"sid-2B82474F-D91B-4839-AE83-4379B0750D4F\" targetRef=\"sid-639C26E2-0D59-49C5-BCCB-E03A8B656D70\" /><bpmn:sequenceFlow id=\"sid-4EE70B96-912E-4633-8D80-582924F6EE26\" targetRef=\"sid-CF388E07-F511-4098-9942-2BA3736051B2\" /><bpmn:sequenceFlow id=\"sid-F6928EFB-5CE0-4158-BAC3-EFD342B8ADDA\" targetRef=\"sid-4852947E-1ED5-4D4D-AA32-DBEA2C331317\" /><bpmn:sequenceFlow id=\"sid-2C9EB88F-2498-402F-9E63-26928D46201E\" targetRef=\"sid-BB8AD17E-DEE6-463D-BEDB-9568D9A28FA9\" /><bpmn:sequenceFlow id=\"sid-B92E730E-7EFC-419D-A3E6-C2E161EC17B8\" targetRef=\"sid-B11185EA-30CA-4F6E-B885-95E0262AD1E4\" /><bpmn:sequenceFlow id=\"sid-5DC6797A-2994-4776-B729-E023BF36F008\" targetRef=\"sid-79B5A343-7B2F-49ED-B469-F90CC11B5D96\" /><bpmn:sequenceFlow id=\"sid-D040A110-20A8-453F-9545-A9BCCC4B5F05\" targetRef=\"sid-42B5FF82-F783-4E59-9750-FD8F439A69AC\" /><bpmn:sequenceFlow id=\"sid-9451D56A-C91A-4904-AB95-C4577FA28E70\" targetRef=\"sid-217DCF00-335C-4CF5-8498-F9DEEB2319AF\" /><bpmn:sequenceFlow id=\"sid-72EEB58A-2028-47FB-91A9-BFECF47E5E48\" targetRef=\"sid-85EBAFA5-824F-47F1-872B-0FF55503A3CE\" /><bpmn:sequenceFlow id=\"sid-C9A26031-335D-45AD-91AE-5265276EF80E\" targetRef=\"sid-217DCF00-335C-4CF5-8498-F9DEEB2319AF\" /><bpmn:sequenceFlow id=\"sid-62CB6F56-CCBF-4B7F-B3DB-FB87536C1C71\" targetRef=\"sid-69DD5ED8-1872-4011-B2DA-AF30C0A0C03C\" name=\"wip\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-02-14 16:03:28",
+  "company": {
+    "company_id": 1299727,
+    "companyCode": "SYN-399727",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "retry?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "retry?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.52
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "retry?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.48
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.56
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.41
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.59
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 399727,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-399727-1",
+        "task_company_id": null,
+        "task_name": "decrement retry counter",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-CF388E07-F511-4098-9942-2BA3736051B2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 230,
+        "expected_rework_time": 51,
+        "expected_waiting_time": 14,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 13.49,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 78,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 11.56,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 70,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 399727,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-399727-2",
+        "task_company_id": null,
+        "task_name": "create <cloud resource>",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BB8AD17E-DEE6-463D-BEDB-9568D9A28FA9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 44,
+        "expected_rework_time": 3,
+        "expected_waiting_time": 26,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 17.1,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 104,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 399727,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-399727-3",
+        "task_company_id": null,
+        "task_name": "check <cloud resource> create status",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-85EBAFA5-824F-47F1-872B-0FF55503A3CE.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 216,
+        "expected_rework_time": 13,
+        "expected_waiting_time": 14,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 9.64,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 68,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 5,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 7.42,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 5,
+              "hourlyRate": 113,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 399727,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-399727-4",
+        "task_company_id": null,
+        "task_name": "dispose <cloud resource>",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D91A2B77-3B2F-4B40-B973-0A8A175B8227.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 39,
+        "expected_rework_time": 8,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 2.05,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 5,
+              "hourlyRate": 90,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 399727,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-399727-5",
+        "task_company_id": null,
+        "task_name": "await create notifications",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-03F81A30-581D-4944-AE08-9BA41EF6BAC3.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 57,
+        "expected_rework_time": 7,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 19.15,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 6,
+              "hourlyRate": 51,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "aa5c6f6b1db647a1aa35967c8c5a7406",
+    "model_id": "b16f3bf8ccca403abf3641a2b6545a61",
+    "organization_id": "fb5a36f86f3a42acb07f0af966856c74"
+  }
+}

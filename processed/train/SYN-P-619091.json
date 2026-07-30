@@ -1,0 +1,216 @@
+{
+  "process_id": 619091,
+  "company_id": 1519091,
+  "created_at": "2015-11-12 12:20:42",
+  "updated_at": "2015-11-12 12:20:42",
+  "capacity_requirement_minutes": 161,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-619091",
+  "process_name": "Check registration status",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-619091\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-619091\" name=\"Check registration status\" isExecutable=\"false\"><bpmn:task id=\"sid-5C125E6E-BBC8-4B51-82A8-355FAE7218EC\" name=\"check registration status\" /><bpmn:task id=\"sid-E1EAFE07-7401-405A-8FA1-F0EBACB45BD7\" name=\"Request account creation\" /><bpmn:startEvent id=\"sid-C3113342-A7C3-4E03-9280-D9F592888971\" name=\"check registration status\" /><bpmn:intermediateCatchEvent id=\"sid-DB4D0AF9-1CA8-45EE-A25A-AB234676F0E0\" name=\"Registration information received\" /><bpmn:endEvent id=\"sid-A2841799-C137-456F-BA56-CC3B5FD65294\" name=\"Registration status checked\" /><bpmn:exclusiveGateway id=\"sid-61A55733-1F80-4082-98BA-893D5CBADEC6\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-F0169567-50FB-4EE1-B039-1269B6191DAD\" name=\"\" /><bpmn:sequenceFlow id=\"sid-97ACB3CC-29C0-42A2-BA21-B37AD625179D\" targetRef=\"sid-61A55733-1F80-4082-98BA-893D5CBADEC6\" /><bpmn:sequenceFlow id=\"sid-A0669DF7-958A-46F9-8793-E22B3497AC23\" targetRef=\"sid-E1EAFE07-7401-405A-8FA1-F0EBACB45BD7\" /><bpmn:sequenceFlow id=\"sid-7FF39921-6B22-494E-8DCC-62894638BB6B\" targetRef=\"sid-DB4D0AF9-1CA8-45EE-A25A-AB234676F0E0\" /><bpmn:sequenceFlow id=\"sid-273A406B-0B39-48E4-961D-AF542B8047F6\" targetRef=\"sid-F0169567-50FB-4EE1-B039-1269B6191DAD\" /><bpmn:sequenceFlow id=\"sid-665A90B8-013A-46A3-B270-AAC43BD1AEA2\" targetRef=\"sid-A2841799-C137-456F-BA56-CC3B5FD65294\" /><bpmn:sequenceFlow id=\"sid-B86A2A50-16D3-4C73-B85E-7FAF1E110F65\" targetRef=\"sid-F0169567-50FB-4EE1-B039-1269B6191DAD\" name=\"not yet registered\" /><bpmn:sequenceFlow id=\"sid-ABFFF146-B1DB-49BA-B705-6D0C37198DBC\" targetRef=\"sid-5C125E6E-BBC8-4B51-82A8-355FAE7218EC\" name=\"already registered\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2015-11-12 12:20:42",
+  "company": {
+    "company_id": 1519091,
+    "companyCode": "SYN-619091",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.56
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.55
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.45
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 619091,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-619091-1",
+        "task_company_id": null,
+        "task_name": "check registration status",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5C125E6E-BBC8-4B51-82A8-355FAE7218EC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 55,
+        "expected_rework_time": 13,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 9.29,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 5,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 619091,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-619091-2",
+        "task_company_id": null,
+        "task_name": "Request account creation",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E1EAFE07-7401-405A-8FA1-F0EBACB45BD7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 106,
+        "expected_rework_time": 12,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 12.37,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 40,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "0c037e0af94e4e8e8619efa43d8c4f5b",
+    "model_id": "573094d9ad9e4cb4b57a965b6cce12bc",
+    "organization_id": "99f141aac094495baa1788b44c3ee199"
+  }
+}

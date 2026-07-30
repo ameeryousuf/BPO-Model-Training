@@ -1,0 +1,323 @@
+{
+  "process_id": 950672,
+  "company_id": 1850672,
+  "created_at": "2020-12-01 10:08:40",
+  "updated_at": "2020-12-01 10:08:40",
+  "capacity_requirement_minutes": 206,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-950672",
+  "process_name": "Hiring process",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-950672\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-950672\" name=\"Hiring process\" isExecutable=\"false\"><bpmn:task id=\"sid-86C9CCB3-CC96-4D88-B447-4D5CA6DB20A8\" name=\"Poster l'offre\" /><bpmn:task id=\"sid-9A057617-D138-4EF2-A87B-B4319A6F1022\" name=\"Interviewer le candidat\" /><bpmn:task id=\"sid-2A84D75A-2F96-4396-84B8-2A7C8E74ACDD\" name=\"Approuver l'offre\" /><bpmn:task id=\"sid-A548A378-AC09-4918-BEFE-DC005DAA3538\" name=\"Définir l'offre\" /><bpmn:task id=\"sid-F7140D0A-056A-463C-8822-A44F0EC25DB7\" name=\"Sélectionner un candidat\" /><bpmn:startEvent id=\"sid-E1FDBA8A-C773-4F44-B37D-6C0AD78A7221\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-F755B153-98CC-48E5-9F85-9118C7F0EB62\" name=\"Candidature reçue\" /><bpmn:eventBasedGateway id=\"sid-4D804430-C654-4C7D-A245-B9364C78FA49\" name=\"Candidature ?\" /><bpmn:sequenceFlow id=\"sid-ABDBE83A-7F42-4933-9491-AE0AC294AAFD\" targetRef=\"sid-A548A378-AC09-4918-BEFE-DC005DAA3538\" /><bpmn:sequenceFlow id=\"sid-1CB8D6DD-C24A-463F-B119-F7B81AD3D6A1\" targetRef=\"sid-9A057617-D138-4EF2-A87B-B4319A6F1022\" /><bpmn:sequenceFlow id=\"sid-04F2174E-2B54-403A-ACAC-445F3B682E95\" targetRef=\"sid-4D804430-C654-4C7D-A245-B9364C78FA49\" /><bpmn:sequenceFlow id=\"sid-D04930D5-2F34-40CF-AB3B-549C1E83E44C\" targetRef=\"sid-F755B153-98CC-48E5-9F85-9118C7F0EB62\" /><bpmn:sequenceFlow id=\"sid-DDA9F33D-0EF7-48E2-96EA-AF1C891073DB\" targetRef=\"sid-86C9CCB3-CC96-4D88-B447-4D5CA6DB20A8\" /><bpmn:sequenceFlow id=\"sid-D32804D6-C9F0-4FDC-ADFE-C8BA8F9974A5\" targetRef=\"sid-2A84D75A-2F96-4396-84B8-2A7C8E74ACDD\" /><bpmn:sequenceFlow id=\"sid-DFC80729-4558-435A-8159-90FD0BA20C10\" targetRef=\"sid-A548A378-AC09-4918-BEFE-DC005DAA3538\" /><bpmn:sequenceFlow id=\"sid-33ABCBB4-4464-4A3C-ACE7-6127CCD48FA0\" targetRef=\"sid-F7140D0A-056A-463C-8822-A44F0EC25DB7\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-12-01 10:08:40",
+  "company": {
+    "company_id": 1850672,
+    "companyCode": "SYN-950672",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Candidature ?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Candidature ?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Candidature ?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 950672,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-950672-1",
+        "task_company_id": null,
+        "task_name": "Poster l'offre",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-86C9CCB3-CC96-4D88-B447-4D5CA6DB20A8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 46,
+        "expected_rework_time": 6,
+        "expected_waiting_time": 6,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 2.95,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 67,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 950672,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-950672-2",
+        "task_company_id": null,
+        "task_name": "Interviewer le candidat",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9A057617-D138-4EF2-A87B-B4319A6F1022.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 60,
+        "expected_rework_time": 10,
+        "expected_waiting_time": 14,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 11.23,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 1,
+              "hourlyRate": 73,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 950672,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-950672-3",
+        "task_company_id": null,
+        "task_name": "Approuver l'offre",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2A84D75A-2F96-4396-84B8-2A7C8E74ACDD.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 5,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 13.57,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 92,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 950672,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-950672-4",
+        "task_company_id": null,
+        "task_name": "Définir l'offre",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A548A378-AC09-4918-BEFE-DC005DAA3538.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 82,
+        "expected_rework_time": 19,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 17.45,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 83,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 950672,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-950672-5",
+        "task_company_id": null,
+        "task_name": "Sélectionner un candidat",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F7140D0A-056A-463C-8822-A44F0EC25DB7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 13,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 24,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 4.61,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 5,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "34594367a2614cba874d3f12ce2919d8",
+    "model_id": "c04e840219c546cda5f4cd8a65955dd5",
+    "organization_id": "eecbe365cdcc4072b151685866d4d5af"
+  }
+}

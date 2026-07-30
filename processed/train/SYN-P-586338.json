@@ -1,0 +1,820 @@
+{
+  "process_id": 586338,
+  "company_id": 1486338,
+  "created_at": "2020-10-08 14:23:39",
+  "updated_at": "2020-10-08 14:23:39",
+  "capacity_requirement_minutes": 1208,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-586338",
+  "process_name": "OEFENING Level 3 Pick, pack &amp; ship",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-586338\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-586338\" name=\"OEFENING Level 3 Pick, pack &amp;amp; ship\" isExecutable=\"false\"><bpmn:task id=\"sid-3E5CA7F1-E3BF-42AF-A9EA-6D242D28D613\" name=\"Lossen lading\" /><bpmn:task id=\"sid-6F8DE9F9-B163-4C39-8B2A-844FAE8E46F8\" name=\"Controle volledigheid order\" /><bpmn:task id=\"sid-EB09E9BC-6A6D-4733-A277-29311E2243E2\" name=\"Overtikken verzendnota\" /><bpmn:task id=\"sid-00180E06-DA0E-449B-8B14-2984A480460D\" name=\"Aftekenen verzendnota\" /><bpmn:task id=\"sid-BCCD8F72-4BFE-4DE5-9696-F853744D093C\" name=\"Afdrukken verzendnota\" /><bpmn:task id=\"sid-10D896A1-442F-4645-A638-63CED2A98946\" name=\"Ontvangen kopie verzendingsnota\" /><bpmn:task id=\"sid-4650A4FD-BF8C-4995-83CC-8C2512FC2817\" name=\"Verzendingsnota controleren\" /><bpmn:task id=\"sid-4178DE2A-1859-432C-9B37-5842C15D21FC\" name=\"PO nummer vergelijken met verzendingsnota\" /><bpmn:task id=\"sid-851BCB37-B733-4DBA-8E12-EEA0BD911D0F\" name=\"Vervoer goederen\" /><bpmn:task id=\"sid-EADC8B86-24E2-49CA-8AA4-BF6F579828D9\" name=\"Origineel afgetekende verzendnota\" /><bpmn:task id=\"sid-48019F1A-A6CC-4E19-B905-13F06C82E556\" name=\"Archiveren kopie AVN\" /><bpmn:task id=\"sid-EF22FBA2-550E-4774-BF77-839272DF9C55\" name=\"Inladen vrachtwagen\" /><bpmn:task id=\"sid-21C64350-A771-4212-BCDA-289339863B5E\" name=\"Afgetekende verzendnota archiveren\" /><bpmn:startEvent id=\"sid-608D173A-E71E-42F7-BAED-6C984242CB76\" name=\"Verzendingsnota ontvangen\" /><bpmn:endEvent id=\"sid-125B19F9-B3BE-43AF-A7EC-8E91E532814F\" name=\"Verzendingsnota klopt\" /><bpmn:endEvent id=\"sid-413FECF2-9F20-41F7-9F21-D40203C6C668\" name=\"Verzendingsnota klopt niet\" /><bpmn:startEvent id=\"sid-288A3F63-4B58-45A1-B8A0-C4720F20C7AA\" name=\"Verzendingsnota ontvangen\" /><bpmn:endEvent id=\"sid-0857E4D3-762D-4A9B-BEE2-8E3680D9E8C7\" name=\"Verzendingsnota afgeven\" /><bpmn:startEvent id=\"sid-B6DDA49B-A987-4FC0-B4C7-B3E253933D22\" name=\"start pick- en packoperations\" /><bpmn:endEvent id=\"sid-E157E9C5-5B84-4DFB-A6E7-8A85D129BC1D\" name=\"Verzendingsnota opgemaakt\" /><bpmn:exclusiveGateway id=\"sid-0749652A-B19E-44A0-8122-7AADA10E814F\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-F7ED9CBC-3599-4D07-BF43-2F517B891B2A\" name=\"Verzendingsnota correct?\" /><bpmn:sequenceFlow id=\"sid-350E0AD9-72BA-4BB4-BA0A-928FCC5457AC\" targetRef=\"sid-EF22FBA2-550E-4774-BF77-839272DF9C55\" /><bpmn:sequenceFlow id=\"sid-6DB4ADCD-FCDF-41B9-A888-EBB3115106BB\" targetRef=\"sid-E157E9C5-5B84-4DFB-A6E7-8A85D129BC1D\" /><bpmn:sequenceFlow id=\"sid-E9ED27DC-92A2-401E-8724-EAC2913F53F9\" targetRef=\"sid-851BCB37-B733-4DBA-8E12-EEA0BD911D0F\" /><bpmn:sequenceFlow id=\"sid-FD896E3F-F3B9-4808-8471-CA3FC957D645\" targetRef=\"sid-0857E4D3-762D-4A9B-BEE2-8E3680D9E8C7\" /><bpmn:sequenceFlow id=\"sid-8EA7BBDF-0180-4523-A700-29F1AE8B8C7D\" targetRef=\"sid-4650A4FD-BF8C-4995-83CC-8C2512FC2817\" /><bpmn:sequenceFlow id=\"sid-B379B92C-434B-430A-B163-7FBD4B30BD6E\" targetRef=\"sid-4178DE2A-1859-432C-9B37-5842C15D21FC\" /><bpmn:sequenceFlow id=\"sid-93BD361E-A8DA-4459-986E-34805D2B070F\" targetRef=\"sid-F7ED9CBC-3599-4D07-BF43-2F517B891B2A\" /><bpmn:sequenceFlow id=\"sid-49CD14A0-7AC0-47A5-B86E-ABE5152C7108\" targetRef=\"sid-125B19F9-B3BE-43AF-A7EC-8E91E532814F\" /><bpmn:sequenceFlow id=\"sid-CDFB3D32-97AD-4E20-AD36-AA515D10601F\" targetRef=\"sid-6F8DE9F9-B163-4C39-8B2A-844FAE8E46F8\" /><bpmn:sequenceFlow id=\"sid-6D636B25-FDA5-4A39-A993-E917EE82B953\" targetRef=\"sid-EB09E9BC-6A6D-4733-A277-29311E2243E2\" /><bpmn:sequenceFlow id=\"sid-AE4087D3-F19E-4284-B375-818DDC6A11C3\" targetRef=\"sid-00180E06-DA0E-449B-8B14-2984A480460D\" /><bpmn:sequenceFlow id=\"sid-A98C98CD-AB7A-4C99-998B-C501D3006697\" targetRef=\"sid-BCCD8F72-4BFE-4DE5-9696-F853744D093C\" /><bpmn:sequenceFlow id=\"sid-62432D05-0005-430C-A718-E12CE8DD40E1\" targetRef=\"sid-0749652A-B19E-44A0-8122-7AADA10E814F\" /><bpmn:sequenceFlow id=\"sid-4EB05AF5-E1BA-4507-80D3-8FB1F6A1F668\" targetRef=\"sid-10D896A1-442F-4645-A638-63CED2A98946\" /><bpmn:sequenceFlow id=\"sid-76759C38-6FB6-4E31-999B-6C2D93E71634\" targetRef=\"sid-EADC8B86-24E2-49CA-8AA4-BF6F579828D9\" /><bpmn:sequenceFlow id=\"sid-7235F618-FE20-4D7D-B9A9-94AC947A099C\" targetRef=\"sid-21C64350-A771-4212-BCDA-289339863B5E\" /><bpmn:sequenceFlow id=\"sid-95AF4B43-6193-472D-A057-A5B09AAF0E6A\" targetRef=\"sid-48019F1A-A6CC-4E19-B905-13F06C82E556\" /><bpmn:sequenceFlow id=\"sid-AF177E87-D4A1-4848-B6BF-5718EE08E3E7\" targetRef=\"sid-413FECF2-9F20-41F7-9F21-D40203C6C668\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-10-08 14:23:39",
+  "company": {
+    "company_id": 1486338,
+    "companyCode": "SYN-586338",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.47
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.53
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Verzendingsnota correct?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Verzendingsnota correct?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.77
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Verzendingsnota correct?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.23
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 586338,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-586338-1",
+        "task_company_id": null,
+        "task_name": "Lossen lading",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3E5CA7F1-E3BF-42AF-A9EA-6D242D28D613.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 228,
+        "expected_rework_time": 39,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 16.35,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 96,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 586338,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-586338-2",
+        "task_company_id": null,
+        "task_name": "Controle volledigheid order",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6F8DE9F9-B163-4C39-8B2A-844FAE8E46F8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 9,
+        "expected_rework_time": 2,
+        "expected_waiting_time": 23,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 10.88,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 88,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 586338,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-586338-3",
+        "task_company_id": null,
+        "task_name": "Overtikken verzendnota",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EB09E9BC-6A6D-4733-A277-29311E2243E2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 16,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 17.45,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 5,
+              "hourlyRate": 59,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 586338,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-586338-4",
+        "task_company_id": null,
+        "task_name": "Aftekenen verzendnota",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-00180E06-DA0E-449B-8B14-2984A480460D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 48,
+        "expected_rework_time": 9,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 3.64,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 103,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 9.58,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 1,
+              "hourlyRate": 100,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 586338,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-586338-5",
+        "task_company_id": null,
+        "task_name": "Afdrukken verzendnota",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BCCD8F72-4BFE-4DE5-9696-F853744D093C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 128,
+        "expected_rework_time": 29,
+        "expected_waiting_time": 24,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 17.94,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 5,
+              "hourlyRate": 70,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 7,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 16.55,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 5,
+              "hourlyRate": 32,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 586338,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-586338-6",
+        "task_company_id": null,
+        "task_name": "Ontvangen kopie verzendingsnota",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-10D896A1-442F-4645-A638-63CED2A98946.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 60,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 24,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 3.71,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 1,
+              "hourlyRate": 84,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 586338,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-586338-7",
+        "task_company_id": null,
+        "task_name": "Verzendingsnota controleren",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4650A4FD-BF8C-4995-83CC-8C2512FC2817.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 101,
+        "expected_rework_time": 23,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "I",
+            "time_allocation_percentage": 11.15,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 5,
+              "hourlyRate": 98,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 10,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 4.15,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 5,
+              "hourlyRate": 102,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 586338,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-586338-8",
+        "task_company_id": null,
+        "task_name": "PO nummer vergelijken met verzendingsnota",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4178DE2A-1859-432C-9B37-5842C15D21FC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 24,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 10,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5008,
+            "role": "I",
+            "time_allocation_percentage": 18.38,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 4,
+              "hourlyRate": 82,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 586338,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-586338-9",
+        "task_company_id": null,
+        "task_name": "Vervoer goederen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-851BCB37-B733-4DBA-8E12-EEA0BD911D0F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 216,
+        "expected_rework_time": 32,
+        "expected_waiting_time": 14,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5009,
+            "role": "I",
+            "time_allocation_percentage": 14.17,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 2,
+              "hourlyRate": 69,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 586338,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-586338-10",
+        "task_company_id": null,
+        "task_name": "Origineel afgetekende verzendnota",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EADC8B86-24E2-49CA-8AA4-BF6F579828D9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 89,
+        "expected_rework_time": 16,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5010,
+            "role": "R",
+            "time_allocation_percentage": 4.62,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 5,
+              "hourlyRate": 65,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 586338,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-586338-11",
+        "task_company_id": null,
+        "task_name": "Archiveren kopie AVN",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-48019F1A-A6CC-4E19-B905-13F06C82E556.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 65,
+        "expected_rework_time": 11,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5011,
+            "role": "C",
+            "time_allocation_percentage": 17.1,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 1,
+              "hourlyRate": 88,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 15,
+            "task_id": 5011,
+            "role": "R",
+            "time_allocation_percentage": 18.13,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 4,
+              "hourlyRate": 70,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 586338,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-586338-12",
+        "task_company_id": null,
+        "task_name": "Inladen vrachtwagen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EF22FBA2-550E-4774-BF77-839272DF9C55.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 172,
+        "expected_rework_time": 24,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 16,
+            "task_id": 5012,
+            "role": "A",
+            "time_allocation_percentage": 12.13,
+            "job": {
+              "job_id": 16,
+              "jobCode": "SYN-J-16",
+              "job_level_id": 6,
+              "hourlyRate": 91,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 586338,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-586338-13",
+        "task_company_id": null,
+        "task_name": "Afgetekende verzendnota archiveren",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-21C64350-A771-4212-BCDA-289339863B5E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 52,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 28,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 17,
+            "task_id": 5013,
+            "role": "R",
+            "time_allocation_percentage": 14.71,
+            "job": {
+              "job_id": 17,
+              "jobCode": "SYN-J-17",
+              "job_level_id": 2,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "89649787e512475f8051d5749ddc5ba5",
+    "model_id": "3d6d76c5882c4083b72519a93e413abe",
+    "organization_id": "fac7330a1b5342e5a4414815a1b81188"
+  }
+}

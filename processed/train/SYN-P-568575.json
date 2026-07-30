@@ -1,0 +1,294 @@
+{
+  "process_id": 568575,
+  "company_id": 1468575,
+  "created_at": "2017-11-23 10:29:41",
+  "updated_at": "2017-11-23 10:29:41",
+  "capacity_requirement_minutes": 601,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-568575",
+  "process_name": "Analyse light / unintended fraud",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-568575\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-568575\" name=\"Analyse light / unintended fraud\" isExecutable=\"false\"><bpmn:task id=\"sid-68940216-3357-4AFB-8D22-D90335DD791C\" name=\"Send fraud inquiry\" /><bpmn:task id=\"sid-D7202965-F5F8-4B53-96B8-8579EE741DC1\" name=\"Receive fraud explanation\" /><bpmn:task id=\"sid-B16646F0-1109-4C95-ACD1-D188FD45D5B6\" name=\"Evaluate fraud explanation\" /><bpmn:task id=\"sid-AE38395E-D89E-482B-9761-C31F9A2B73EC\" name=\"Resolve fraud\" /><bpmn:startEvent id=\"sid-CC6BBF1C-CFA2-4111-8561-97AF7A74EC49\" name=\"Start\" /><bpmn:endEvent id=\"sid-64222DBA-FD12-435B-8B93-7BDD058686AF\" name=\"Fraud declared serious\" /><bpmn:endEvent id=\"sid-DC7A0D5C-3185-4EF4-8776-8D04BD6CAB8B\" name=\"Fraud resolved\" /><bpmn:exclusiveGateway id=\"sid-02BB4E8B-62AC-407F-BF1D-61798BDBB95B\" name=\"\" /><bpmn:sequenceFlow id=\"sid-B5D2880B-B1B1-4DEF-8248-30CA432C06CA\" targetRef=\"sid-68940216-3357-4AFB-8D22-D90335DD791C\" /><bpmn:sequenceFlow id=\"sid-D6C91447-592A-484E-A5B8-F8D63B27546B\" targetRef=\"sid-D7202965-F5F8-4B53-96B8-8579EE741DC1\" /><bpmn:sequenceFlow id=\"sid-ADB1F221-2EEF-4E55-B303-D20D87D14579\" targetRef=\"sid-B16646F0-1109-4C95-ACD1-D188FD45D5B6\" /><bpmn:sequenceFlow id=\"sid-7FB2CB83-23D5-425B-91F5-5A67BAF3CA1E\" targetRef=\"sid-02BB4E8B-62AC-407F-BF1D-61798BDBB95B\" /><bpmn:sequenceFlow id=\"sid-D10ED9F7-4983-4D98-86FB-1F1F1D9F6CCA\" targetRef=\"sid-DC7A0D5C-3185-4EF4-8776-8D04BD6CAB8B\" /><bpmn:sequenceFlow id=\"sid-20C51D5B-00C4-4504-A37E-C118ACEE4F67\" targetRef=\"sid-AE38395E-D89E-482B-9761-C31F9A2B73EC\" name=\"Valid explanation\" /><bpmn:sequenceFlow id=\"sid-E9D42E94-2D4F-49F4-8C78-996355355E20\" targetRef=\"sid-64222DBA-FD12-435B-8B93-7BDD058686AF\" name=\"Invalid explanation\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2017-11-23 10:29:41",
+  "company": {
+    "company_id": 1468575,
+    "companyCode": "SYN-568575",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.4
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.6
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 568575,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-568575-1",
+        "task_company_id": null,
+        "task_name": "Send fraud inquiry",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-68940216-3357-4AFB-8D22-D90335DD791C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 140,
+        "expected_rework_time": 29,
+        "expected_waiting_time": 23,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 13.69,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 105,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 568575,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-568575-2",
+        "task_company_id": null,
+        "task_name": "Receive fraud explanation",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D7202965-F5F8-4B53-96B8-8579EE741DC1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 169,
+        "expected_rework_time": 27,
+        "expected_waiting_time": 23,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 8.1,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 22,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 568575,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-568575-3",
+        "task_company_id": null,
+        "task_name": "Evaluate fraud explanation",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B16646F0-1109-4C95-ACD1-D188FD45D5B6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 169,
+        "expected_rework_time": 39,
+        "expected_waiting_time": 26,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 2.52,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 77,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 5.76,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 5,
+              "hourlyRate": 20,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 568575,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-568575-4",
+        "task_company_id": null,
+        "task_name": "Resolve fraud",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AE38395E-D89E-482B-9761-C31F9A2B73EC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 123,
+        "expected_rework_time": 31,
+        "expected_waiting_time": 9,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 14.59,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 3,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "4bd12dd622a54cb8a63e0efd45980f89",
+    "model_id": "b627c2d58f4d43efaa49be18968f550a",
+    "organization_id": "aa09fa141abd46ba97576958fd5bf1cd"
+  }
+}

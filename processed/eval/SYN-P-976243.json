@@ -1,0 +1,476 @@
+{
+  "process_id": 976243,
+  "company_id": 1876243,
+  "created_at": "2021-05-31 13:05:55",
+  "updated_at": "2021-05-31 13:05:55",
+  "capacity_requirement_minutes": 487,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-976243",
+  "process_name": "4.2",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-976243\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-976243\" name=\"4.2\" isExecutable=\"false\"><bpmn:task id=\"sid-23E343AC-9595-4E13-9471-BBD77BD14FE6\" name=\"preparation of the callover list\" /><bpmn:task id=\"sid-1E6D2376-E685-4323-AA03-24AAAC5C85DA\" name=\"One week before to the callover, the involved parties are contacted to determine if they are all ready to go to trial.\" /><bpmn:task id=\"sid-7E8FFFF4-2D32-4A68-B9BA-DDE1ECC23233\" name=\"the callover is ready\" /><bpmn:task id=\"sid-97574698-BD82-4440-959D-7F213F9D0226\" name=\"the callover is not ready and is delayed\" /><bpmn:task id=\"sid-AC3EAD9C-E475-4A03-8D31-90F4C28107E6\" name=\"callover is set\" /><bpmn:task id=\"sid-847BF6C2-E65F-4316-A021-6855D10B3601\" name=\"on the callover day, the callover material is prepared\" /><bpmn:task id=\"sid-D5C0D5E5-873B-425E-88F7-D588218267D2\" name=\"the callover is held.\" /><bpmn:startEvent id=\"sid-BD504377-1AF9-4322-ABF5-ADD68836F618\" name=\"three weeks prior to the callover\" /><bpmn:endEvent id=\"sid-EA939FC9-D689-422B-8E6C-4B8BF96B4A39\" name=\"the callover is delayed\" /><bpmn:endEvent id=\"sid-24D39E43-3C61-4F01-AF8C-FE686F59C61C\" name=\"the callover is occured\" /><bpmn:exclusiveGateway id=\"sid-A6CBA1C6-FA78-4A94-87A8-D002A7179F19\" name=\"\" /><bpmn:sequenceFlow id=\"sid-2D175659-28B4-4305-A311-744355E69CA2\" targetRef=\"sid-23E343AC-9595-4E13-9471-BBD77BD14FE6\" /><bpmn:sequenceFlow id=\"sid-EF4526C6-350D-4C6F-919E-D00329271408\" targetRef=\"sid-1E6D2376-E685-4323-AA03-24AAAC5C85DA\" /><bpmn:sequenceFlow id=\"sid-CD8D51BC-7D59-4512-870B-4B3A8E779607\" targetRef=\"sid-A6CBA1C6-FA78-4A94-87A8-D002A7179F19\" /><bpmn:sequenceFlow id=\"sid-26B12B20-F70D-444C-9E1C-9DD34AAEDC60\" targetRef=\"sid-7E8FFFF4-2D32-4A68-B9BA-DDE1ECC23233\" name=\"yes\" /><bpmn:sequenceFlow id=\"sid-6C81F499-968D-454C-9E3E-5E3A73E7265A\" targetRef=\"sid-AC3EAD9C-E475-4A03-8D31-90F4C28107E6\" /><bpmn:sequenceFlow id=\"sid-D05B3C59-26F6-4081-8786-D133DE78FD2B\" targetRef=\"sid-847BF6C2-E65F-4316-A021-6855D10B3601\" /><bpmn:sequenceFlow id=\"sid-893F69F2-B082-4F47-871C-EC8569529F59\" targetRef=\"sid-D5C0D5E5-873B-425E-88F7-D588218267D2\" /><bpmn:sequenceFlow id=\"sid-F3D06FDC-526B-40D2-A809-9326E1EA593D\" targetRef=\"sid-EA939FC9-D689-422B-8E6C-4B8BF96B4A39\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-05-31 13:05:55",
+  "company": {
+    "company_id": 1876243,
+    "companyCode": "SYN-976243",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.53
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.47
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 976243,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-976243-1",
+        "task_company_id": null,
+        "task_name": "preparation of the callover list",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-23E343AC-9595-4E13-9471-BBD77BD14FE6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 6,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 19,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 1.78,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 73,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 976243,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-976243-2",
+        "task_company_id": null,
+        "task_name": "One week before to the callover, the involved parties are contacted to determine if they are all ready to go to trial.",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1E6D2376-E685-4323-AA03-24AAAC5C85DA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 27,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 1,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 1.68,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 1,
+              "hourlyRate": 81,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 4.9,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 30,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 976243,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-976243-3",
+        "task_company_id": null,
+        "task_name": "the callover is ready",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7E8FFFF4-2D32-4A68-B9BA-DDE1ECC23233.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 53,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 8.5,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 49,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 976243,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-976243-4",
+        "task_company_id": null,
+        "task_name": "the callover is not ready and is delayed",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-97574698-BD82-4440-959D-7F213F9D0226.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 23,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 11.28,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 3,
+              "hourlyRate": 71,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 6,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 12.45,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 6,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 976243,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-976243-5",
+        "task_company_id": null,
+        "task_name": "callover is set",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AC3EAD9C-E475-4A03-8D31-90F4C28107E6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 167,
+        "expected_rework_time": 27,
+        "expected_waiting_time": 10,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 11.83,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 2,
+              "hourlyRate": 62,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 8,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 8.22,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 4,
+              "hourlyRate": 29,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 976243,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-976243-6",
+        "task_company_id": null,
+        "task_name": "on the callover day, the callover material is prepared",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-847BF6C2-E65F-4316-A021-6855D10B3601.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 90,
+        "expected_rework_time": 7,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 15.61,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 3,
+              "hourlyRate": 81,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 976243,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-976243-7",
+        "task_company_id": null,
+        "task_name": "the callover is held.",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D5C0D5E5-873B-425E-88F7-D588218267D2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 121,
+        "expected_rework_time": 17,
+        "expected_waiting_time": 10,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 5.56,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 6,
+              "hourlyRate": 44,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "e9739ab6d3df4da5bca4b90c90d87d16",
+    "model_id": "240db736584248ab8db8941af1c70f73",
+    "organization_id": "6952ebd59ae44533b46f66445e1e4fb7"
+  }
+}

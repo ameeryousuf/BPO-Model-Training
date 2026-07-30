@@ -1,0 +1,320 @@
+{
+  "process_id": 1008340,
+  "company_id": 1908340,
+  "created_at": "2020-09-23 06:56:54",
+  "updated_at": "2020-09-23 06:56:54",
+  "capacity_requirement_minutes": 290,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1008340",
+  "process_name": "Send Loan Documents (Copy)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1008340\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1008340\" name=\"Send Loan Documents (Copy)\" isExecutable=\"false\"><bpmn:task id=\"sid-B745F2BD-C22F-4263-AC18-431940388A76\" name=\"Send loan documents to CBD via in-mail the next day\" /><bpmn:task id=\"sid-165EAEB1-C270-457A-9E43-2EEED0AB6056\" name=\"Send loan documents to CBD via in-mail the day after\" /><bpmn:task id=\"sid-1AA76AFD-A179-4CAE-B8C1-D25D84CE94B3\" name=\"Send loan documents to CBD via in-mail up to 5 days after\" /><bpmn:startEvent id=\"sid-B8D7BCD0-4A90-4928-A073-F9574AB77075\" name=\"Loan Documents Readied\" /><bpmn:endEvent id=\"sid-CDE48D02-9A0B-4A04-A1CB-1B7E97612260\" name=\"Loan Documents Delivered\" /><bpmn:exclusiveGateway id=\"sid-28FD41B2-6F98-4F34-8B33-C8926A79130B\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-A5220ABC-7C30-4AD2-A394-D2DC8795C929\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-D0455688-F075-42CB-A9F2-4005020CD3DB\" name=\"\" /><bpmn:sequenceFlow id=\"sid-C16FBA15-0DD6-4E64-B310-EA634B59E557\" targetRef=\"sid-28FD41B2-6F98-4F34-8B33-C8926A79130B\" /><bpmn:sequenceFlow id=\"sid-1B01D8F3-115F-4B6B-99EA-D0A343EEB7B2\" targetRef=\"sid-B745F2BD-C22F-4263-AC18-431940388A76\" name=\"On or before 3 PM\" /><bpmn:sequenceFlow id=\"sid-55492B53-63F7-4EFA-8BD8-5452252E8571\" targetRef=\"sid-A5220ABC-7C30-4AD2-A394-D2DC8795C929\" name=\"Beyond 3PM\" /><bpmn:sequenceFlow id=\"sid-DE15C057-DCF1-4C1B-9AA1-D0A6600B01FD\" targetRef=\"sid-165EAEB1-C270-457A-9E43-2EEED0AB6056\" name=\"Near CBD\" /><bpmn:sequenceFlow id=\"sid-EBD4DC8D-6803-4FFB-A5A3-CECF1E9196C8\" targetRef=\"sid-1AA76AFD-A179-4CAE-B8C1-D25D84CE94B3\" name=\"Far CBD\" /><bpmn:sequenceFlow id=\"sid-6DB94B09-B08D-4FD7-81B5-ECBADA6771C4\" targetRef=\"sid-D0455688-F075-42CB-A9F2-4005020CD3DB\" /><bpmn:sequenceFlow id=\"sid-529D81D3-730F-4521-9E41-8D9C5C23BE83\" targetRef=\"sid-D0455688-F075-42CB-A9F2-4005020CD3DB\" /><bpmn:sequenceFlow id=\"sid-C25005FB-072F-4C6D-992C-469375A8EAEA\" targetRef=\"sid-D0455688-F075-42CB-A9F2-4005020CD3DB\" /><bpmn:sequenceFlow id=\"sid-236189AC-0AF9-452E-8023-81AAF966DB74\" targetRef=\"sid-CDE48D02-9A0B-4A04-A1CB-1B7E97612260\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-09-23 06:56:54",
+  "company": {
+    "company_id": 1908340,
+    "companyCode": "SYN-1008340",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.67
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.33
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.42
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.58
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.51
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.49
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1008340,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1008340-1",
+        "task_company_id": null,
+        "task_name": "Send loan documents to CBD via in-mail the next day",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B745F2BD-C22F-4263-AC18-431940388A76.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 19,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 18.86,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 71,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1008340,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1008340-2",
+        "task_company_id": null,
+        "task_name": "Send loan documents to CBD via in-mail the day after",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-165EAEB1-C270-457A-9E43-2EEED0AB6056.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 194,
+        "expected_rework_time": 37,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 19.61,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1008340,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1008340-3",
+        "task_company_id": null,
+        "task_name": "Send loan documents to CBD via in-mail up to 5 days after",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1AA76AFD-A179-4CAE-B8C1-D25D84CE94B3.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 77,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 5.33,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 90,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 17.78,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 5,
+              "hourlyRate": 75,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "bdd1e511cdc7489aa1306a50ec381284",
+    "model_id": "4f7b16abb70f49d9ae4ebb0bf74c0c95",
+    "organization_id": "30da146aae4842cfab909b9723944f7a"
+  }
+}

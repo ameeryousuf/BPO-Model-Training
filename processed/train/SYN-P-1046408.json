@@ -1,0 +1,333 @@
+{
+  "process_id": 1046408,
+  "company_id": 1946408,
+  "created_at": "2019-01-09 12:06:23",
+  "updated_at": "2019-01-09 12:06:23",
+  "capacity_requirement_minutes": 1214,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1046408",
+  "process_name": "Supporting Process Collaboration",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1046408\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1046408\" name=\"Supporting Process Collaboration\" isExecutable=\"false\"><bpmn:task id=\"sid-9F829233-CC55-47A0-A99A-091C8B5CC16E\" name=\"6.1 Decide &amp; capture trade in Trading portfolio\" /><bpmn:task id=\"sid-731D079F-C4F2-498E-9C7F-BFB48584C196\" name=\"6.3 Settle Trade\" /><bpmn:task id=\"sid-7B0FC094-F1B8-4B98-9800-0545411B0840\" name=\"6.2 Assign Settlement instruction\" /><bpmn:task id=\"sid-EFA1310A-6D87-43DC-BD6F-CA9637E395BF\" name=\"5.1 Reconcile Customer Cash and SEB Cash balance in GL\" /><bpmn:task id=\"sid-B29FAACD-876D-4325-915C-CF2DDF1C7F29\" name=\"8.1 Execute Booking\" /><bpmn:task id=\"sid-3492F74A-82F9-45F9-B943-DACB416C417A\" name=\"8.2 Confirm Execution\" /><bpmn:startEvent id=\"sid-AEA67753-C171-4D1C-A6D9-FEE856A33F1D\" name=\"Capture Trade\" /><bpmn:intermediateCatchEvent id=\"sid-5CC2A212-AE3E-4EA2-8EC0-C187880346E6\" name=\"FX Jane Doe\" /><bpmn:endEvent id=\"sid-7FD301A9-4332-47EF-B707-C0F27592547A\" name=\"Trade HAS BEEN Captured\" /><bpmn:intermediateCatchEvent id=\"sid-B870EE54-AEB3-4EBD-AB3A-99D546248A7A\" name=\"GL Event from Trade event\" /><bpmn:startEvent id=\"sid-0C875AFB-8937-4343-AC8C-40FEE1E67905\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-D72D5465-75B7-4746-8A5C-8FCEC8F58EBE\" name=\"Daily\" /><bpmn:endEvent id=\"sid-6A6F2A7E-40AF-476B-A5C2-5CB1B96A766A\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-FEFBC203-499B-45B8-B218-B8351F3B7226\" name=\"GL Event from Trade event\" /><bpmn:intermediateCatchEvent id=\"sid-342CE93F-594C-42F5-9B20-C72FD06AED4B\" name=\"GL Event from Account event\" /><bpmn:startEvent id=\"sid-0FBD5E28-0950-4132-AEC1-6A9DF47B145B\" name=\"Book Cash Event\" /><bpmn:intermediateCatchEvent id=\"sid-2E1AA676-A3E3-443E-9E00-48DE26A8E426\" name=\"Cash Booking Request\" /><bpmn:intermediateCatchEvent id=\"sid-35E86BC2-2002-4D41-8EEF-F5255345BFD2\" name=\"Cash Booking Ack\" /><bpmn:endEvent id=\"sid-7BB05BAD-BDCD-425B-B4DC-C3727B596F21\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-A6E8B0F6-FAAC-40A6-BABD-791697C1A68F\" name=\"GL Event from Account event\" /><bpmn:sequenceFlow id=\"sid-50A26A2D-C50B-4CE4-BAA8-8C0D80F86B15\" targetRef=\"sid-5CC2A212-AE3E-4EA2-8EC0-C187880346E6\" /><bpmn:sequenceFlow id=\"sid-F475971C-2AE0-4204-8C8B-60ABBE62BEC3\" targetRef=\"sid-2E1AA676-A3E3-443E-9E00-48DE26A8E426\" /><bpmn:sequenceFlow id=\"sid-F398472F-A412-40FC-A2AF-614E14536173\" targetRef=\"sid-7B0FC094-F1B8-4B98-9800-0545411B0840\" /><bpmn:sequenceFlow id=\"sid-098BDDFA-CA1E-460D-8B17-B9DF8CD9B34F\" targetRef=\"sid-731D079F-C4F2-498E-9C7F-BFB48584C196\" /><bpmn:sequenceFlow id=\"sid-3B9BE8E0-FC48-48F2-BF50-A2B856380F18\" targetRef=\"sid-9F829233-CC55-47A0-A99A-091C8B5CC16E\" /><bpmn:sequenceFlow id=\"sid-73F00FDD-7FD8-40A2-9A49-0B7B83A65B4D\" targetRef=\"sid-B29FAACD-876D-4325-915C-CF2DDF1C7F29\" /><bpmn:sequenceFlow id=\"sid-DAD76AFC-C638-42CF-90E3-62D62E71C843\" targetRef=\"sid-A6E8B0F6-FAAC-40A6-BABD-791697C1A68F\" /><bpmn:sequenceFlow id=\"sid-7E6A9F41-3062-4E86-A2DF-EFFC06C64729\" targetRef=\"sid-35E86BC2-2002-4D41-8EEF-F5255345BFD2\" /><bpmn:sequenceFlow id=\"sid-381802A1-D9A4-4AC4-928B-247D32600985\" targetRef=\"sid-7BB05BAD-BDCD-425B-B4DC-C3727B596F21\" /><bpmn:sequenceFlow id=\"sid-EAE3E2AD-FAB0-41F7-A605-0B3D90BD9E28\" targetRef=\"sid-B870EE54-AEB3-4EBD-AB3A-99D546248A7A\" /><bpmn:sequenceFlow id=\"sid-1B036739-E0BA-476A-8B6D-4A34830CA7DF\" targetRef=\"sid-7FD301A9-4332-47EF-B707-C0F27592547A\" /><bpmn:sequenceFlow id=\"sid-796B9EF5-E0F0-45F8-9BAB-C11BFC14D6BD\" targetRef=\"sid-3492F74A-82F9-45F9-B943-DACB416C417A\" /><bpmn:sequenceFlow id=\"sid-1EE4CF6B-AA21-47B8-8D55-B8D800E64F5F\" targetRef=\"sid-D72D5465-75B7-4746-8A5C-8FCEC8F58EBE\" /><bpmn:sequenceFlow id=\"sid-93A41D0D-98CC-4C89-979B-D839B7865386\" targetRef=\"sid-FEFBC203-499B-45B8-B218-B8351F3B7226\" /><bpmn:sequenceFlow id=\"sid-D2695CA9-BCCF-489B-90CB-BB84DA94FF1C\" targetRef=\"sid-6A6F2A7E-40AF-476B-A5C2-5CB1B96A766A\" /><bpmn:sequenceFlow id=\"sid-092F3BA0-8078-4DE7-A37D-38E899202070\" targetRef=\"sid-342CE93F-594C-42F5-9B20-C72FD06AED4B\" /><bpmn:sequenceFlow id=\"sid-98277A21-8813-428F-8AA9-5634CB1DE152\" targetRef=\"sid-EFA1310A-6D87-43DC-BD6F-CA9637E395BF\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2019-01-09 12:06:23",
+  "company": {
+    "company_id": 1946408,
+    "companyCode": "SYN-1046408",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1046408,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1046408-1",
+        "task_company_id": null,
+        "task_name": "6.1 Decide & capture trade in Trading portfolio",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9F829233-CC55-47A0-A99A-091C8B5CC16E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 206,
+        "expected_rework_time": 49,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 11.73,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 32,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1046408,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1046408-2",
+        "task_company_id": null,
+        "task_name": "6.3 Settle Trade",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-731D079F-C4F2-498E-9C7F-BFB48584C196.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 220,
+        "expected_rework_time": 15,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 12.75,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 35,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1046408,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1046408-3",
+        "task_company_id": null,
+        "task_name": "6.2 Assign Settlement instruction",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7B0FC094-F1B8-4B98-9800-0545411B0840.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 240,
+        "expected_rework_time": 24,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 7.26,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 5,
+              "hourlyRate": 94,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 1046408,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-1046408-4",
+        "task_company_id": null,
+        "task_name": "5.1 Reconcile Customer Cash and SEB Cash balance in GL",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EFA1310A-6D87-43DC-BD6F-CA9637E395BF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 154,
+        "expected_rework_time": 9,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 2.31,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 61,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 1046408,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-1046408-5",
+        "task_company_id": null,
+        "task_name": "8.1 Execute Booking",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B29FAACD-876D-4325-915C-CF2DDF1C7F29.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 163,
+        "expected_rework_time": 31,
+        "expected_waiting_time": 21,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 10.78,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 3,
+              "hourlyRate": 115,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 1046408,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-1046408-6",
+        "task_company_id": null,
+        "task_name": "8.2 Confirm Execution",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3492F74A-82F9-45F9-B943-DACB416C417A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 231,
+        "expected_rework_time": 25,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 13.04,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 2,
+              "hourlyRate": 101,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "40cc999b108745a19575f189d5fff73f",
+    "model_id": "a6408bba2e374d2d94741e6e4752ab68",
+    "organization_id": "44066abdc921402c8a50e365d2020ec3"
+  }
+}

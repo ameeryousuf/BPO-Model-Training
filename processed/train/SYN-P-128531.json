@@ -1,0 +1,331 @@
+{
+  "process_id": 128531,
+  "company_id": 1028531,
+  "created_at": "2017-11-20 20:15:33",
+  "updated_at": "2017-11-20 20:15:33",
+  "capacity_requirement_minutes": 414,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-128531",
+  "process_name": "Zad 4: Security check at the airport",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-128531\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-128531\" name=\"Zad 4: Security check at the airport\" isExecutable=\"false\"><bpmn:task id=\"sid-BF9E4EC9-71B0-4F0D-BAB9-1072519C3B6D\" name=\"Processed to security check\" /><bpmn:task id=\"sid-93D8273E-9942-47A0-845A-E30E0B919E29\" name=\"Pass security screening\" /><bpmn:task id=\"sid-0FB0171F-FFB2-4BB0-9C71-11AD1E18D26C\" name=\"Pass luggage screening\" /><bpmn:task id=\"sid-03A948F0-59ED-44A9-92DF-5D1124DFEB5C\" name=\"Processed to departure level\" /><bpmn:startEvent id=\"sid-833FC224-731C-43FD-B30D-6ABE7B3C95D0\" name=\"Boarding pass received\" /><bpmn:endEvent id=\"sid-E1AEDB7D-F2DD-4800-B7A8-9414AF56D10B\" name=\"Departure level reached\" /><bpmn:parallelGateway id=\"sid-45D7241C-9009-4A7A-8C49-FE4DD19E039D\" name=\"\" /><bpmn:parallelGateway id=\"sid-3E965865-938C-491D-881E-7C70656DCAF1\" name=\"\" /><bpmn:sequenceFlow id=\"sid-7279393C-B798-4DD4-B599-1CCA0BA84DEF\" targetRef=\"sid-BF9E4EC9-71B0-4F0D-BAB9-1072519C3B6D\" /><bpmn:sequenceFlow id=\"sid-05C67E06-F073-4934-9521-B5C28A7E1D0E\" targetRef=\"sid-45D7241C-9009-4A7A-8C49-FE4DD19E039D\" /><bpmn:sequenceFlow id=\"sid-EDBD1060-9016-4D97-B31B-027AAAEB0187\" targetRef=\"sid-93D8273E-9942-47A0-845A-E30E0B919E29\" /><bpmn:sequenceFlow id=\"sid-291E968E-4D39-499B-BAB4-366B4609BC13\" targetRef=\"sid-0FB0171F-FFB2-4BB0-9C71-11AD1E18D26C\" /><bpmn:sequenceFlow id=\"sid-9DC26410-3521-4E00-85F0-6C6D0B59D41E\" targetRef=\"sid-3E965865-938C-491D-881E-7C70656DCAF1\" /><bpmn:sequenceFlow id=\"sid-688A6E97-A471-4583-B086-9886008A55FA\" targetRef=\"sid-3E965865-938C-491D-881E-7C70656DCAF1\" /><bpmn:sequenceFlow id=\"sid-D671294A-9FD0-444A-9A24-81675EC1C773\" targetRef=\"sid-03A948F0-59ED-44A9-92DF-5D1124DFEB5C\" /><bpmn:sequenceFlow id=\"sid-32AE55D9-1E7C-49FD-9FA9-33470A5B1009\" targetRef=\"sid-E1AEDB7D-F2DD-4800-B7A8-9414AF56D10B\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2017-11-20 20:15:33",
+  "company": {
+    "company_id": 1028531,
+    "companyCode": "SYN-128531",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.55
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.45
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 128531,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-128531-1",
+        "task_company_id": null,
+        "task_name": "Processed to security check",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BF9E4EC9-71B0-4F0D-BAB9-1072519C3B6D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 215,
+        "expected_rework_time": 28,
+        "expected_waiting_time": 23,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 16.15,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 5,
+              "hourlyRate": 98,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 128531,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-128531-2",
+        "task_company_id": null,
+        "task_name": "Pass security screening",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-93D8273E-9942-47A0-845A-E30E0B919E29.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 102,
+        "expected_rework_time": 23,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 1.15,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 59,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 17.66,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 62,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 128531,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-128531-3",
+        "task_company_id": null,
+        "task_name": "Pass luggage screening",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0FB0171F-FFB2-4BB0-9C71-11AD1E18D26C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 46,
+        "expected_rework_time": 9,
+        "expected_waiting_time": 2,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 15.34,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 102,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 128531,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-128531-4",
+        "task_company_id": null,
+        "task_name": "Processed to departure level",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-03A948F0-59ED-44A9-92DF-5D1124DFEB5C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 51,
+        "expected_rework_time": 5,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 19.99,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 4,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "a6ef949c2b20438b85b878f98752e98d",
+    "model_id": "3bd304d2444445829d954f489926a973",
+    "organization_id": "ea423ac002464d3d9456d9b167ff3c21"
+  }
+}

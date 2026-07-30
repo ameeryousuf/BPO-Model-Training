@@ -1,0 +1,324 @@
+{
+  "process_id": 769341,
+  "company_id": 1669341,
+  "created_at": "2018-10-06 19:55:05",
+  "updated_at": "2018-10-06 19:55:05",
+  "capacity_requirement_minutes": 432,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-769341",
+  "process_name": "BlattA_A2_doubleOptIn",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-769341\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-769341\" name=\"BlattA_A2_doubleOptIn\" isExecutable=\"false\"><bpmn:task id=\"sid-CFCD3019-1F13-4268-AD11-0314179373A3\" name=\"Bestätigungsmail versenden\" /><bpmn:task id=\"sid-598A31C2-8ECA-4E57-AD79-610026890A62\" name=\"Mail-Adresse in Datenbank als bestätigt markieren\" /><bpmn:task id=\"sid-7BBCA2ED-7A9F-46B0-8E17-FED8C81BDD33\" name=\"Datenbank-Eintrag erstellen\" /><bpmn:task id=\"sid-EC5F3105-6E10-43AD-BD6E-C398962D45A4\" name=\"Datenbankeintrag löschen\" /><bpmn:startEvent id=\"sid-16169BAC-F971-4A6D-9088-DC0D43FEE3E0\" name=\"Anfrage von Interessent\" /><bpmn:intermediateCatchEvent id=\"sid-0CFB11ED-F084-43A2-A4E2-62214B78A81E\" name=\"Bestätigung durch Interessent\" /><bpmn:intermediateCatchEvent id=\"sid-751F0F31-99B4-484B-8607-A0CBDFF60BBD\" name=\"Frist abgelaufen\" /><bpmn:endEvent id=\"sid-1D413802-E2E4-4895-8F38-4949F7CB351D\" name=\"Mailliste erweitert\" /><bpmn:intermediateCatchEvent id=\"sid-3B75DAFB-DEF2-4D98-9D38-6CDD2CE9D5F1\" name=\"\" /><bpmn:endEvent id=\"sid-D6E1A0CB-9B0F-4124-BE6C-016097C72EB3\" name=\"Datenbankeintrag löschen\" /><bpmn:intermediateCatchEvent id=\"sid-F28AF775-7B48-4355-9E60-BDF411D38E15\" name=\"Antwort: ungültige Mail-Adresse\" /><bpmn:eventBasedGateway id=\"sid-27B581BA-89E6-4FFF-BA10-29A6D8FE1D83\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-99188A44-FED5-4F32-BE4E-0A5297C7449B\" name=\"\" /><bpmn:sequenceFlow id=\"sid-FD9C895E-969A-445B-8C04-180592ADAC0A\" targetRef=\"sid-0CFB11ED-F084-43A2-A4E2-62214B78A81E\" /><bpmn:sequenceFlow id=\"sid-A4B535F2-859F-41A5-B9E8-8A9D28819705\" targetRef=\"sid-751F0F31-99B4-484B-8607-A0CBDFF60BBD\" /><bpmn:sequenceFlow id=\"sid-C070AA47-7451-497B-8DF5-4944211FF2F1\" targetRef=\"sid-598A31C2-8ECA-4E57-AD79-610026890A62\" /><bpmn:sequenceFlow id=\"sid-856CF634-6971-4D05-B7A8-6DCBB34339B5\" targetRef=\"sid-7BBCA2ED-7A9F-46B0-8E17-FED8C81BDD33\" /><bpmn:sequenceFlow id=\"sid-57641BA9-A129-4DD3-8402-442AE6047DEA\" targetRef=\"sid-CFCD3019-1F13-4268-AD11-0314179373A3\" /><bpmn:sequenceFlow id=\"sid-BBFB6C68-EA24-4897-BE47-F99F1673E260\" targetRef=\"sid-27B581BA-89E6-4FFF-BA10-29A6D8FE1D83\" /><bpmn:sequenceFlow id=\"sid-7F5C348B-AFDB-4AAD-916B-938F2DF60845\" targetRef=\"sid-1D413802-E2E4-4895-8F38-4949F7CB351D\" /><bpmn:sequenceFlow id=\"sid-CE2F8B76-3436-463B-A746-0A799A2AF55A\" targetRef=\"sid-F28AF775-7B48-4355-9E60-BDF411D38E15\" /><bpmn:sequenceFlow id=\"sid-BCB814EA-4058-4DE1-8D31-1977D7BCB89A\" targetRef=\"sid-99188A44-FED5-4F32-BE4E-0A5297C7449B\" /><bpmn:sequenceFlow id=\"sid-3C162BB8-4631-4621-9130-FEDBED5DFC0C\" targetRef=\"sid-99188A44-FED5-4F32-BE4E-0A5297C7449B\" /><bpmn:sequenceFlow id=\"sid-AC68576A-F0DA-4CB2-97AE-8BA00CABCB56\" targetRef=\"sid-D6E1A0CB-9B0F-4124-BE6C-016097C72EB3\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-10-06 19:55:05",
+  "company": {
+    "company_id": 1669341,
+    "companyCode": "SYN-769341",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.49
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.34
+        },
+        {
+          "id": 10012,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.17
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.52
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.48
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 769341,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-769341-1",
+        "task_company_id": null,
+        "task_name": "Bestätigungsmail versenden",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-CFCD3019-1F13-4268-AD11-0314179373A3.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 240,
+        "expected_rework_time": 41,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 6.58,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 98,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 769341,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-769341-2",
+        "task_company_id": null,
+        "task_name": "Mail-Adresse in Datenbank als bestätigt markieren",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-598A31C2-8ECA-4E57-AD79-610026890A62.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 96,
+        "expected_rework_time": 18,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 4.84,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 118,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 769341,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-769341-3",
+        "task_company_id": null,
+        "task_name": "Datenbank-Eintrag erstellen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7BBCA2ED-7A9F-46B0-8E17-FED8C81BDD33.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 71,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 17,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 9.53,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 62,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 769341,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-769341-4",
+        "task_company_id": null,
+        "task_name": "Datenbankeintrag löschen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EC5F3105-6E10-43AD-BD6E-C398962D45A4.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 25,
+        "expected_rework_time": 6,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 6.93,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 109,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "e8ae42b441f146839fdec3848cd3da95",
+    "model_id": "867da26b1af541488f97caef77bf1dd7",
+    "organization_id": "2dafb1f0acb24b27ae8f0dc47d14fcaa"
+  }
+}

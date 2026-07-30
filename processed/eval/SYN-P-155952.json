@@ -1,0 +1,856 @@
+{
+  "process_id": 155952,
+  "company_id": 1055952,
+  "created_at": "2021-05-14 12:58:18",
+  "updated_at": "2021-05-14 12:58:18",
+  "capacity_requirement_minutes": 1698,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-155952",
+  "process_name": "Proiect final (Copy)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-155952\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-155952\" name=\"Proiect final (Copy)\" isExecutable=\"false\"><bpmn:task id=\"sid-A011EA3D-FB87-4741-AE97-C74DC7A33C91\" name=\"Primire pacient\" /><bpmn:task id=\"sid-3C6B43A3-7F82-4B19-A604-65F34439F396\" name=\"Primire dosar\" /><bpmn:task id=\"sid-5D341277-159A-42AF-BDF0-C43810679F8B\" name=\"Verificare componenența dosarului\" /><bpmn:task id=\"sid-A9F4380C-FCAF-4D0C-876F-036C9CF3A0A6\" name=\"Înregistrare dosar\" /><bpmn:task id=\"sid-5A0EEECD-3807-43B6-90D5-0A0DB4EEAB94\" name=\"Pregătire pacient pentru consult\" /><bpmn:task id=\"sid-14261766-73E0-4925-AD6C-B81F737B44D0\" name=\"Realizare programare\" /><bpmn:task id=\"sid-8609C721-A013-4177-B4F2-B077C095951A\" name=\"Emitere factură\" /><bpmn:task id=\"sid-949835C1-73F4-4CEA-9BD7-3C760161B57C\" name=\"Încasare numerar\" /><bpmn:task id=\"sid-DEEB24C2-1116-499F-9388-B1D523FE40E9\" name=\"Încasare card\" /><bpmn:task id=\"sid-6321AEC9-5B2E-438C-895A-66010A29AD47\" name=\"Încasare contravaloare servicii\" /><bpmn:task id=\"sid-C74F5963-CE79-4081-9F43-E740EC8618F8\" name=\"Realizare consult\" /><bpmn:task id=\"sid-49F2AD5F-D566-4208-A816-81BB8395AA63\" name=\"Stabilire diagnostic\" /><bpmn:task id=\"sid-0DEA526F-C9A3-4AB8-907B-9EE733E44410\" name=\"Prescriere tratament\" /><bpmn:startEvent id=\"sid-DEA3155C-7318-4387-9F66-E1F153719753\" name=\"Cerere programare\" /><bpmn:endEvent id=\"sid-68BF0F94-8F68-45F6-8AC1-5995680F66F1\" name=\"Pacient mulțumit\" /><bpmn:intermediateCatchEvent id=\"sid-F499BD7C-FA86-45AE-9C5D-B39184366E7F\" name=\"Timp de așteptare până la programare\" /><bpmn:exclusiveGateway id=\"sid-4F33E248-8E42-4B21-8D02-3374F9AFA976\" name=\"XOR JOIN1\" /><bpmn:parallelGateway id=\"sid-DE17D306-6093-447C-9A11-8C00B4EC35C7\" name=\"AND SPLIT 1\" /><bpmn:parallelGateway id=\"sid-1E077133-33AB-4758-9A17-C5076C9F881C\" name=\"AND JOIN 1\" /><bpmn:exclusiveGateway id=\"sid-51DF0B0D-7DD1-4FFB-B2BA-9645D5ABB90E\" name=\"XOR JOIN 1\" /><bpmn:sequenceFlow id=\"sid-D5B75D89-D607-4095-A371-A8AEB5A57B4D\" targetRef=\"sid-3C6B43A3-7F82-4B19-A604-65F34439F396\" /><bpmn:sequenceFlow id=\"sid-F7A98C88-9F49-4BA3-B361-11209529EBCB\" targetRef=\"sid-5D341277-159A-42AF-BDF0-C43810679F8B\" /><bpmn:sequenceFlow id=\"sid-E384A10F-2DE3-45E1-BDAB-BD2198DFC3AC\" targetRef=\"sid-A9F4380C-FCAF-4D0C-876F-036C9CF3A0A6\" /><bpmn:sequenceFlow id=\"sid-252012F9-ADAC-4E2C-8A3E-BCFA5BCADFB5\" targetRef=\"sid-5A0EEECD-3807-43B6-90D5-0A0DB4EEAB94\" /><bpmn:sequenceFlow id=\"sid-CCB6A6C1-5554-45A3-A71B-BA74782EBCF5\" targetRef=\"sid-49F2AD5F-D566-4208-A816-81BB8395AA63\" /><bpmn:sequenceFlow id=\"sid-93384C09-7F4D-4F4C-B287-35FBCDDE18E1\" targetRef=\"sid-14261766-73E0-4925-AD6C-B81F737B44D0\" /><bpmn:sequenceFlow id=\"sid-B5795A35-7469-4C10-8F56-84AF3E5EC14F\" targetRef=\"sid-4F33E248-8E42-4B21-8D02-3374F9AFA976\" /><bpmn:sequenceFlow id=\"sid-C302C311-1A5E-4A7B-AD9A-25BA05E286E1\" targetRef=\"sid-C74F5963-CE79-4081-9F43-E740EC8618F8\" /><bpmn:sequenceFlow id=\"sid-9F8B0775-2D95-4AA9-A14B-C1B91B1D00F2\" targetRef=\"sid-8609C721-A013-4177-B4F2-B077C095951A\" /><bpmn:sequenceFlow id=\"sid-D72793B9-BB5E-4FF0-860F-C51E2562A8B0\" targetRef=\"sid-6321AEC9-5B2E-438C-895A-66010A29AD47\" /><bpmn:sequenceFlow id=\"sid-2B9150F2-2DE8-4001-9EC3-35934E529188\" targetRef=\"sid-4F33E248-8E42-4B21-8D02-3374F9AFA976\" /><bpmn:sequenceFlow id=\"sid-61370A96-81F3-4338-9FD8-0A16865C8FD8\" targetRef=\"sid-1E077133-33AB-4758-9A17-C5076C9F881C\" /><bpmn:sequenceFlow id=\"sid-1EE67492-ABCD-4469-B823-9778341499FF\" targetRef=\"sid-1E077133-33AB-4758-9A17-C5076C9F881C\" /><bpmn:sequenceFlow id=\"sid-921A00C5-47E9-44AE-8A53-60426C024A0A\" targetRef=\"sid-68BF0F94-8F68-45F6-8AC1-5995680F66F1\" /><bpmn:sequenceFlow id=\"sid-05013726-0B1F-4670-B599-A42278919CEC\" targetRef=\"sid-F499BD7C-FA86-45AE-9C5D-B39184366E7F\" /><bpmn:sequenceFlow id=\"sid-355B2C55-AFB4-4B44-99CC-E6965CA2216D\" targetRef=\"sid-51DF0B0D-7DD1-4FFB-B2BA-9645D5ABB90E\" /><bpmn:sequenceFlow id=\"sid-5AFF958A-FB89-47EB-90E5-8B172F693278\" targetRef=\"sid-A011EA3D-FB87-4741-AE97-C74DC7A33C91\" /><bpmn:sequenceFlow id=\"sid-9B538C6A-B23C-4F65-BD85-4FD1F87B9F36\" targetRef=\"sid-949835C1-73F4-4CEA-9BD7-3C760161B57C\" name=\"Numerar\" /><bpmn:sequenceFlow id=\"sid-1BAE57E1-2B8F-4F5B-B0F4-413CA64594DD\" targetRef=\"sid-DEEB24C2-1116-499F-9388-B1D523FE40E9\" name=\"Card\" /><bpmn:sequenceFlow id=\"sid-7A702BD8-6C07-42A4-9649-3F6C1BDFCC17\" targetRef=\"sid-DE17D306-6093-447C-9A11-8C00B4EC35C7\" /><bpmn:sequenceFlow id=\"sid-9EF08CC2-89E7-4CE9-BB90-81C9C68E1E4F\" targetRef=\"sid-0DEA526F-C9A3-4AB8-907B-9EE733E44410\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-05-14 12:58:18",
+  "company": {
+    "company_id": 1055952,
+    "companyCode": "SYN-155952",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "XOR JOIN1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "XOR JOIN1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.89
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "XOR JOIN1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.11
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "AND SPLIT 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "AND SPLIT 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.66
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "AND SPLIT 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.34
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "AND JOIN 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "AND JOIN 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.27
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "AND JOIN 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.73
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "XOR JOIN 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "XOR JOIN 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.48
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "XOR JOIN 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.52
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 155952,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-155952-1",
+        "task_company_id": null,
+        "task_name": "Primire pacient",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A011EA3D-FB87-4741-AE97-C74DC7A33C91.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 158,
+        "expected_rework_time": 33,
+        "expected_waiting_time": 15,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 16.29,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 117,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 155952,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-155952-2",
+        "task_company_id": null,
+        "task_name": "Primire dosar",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3C6B43A3-7F82-4B19-A604-65F34439F396.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 60,
+        "expected_rework_time": 13,
+        "expected_waiting_time": 21,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 3.49,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 155952,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-155952-3",
+        "task_company_id": null,
+        "task_name": "Verificare componenența dosarului",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5D341277-159A-42AF-BDF0-C43810679F8B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 130,
+        "expected_rework_time": 14,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 11.87,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 18,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 155952,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-155952-4",
+        "task_company_id": null,
+        "task_name": "Înregistrare dosar",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A9F4380C-FCAF-4D0C-876F-036C9CF3A0A6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 85,
+        "expected_rework_time": 8,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 1.76,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 106,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 155952,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-155952-5",
+        "task_company_id": null,
+        "task_name": "Pregătire pacient pentru consult",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5A0EEECD-3807-43B6-90D5-0A0DB4EEAB94.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 173,
+        "expected_rework_time": 35,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 5.97,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 3,
+              "hourlyRate": 69,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 155952,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-155952-6",
+        "task_company_id": null,
+        "task_name": "Realizare programare",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-14261766-73E0-4925-AD6C-B81F737B44D0.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 5,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 10.69,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 6,
+              "hourlyRate": 100,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 155952,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-155952-7",
+        "task_company_id": null,
+        "task_name": "Emitere factură",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-8609C721-A013-4177-B4F2-B077C095951A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 108,
+        "expected_rework_time": 15,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 8.82,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 1,
+              "hourlyRate": 74,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 8,
+            "task_id": 5007,
+            "role": "I",
+            "time_allocation_percentage": 15.0,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 5,
+              "hourlyRate": 18,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 155952,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-155952-8",
+        "task_company_id": null,
+        "task_name": "Încasare numerar",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-949835C1-73F4-4CEA-9BD7-3C760161B57C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 208,
+        "expected_rework_time": 27,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5008,
+            "role": "R",
+            "time_allocation_percentage": 3.27,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 6,
+              "hourlyRate": 87,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 155952,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-155952-9",
+        "task_company_id": null,
+        "task_name": "Încasare card",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-DEEB24C2-1116-499F-9388-B1D523FE40E9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 226,
+        "expected_rework_time": 14,
+        "expected_waiting_time": 29,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5009,
+            "role": "I",
+            "time_allocation_percentage": 5.06,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 1,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 155952,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-155952-10",
+        "task_company_id": null,
+        "task_name": "Încasare contravaloare servicii",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6321AEC9-5B2E-438C-895A-66010A29AD47.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 104,
+        "expected_rework_time": 17,
+        "expected_waiting_time": 6,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5010,
+            "role": "C",
+            "time_allocation_percentage": 2.53,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 6,
+              "hourlyRate": 42,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 155952,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-155952-11",
+        "task_company_id": null,
+        "task_name": "Realizare consult",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C74F5963-CE79-4081-9F43-E740EC8618F8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 213,
+        "expected_rework_time": 49,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5011,
+            "role": "I",
+            "time_allocation_percentage": 16.93,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 2,
+              "hourlyRate": 116,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 13,
+            "task_id": 5011,
+            "role": "C",
+            "time_allocation_percentage": 13.78,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 4,
+              "hourlyRate": 74,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 155952,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-155952-12",
+        "task_company_id": null,
+        "task_name": "Stabilire diagnostic",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-49F2AD5F-D566-4208-A816-81BB8395AA63.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 36,
+        "expected_rework_time": 5,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5012,
+            "role": "C",
+            "time_allocation_percentage": 16.35,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 1,
+              "hourlyRate": 77,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 155952,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-155952-13",
+        "task_company_id": null,
+        "task_name": "Prescriere tratament",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0DEA526F-C9A3-4AB8-907B-9EE733E44410.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 192,
+        "expected_rework_time": 35,
+        "expected_waiting_time": 2,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 15,
+            "task_id": 5013,
+            "role": "I",
+            "time_allocation_percentage": 5.3,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 6,
+              "hourlyRate": 68,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "e172f657717849d2b4414e1a04af9398",
+    "model_id": "01296a29d2a44de6920daa416e148d1b",
+    "organization_id": "9d127a45945f43f18ee0f700fd1ce087"
+  }
+}

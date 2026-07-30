@@ -1,0 +1,264 @@
+{
+  "process_id": 745382,
+  "company_id": 1645382,
+  "created_at": "2020-10-29 09:31:09",
+  "updated_at": "2020-10-29 09:31:09",
+  "capacity_requirement_minutes": 254,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-745382",
+  "process_name": "Booking-to-cash-Perfect-Pixels",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-745382\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-745382\" name=\"Booking-to-cash-Perfect-Pixels\" isExecutable=\"false\"><bpmn:task id=\"sid-26610AF9-E73C-4A07-B6CE-93576F76EA30\" name=\"Create invoice of 50 €\" /><bpmn:task id=\"sid-69E5C47D-D523-4DEF-8BF4-96E67B6AD4D4\" name=\"Send invoice\" /><bpmn:task id=\"sid-F55469B7-8613-4A8A-B6E9-8B12F7C8E747\" name=\"Ask for reschedule\" /><bpmn:startEvent id=\"sid-BAA9622F-ADB0-4EAB-AEE0-663294E056E6\" name=\"No show\" /><bpmn:endEvent id=\"sid-4DE74B42-AA50-4C0A-A99D-4FCB7D81769F\" name=\"Process finished\" /><bpmn:exclusiveGateway id=\"sid-D820DF20-09A0-4845-AB5A-EB3318083426\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-BDC1B6F1-7AAB-47FE-B095-DBBF128B02E6\" name=\"\" /><bpmn:sequenceFlow id=\"sid-348A39E4-10A3-4DC6-8B6F-D7E375EF2D9D\" targetRef=\"sid-69E5C47D-D523-4DEF-8BF4-96E67B6AD4D4\" /><bpmn:sequenceFlow id=\"sid-C7BF7E28-87A5-4CC3-BB64-48DEC14D7B02\" targetRef=\"sid-D820DF20-09A0-4845-AB5A-EB3318083426\" /><bpmn:sequenceFlow id=\"sid-CB3AB85D-4599-455E-BB52-2765D788F2D5\" targetRef=\"sid-26610AF9-E73C-4A07-B6CE-93576F76EA30\" name=\"on location\" /><bpmn:sequenceFlow id=\"sid-83791670-A983-4136-88DE-07FF8D74DD1A\" targetRef=\"sid-5CE0E35D-A109-4C1C-B204-F3878E39D020_3\" /><bpmn:sequenceFlow id=\"sid-1D7C90BD-DE8D-4C20-8B01-CDD16EB3D063\" targetRef=\"sid-BDC1B6F1-7AAB-47FE-B095-DBBF128B02E6\" /><bpmn:sequenceFlow id=\"sid-1E9F13BC-1EB6-4687-B6C4-52A10D9FAED0\" targetRef=\"sid-BDC1B6F1-7AAB-47FE-B095-DBBF128B02E6\" name=\"in studio\" /><bpmn:sequenceFlow id=\"sid-440C416A-DBAE-4458-B1C0-2360BBF0FDB6\" targetRef=\"sid-F55469B7-8613-4A8A-B6E9-8B12F7C8E747\" /><bpmn:sequenceFlow id=\"sid-860F5E3E-BFB3-4324-BF6A-350FDAC7E573\" targetRef=\"sid-4DE74B42-AA50-4C0A-A99D-4FCB7D81769F\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-10-29 09:31:09",
+  "company": {
+    "company_id": 1645382,
+    "companyCode": "SYN-745382",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.23
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.77
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.56
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 745382,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-745382-1",
+        "task_company_id": null,
+        "task_name": "Create invoice of 50 €",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-26610AF9-E73C-4A07-B6CE-93576F76EA30.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 58,
+        "expected_rework_time": 10,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 12.65,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 83,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 745382,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-745382-2",
+        "task_company_id": null,
+        "task_name": "Send invoice",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-69E5C47D-D523-4DEF-8BF4-96E67B6AD4D4.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 53,
+        "expected_rework_time": 3,
+        "expected_waiting_time": 26,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 12.24,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 745382,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-745382-3",
+        "task_company_id": null,
+        "task_name": "Ask for reschedule",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F55469B7-8613-4A8A-B6E9-8B12F7C8E747.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 143,
+        "expected_rework_time": 33,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 17.55,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 65,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "28abbc7be84c4700b7d02f27344653b9",
+    "model_id": "1243529b22c2450c9c734836df711445",
+    "organization_id": "1a83d1b3c491482ebc08098fb0751e54"
+  }
+}

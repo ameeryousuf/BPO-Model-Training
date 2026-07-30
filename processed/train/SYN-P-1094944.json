@@ -1,0 +1,638 @@
+{
+  "process_id": 1094944,
+  "company_id": 1994944,
+  "created_at": "2020-01-29 11:01:16",
+  "updated_at": "2020-01-29 11:01:16",
+  "capacity_requirement_minutes": 1272,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1094944",
+  "process_name": "Dunning Process_Regional v.1",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1094944\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1094944\" name=\"Dunning Process_Regional v.1\" isExecutable=\"false\"><bpmn:task id=\"sid-30B254BD-2C9B-47C4-A9B1-AB31797500F6\" name=\"1.0 Generate Reports from BSS\" /><bpmn:task id=\"sid-988A0749-11AE-4B79-843F-85E651EC3BFE\" name=\"2.0 Review AR Aging Report\" /><bpmn:task id=\"sid-84EE05E8-D654-465D-A61C-1ED190ED8899\" name=\"3.0 Identify Accounts with Outstanding Balance\" /><bpmn:task id=\"sid-52ED8996-9D05-4C05-A380-4DA6F9CB0478\" name=\"7.0 Review Updated AR Aging Report\" /><bpmn:task id=\"sid-A58F5678-2ED2-4EAD-A26A-233D37B320AF\" name=\"10.0 Bash ADS Report with Generated Reports\" /><bpmn:task id=\"sid-96DCB267-D1D5-4AF2-9815-9330E3B06DFC\" name=\"11.0 Generate Valid List of Accounts for Disconnection (3 hrs)\" /><bpmn:task id=\"sid-2E880710-33E0-4CA6-8CB6-AB7C83F43884\" name=\"13.0 Validate List Against Payments Module in BSS (2 hrs)\" /><bpmn:task id=\"sid-9F5A5544-AA74-49B5-8554-8C8392B8050A\" name=\"9.0 Generate Reports for Validation\" /><bpmn:task id=\"sid-1C4E41C0-4D75-4515-BEE8-FAB279C2D2F3\" name=\"14.0 Identify Accounts with Network Activation Issues (4 hrs)\" /><bpmn:intermediateCatchEvent id=\"sid-8B7C1345-3A3B-46DF-AA73-82EADEB24FC9\" name=\"3 days before ADS Schedule\" /><bpmn:intermediateCatchEvent id=\"sid-70D5FEAB-A904-4F37-927E-44116A5D4559\" name=\"Request for ADS Report sent\" /><bpmn:intermediateCatchEvent id=\"sid-AAC61631-55F4-484D-BB78-F06453D8837E\" name=\"ADS Report received\" /><bpmn:intermediateCatchEvent id=\"sid-30C99B2E-1CF9-4BD9-A5D4-92AEEC9B2CB2\" name=\"List of Accounts for Disconnection received\" /><bpmn:intermediateCatchEvent id=\"sid-61520F97-42D9-455C-BF78-A612E8E945B8\" name=\"List of Accounts for Disconnection sent\" /><bpmn:startEvent id=\"sid-E861BAAB-0DE0-431D-9438-9A7184A20684\" name=\"3 days after SOA collection\" /><bpmn:intermediateCatchEvent id=\"sid-98F46804-18A9-4697-A3BF-6291BBBEC922\" name=\"Request for Network Activation Report sent\" /><bpmn:intermediateCatchEvent id=\"sid-E87A693A-139D-4BAF-8DA5-1A49FDE54788\" name=\"Network Activation Report received (U2000 for Fiber)\" /><bpmn:endEvent id=\"sid-FCDDF74E-311D-4E1C-BE33-FFC984771E11\" name=\"Dunning completed\" /><bpmn:endEvent id=\"sid-F06D2FF9-B6CF-492F-A169-F9E3DFFF7DD8\" name=\"Dunning issues sent\" /><bpmn:intermediateCatchEvent id=\"sid-EBE64D8A-C79B-4E98-B5BC-F94867B37AE7\" name=\"Request for deprovisioning report sent\" /><bpmn:intermediateCatchEvent id=\"sid-50886D7E-FCB7-4C5B-BA18-D27DD141FACC\" name=\"Feedback on deprovisioning received\" /><bpmn:intermediateCatchEvent id=\"sid-3DC54608-D18B-407B-BA8E-0F683099EF2A\" name=\"3 days after SOA collection\" /><bpmn:intermediateCatchEvent id=\"sid-E2603BA4-52BA-4AAE-A720-007D729C3749\" name=\"1 week after SOA collection\" /><bpmn:intermediateCatchEvent id=\"sid-7EDE62EE-E273-4E47-8D33-8DF20DDF5A66\" name=\"mid-month/ 3rd week of the month\" /><bpmn:endEvent id=\"sid-8448A43E-27BA-44B6-9D37-38B06D4D6AF4\" name=\"Customer informed of 2-month outstanding payment\" /><bpmn:endEvent id=\"sid-A4FC90F4-E464-4F3B-8F42-9F2712EDE35D\" name=\"Customer informed of current outstanding payment\" /><bpmn:intermediateCatchEvent id=\"sid-4D961CD1-8BCE-4CE0-B1C0-4DFA6E9B3E3B\" name=\"List of Accounts for Disconnection received\" /><bpmn:intermediateCatchEvent id=\"sid-65D7D00D-CA97-443A-B932-DF08F1AAB339\" name=\"List of Accounts for Disconnection sent\" /><bpmn:intermediateCatchEvent id=\"sid-35DA0E0F-0861-42FB-BDFB-D09C80E6DCD4\" name=\"ADS Report sent\" /><bpmn:intermediateCatchEvent id=\"sid-286A2168-96D9-49CA-A80A-85F22D57CBAC\" name=\"Dunning issues received\" /><bpmn:endEvent id=\"sid-1A59FBE4-539A-4482-8E49-5573155622C2\" name=\"Dunning issues resolved\" /><bpmn:startEvent id=\"sid-E43A3140-A685-4972-8875-DBC0924495D9\" name=\"Request for ADS Report received\" /><bpmn:intermediateCatchEvent id=\"sid-856E8847-E890-486C-814E-3A6A2BE2547D\" name=\"Feedback on deprovisioning report\" /><bpmn:intermediateCatchEvent id=\"sid-B36C9DFD-A2A8-4E9F-A019-06199257793F\" name=\"Request for deprovisioning report received\" /><bpmn:intermediateCatchEvent id=\"sid-E9A27FCF-BF36-4F20-B41F-95C7522AE750\" name=\"12mn of ADS Schedule\" /><bpmn:exclusiveGateway id=\"sid-E2425250-08EF-4306-BFF6-DA2724C91261\" name=\"Report provided by Suntech?\" /><bpmn:exclusiveGateway id=\"sid-52E36CFD-FA36-4AB5-9FCE-C5103BAFF6B7\" name=\"\" /><bpmn:parallelGateway id=\"sid-4BA2A127-EAE3-4BDB-AEC2-B3C71962CE61\" name=\"\" /><bpmn:eventBasedGateway id=\"sid-E0AFC882-D22C-48B0-9B70-7802FBAF5699\" name=\"\" /><bpmn:sequenceFlow id=\"sid-7BAE9597-8357-4F7B-8002-A559E8DA1D0A\" targetRef=\"sid-30B254BD-2C9B-47C4-A9B1-AB31797500F6\" /><bpmn:sequenceFlow id=\"sid-5836A136-0BA7-4983-9C0A-CFCFE1450584\" targetRef=\"sid-52ED8996-9D05-4C05-A380-4DA6F9CB0478\" /><bpmn:sequenceFlow id=\"sid-CC03889F-25BB-4155-A1AC-B41E7AD3494D\" targetRef=\"sid-AAC61631-55F4-484D-BB78-F06453D8837E\" /><bpmn:sequenceFlow id=\"sid-28769935-EDD9-436F-BBFB-EE5B9FAD5F48\" targetRef=\"sid-35DA0E0F-0861-42FB-BDFB-D09C80E6DCD4\" /><bpmn:sequenceFlow id=\"sid-7EF42D33-B56D-4BD1-8204-C7428F31E9C0\" targetRef=\"sid-61520F97-42D9-455C-BF78-A612E8E945B8\" /><bpmn:sequenceFlow id=\"sid-3F2EAE8A-1AA3-4E7C-B68A-B544BD772E04\" targetRef=\"sid-65D7D00D-CA97-443A-B932-DF08F1AAB339\" /><bpmn:sequenceFlow id=\"sid-0BC6B63C-40BB-4709-9757-85E962E4305D\" targetRef=\"sid-2E880710-33E0-4CA6-8CB6-AB7C83F43884\" /><bpmn:sequenceFlow id=\"sid-870B400E-2046-485B-8297-5714744A63E2\" targetRef=\"sid-30C99B2E-1CF9-4BD9-A5D4-92AEEC9B2CB2\" /><bpmn:sequenceFlow id=\"sid-B1BF6CB9-03E5-40A0-B249-D0B930DE98C2\" targetRef=\"sid-70D5FEAB-A904-4F37-927E-44116A5D4559\" /><bpmn:sequenceFlow id=\"sid-81C91301-03F1-45FB-A1BF-92F6E38A9D1B\" targetRef=\"sid-9F5A5544-AA74-49B5-8554-8C8392B8050A\" /><bpmn:sequenceFlow id=\"sid-4BC7A76D-92AB-4D44-A4CF-2116BF975577\" targetRef=\"sid-52E36CFD-FA36-4AB5-9FCE-C5103BAFF6B7\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-2E311CDC-F565-4540-B328-612A87EC394C\" targetRef=\"sid-4D961CD1-8BCE-4CE0-B1C0-4DFA6E9B3E3B\" /><bpmn:sequenceFlow id=\"sid-DF8F5ABD-BEAE-479B-9997-38FB07B070C9\" targetRef=\"sid-E87A693A-139D-4BAF-8DA5-1A49FDE54788\" /><bpmn:sequenceFlow id=\"sid-019F20F6-CA68-4D24-AC02-E3A276B30A74\" targetRef=\"sid-04A1D12F-8F0A-481B-9034-E219FFC62F1A\" /><bpmn:sequenceFlow id=\"sid-B04CD4C9-28F5-4421-807D-7A90A6CDDFE1\" targetRef=\"sid-1A59FBE4-539A-4482-8E49-5573155622C2\" /><bpmn:sequenceFlow id=\"sid-3CC22F60-DCA9-4869-B4E4-19B82BB86975\" targetRef=\"sid-27B301C9-6D08-462C-ACE3-DD62F0FBE787\" /><bpmn:sequenceFlow id=\"sid-4999F6F2-696C-4F5A-83DA-3EEFA1D2F3CC\" targetRef=\"sid-4BA2A127-EAE3-4BDB-AEC2-B3C71962CE61\" /><bpmn:sequenceFlow id=\"sid-B8A4D705-5FC2-45BA-BA78-7425C3C5ECB9\" targetRef=\"sid-F06D2FF9-B6CF-492F-A169-F9E3DFFF7DD8\" /><bpmn:sequenceFlow id=\"sid-AF4EF00F-7CE8-4E79-9DDF-E903250311E8\" targetRef=\"sid-EBE64D8A-C79B-4E98-B5BC-F94867B37AE7\" /><bpmn:sequenceFlow id=\"sid-6D02120A-9E94-448A-9BCE-5B578AAFA706\" targetRef=\"sid-856E8847-E890-486C-814E-3A6A2BE2547D\" /><bpmn:sequenceFlow id=\"sid-283B0223-574F-4E65-879E-8894B4A5BA75\" targetRef=\"sid-50886D7E-FCB7-4C5B-BA18-D27DD141FACC\" /><bpmn:sequenceFlow id=\"sid-8388122A-63B7-4A69-9D97-1148EFFB0D01\" targetRef=\"sid-286A2168-96D9-49CA-A80A-85F22D57CBAC\" /><bpmn:sequenceFlow id=\"sid-06984D4E-7124-4E47-BABC-170D95B67C47\" targetRef=\"sid-E2425250-08EF-4306-BFF6-DA2724C91261\" /><bpmn:sequenceFlow id=\"sid-5431A2FA-7CA6-484D-BF6D-4337F7242776\" targetRef=\"sid-B36C9DFD-A2A8-4E9F-A019-06199257793F\" /><bpmn:sequenceFlow id=\"sid-EC81D27B-5F59-41B4-BCDC-1BD801BB47CC\" targetRef=\"sid-98F46804-18A9-4697-A3BF-6291BBBEC922\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-5C13984E-5CC8-42C9-9A7D-5CEAE283461C\" targetRef=\"sid-E0AFC882-D22C-48B0-9B70-7802FBAF5699\" /><bpmn:sequenceFlow id=\"sid-1B7E2AC8-36EB-4E44-9D19-5C26B200A74B\" targetRef=\"sid-8B7C1345-3A3B-46DF-AA73-82EADEB24FC9\" /><bpmn:sequenceFlow id=\"sid-53E474D3-C413-49D4-94E1-9EC59BEDF5C5\" targetRef=\"sid-E2603BA4-52BA-4AAE-A720-007D729C3749\" /><bpmn:sequenceFlow id=\"sid-64AADE5C-4770-41C8-AF0E-52A82C9830DE\" targetRef=\"sid-286E64BB-DD7E-442E-90AB-BB2A6B071C41\" /><bpmn:sequenceFlow id=\"sid-8CBFBBDE-3F05-480A-A1BD-1BFB4B7073F9\" targetRef=\"sid-7EDE62EE-E273-4E47-8D33-8DF20DDF5A66\" /><bpmn:sequenceFlow id=\"sid-DEC26BF4-29D8-43E3-B995-BADF47C094AF\" targetRef=\"sid-3A4BE2E9-3CCB-4C76-834E-53A33F437F21\" /><bpmn:sequenceFlow id=\"sid-23B77002-A7A2-479B-8A16-B899BF787E40\" targetRef=\"sid-3DC54608-D18B-407B-BA8E-0F683099EF2A\" /><bpmn:sequenceFlow id=\"sid-25F91512-C9EE-4FA0-816A-27D05845A34C\" targetRef=\"sid-FB3C3403-64DD-44E6-89ED-1A1F78CCB8E9\" /><bpmn:sequenceFlow id=\"sid-C375320F-C03D-46B1-9298-00C6B84F56EE\" targetRef=\"sid-8448A43E-27BA-44B6-9D37-38B06D4D6AF4\" /><bpmn:sequenceFlow id=\"sid-2870668D-1F27-4495-A16C-AC28701B1F29\" targetRef=\"sid-A4FC90F4-E464-4F3B-8F42-9F2712EDE35D\" /><bpmn:sequenceFlow id=\"sid-838CEA45-8DF3-4865-A2B1-970E29A5C411\" targetRef=\"sid-E9A27FCF-BF36-4F20-B41F-95C7522AE750\" /><bpmn:sequenceFlow id=\"sid-DBF7D5C3-57D8-450E-9712-FC2C9D881B25\" targetRef=\"sid-405DE817-CD0D-465A-956C-177F25F82F32\" /><bpmn:sequenceFlow id=\"sid-9FE5F2D9-0A70-42D6-BDDC-3198C1C9E798\" targetRef=\"sid-1C4E41C0-4D75-4515-BEE8-FAB279C2D2F3\" /><bpmn:sequenceFlow id=\"sid-0D9C79DE-448C-4D94-900E-5B3D8FEEA29B\" targetRef=\"sid-52E36CFD-FA36-4AB5-9FCE-C5103BAFF6B7\" /><bpmn:sequenceFlow id=\"sid-60379DEA-3A39-493F-A305-5F93EBA6A39F\" targetRef=\"sid-FCDDF74E-311D-4E1C-BE33-FFC984771E11\" /><bpmn:sequenceFlow id=\"sid-555ABDAD-1A55-4F93-897A-5D7242695AE4\" targetRef=\"sid-A58F5678-2ED2-4EAD-A26A-233D37B320AF\" /><bpmn:sequenceFlow id=\"sid-F18AB893-B379-4058-B261-D41F4D0BDB64\" targetRef=\"sid-96DCB267-D1D5-4AF2-9815-9330E3B06DFC\" /><bpmn:sequenceFlow id=\"sid-1049EA11-9C87-4ECF-BA76-4F4836840C6D\" targetRef=\"sid-988A0749-11AE-4B79-843F-85E651EC3BFE\" /><bpmn:sequenceFlow id=\"sid-952E3AC6-5E2F-4498-8D7A-70698ECA436A\" targetRef=\"sid-84EE05E8-D654-465D-A61C-1ED190ED8899\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-01-29 11:01:16",
+  "company": {
+    "company_id": 1994944,
+    "companyCode": "SYN-1094944",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Report provided by Suntech?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Report provided by Suntech?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.75
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Report provided by Suntech?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.25
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.38
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.62
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.29
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.71
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.45
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.31
+        },
+        {
+          "id": 10042,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.24
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1094944,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1094944-1",
+        "task_company_id": null,
+        "task_name": "1.0 Generate Reports from BSS",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-30B254BD-2C9B-47C4-A9B1-AB31797500F6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 186,
+        "expected_rework_time": 45,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 19.05,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 73,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1094944,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1094944-2",
+        "task_company_id": null,
+        "task_name": "2.0 Review AR Aging Report",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-988A0749-11AE-4B79-843F-85E651EC3BFE.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 5,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 29,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 15.49,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 67,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1094944,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1094944-3",
+        "task_company_id": null,
+        "task_name": "3.0 Identify Accounts with Outstanding Balance",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-84EE05E8-D654-465D-A61C-1ED190ED8899.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 213,
+        "expected_rework_time": 28,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 14.53,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 1094944,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-1094944-4",
+        "task_company_id": null,
+        "task_name": "7.0 Review Updated AR Aging Report",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-52ED8996-9D05-4C05-A380-4DA6F9CB0478.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 88,
+        "expected_rework_time": 5,
+        "expected_waiting_time": 19,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 6.93,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 5,
+              "hourlyRate": 94,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 1094944,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-1094944-5",
+        "task_company_id": null,
+        "task_name": "10.0 Bash ADS Report with Generated Reports",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A58F5678-2ED2-4EAD-A26A-233D37B320AF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 167,
+        "expected_rework_time": 35,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 2.79,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 1094944,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-1094944-6",
+        "task_company_id": null,
+        "task_name": "11.0 Generate Valid List of Accounts for Disconnection (3 hrs)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-96DCB267-D1D5-4AF2-9815-9330E3B06DFC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 167,
+        "expected_rework_time": 13,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 15.47,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 98,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 1094944,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-1094944-7",
+        "task_company_id": null,
+        "task_name": "13.0 Validate List Against Payments Module in BSS (2 hrs)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2E880710-33E0-4CA6-8CB6-AB7C83F43884.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 6,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 6,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5007,
+            "role": "I",
+            "time_allocation_percentage": 13.27,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 6,
+              "hourlyRate": 45,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 1094944,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-1094944-8",
+        "task_company_id": null,
+        "task_name": "9.0 Generate Reports for Validation",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9F5A5544-AA74-49B5-8554-8C8392B8050A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 220,
+        "expected_rework_time": 13,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5008,
+            "role": "C",
+            "time_allocation_percentage": 2.44,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 5,
+              "hourlyRate": 79,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 1094944,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-1094944-9",
+        "task_company_id": null,
+        "task_name": "14.0 Identify Accounts with Network Activation Issues (4 hrs)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1C4E41C0-4D75-4515-BEE8-FAB279C2D2F3.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 220,
+        "expected_rework_time": 44,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5009,
+            "role": "A",
+            "time_allocation_percentage": 15.08,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 4,
+              "hourlyRate": 77,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "d553506df6604013937f8a52f98a9ef2",
+    "model_id": "8fc1d37f6d2947869730602b79c0fbc5",
+    "organization_id": "a41dff7dee3146b98c614702f6e17e3a"
+  }
+}

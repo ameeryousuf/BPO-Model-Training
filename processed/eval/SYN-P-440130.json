@@ -1,0 +1,323 @@
+{
+  "process_id": 440130,
+  "company_id": 1340130,
+  "created_at": "2018-04-23 00:09:17",
+  "updated_at": "2018-04-23 00:09:17",
+  "capacity_requirement_minutes": 518,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-440130",
+  "process_name": "4.a Execute Goods Issue (click save)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-440130\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-440130\" name=\"4.a Execute Goods Issue (click save)\" isExecutable=\"false\"><bpmn:task id=\"sid-F4A02867-62C4-4645-9A95-E5F073D3AA09\" name=\"Error message displayed for material not available\" /><bpmn:task id=\"sid-B4385A4D-8552-4443-A80F-A3C03BC84512\" name=\"Reduce Inventory of Materials\" /><bpmn:task id=\"sid-04D66EB6-0ED6-473F-B337-C7E5B0E0A4A9\" name=\"Post costs of materials sent to production order\" /><bpmn:task id=\"sid-B4E8EB33-18BF-4C69-8AE0-C0480E519E20\" name=\"update G/L account\" /><bpmn:task id=\"sid-13DFA6B9-0C19-42E7-A2B4-DDF3FE4D1D8F\" name=\"Post goods issue against Production Order\" /><bpmn:startEvent id=\"sid-E8DACE33-B163-4915-8028-D654B5FEE5A7\" name=\"start\" /><bpmn:endEvent id=\"sid-62D2504B-38AD-437F-9FBE-A1C15EB6138B\" name=\"\" /><bpmn:endEvent id=\"sid-8CFEBAA5-C1C1-4E05-91EA-1DA0B3C6998E\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-53F0A84F-B043-43A8-808D-5E1D7484CD30\" name=\"\" /><bpmn:sequenceFlow id=\"sid-24E20BAD-D76F-414A-B2D3-D1565327E962\" targetRef=\"sid-53F0A84F-B043-43A8-808D-5E1D7484CD30\" /><bpmn:sequenceFlow id=\"sid-6D9C3412-852E-48FA-A993-9996912112D3\" targetRef=\"sid-F4A02867-62C4-4645-9A95-E5F073D3AA09\" name=\"material unavailable\" /><bpmn:sequenceFlow id=\"sid-17371F47-421E-4182-B3DC-AE9FFCA03297\" targetRef=\"sid-B4385A4D-8552-4443-A80F-A3C03BC84512\" name=\"material&#10;available\" /><bpmn:sequenceFlow id=\"sid-6FD4FD25-F8D2-4E21-96A6-BDBA08978B69\" targetRef=\"sid-04D66EB6-0ED6-473F-B337-C7E5B0E0A4A9\" /><bpmn:sequenceFlow id=\"sid-574F694B-3A26-4E30-9A4A-53FFFA200BCD\" targetRef=\"sid-B4E8EB33-18BF-4C69-8AE0-C0480E519E20\" /><bpmn:sequenceFlow id=\"sid-FA800345-27E5-4427-99F1-FC77DD0BDDE1\" targetRef=\"sid-13DFA6B9-0C19-42E7-A2B4-DDF3FE4D1D8F\" /><bpmn:sequenceFlow id=\"sid-D76BEA4A-EBB1-4CF9-B49C-80F46DE6C526\" targetRef=\"sid-62D2504B-38AD-437F-9FBE-A1C15EB6138B\" /><bpmn:sequenceFlow id=\"sid-E76DD252-7506-41EA-9BD7-006DC0FE72E3\" targetRef=\"sid-8CFEBAA5-C1C1-4E05-91EA-1DA0B3C6998E\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-04-23 00:09:17",
+  "company": {
+    "company_id": 1340130,
+    "companyCode": "SYN-440130",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.65
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.35
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 440130,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-440130-1",
+        "task_company_id": null,
+        "task_name": "Error message displayed for material not available",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F4A02867-62C4-4645-9A95-E5F073D3AA09.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 132,
+        "expected_rework_time": 13,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 12.41,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 5,
+              "hourlyRate": 83,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 440130,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-440130-2",
+        "task_company_id": null,
+        "task_name": "Reduce Inventory of Materials",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B4385A4D-8552-4443-A80F-A3C03BC84512.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 152,
+        "expected_rework_time": 26,
+        "expected_waiting_time": 30,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 9.22,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 440130,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-440130-3",
+        "task_company_id": null,
+        "task_name": "Post costs of materials sent to production order",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-04D66EB6-0ED6-473F-B337-C7E5B0E0A4A9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 53,
+        "expected_rework_time": 8,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 17.85,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 53,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 440130,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-440130-4",
+        "task_company_id": null,
+        "task_name": "update G/L account",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B4E8EB33-18BF-4C69-8AE0-C0480E519E20.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 138,
+        "expected_rework_time": 14,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 3.83,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 5,
+              "hourlyRate": 17,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 440130,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-440130-5",
+        "task_company_id": null,
+        "task_name": "Post goods issue against Production Order",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-13DFA6B9-0C19-42E7-A2B4-DDF3FE4D1D8F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 43,
+        "expected_rework_time": 6,
+        "expected_waiting_time": 6,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 8.92,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 2,
+              "hourlyRate": 26,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "4f40030a12d44b6b95088fd11049bde0",
+    "model_id": "c809e24e38ca432cbf314ed56d698236",
+    "organization_id": "f3966442e2f846c6aeb7cdd7cc18387a"
+  }
+}

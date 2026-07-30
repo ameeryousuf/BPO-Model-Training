@@ -1,0 +1,198 @@
+{
+  "process_id": 441335,
+  "company_id": 1341335,
+  "created_at": "2020-05-20 15:48:53",
+  "updated_at": "2020-05-20 15:48:53",
+  "capacity_requirement_minutes": 136,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-441335",
+  "process_name": "Check-in customer",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-441335\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-441335\" name=\"Check-in customer\" isExecutable=\"false\"><bpmn:task id=\"sid-B12F883E-3145-4B59-9C8D-BBB987FCAD79\" name=\"Check government database\" /><bpmn:task id=\"sid-1A261D62-257F-4FCD-9D99-E63A14FC9F10\" name=\"Approve paperwork\" /><bpmn:startEvent id=\"sid-2157FA2E-8DC9-4B0D-A880-337144D4A38A\" name=\"customer arrived at the reception\" /><bpmn:endEvent id=\"sid-FA80C025-4936-4259-AB47-28B9DFC9FB14\" name=\"Customer turned away\" /><bpmn:endEvent id=\"sid-788FBC27-E397-4B96-AC65-E4F1E317CAC5\" name=\"paperwork approved\" /><bpmn:exclusiveGateway id=\"sid-8450C0F0-EAA4-4F92-B7F8-107E864830C9\" name=\"\" /><bpmn:sequenceFlow id=\"sid-3599F99A-0F46-4B8B-B859-6599C5B6C436\" targetRef=\"sid-B12F883E-3145-4B59-9C8D-BBB987FCAD79\" /><bpmn:sequenceFlow id=\"sid-229F9263-BB1A-4362-BF37-9A86DB825F3B\" targetRef=\"sid-8450C0F0-EAA4-4F92-B7F8-107E864830C9\" /><bpmn:sequenceFlow id=\"sid-22A2C031-BF47-40FC-8E61-CE9169BC103B\" targetRef=\"sid-1A261D62-257F-4FCD-9D99-E63A14FC9F10\" /><bpmn:sequenceFlow id=\"sid-13332F72-F0BB-4CA5-AD67-368A8A6B99BF\" targetRef=\"sid-FA80C025-4936-4259-AB47-28B9DFC9FB14\" name=\"Insurance&#10; fee or tax&#10; is not paid\" /><bpmn:sequenceFlow id=\"sid-8CA54C8D-C8D5-4B30-9BF5-DE2BE3B9723E\" targetRef=\"sid-788FBC27-E397-4B96-AC65-E4F1E317CAC5\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-05-20 15:48:53",
+  "company": {
+    "company_id": 1341335,
+    "companyCode": "SYN-441335",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.19
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.81
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 441335,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-441335-1",
+        "task_company_id": null,
+        "task_name": "Check government database",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B12F883E-3145-4B59-9C8D-BBB987FCAD79.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 114,
+        "expected_rework_time": 21,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 6.35,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 66,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 441335,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-441335-2",
+        "task_company_id": null,
+        "task_name": "Approve paperwork",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1A261D62-257F-4FCD-9D99-E63A14FC9F10.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 22,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 12.97,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 118,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 13.74,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 85,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "fb4da5e022d545119aa76eb12b1cfe0e",
+    "model_id": "c859da539e4849e1ba26b602104fba84",
+    "organization_id": "a0f39d3941f4438e976e1e4c2f214315"
+  }
+}

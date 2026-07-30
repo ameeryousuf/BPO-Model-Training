@@ -1,0 +1,2259 @@
+{
+  "process_id": 827035,
+  "company_id": 1727035,
+  "created_at": "2018-01-14 20:06:03",
+  "updated_at": "2018-01-14 20:06:03",
+  "capacity_requirement_minutes": 2925,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-827035",
+  "process_name": "Stroke Process zonder signals (Copy)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-827035\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-827035\" name=\"Stroke Process zonder signals (Copy)\" isExecutable=\"false\"><bpmn:task id=\"sid-7B397C29-C1D0-4B6B-AC62-7775D23CD76C\" name=\"Assign Transport Carrier\" /><bpmn:task id=\"sid-606D74CF-B2D1-4670-A7F2-1583F098ABB3\" name=\"Depart to emergency ward\" /><bpmn:task id=\"sid-2DD25415-3189-41D5-B97D-2DC5EFE895BA\" name=\"Select Alternative CT Machine\" /><bpmn:task id=\"sid-B18438A7-8D4B-432B-9B10-4CA9F9F53BC2\" name=\"Prepare CT Machine\" /><bpmn:task id=\"sid-E4AD241D-CC83-42C4-8283-787784409B19\" name=\"Communicate unique identifier\" /><bpmn:task id=\"sid-2D137EC1-5567-4438-97E0-E432CE92857E\" name=\"Admit Patient\" /><bpmn:task id=\"sid-F9FF8302-0640-4F29-8A04-B783AD022569\" name=\"Conduct CT scan\" /><bpmn:task id=\"sid-185BB779-BBA0-4A5F-83D3-53E79CEA99AA\" name=\"Evaluate blood report\" /><bpmn:task id=\"sid-F0BDC8C5-C0E3-44F1-98B1-4FD4A51BC5D3\" name=\"Perform Thrombolysis Analysis\" /><bpmn:task id=\"sid-7E2152DE-7FED-4291-8782-FB30737AFD9D\" name=\"Transport patient to Emergency Ward\" /><bpmn:task id=\"sid-80E91AE7-89AC-4DF5-A0AD-5AEEF65D5CE7\" name=\"Check availability Standard CT Machine\" /><bpmn:task id=\"sid-AE58A238-5628-41B8-A860-57B23DA37F94\" name=\"Analyze Blood Sample\" /><bpmn:task id=\"sid-BD10C0E5-1D19-46E0-9B97-9E15EAD3AF70\" name=\"Notify Neurology Unit\" /><bpmn:task id=\"sid-ED704A25-89CA-4835-BF24-C8FE395D453F\" name=\"Transmit analyzed blood sample report to radiology\" /><bpmn:task id=\"sid-A1BB1F73-4715-4370-B374-D903248E9325\" name=\"Activate Stroke Alarm\" /><bpmn:task id=\"sid-40983B0B-72CE-4362-A950-0C040BB3B741\" name=\"Perform Emergency Internist Assessment\" /><bpmn:task id=\"sid-BBBCCAC9-0C23-4A09-B0F2-2B56870FFE89\" name=\"Notify Relevant Units\" /><bpmn:task id=\"sid-0A25E07C-EFAF-41DD-8C68-0F4C4CD0CACC\" name=\"Assess treatment\" /><bpmn:task id=\"sid-7A13D27B-BFBF-48EE-B19C-60C34AC6276E\" name=\"Perform Emergency Neurological Assessment\" /><bpmn:task id=\"sid-E5179B39-3720-4F78-8858-D27374FE452D\" name=\"Create internal medicine report\" /><bpmn:task id=\"sid-0C62C211-EA2A-404E-BF0C-56F896792D4D\" name=\"Add Internal Medicine report to patient medical file\" /><bpmn:task id=\"sid-5765DDA7-8454-41EC-9B1B-B77E0E776013\" name=\"Transport patient to Radiology Unit\" /><bpmn:task id=\"sid-145E6DAE-3F5A-4575-A9C2-0AA65FD62483\" name=\"Determine nature of stroke\" /><bpmn:task id=\"sid-A04A4E6D-842E-48E7-9833-A87F33CDC5FD\" name=\"Create Neurological Report\" /><bpmn:task id=\"sid-C1C6AA8A-9767-48A8-AE53-54D288108E20\" name=\"Monitor Patient\" /><bpmn:intermediateCatchEvent id=\"sid-7CFD0408-0D7C-4BD5-BB61-258D89C71932\" name=\"Acute treatment not necessary or impossible\" /><bpmn:endEvent id=\"sid-22E0D76C-2E77-45CB-87A1-D2D4085C855F\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-4D8CBEC6-DEFA-45EC-94EA-55FF847CA8B8\" name=\"Wait until CT machine availabe\" /><bpmn:intermediateCatchEvent id=\"sid-05D1E929-5E52-480D-87EC-377EE977E33D\" name=\"Patient succumbs to stroke\" /><bpmn:intermediateCatchEvent id=\"sid-CB197AA6-86FC-4F3E-AC21-C6A8DFEB1644\" name=\"\" /><bpmn:endEvent id=\"sid-C2159310-DD4D-48F6-B7FB-E0E240BF35AF\" name=\"End\" /><bpmn:intermediateCatchEvent id=\"sid-A1AF01B1-BC77-4ACC-BBFD-B83F727A597A\" name=\"Wait until patient arrives\" /><bpmn:endEvent id=\"sid-C7F012EC-A17F-490A-813F-A1870365F716\" name=\"End\" /><bpmn:startEvent id=\"sid-F0497A66-285D-4132-AD9A-9DEAC7B2F7E7\" name=\"Patient Admitted\" /><bpmn:endEvent id=\"sid-AF43FD0A-7CA7-49C3-931F-1A70E7B2420A\" name=\"Treatment not necessary or impossible\" /><bpmn:endEvent id=\"sid-208D80D8-EB5E-45E0-98B9-568A4A9B1C8B\" name=\"\" /><bpmn:parallelGateway id=\"sid-8B7CE70C-E020-41EA-AC07-30BDF737F4A2\" name=\"\" /><bpmn:parallelGateway id=\"sid-7A44C396-2134-47BF-8825-696C403C9D57\" name=\"\" /><bpmn:eventBasedGateway id=\"sid-985EB750-D69F-4AD9-BB4E-D833766E5BD4\" name=\"\" /><bpmn:parallelGateway id=\"sid-80056636-297D-4BCE-B081-B9146DBE982B\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-C9788097-53B0-442D-A614-9C1451C6F339\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-20B114CA-E05F-4973-871E-D7A0AF9FEEED\" name=\"\" /><bpmn:parallelGateway id=\"sid-EE0353A0-9D8E-415C-A2CC-AB0736DB0153\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-B2B9DF83-CFAB-4AA9-9B21-23767B95779C\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-3422FEAC-9924-4A2E-B180-685DEE61BE23\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-80C2888B-379C-4E48-8CBF-E8841A3434F5\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-1F2EE743-3D41-4C62-AA59-2E32973DDCF0\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-19140301-FA20-41B4-8CEB-527C0967C88E\" name=\"\" /><bpmn:parallelGateway id=\"sid-DE326CDB-7919-46D6-A51E-A4594E083B8B\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-867CD4CA-E0BA-4AC6-ACEC-8D5F6C8AF5A1\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-9720F9E4-2CF8-4B7C-A9C1-FB7620D7DDCE\" name=\"\" /><bpmn:parallelGateway id=\"sid-915FCB78-BDDC-4E78-9769-2113A6FEC08C\" name=\"\" /><bpmn:parallelGateway id=\"sid-503E3F56-2270-4E59-AA8F-BBA1E1FF4B03\" name=\"\" /><bpmn:inclusiveGateway id=\"sid-5C1F827A-16C1-4921-B3AA-66611B801D52\" name=\"\" /><bpmn:inclusiveGateway id=\"sid-35AEC8E9-F969-4919-B3F2-148957C50731\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-5DA5FDB3-50B7-4BDE-BD3F-E7592B709353\" name=\"\" /><bpmn:parallelGateway id=\"sid-46D8986F-2909-4FBE-BAF4-083E7DA4A574\" name=\"\" /><bpmn:parallelGateway id=\"sid-98D1452D-8662-4353-AC11-80CB14B7CC89\" name=\"\" /><bpmn:inclusiveGateway id=\"sid-22E8C555-BD61-4297-BCB8-80E291C99485\" name=\"\" /><bpmn:sequenceFlow id=\"sid-A63FA3CD-395C-43E5-A4D5-5C142E58E0F5\" targetRef=\"sid-A04A4E6D-842E-48E7-9833-A87F33CDC5FD\" /><bpmn:sequenceFlow id=\"sid-21BF6B7D-FCAC-4849-9A9E-F37B60C825CC\" targetRef=\"sid-0F5FC899-5553-43EB-864B-085B2717DB8A\" /><bpmn:sequenceFlow id=\"sid-CEC6B211-0534-4ACA-A834-1640A71BD4D8\" targetRef=\"sid-9720F9E4-2CF8-4B7C-A9C1-FB7620D7DDCE\" /><bpmn:sequenceFlow id=\"sid-8C09978F-0413-4541-9B87-CFEF50A9221B\" targetRef=\"sid-915FCB78-BDDC-4E78-9769-2113A6FEC08C\" /><bpmn:sequenceFlow id=\"sid-86F1F2ED-AF66-4399-B073-D191C028757C\" targetRef=\"sid-0A25E07C-EFAF-41DD-8C68-0F4C4CD0CACC\" /><bpmn:sequenceFlow id=\"sid-3E788F73-852B-4240-A2F0-60A7F0BD534C\" targetRef=\"sid-35AEC8E9-F969-4919-B3F2-148957C50731\" /><bpmn:sequenceFlow id=\"sid-B2E4B446-B3D4-4A9E-B334-5FAA0FC63346\" targetRef=\"sid-35AEC8E9-F969-4919-B3F2-148957C50731\" /><bpmn:sequenceFlow id=\"sid-65C076C6-9D61-4B4C-B763-6BBA9DA3F1CA\" targetRef=\"sid-0C62C211-EA2A-404E-BF0C-56F896792D4D\" /><bpmn:sequenceFlow id=\"sid-9FF3E1CA-67D2-4251-A2B7-FE71F427CB4F\" targetRef=\"sid-7CFD0408-0D7C-4BD5-BB61-258D89C71932\" /><bpmn:sequenceFlow id=\"sid-2B28FC2F-0DE8-4808-8DEC-99198C973C5A\" targetRef=\"sid-80E91AE7-89AC-4DF5-A0AD-5AEEF65D5CE7\" /><bpmn:sequenceFlow id=\"sid-A9A91A72-41EB-48E7-BF21-2E060DBCC4B9\" targetRef=\"sid-B18438A7-8D4B-432B-9B10-4CA9F9F53BC2\" /><bpmn:sequenceFlow id=\"sid-C5E905F6-A6B6-4F40-970B-F90562722207\" targetRef=\"sid-80056636-297D-4BCE-B081-B9146DBE982B\" /><bpmn:sequenceFlow id=\"sid-DB8F5173-50ED-459B-80A4-FA4FF1699F55\" targetRef=\"sid-22E0D76C-2E77-45CB-87A1-D2D4085C855F\" /><bpmn:sequenceFlow id=\"sid-0854D7F4-F303-4636-8148-937EB919CC1A\" targetRef=\"sid-4D8CBEC6-DEFA-45EC-94EA-55FF847CA8B8\" /><bpmn:sequenceFlow id=\"sid-18BF194B-BE2A-4D0C-B8E4-99C8013C69AA\" targetRef=\"sid-F9FF8302-0640-4F29-8A04-B783AD022569\" /><bpmn:sequenceFlow id=\"sid-19FF8DE7-412D-40B3-9166-86EC4E6DEF69\" targetRef=\"sid-5765DDA7-8454-41EC-9B1B-B77E0E776013\" /><bpmn:sequenceFlow id=\"sid-A00DBC8B-CC19-46D6-8355-0890C785FD56\" targetRef=\"sid-80056636-297D-4BCE-B081-B9146DBE982B\" /><bpmn:sequenceFlow id=\"sid-BFB398BD-4C84-4461-8E51-7C9DE4E08539\" targetRef=\"sid-208D80D8-EB5E-45E0-98B9-568A4A9B1C8B\" /><bpmn:sequenceFlow id=\"sid-83A520CC-18B0-4841-A5C1-81D0114D601E\" targetRef=\"sid-985EB750-D69F-4AD9-BB4E-D833766E5BD4\" /><bpmn:sequenceFlow id=\"sid-577D34FB-C331-45A5-999A-00C1AA84D406\" targetRef=\"sid-8B7CE70C-E020-41EA-AC07-30BDF737F4A2\" /><bpmn:sequenceFlow id=\"sid-5A03965C-7CAA-4BFD-BCD9-96BD845F1AEA\" targetRef=\"sid-E4AD241D-CC83-42C4-8283-787784409B19\" /><bpmn:sequenceFlow id=\"sid-71E67972-CA85-4027-B2A5-1E22E414BF1A\" targetRef=\"sid-C2159310-DD4D-48F6-B7FB-E0E240BF35AF\" name=\"Patient succumbs\" /><bpmn:sequenceFlow id=\"sid-6EB70507-9501-4EF0-A616-37A4FD3AF0A2\" targetRef=\"sid-20B114CA-E05F-4973-871E-D7A0AF9FEEED\" /><bpmn:sequenceFlow id=\"sid-18643C45-DA77-4AB4-82C8-87A84A87134E\" targetRef=\"sid-7A44C396-2134-47BF-8825-696C403C9D57\" /><bpmn:sequenceFlow id=\"sid-35580937-CCC1-4085-BC79-741C96AAA90D\" targetRef=\"sid-46D8986F-2909-4FBE-BAF4-083E7DA4A574\" /><bpmn:sequenceFlow id=\"sid-675F66E8-4C51-406C-A925-825709F0BE36\" targetRef=\"sid-A1AF01B1-BC77-4ACC-BBFD-B83F727A597A\" /><bpmn:sequenceFlow id=\"sid-4D990C20-DDC6-4B8C-8112-2BCDA93C6918\" targetRef=\"sid-606D74CF-B2D1-4670-A7F2-1583F098ABB3\" /><bpmn:sequenceFlow id=\"sid-B03FD0DE-B74E-4129-8791-43DA96E17525\" targetRef=\"sid-C1C6AA8A-9767-48A8-AE53-54D288108E20\" /><bpmn:sequenceFlow id=\"sid-A0EDD55F-3354-4857-ABE8-81F4716F8FE0\" targetRef=\"sid-2D137EC1-5567-4438-97E0-E432CE92857E\" /><bpmn:sequenceFlow id=\"sid-8AEA0B71-1A53-4FBB-BF07-838A105765BC\" targetRef=\"sid-A1BB1F73-4715-4370-B374-D903248E9325\" name=\"Patient exhibits stroke symptoms\" /><bpmn:sequenceFlow id=\"sid-E14618C4-20CA-4955-8CD9-782A5F7EE5BA\" targetRef=\"sid-98D1452D-8662-4353-AC11-80CB14B7CC89\" /><bpmn:sequenceFlow id=\"sid-53CBCEEE-A6B5-4A14-A4A0-7C567E6ABC28\" targetRef=\"sid-BBBCCAC9-0C23-4A09-B0F2-2B56870FFE89\" /><bpmn:sequenceFlow id=\"sid-26C55750-3657-48B7-AFDD-0CD889DF31F9\" targetRef=\"sid-19140301-FA20-41B4-8CEB-527C0967C88E\" /><bpmn:sequenceFlow id=\"sid-13FC8917-D4E9-4FBD-8855-72083F7A78BB\" targetRef=\"sid-BD10C0E5-1D19-46E0-9B97-9E15EAD3AF70\" name=\"Extreme urgency\" /><bpmn:sequenceFlow id=\"sid-A0CEB551-9AD5-47B4-83C9-E8EC7ACE1124\" targetRef=\"sid-22E8C555-BD61-4297-BCB8-80E291C99485\" /><bpmn:sequenceFlow id=\"sid-8FE83298-3ABC-4E6B-BC65-1ECDE999D9AB\" targetRef=\"sid-145E6DAE-3F5A-4575-A9C2-0AA65FD62483\" /><bpmn:sequenceFlow id=\"sid-7A7298E7-1A8E-418F-BB32-F400D7DBFBE9\" targetRef=\"sid-503E3F56-2270-4E59-AA8F-BBA1E1FF4B03\" /><bpmn:sequenceFlow id=\"sid-665FC2EF-0200-42AE-B27E-5FDC7FBEBD87\" targetRef=\"sid-503E3F56-2270-4E59-AA8F-BBA1E1FF4B03\" /><bpmn:sequenceFlow id=\"sid-58B5207C-60F1-4CB8-BE2C-ABA6A8B462E2\" targetRef=\"sid-DE326CDB-7919-46D6-A51E-A4594E083B8B\" /><bpmn:sequenceFlow id=\"sid-DAE81326-B67D-4143-A456-F54D9EAEE89A\" targetRef=\"sid-867CD4CA-E0BA-4AC6-ACEC-8D5F6C8AF5A1\" /><bpmn:sequenceFlow id=\"sid-BBB879AA-8364-4C78-A7FE-3911D9E96B38\" targetRef=\"sid-867CD4CA-E0BA-4AC6-ACEC-8D5F6C8AF5A1\" name=\"No extreme urgency\" /><bpmn:sequenceFlow id=\"sid-2D8C898C-21F0-4710-83E1-B535A3F6EB89\" targetRef=\"sid-ED704A25-89CA-4835-BF24-C8FE395D453F\" /><bpmn:sequenceFlow id=\"sid-5ACF26B1-D3D0-42A9-8D53-9CB9C3562F80\" targetRef=\"sid-AE58A238-5628-41B8-A860-57B23DA37F94\" /><bpmn:sequenceFlow id=\"sid-2AF46A61-73A8-46C2-B194-B52AC86C16BB\" targetRef=\"sid-E5179B39-3720-4F78-8858-D27374FE452D\" /><bpmn:sequenceFlow id=\"sid-0AA343ED-3302-4D61-96F2-30BA05A67D42\" targetRef=\"sid-92082165-EBC5-4385-AD97-97B1CDEBBE44\" /><bpmn:sequenceFlow id=\"sid-CCD61F7F-9A14-4718-9D8F-FC38B69EDD3B\" targetRef=\"sid-7B397C29-C1D0-4B6B-AC62-7775D23CD76C\" /><bpmn:sequenceFlow id=\"sid-A06BAAB9-1CDD-4C33-8C8D-FF0EE07BA441\" targetRef=\"sid-03572FC4-3D15-4F3B-BCE8-600376468C9F\" /><bpmn:sequenceFlow id=\"sid-82CA304F-ED9B-4CE6-87EC-DFD36D33E3EE\" targetRef=\"sid-22E8C555-BD61-4297-BCB8-80E291C99485\" /><bpmn:sequenceFlow id=\"sid-AF03608C-3849-48E3-B17D-F016C3415D76\" targetRef=\"sid-DB8086E0-E9F6-4E9D-897B-D7276D660AE3\" /><bpmn:sequenceFlow id=\"sid-0D317A27-EA4F-40F4-AFFF-8031C3686CB8\" targetRef=\"sid-EE0353A0-9D8E-415C-A2CC-AB0736DB0153\" /><bpmn:sequenceFlow id=\"sid-76917D88-B728-48B7-AAC9-599DC92CE053\" targetRef=\"sid-85EE168C-1DE7-40B6-97A8-A66428E45671\" /><bpmn:sequenceFlow id=\"sid-0A4C4A7F-EEE5-41D7-85BE-7AEEFB000C0F\" targetRef=\"sid-C9788097-53B0-442D-A614-9C1451C6F339\" /><bpmn:sequenceFlow id=\"sid-1679A765-8C8B-480C-BA30-29669E39613E\" targetRef=\"sid-EE0353A0-9D8E-415C-A2CC-AB0736DB0153\" /><bpmn:sequenceFlow id=\"sid-7046FCBC-2158-49F6-A3F1-61A52C8CC63B\" targetRef=\"sid-185BB779-BBA0-4A5F-83D3-53E79CEA99AA\" name=\"Blood thinners used\" /><bpmn:sequenceFlow id=\"sid-9EC6D6BD-35C1-4B33-B08A-A177234EC72B\" targetRef=\"sid-B2B9DF83-CFAB-4AA9-9B21-23767B95779C\" /><bpmn:sequenceFlow id=\"sid-E4747C33-ED5C-416C-BD9A-60156938DFE7\" targetRef=\"sid-F0BDC8C5-C0E3-44F1-98B1-4FD4A51BC5D3\" /><bpmn:sequenceFlow id=\"sid-DA6AF643-3D7C-4A26-8EC2-F09ADC5B175A\" targetRef=\"sid-3422FEAC-9924-4A2E-B180-685DEE61BE23\" name=\"OK\" /><bpmn:sequenceFlow id=\"sid-3FC8582E-AAA6-4A32-8E71-61C3B437C1FE\" targetRef=\"sid-3422FEAC-9924-4A2E-B180-685DEE61BE23\" name=\"Blood thinners not used\" /><bpmn:sequenceFlow id=\"sid-0812AB9C-9EC3-4F96-BB87-4BD5EBED20D8\" targetRef=\"sid-80C2888B-379C-4E48-8CBF-E8841A3434F5\" /><bpmn:sequenceFlow id=\"sid-9137B595-B924-47A5-869C-FB67A3CACF0F\" targetRef=\"sid-80C2888B-379C-4E48-8CBF-E8841A3434F5\" name=\"NOK\" /><bpmn:sequenceFlow id=\"sid-4D82DA28-A336-4A7E-82DB-4AA5656D8D6F\" targetRef=\"sid-7E2152DE-7FED-4291-8782-FB30737AFD9D\" /><bpmn:sequenceFlow id=\"sid-0758C860-FED8-4800-AB9B-8BD3FDFA3C7F\" targetRef=\"sid-AF43FD0A-7CA7-49C3-931F-1A70E7B2420A\" name=\"Treatment not necessary or impossible\" /><bpmn:sequenceFlow id=\"sid-6FACA8E5-E031-49C8-9704-7EA60AED2018\" targetRef=\"sid-46D8986F-2909-4FBE-BAF4-083E7DA4A574\" name=\"Treatment possible\" /><bpmn:sequenceFlow id=\"sid-9C69B28D-81BD-4932-BBBC-94155D9A7513\" targetRef=\"sid-46D8986F-2909-4FBE-BAF4-083E7DA4A574\" /><bpmn:sequenceFlow id=\"sid-F6AF5806-8922-4BA3-AB3D-1D06B7A81F3B\" targetRef=\"sid-2D137EC1-5567-4438-97E0-E432CE92857E\" /><bpmn:sequenceFlow id=\"sid-FEBB4846-C75A-41F5-80D5-B9163C633A2A\" targetRef=\"sid-C7F012EC-A17F-490A-813F-A1870365F716\" name=\"Patient does not exhibit&#10;stroke symptoms\" /><bpmn:sequenceFlow id=\"sid-6E978E0D-A3C1-407B-9B54-35169D89E872\" targetRef=\"sid-5C1F827A-16C1-4921-B3AA-66611B801D52\" /><bpmn:sequenceFlow id=\"sid-CA62C5C6-8C3D-4B64-82AA-695DF75726EE\" targetRef=\"sid-35AEC8E9-F969-4919-B3F2-148957C50731\" /><bpmn:sequenceFlow id=\"sid-A8EB6410-BBF8-4B5B-9505-EF8D0A4E55C7\" targetRef=\"sid-5DA5FDB3-50B7-4BDE-BD3F-E7592B709353\" /><bpmn:sequenceFlow id=\"sid-1082A88C-CB22-4F58-A9DD-BF584D33433C\" targetRef=\"sid-7A13D27B-BFBF-48EE-B19C-60C34AC6276E\" name=\"Neurological report&#10;insufficient\" /><bpmn:sequenceFlow id=\"sid-335E45A3-C71C-4B33-8FA0-5F0BAE6B0DD5\" targetRef=\"sid-40983B0B-72CE-4362-A950-0C040BB3B741\" name=\"Internist report insufficient\" /><bpmn:sequenceFlow id=\"sid-796D84B4-3F0A-48FC-8E6F-C32F2D59B182\" targetRef=\"sid-1F2EE743-3D41-4C62-AA59-2E32973DDCF0\" /><bpmn:sequenceFlow id=\"sid-C5EE74C8-00AB-45AB-8F5B-2F03E07722FB\" targetRef=\"sid-2DD25415-3189-41D5-B97D-2DC5EFE895BA\" name=\"NOK\" /><bpmn:sequenceFlow id=\"sid-59DB1335-3D5E-4152-B0D2-7400FE9DB4AE\" targetRef=\"sid-20B114CA-E05F-4973-871E-D7A0AF9FEEED\" name=\"OK\" /><bpmn:sequenceFlow id=\"sid-CF7EB631-5EFF-4797-B617-F4DF46196A5E\" targetRef=\"sid-6B83091D-262D-4088-AD56-7F689CDFDD7E\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-01-14 20:06:03",
+  "company": {
+    "company_id": 1727035,
+    "companyCode": "SYN-827035",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.36
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.29
+        },
+        {
+          "id": 10012,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.35
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.7
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.3
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.4
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.6
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.22
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.78
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 5",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.53
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.47
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1006,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 6",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10060,
+          "gateway_pk_id": 1006,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.72
+        },
+        {
+          "id": 10061,
+          "gateway_pk_id": 1006,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.28
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1007,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 7",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10070,
+          "gateway_pk_id": 1007,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.58
+        },
+        {
+          "id": 10071,
+          "gateway_pk_id": 1007,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.42
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1008,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 8",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10080,
+          "gateway_pk_id": 1008,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.66
+        },
+        {
+          "id": 10081,
+          "gateway_pk_id": 1008,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.34
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1009,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 9",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10090,
+          "gateway_pk_id": 1009,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.31
+        },
+        {
+          "id": 10091,
+          "gateway_pk_id": 1009,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.69
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1010,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 10",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10100,
+          "gateway_pk_id": 1010,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.77
+        },
+        {
+          "id": 10101,
+          "gateway_pk_id": 1010,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.23
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1011,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 11",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10110,
+          "gateway_pk_id": 1011,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.24
+        },
+        {
+          "id": 10111,
+          "gateway_pk_id": 1011,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.76
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1012,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 12",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10120,
+          "gateway_pk_id": 1012,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10121,
+          "gateway_pk_id": 1012,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1013,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 13",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10130,
+          "gateway_pk_id": 1013,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.81
+        },
+        {
+          "id": 10131,
+          "gateway_pk_id": 1013,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.19
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1014,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 14",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10140,
+          "gateway_pk_id": 1014,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.42
+        },
+        {
+          "id": 10141,
+          "gateway_pk_id": 1014,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.58
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1015,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 15",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10150,
+          "gateway_pk_id": 1015,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.5
+        },
+        {
+          "id": 10151,
+          "gateway_pk_id": 1015,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.5
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1016,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 16",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10160,
+          "gateway_pk_id": 1016,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        },
+        {
+          "id": 10161,
+          "gateway_pk_id": 1016,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.56
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1017,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 17",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10170,
+          "gateway_pk_id": 1017,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10171,
+          "gateway_pk_id": 1017,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1018,
+      "gateway_type": "INCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 18",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10180,
+          "gateway_pk_id": 1018,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        },
+        {
+          "id": 10181,
+          "gateway_pk_id": 1018,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.25
+        },
+        {
+          "id": 10182,
+          "gateway_pk_id": 1018,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.31
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1019,
+      "gateway_type": "INCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 19",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10190,
+          "gateway_pk_id": 1019,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.81
+        },
+        {
+          "id": 10191,
+          "gateway_pk_id": 1019,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.19
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1020,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 20",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10200,
+          "gateway_pk_id": 1020,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        },
+        {
+          "id": 10201,
+          "gateway_pk_id": 1020,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.56
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1021,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 21",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10210,
+          "gateway_pk_id": 1021,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.43
+        },
+        {
+          "id": 10211,
+          "gateway_pk_id": 1021,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.57
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1022,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 22",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10220,
+          "gateway_pk_id": 1022,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.29
+        },
+        {
+          "id": 10221,
+          "gateway_pk_id": 1022,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.31
+        },
+        {
+          "id": 10222,
+          "gateway_pk_id": 1022,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.1
+        },
+        {
+          "id": 10223,
+          "gateway_pk_id": 1022,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_4",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.3
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1023,
+      "gateway_type": "INCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 23",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10230,
+          "gateway_pk_id": 1023,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.34
+        },
+        {
+          "id": 10231,
+          "gateway_pk_id": 1023,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.66
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 827035,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-827035-1",
+        "task_company_id": null,
+        "task_name": "Assign Transport Carrier",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7B397C29-C1D0-4B6B-AC62-7775D23CD76C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 111,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 15,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 12.16,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 6,
+              "hourlyRate": 65,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 10.27,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 42,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 827035,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-827035-2",
+        "task_company_id": null,
+        "task_name": "Depart to emergency ward",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-606D74CF-B2D1-4670-A7F2-1583F098ABB3.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 179,
+        "expected_rework_time": 38,
+        "expected_waiting_time": 23,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 14.91,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 5,
+              "hourlyRate": 24,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 827035,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-827035-3",
+        "task_company_id": null,
+        "task_name": "Select Alternative CT Machine",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2DD25415-3189-41D5-B97D-2DC5EFE895BA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 202,
+        "expected_rework_time": 50,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 14.67,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 38,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 827035,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-827035-4",
+        "task_company_id": null,
+        "task_name": "Prepare CT Machine",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B18438A7-8D4B-432B-9B10-4CA9F9F53BC2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 45,
+        "expected_rework_time": 3,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 18.93,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 5,
+              "hourlyRate": 112,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 827035,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-827035-5",
+        "task_company_id": null,
+        "task_name": "Communicate unique identifier",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E4AD241D-CC83-42C4-8283-787784409B19.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 68,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 9,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "R",
+            "time_allocation_percentage": 2.42,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 120,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 827035,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-827035-6",
+        "task_company_id": null,
+        "task_name": "Admit Patient",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2D137EC1-5567-4438-97E0-E432CE92857E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 188,
+        "expected_rework_time": 38,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 1.69,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 3,
+              "hourlyRate": 109,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 16.34,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 4,
+              "hourlyRate": 30,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 827035,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-827035-7",
+        "task_company_id": null,
+        "task_name": "Conduct CT scan",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F9FF8302-0640-4F29-8A04-B783AD022569.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 192,
+        "expected_rework_time": 42,
+        "expected_waiting_time": 23,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 17.04,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 5,
+              "hourlyRate": 85,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 827035,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-827035-8",
+        "task_company_id": null,
+        "task_name": "Evaluate blood report",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-185BB779-BBA0-4A5F-83D3-53E79CEA99AA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 130,
+        "expected_rework_time": 23,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5008,
+            "role": "A",
+            "time_allocation_percentage": 2.31,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 1,
+              "hourlyRate": 55,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 11,
+            "task_id": 5008,
+            "role": "A",
+            "time_allocation_percentage": 17.08,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 1,
+              "hourlyRate": 97,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 827035,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-827035-9",
+        "task_company_id": null,
+        "task_name": "Perform Thrombolysis Analysis",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F0BDC8C5-C0E3-44F1-98B1-4FD4A51BC5D3.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 13,
+        "expected_rework_time": 2,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5009,
+            "role": "C",
+            "time_allocation_percentage": 19.11,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 6,
+              "hourlyRate": 20,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 827035,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-827035-10",
+        "task_company_id": null,
+        "task_name": "Transport patient to Emergency Ward",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7E2152DE-7FED-4291-8782-FB30737AFD9D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 139,
+        "expected_rework_time": 22,
+        "expected_waiting_time": 3,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5010,
+            "role": "C",
+            "time_allocation_percentage": 5.51,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 2,
+              "hourlyRate": 36,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 827035,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-827035-11",
+        "task_company_id": null,
+        "task_name": "Check availability Standard CT Machine",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-80E91AE7-89AC-4DF5-A0AD-5AEEF65D5CE7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 217,
+        "expected_rework_time": 35,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5011,
+            "role": "A",
+            "time_allocation_percentage": 14.36,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 3,
+              "hourlyRate": 26,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 827035,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-827035-12",
+        "task_company_id": null,
+        "task_name": "Analyze Blood Sample",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AE58A238-5628-41B8-A860-57B23DA37F94.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 148,
+        "expected_rework_time": 30,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 15,
+            "task_id": 5012,
+            "role": "I",
+            "time_allocation_percentage": 2.73,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 1,
+              "hourlyRate": 66,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 16,
+            "task_id": 5012,
+            "role": "A",
+            "time_allocation_percentage": 1.52,
+            "job": {
+              "job_id": 16,
+              "jobCode": "SYN-J-16",
+              "job_level_id": 5,
+              "hourlyRate": 61,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 827035,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-827035-13",
+        "task_company_id": null,
+        "task_name": "Notify Neurology Unit",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BD10C0E5-1D19-46E0-9B97-9E15EAD3AF70.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 127,
+        "expected_rework_time": 14,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 17,
+            "task_id": 5013,
+            "role": "R",
+            "time_allocation_percentage": 12.71,
+            "job": {
+              "job_id": 17,
+              "jobCode": "SYN-J-17",
+              "job_level_id": 1,
+              "hourlyRate": 104,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6014,
+      "process_id": 827035,
+      "task_id": 5014,
+      "order": 14,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5014,
+        "task_code": "SYN-T-827035-14",
+        "task_company_id": null,
+        "task_name": "Transmit analyzed blood sample report to radiology",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-ED704A25-89CA-4835-BF24-C8FE395D453F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 93,
+        "expected_rework_time": 14,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 18,
+            "task_id": 5014,
+            "role": "A",
+            "time_allocation_percentage": 1.62,
+            "job": {
+              "job_id": 18,
+              "jobCode": "SYN-J-18",
+              "job_level_id": 2,
+              "hourlyRate": 104,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 19,
+            "task_id": 5014,
+            "role": "A",
+            "time_allocation_percentage": 17.01,
+            "job": {
+              "job_id": 19,
+              "jobCode": "SYN-J-19",
+              "job_level_id": 4,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6015,
+      "process_id": 827035,
+      "task_id": 5015,
+      "order": 15,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5015,
+        "task_code": "SYN-T-827035-15",
+        "task_company_id": null,
+        "task_name": "Activate Stroke Alarm",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A1BB1F73-4715-4370-B374-D903248E9325.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 133,
+        "expected_rework_time": 15,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 20,
+            "task_id": 5015,
+            "role": "C",
+            "time_allocation_percentage": 13.56,
+            "job": {
+              "job_id": 20,
+              "jobCode": "SYN-J-20",
+              "job_level_id": 6,
+              "hourlyRate": 96,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6016,
+      "process_id": 827035,
+      "task_id": 5016,
+      "order": 16,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5016,
+        "task_code": "SYN-T-827035-16",
+        "task_company_id": null,
+        "task_name": "Perform Emergency Internist Assessment",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-40983B0B-72CE-4362-A950-0C040BB3B741.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 19,
+        "expected_rework_time": 2,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 21,
+            "task_id": 5016,
+            "role": "I",
+            "time_allocation_percentage": 12.72,
+            "job": {
+              "job_id": 21,
+              "jobCode": "SYN-J-21",
+              "job_level_id": 1,
+              "hourlyRate": 73,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6017,
+      "process_id": 827035,
+      "task_id": 5017,
+      "order": 17,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5017,
+        "task_code": "SYN-T-827035-17",
+        "task_company_id": null,
+        "task_name": "Notify Relevant Units",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BBBCCAC9-0C23-4A09-B0F2-2B56870FFE89.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 207,
+        "expected_rework_time": 12,
+        "expected_waiting_time": 1,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 22,
+            "task_id": 5017,
+            "role": "C",
+            "time_allocation_percentage": 15.06,
+            "job": {
+              "job_id": 22,
+              "jobCode": "SYN-J-22",
+              "job_level_id": 4,
+              "hourlyRate": 115,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6018,
+      "process_id": 827035,
+      "task_id": 5018,
+      "order": 18,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5018,
+        "task_code": "SYN-T-827035-18",
+        "task_company_id": null,
+        "task_name": "Assess treatment",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0A25E07C-EFAF-41DD-8C68-0F4C4CD0CACC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 116,
+        "expected_rework_time": 12,
+        "expected_waiting_time": 10,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 23,
+            "task_id": 5018,
+            "role": "I",
+            "time_allocation_percentage": 7.79,
+            "job": {
+              "job_id": 23,
+              "jobCode": "SYN-J-23",
+              "job_level_id": 3,
+              "hourlyRate": 115,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6019,
+      "process_id": 827035,
+      "task_id": 5019,
+      "order": 19,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5019,
+        "task_code": "SYN-T-827035-19",
+        "task_company_id": null,
+        "task_name": "Perform Emergency Neurological Assessment",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7A13D27B-BFBF-48EE-B19C-60C34AC6276E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 214,
+        "expected_rework_time": 32,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 24,
+            "task_id": 5019,
+            "role": "I",
+            "time_allocation_percentage": 4.23,
+            "job": {
+              "job_id": 24,
+              "jobCode": "SYN-J-24",
+              "job_level_id": 3,
+              "hourlyRate": 53,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6020,
+      "process_id": 827035,
+      "task_id": 5020,
+      "order": 20,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5020,
+        "task_code": "SYN-T-827035-20",
+        "task_company_id": null,
+        "task_name": "Create internal medicine report",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E5179B39-3720-4F78-8858-D27374FE452D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 15,
+        "expected_rework_time": 2,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 25,
+            "task_id": 5020,
+            "role": "R",
+            "time_allocation_percentage": 10.11,
+            "job": {
+              "job_id": 25,
+              "jobCode": "SYN-J-25",
+              "job_level_id": 4,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6021,
+      "process_id": 827035,
+      "task_id": 5021,
+      "order": 21,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5021,
+        "task_code": "SYN-T-827035-21",
+        "task_company_id": null,
+        "task_name": "Add Internal Medicine report to patient medical file",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0C62C211-EA2A-404E-BF0C-56F896792D4D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 19,
+        "expected_rework_time": 2,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 26,
+            "task_id": 5021,
+            "role": "A",
+            "time_allocation_percentage": 11.58,
+            "job": {
+              "job_id": 26,
+              "jobCode": "SYN-J-26",
+              "job_level_id": 1,
+              "hourlyRate": 82,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6022,
+      "process_id": 827035,
+      "task_id": 5022,
+      "order": 22,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5022,
+        "task_code": "SYN-T-827035-22",
+        "task_company_id": null,
+        "task_name": "Transport patient to Radiology Unit",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5765DDA7-8454-41EC-9B1B-B77E0E776013.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 44,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 27,
+            "task_id": 5022,
+            "role": "C",
+            "time_allocation_percentage": 2.57,
+            "job": {
+              "job_id": 27,
+              "jobCode": "SYN-J-27",
+              "job_level_id": 4,
+              "hourlyRate": 62,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6023,
+      "process_id": 827035,
+      "task_id": 5023,
+      "order": 23,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5023,
+        "task_code": "SYN-T-827035-23",
+        "task_company_id": null,
+        "task_name": "Determine nature of stroke",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-145E6DAE-3F5A-4575-A9C2-0AA65FD62483.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 219,
+        "expected_rework_time": 55,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 28,
+            "task_id": 5023,
+            "role": "R",
+            "time_allocation_percentage": 19.87,
+            "job": {
+              "job_id": 28,
+              "jobCode": "SYN-J-28",
+              "job_level_id": 6,
+              "hourlyRate": 112,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6024,
+      "process_id": 827035,
+      "task_id": 5024,
+      "order": 24,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5024,
+        "task_code": "SYN-T-827035-24",
+        "task_company_id": null,
+        "task_name": "Create Neurological Report",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A04A4E6D-842E-48E7-9833-A87F33CDC5FD.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 52,
+        "expected_rework_time": 7,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 29,
+            "task_id": 5024,
+            "role": "I",
+            "time_allocation_percentage": 13.06,
+            "job": {
+              "job_id": 29,
+              "jobCode": "SYN-J-29",
+              "job_level_id": 2,
+              "hourlyRate": 44,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6025,
+      "process_id": 827035,
+      "task_id": 5025,
+      "order": 25,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5025,
+        "task_code": "SYN-T-827035-25",
+        "task_company_id": null,
+        "task_name": "Monitor Patient",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C1C6AA8A-9767-48A8-AE53-54D288108E20.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 35,
+        "expected_rework_time": 8,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 30,
+            "task_id": 5025,
+            "role": "R",
+            "time_allocation_percentage": 19.72,
+            "job": {
+              "job_id": 30,
+              "jobCode": "SYN-J-30",
+              "job_level_id": 3,
+              "hourlyRate": 69,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 31,
+            "task_id": 5025,
+            "role": "R",
+            "time_allocation_percentage": 8.38,
+            "job": {
+              "job_id": 31,
+              "jobCode": "SYN-J-31",
+              "job_level_id": 4,
+              "hourlyRate": 31,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "822368cde1c44779a13982d6b4342f12",
+    "model_id": "221dad7924494138aa4c0bef55c0f6ae",
+    "organization_id": "df99bbb9ecdf47e199248a67a1205a56"
+  }
+}

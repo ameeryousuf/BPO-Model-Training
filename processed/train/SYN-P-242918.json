@@ -1,0 +1,1056 @@
+{
+  "process_id": 242918,
+  "company_id": 1142918,
+  "created_at": "2020-03-06 07:51:17",
+  "updated_at": "2020-03-06 07:51:17",
+  "capacity_requirement_minutes": 1747,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-242918",
+  "process_name": "Flow-Chart Jass",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-242918\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-242918\" name=\"Flow-Chart Jass\" isExecutable=\"false\"><bpmn:task id=\"sid-05092F80-8B41-4BE9-AFDE-B6AA206411BC\" name=\"Spiel erstellen\" /><bpmn:task id=\"sid-FBC043B6-4A8D-405C-B204-047CCFF06137\" name=\"Für Spiel anmelden\" /><bpmn:task id=\"sid-1DCEF890-B5A3-4000-9499-A68EAE7CB666\" name=\"Spielerzahl prüfen\" /><bpmn:task id=\"sid-0058503E-487C-4C17-9FDF-AAD566A7AC8F\" name=\"Spielbrett laden\" /><bpmn:task id=\"sid-AEF9D7AA-8605-4F0C-B65D-063A0FEB0A23\" name=\"Spielart wählen\" /><bpmn:task id=\"sid-BC91BE4F-1A70-45CC-B6C7-73B185FFABA1\" name=\"Karten austeilen\" /><bpmn:task id=\"sid-7D7DAE83-B342-4271-9E81-2A3D7B1A8952\" name=\"Trumpf bestimmen\" /><bpmn:task id=\"sid-51334C90-4471-4251-B023-4589C7BF933A\" name=\"Karten ablegen\" /><bpmn:task id=\"sid-B655B880-22D4-471A-9786-BD72D390529A\" name=\"Stich auswerten\" /><bpmn:task id=\"sid-4713B9B3-4D50-4E53-BE29-27F2761C8389\" name=\"Stich starten\" /><bpmn:task id=\"sid-1D5E2078-AFAF-41BE-9D72-FA232824AF78\" name=\"Kartengeber bestimmen\" /><bpmn:task id=\"sid-97971E5B-F5F8-4D22-8666-66373B2BEDD1\" name=\"Punkte berechnen\" /><bpmn:task id=\"sid-A1930C17-80B4-43BA-8B05-F12CE40A5FA6\" name=\"Gewinner anzeigen\" /><bpmn:task id=\"sid-3F4DC999-B88E-42E0-B63E-66A59F7DB47F\" name=\"Spiel beenden\" /><bpmn:task id=\"sid-76F5C88E-843E-4C19-A843-C45B189CD23F\" name=\"Angeber bestimmen\" /><bpmn:task id=\"sid-071EB395-0629-428A-BE8F-DF9DE7BD7AA6\" name=\"Karte überprüfen\" /><bpmn:startEvent id=\"sid-39A81A52-E3B8-4569-BB96-8ACA6430AA30\" name=\"Applikation wird gestartet\" /><bpmn:endEvent id=\"sid-26416ABE-0571-4ADB-B513-4942CA0732EF\" name=\"Applikation wird geschlossen\" /><bpmn:exclusiveGateway id=\"sid-D4447DB3-8515-4BC7-B903-1FDE3FF599A5\" name=\"4 Spieler angemeldet?\" /><bpmn:exclusiveGateway id=\"sid-1AD86D9D-D5AF-49DF-9E2B-96082B79354D\" name=\"alle 4 Karten abgelegt?\" /><bpmn:parallelGateway id=\"sid-BD3318E7-54E9-4375-AC41-E9419086BE45\" name=\"9 Stiche gespielt?\" /><bpmn:exclusiveGateway id=\"sid-8FDD97A2-9503-4D6C-B7A0-D2593659B52B\" name=\"Spiel fortsetzen?\" /><bpmn:exclusiveGateway id=\"sid-7A82852C-A6FF-4068-AE88-2ECCA2FCCC9B\" name=\"gültige Karte?\" /><bpmn:sequenceFlow id=\"sid-EAA2E9D1-94B6-4B3A-9404-C3E290CBB523\" targetRef=\"sid-05092F80-8B41-4BE9-AFDE-B6AA206411BC\" /><bpmn:sequenceFlow id=\"sid-75078823-6280-48F4-B4E5-3A2E855CCB72\" targetRef=\"sid-FBC043B6-4A8D-405C-B204-047CCFF06137\" /><bpmn:sequenceFlow id=\"sid-D7C35F63-39D6-495D-AA5D-6CF063E2D7DC\" targetRef=\"sid-1DCEF890-B5A3-4000-9499-A68EAE7CB666\" /><bpmn:sequenceFlow id=\"sid-5E803447-7098-4F4D-9561-BF1B35CD5F3B\" targetRef=\"sid-D4447DB3-8515-4BC7-B903-1FDE3FF599A5\" /><bpmn:sequenceFlow id=\"sid-574D2902-9784-486E-BD94-2F29F390BBC5\" targetRef=\"sid-1DCEF890-B5A3-4000-9499-A68EAE7CB666\" name=\"nein\" /><bpmn:sequenceFlow id=\"sid-95669C6A-B6CF-43C4-86F6-3AC4593C31CF\" targetRef=\"sid-0058503E-487C-4C17-9FDF-AAD566A7AC8F\" /><bpmn:sequenceFlow id=\"sid-E3DE13DD-3553-43E2-A84E-AC919BC7FA99\" targetRef=\"sid-BC91BE4F-1A70-45CC-B6C7-73B185FFABA1\" /><bpmn:sequenceFlow id=\"sid-975B9C16-7188-4533-870E-E58165E55751\" targetRef=\"sid-7D7DAE83-B342-4271-9E81-2A3D7B1A8952\" /><bpmn:sequenceFlow id=\"sid-0C620680-F153-4CFB-A9AE-DB37753FA40D\" targetRef=\"sid-071EB395-0629-428A-BE8F-DF9DE7BD7AA6\" /><bpmn:sequenceFlow id=\"sid-8950F383-7E0D-45BB-8AC8-0C1BD35494A2\" targetRef=\"sid-51334C90-4471-4251-B023-4589C7BF933A\" name=\"nein\" /><bpmn:sequenceFlow id=\"sid-F18CC04E-BC81-4961-8EE7-67F094DCE260\" targetRef=\"sid-51334C90-4471-4251-B023-4589C7BF933A\" /><bpmn:sequenceFlow id=\"sid-82BF8C56-F62A-41AC-8C6B-D9AC60461E38\" targetRef=\"sid-1D5E2078-AFAF-41BE-9D72-FA232824AF78\" /><bpmn:sequenceFlow id=\"sid-6EA0225C-5ACC-494C-A637-EB9AA1C8B13B\" targetRef=\"sid-BD3318E7-54E9-4375-AC41-E9419086BE45\" /><bpmn:sequenceFlow id=\"sid-E7E90378-D881-4D67-B910-E14935C770D7\" targetRef=\"sid-A1930C17-80B4-43BA-8B05-F12CE40A5FA6\" /><bpmn:sequenceFlow id=\"sid-777A0B4C-E985-4F3E-AEA7-3DCB01549F86\" targetRef=\"sid-8FDD97A2-9503-4D6C-B7A0-D2593659B52B\" /><bpmn:sequenceFlow id=\"sid-7D689585-3B29-4DB3-9E45-39A80110C7B5\" targetRef=\"sid-3F4DC999-B88E-42E0-B63E-66A59F7DB47F\" name=\"nein\" /><bpmn:sequenceFlow id=\"sid-5BDD9DF3-F2E4-4FB5-AA38-E745FB6292A1\" targetRef=\"sid-26416ABE-0571-4ADB-B513-4942CA0732EF\" /><bpmn:sequenceFlow id=\"sid-63BD1261-2973-46A5-B62E-CD0649E2B5EA\" targetRef=\"sid-76F5C88E-843E-4C19-A843-C45B189CD23F\" /><bpmn:sequenceFlow id=\"sid-6DA369FD-5918-4B80-9161-28736FA85431\" targetRef=\"sid-4713B9B3-4D50-4E53-BE29-27F2761C8389\" /><bpmn:sequenceFlow id=\"sid-DDFFD826-C528-42AE-B87B-F135DCC133DD\" targetRef=\"sid-BC91BE4F-1A70-45CC-B6C7-73B185FFABA1\" name=\"ja\" /><bpmn:sequenceFlow id=\"sid-90CCD5F7-9550-4E48-8BD5-02A973ABF881\" targetRef=\"sid-4713B9B3-4D50-4E53-BE29-27F2761C8389\" name=\"nein\" /><bpmn:sequenceFlow id=\"sid-F333AB65-6878-46A7-906D-9E4A5B2FE611\" targetRef=\"sid-97971E5B-F5F8-4D22-8666-66373B2BEDD1\" name=\"ja\" /><bpmn:sequenceFlow id=\"sid-F1CEB3FF-FD9A-4123-BD49-82F26553602F\" targetRef=\"sid-B655B880-22D4-471A-9786-BD72D390529A\" name=\"ja\" /><bpmn:sequenceFlow id=\"sid-DC53DEFF-BFAB-4189-9232-802C29BE1BA4\" targetRef=\"sid-AEF9D7AA-8605-4F0C-B65D-063A0FEB0A23\" name=\"ja\" /><bpmn:sequenceFlow id=\"sid-C2173550-604C-40A7-8F2C-876F09413B49\" targetRef=\"sid-7A82852C-A6FF-4068-AE88-2ECCA2FCCC9B\" /><bpmn:sequenceFlow id=\"sid-ACCAA304-046B-4A59-BB6D-97C31CCDC8FA\" targetRef=\"sid-1AD86D9D-D5AF-49DF-9E2B-96082B79354D\" name=\"ja\" /><bpmn:sequenceFlow id=\"sid-CFD70D90-4E0B-429C-8C0C-778ACF2FCA52\" targetRef=\"sid-51334C90-4471-4251-B023-4589C7BF933A\" name=\"nein\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-03-06 07:51:17",
+  "company": {
+    "company_id": 1142918,
+    "companyCode": "SYN-242918",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "4 Spieler angemeldet?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "4 Spieler angemeldet?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.45
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "4 Spieler angemeldet?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.55
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "alle 4 Karten abgelegt?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "alle 4 Karten abgelegt?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.4
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "alle 4 Karten abgelegt?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.6
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "9 Stiche gespielt?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "9 Stiche gespielt?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.8
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "9 Stiche gespielt?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.2
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Spiel fortsetzen?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Spiel fortsetzen?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.64
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Spiel fortsetzen?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.36
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "gültige Karte?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "gültige Karte?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.16
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "gültige Karte?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.84
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 242918,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-242918-1",
+        "task_company_id": null,
+        "task_name": "Spiel erstellen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-05092F80-8B41-4BE9-AFDE-B6AA206411BC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 222,
+        "expected_rework_time": 13,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 10.51,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 66,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 242918,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-242918-2",
+        "task_company_id": null,
+        "task_name": "Für Spiel anmelden",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FBC043B6-4A8D-405C-B204-047CCFF06137.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 43,
+        "expected_rework_time": 9,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 6.37,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 242918,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-242918-3",
+        "task_company_id": null,
+        "task_name": "Spielerzahl prüfen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1DCEF890-B5A3-4000-9499-A68EAE7CB666.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 238,
+        "expected_rework_time": 17,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 13.76,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 51,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 242918,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-242918-4",
+        "task_company_id": null,
+        "task_name": "Spielbrett laden",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0058503E-487C-4C17-9FDF-AAD566A7AC8F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 56,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 1,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 16.88,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 4,
+              "hourlyRate": 85,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 18.61,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 4,
+              "hourlyRate": 111,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 242918,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-242918-5",
+        "task_company_id": null,
+        "task_name": "Spielart wählen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AEF9D7AA-8605-4F0C-B65D-063A0FEB0A23.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 101,
+        "expected_rework_time": 15,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "R",
+            "time_allocation_percentage": 13.03,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 2,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 242918,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-242918-6",
+        "task_company_id": null,
+        "task_name": "Karten austeilen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BC91BE4F-1A70-45CC-B6C7-73B185FFABA1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 188,
+        "expected_rework_time": 47,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 14.52,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 6,
+              "hourlyRate": 77,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 242918,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-242918-7",
+        "task_company_id": null,
+        "task_name": "Trumpf bestimmen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7D7DAE83-B342-4271-9E81-2A3D7B1A8952.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 92,
+        "expected_rework_time": 12,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5007,
+            "role": "R",
+            "time_allocation_percentage": 4.17,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 2,
+              "hourlyRate": 61,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 242918,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-242918-8",
+        "task_company_id": null,
+        "task_name": "Karten ablegen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-51334C90-4471-4251-B023-4589C7BF933A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 8,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5008,
+            "role": "C",
+            "time_allocation_percentage": 19.82,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 1,
+              "hourlyRate": 93,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 242918,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-242918-9",
+        "task_company_id": null,
+        "task_name": "Stich auswerten",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B655B880-22D4-471A-9786-BD72D390529A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 143,
+        "expected_rework_time": 10,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5009,
+            "role": "C",
+            "time_allocation_percentage": 6.82,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 5,
+              "hourlyRate": 15,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 242918,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-242918-10",
+        "task_company_id": null,
+        "task_name": "Stich starten",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4713B9B3-4D50-4E53-BE29-27F2761C8389.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 22,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5010,
+            "role": "C",
+            "time_allocation_percentage": 3.14,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 1,
+              "hourlyRate": 36,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 12,
+            "task_id": 5010,
+            "role": "C",
+            "time_allocation_percentage": 17.12,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 4,
+              "hourlyRate": 76,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 242918,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-242918-11",
+        "task_company_id": null,
+        "task_name": "Kartengeber bestimmen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1D5E2078-AFAF-41BE-9D72-FA232824AF78.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 68,
+        "expected_rework_time": 3,
+        "expected_waiting_time": 14,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5011,
+            "role": "R",
+            "time_allocation_percentage": 6.94,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 2,
+              "hourlyRate": 105,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 242918,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-242918-12",
+        "task_company_id": null,
+        "task_name": "Punkte berechnen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-97971E5B-F5F8-4D22-8666-66373B2BEDD1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 134,
+        "expected_rework_time": 13,
+        "expected_waiting_time": 25,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5012,
+            "role": "C",
+            "time_allocation_percentage": 13.22,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 4,
+              "hourlyRate": 87,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 242918,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-242918-13",
+        "task_company_id": null,
+        "task_name": "Gewinner anzeigen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A1930C17-80B4-43BA-8B05-F12CE40A5FA6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 104,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 15,
+            "task_id": 5013,
+            "role": "C",
+            "time_allocation_percentage": 19.76,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 6,
+              "hourlyRate": 72,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6014,
+      "process_id": 242918,
+      "task_id": 5014,
+      "order": 14,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5014,
+        "task_code": "SYN-T-242918-14",
+        "task_company_id": null,
+        "task_name": "Spiel beenden",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3F4DC999-B88E-42E0-B63E-66A59F7DB47F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 7,
+        "expected_rework_time": 0,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 16,
+            "task_id": 5014,
+            "role": "I",
+            "time_allocation_percentage": 4.98,
+            "job": {
+              "job_id": 16,
+              "jobCode": "SYN-J-16",
+              "job_level_id": 4,
+              "hourlyRate": 87,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 17,
+            "task_id": 5014,
+            "role": "R",
+            "time_allocation_percentage": 12.73,
+            "job": {
+              "job_id": 17,
+              "jobCode": "SYN-J-17",
+              "job_level_id": 4,
+              "hourlyRate": 20,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6015,
+      "process_id": 242918,
+      "task_id": 5015,
+      "order": 15,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5015,
+        "task_code": "SYN-T-242918-15",
+        "task_company_id": null,
+        "task_name": "Angeber bestimmen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-76F5C88E-843E-4C19-A843-C45B189CD23F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 119,
+        "expected_rework_time": 24,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 18,
+            "task_id": 5015,
+            "role": "R",
+            "time_allocation_percentage": 4.16,
+            "job": {
+              "job_id": 18,
+              "jobCode": "SYN-J-18",
+              "job_level_id": 2,
+              "hourlyRate": 87,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6016,
+      "process_id": 242918,
+      "task_id": 5016,
+      "order": 16,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5016,
+        "task_code": "SYN-T-242918-16",
+        "task_company_id": null,
+        "task_name": "Karte überprüfen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-071EB395-0629-428A-BE8F-DF9DE7BD7AA6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 202,
+        "expected_rework_time": 38,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 19,
+            "task_id": 5016,
+            "role": "A",
+            "time_allocation_percentage": 15.97,
+            "job": {
+              "job_id": 19,
+              "jobCode": "SYN-J-19",
+              "job_level_id": 3,
+              "hourlyRate": 38,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "d85b582fba1a4e4abe8f66b54863723c",
+    "model_id": "df4dc9e9a17c4d4a9f6e2111c07ed19f",
+    "organization_id": "db5a55ec01ee41b0b0681c37c180e7f7"
+  }
+}

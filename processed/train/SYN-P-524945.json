@@ -1,0 +1,597 @@
+{
+  "process_id": 524945,
+  "company_id": 1424945,
+  "created_at": "2020-05-20 09:47:08",
+  "updated_at": "2020-05-20 09:47:08",
+  "capacity_requirement_minutes": 983,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-524945",
+  "process_name": "4.3",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-524945\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-524945\" name=\"4.3\" isExecutable=\"false\"><bpmn:task id=\"sid-6DB7AA05-B442-454D-95DB-538194BC5052\" name=\"Einloggen\" /><bpmn:task id=\"sid-411F211D-593B-4BFA-98DB-7B64A8062CC6\" name=\"Bestellung auswählen\" /><bpmn:task id=\"sid-1919507F-5D32-424A-8A65-45CFE52BEFEE\" name=\"Bestellung stornieren\" /><bpmn:task id=\"sid-912DC79C-DB5B-4D43-8C6D-46EA6A15DB31\" name=\"Bestätigung senden\" /><bpmn:task id=\"sid-BCB8D2EB-5FCA-47DB-862B-44BCF5788D15\" name=\"Datenbank überprüfen\" /><bpmn:task id=\"sid-AC4D3EEE-6177-43EA-A5A0-788E8E87AD76\" name=\"Stornierung fehlgeschlagen\" /><bpmn:task id=\"sid-1DD12475-4BC2-471E-9C8E-7C113BE1395A\" name=\"Versand stornieren\" /><bpmn:task id=\"sid-E649C9B7-2B4E-484B-81FF-4BB7641C426F\" name=\"Stornierungserfolg senden\" /><bpmn:startEvent id=\"sid-9283ADE9-5303-4E6F-84D5-2CD7BC482CD5\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-C3720463-D63E-4FED-8278-D6B48FA556DF\" name=\"Bestätigung erhalten\" /><bpmn:intermediateCatchEvent id=\"sid-006393AA-D26F-4F88-93D7-B00239E7FBE7\" name=\"Stornierung fehlgeschlagen\" /><bpmn:intermediateCatchEvent id=\"sid-6A3BB7AF-A47A-4B93-BED2-6CFBF744437D\" name=\"Stornierung erfolgreich\" /><bpmn:endEvent id=\"sid-F3FB7C14-38A5-49E7-8BD2-590B8F309B83\" name=\"\" /><bpmn:startEvent id=\"sid-841243BA-D6B6-4B80-B42F-18D17C46589A\" name=\"Stornierung erhalten\" /><bpmn:endEvent id=\"sid-12399A62-7F8A-4DAD-91A9-69C97294D912\" name=\"\" /><bpmn:eventBasedGateway id=\"sid-0FCBCA01-2026-43D3-A962-58ED391FB096\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-E14B3C52-573F-4EF6-B21A-BF38C677128F\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-93515CD8-31CD-4E49-B24C-6F1C5ED71399\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-17EFFF6A-D9DF-4309-83AF-C4D54443AE64\" name=\"\" /><bpmn:sequenceFlow id=\"sid-FC8466D3-454A-4C16-92D5-636FD32E462C\" targetRef=\"sid-6DB7AA05-B442-454D-95DB-538194BC5052\" /><bpmn:sequenceFlow id=\"sid-0C739D74-882D-4B62-BA13-00904B3A7480\" targetRef=\"sid-411F211D-593B-4BFA-98DB-7B64A8062CC6\" /><bpmn:sequenceFlow id=\"sid-3E0A8E57-C1BC-4B94-8AD0-217DACF98563\" targetRef=\"sid-1919507F-5D32-424A-8A65-45CFE52BEFEE\" /><bpmn:sequenceFlow id=\"sid-E9ED1D63-67C7-49DD-8BDA-BC7A287E1C5A\" targetRef=\"sid-912DC79C-DB5B-4D43-8C6D-46EA6A15DB31\" /><bpmn:sequenceFlow id=\"sid-B09BF097-6ADE-4380-A760-FB1F325CF114\" targetRef=\"sid-C3720463-D63E-4FED-8278-D6B48FA556DF\" /><bpmn:sequenceFlow id=\"sid-A5D03DAC-04B7-4AB8-91CA-CAC2E65B108A\" targetRef=\"sid-BCB8D2EB-5FCA-47DB-862B-44BCF5788D15\" /><bpmn:sequenceFlow id=\"sid-0CEC3FF7-4143-4306-8580-9B40C1CACD3B\" targetRef=\"sid-93515CD8-31CD-4E49-B24C-6F1C5ED71399\" /><bpmn:sequenceFlow id=\"sid-FE1E40B9-23B9-4A42-A7D1-EE4F9C9B39B8\" targetRef=\"sid-0FCBCA01-2026-43D3-A962-58ED391FB096\" /><bpmn:sequenceFlow id=\"sid-A67E3530-8232-4D3D-B8A9-2C1DC6E9D1AA\" targetRef=\"sid-006393AA-D26F-4F88-93D7-B00239E7FBE7\" /><bpmn:sequenceFlow id=\"sid-E9FF5FB2-5851-4489-9CDE-ED81CCD59CE4\" targetRef=\"sid-6A3BB7AF-A47A-4B93-BED2-6CFBF744437D\" /><bpmn:sequenceFlow id=\"sid-9E5AC55D-F82A-4352-82B4-3322477C508D\" targetRef=\"sid-AC4D3EEE-6177-43EA-A5A0-788E8E87AD76\" name=\"Versand erfolgt\" /><bpmn:sequenceFlow id=\"sid-C03E3329-CCC8-4FBD-A1AF-1FAFB29304FB\" targetRef=\"sid-1DD12475-4BC2-471E-9C8E-7C113BE1395A\" name=\"Versand nicht erfolgt\" /><bpmn:sequenceFlow id=\"sid-373EBF72-FA19-496D-9EFA-9EA31D18FCE6\" targetRef=\"sid-E14B3C52-573F-4EF6-B21A-BF38C677128F\" /><bpmn:sequenceFlow id=\"sid-E679C3FC-CD26-4936-981A-467503EE950F\" targetRef=\"sid-E14B3C52-573F-4EF6-B21A-BF38C677128F\" /><bpmn:sequenceFlow id=\"sid-3741E8F6-46D4-4EBA-A1F6-9A3C8738EAF7\" targetRef=\"sid-F3FB7C14-38A5-49E7-8BD2-590B8F309B83\" /><bpmn:sequenceFlow id=\"sid-B0403ED4-8936-4271-94FE-DF61372DC287\" targetRef=\"sid-E649C9B7-2B4E-484B-81FF-4BB7641C426F\" /><bpmn:sequenceFlow id=\"sid-87F99064-E80F-47CA-BD60-818C397282F4\" targetRef=\"sid-17EFFF6A-D9DF-4309-83AF-C4D54443AE64\" /><bpmn:sequenceFlow id=\"sid-2C7DDA4A-4438-4ED6-AB56-F838D1EC02DA\" targetRef=\"sid-17EFFF6A-D9DF-4309-83AF-C4D54443AE64\" /><bpmn:sequenceFlow id=\"sid-D68E7318-DD7B-4E44-9FC8-A70035668BA0\" targetRef=\"sid-12399A62-7F8A-4DAD-91A9-69C97294D912\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-05-20 09:47:08",
+  "company": {
+    "company_id": 1424945,
+    "companyCode": "SYN-524945",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.53
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.47
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.64
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.36
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.35
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.65
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.45
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.55
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 524945,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-524945-1",
+        "task_company_id": null,
+        "task_name": "Einloggen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6DB7AA05-B442-454D-95DB-538194BC5052.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 189,
+        "expected_rework_time": 11,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 11.67,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 6,
+              "hourlyRate": 65,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 524945,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-524945-2",
+        "task_company_id": null,
+        "task_name": "Bestellung auswählen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-411F211D-593B-4BFA-98DB-7B64A8062CC6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 211,
+        "expected_rework_time": 17,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 19.84,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 66,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 524945,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-524945-3",
+        "task_company_id": null,
+        "task_name": "Bestellung stornieren",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1919507F-5D32-424A-8A65-45CFE52BEFEE.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 55,
+        "expected_rework_time": 9,
+        "expected_waiting_time": 24,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 10.28,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 58,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 524945,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-524945-4",
+        "task_company_id": null,
+        "task_name": "Bestätigung senden",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-912DC79C-DB5B-4D43-8C6D-46EA6A15DB31.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 130,
+        "expected_rework_time": 25,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 18.2,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 5,
+              "hourlyRate": 114,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 5.12,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 5,
+              "hourlyRate": 81,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 524945,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-524945-5",
+        "task_company_id": null,
+        "task_name": "Datenbank überprüfen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BCB8D2EB-5FCA-47DB-862B-44BCF5788D15.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 38,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 1.86,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 5,
+              "hourlyRate": 33,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 524945,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-524945-6",
+        "task_company_id": null,
+        "task_name": "Stornierung fehlgeschlagen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AC4D3EEE-6177-43EA-A5A0-788E8E87AD76.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 35,
+        "expected_rework_time": 8,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 2.85,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 2,
+              "hourlyRate": 38,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 524945,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-524945-7",
+        "task_company_id": null,
+        "task_name": "Versand stornieren",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1DD12475-4BC2-471E-9C8E-7C113BE1395A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 147,
+        "expected_rework_time": 18,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5007,
+            "role": "A",
+            "time_allocation_percentage": 17.1,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 3,
+              "hourlyRate": 107,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 524945,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-524945-8",
+        "task_company_id": null,
+        "task_name": "Stornierungserfolg senden",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E649C9B7-2B4E-484B-81FF-4BB7641C426F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 178,
+        "expected_rework_time": 11,
+        "expected_waiting_time": 17,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5008,
+            "role": "R",
+            "time_allocation_percentage": 8.79,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 1,
+              "hourlyRate": 31,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "f02968f754aa4e2da31b6ed4c8e12b6b",
+    "model_id": "80b74ce6a21f49c186c4060739a204f9",
+    "organization_id": "d31d0bd9bd92417bbc643f50959d0eb8"
+  }
+}

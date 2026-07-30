@@ -1,0 +1,457 @@
+{
+  "process_id": 192706,
+  "company_id": 1092706,
+  "created_at": "2021-05-30 19:44:18",
+  "updated_at": "2021-05-30 19:44:18",
+  "capacity_requirement_minutes": 910,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-192706",
+  "process_name": "Loading Product",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-192706\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-192706\" name=\"Loading Product\" isExecutable=\"false\"><bpmn:task id=\"sid-B5BEA721-C92B-4B0C-929E-6AFDE95B73A9\" name=\"Sipariş Listesinin Alınması\" /><bpmn:task id=\"sid-7C72C4EE-4F21-4C4A-A247-9729F3ADF0FC\" name=\"Siparişin Yer Aldığı Rafa Gidilmesi\" /><bpmn:task id=\"sid-13CBE9CD-ADA7-404E-A62C-DF97F87673E5\" name=\"Siparişin Paletten Alınması\" /><bpmn:task id=\"sid-60A4840F-E937-457F-B55E-28EF930BE553\" name=\"Ürünün Barkodunun Okutulması\" /><bpmn:task id=\"sid-577D6D96-7D1A-4D64-8D26-311203E96FA5\" name=\"Siparişlerin Sevkiyat Alanına Transfer Edilmesi\" /><bpmn:task id=\"sid-3D74872E-B4BD-418A-9A74-E6A3DBA928EA\" name=\"Ürün Barkodaların Tekrardan Okutularak Doğrulanması\" /><bpmn:task id=\"sid-7682BB9E-3E6A-443D-806F-2C69D7036E45\" name=\"Ürünlerin Sevkiyat Aracına Yüklenmesi\" /><bpmn:startEvent id=\"sid-67498DF2-EA3F-4D67-80A3-40AA6A1AAA1F\" name=\"\" /><bpmn:endEvent id=\"sid-F0C4B3BC-51B7-42F6-8DD8-DCA713E9BB08\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-861087C0-806A-4EED-BB52-72492E81D61F\" name=\"Sipariş Listesindeki Son Ürün mü?\" /><bpmn:sequenceFlow id=\"sid-68CEC00B-1E94-449A-A642-79BD92D5FA45\" targetRef=\"sid-B5BEA721-C92B-4B0C-929E-6AFDE95B73A9\" /><bpmn:sequenceFlow id=\"sid-03F376B3-2375-4ED7-A120-89B70C11FC5F\" targetRef=\"sid-7C72C4EE-4F21-4C4A-A247-9729F3ADF0FC\" /><bpmn:sequenceFlow id=\"sid-0CCD723D-E9ED-49BB-BF23-7714DFDACFB4\" targetRef=\"sid-13CBE9CD-ADA7-404E-A62C-DF97F87673E5\" /><bpmn:sequenceFlow id=\"sid-CC912694-4744-4AA4-B473-66202E2A3E9C\" targetRef=\"sid-60A4840F-E937-457F-B55E-28EF930BE553\" /><bpmn:sequenceFlow id=\"sid-CCF2AC61-F5C6-4D2D-8E69-3F94C9260A07\" targetRef=\"sid-861087C0-806A-4EED-BB52-72492E81D61F\" /><bpmn:sequenceFlow id=\"sid-B5F280AD-ABD5-410D-837E-84CC8E0585A1\" targetRef=\"sid-577D6D96-7D1A-4D64-8D26-311203E96FA5\" name=\"Evet\" /><bpmn:sequenceFlow id=\"sid-192DECAA-84D2-401E-929F-47F45D9EC074\" targetRef=\"sid-3D74872E-B4BD-418A-9A74-E6A3DBA928EA\" /><bpmn:sequenceFlow id=\"sid-E2444E60-7526-4ECF-BA06-4C6262EC442C\" targetRef=\"sid-7682BB9E-3E6A-443D-806F-2C69D7036E45\" /><bpmn:sequenceFlow id=\"sid-683C3A7B-37B8-4141-9A4E-DE068AD18EAF\" targetRef=\"sid-7C72C4EE-4F21-4C4A-A247-9729F3ADF0FC\" name=\"Hayır\" /><bpmn:sequenceFlow id=\"sid-45D87A11-BF4F-4FC1-BCA1-CCEDBA9E6022\" targetRef=\"sid-F0C4B3BC-51B7-42F6-8DD8-DCA713E9BB08\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-05-30 19:44:18",
+  "company": {
+    "company_id": 1092706,
+    "companyCode": "SYN-192706",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Sipariş Listesindeki Son Ürün mü?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Sipariş Listesindeki Son Ürün mü?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.66
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Sipariş Listesindeki Son Ürün mü?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.34
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 192706,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-192706-1",
+        "task_company_id": null,
+        "task_name": "Sipariş Listesinin Alınması",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B5BEA721-C92B-4B0C-929E-6AFDE95B73A9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 156,
+        "expected_rework_time": 20,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 15.19,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 90,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 192706,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-192706-2",
+        "task_company_id": null,
+        "task_name": "Siparişin Yer Aldığı Rafa Gidilmesi",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7C72C4EE-4F21-4C4A-A247-9729F3ADF0FC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 162,
+        "expected_rework_time": 11,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 4.2,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 111,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 192706,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-192706-3",
+        "task_company_id": null,
+        "task_name": "Siparişin Paletten Alınması",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-13CBE9CD-ADA7-404E-A62C-DF97F87673E5.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 136,
+        "expected_rework_time": 8,
+        "expected_waiting_time": 29,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 12.13,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 64,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 192706,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-192706-4",
+        "task_company_id": null,
+        "task_name": "Ürünün Barkodunun Okutulması",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-60A4840F-E937-457F-B55E-28EF930BE553.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 118,
+        "expected_rework_time": 17,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 19.13,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 113,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 16.44,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 22,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 192706,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-192706-5",
+        "task_company_id": null,
+        "task_name": "Siparişlerin Sevkiyat Alanına Transfer Edilmesi",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-577D6D96-7D1A-4D64-8D26-311203E96FA5.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 178,
+        "expected_rework_time": 39,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 8.93,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 26,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 192706,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-192706-6",
+        "task_company_id": null,
+        "task_name": "Ürün Barkodaların Tekrardan Okutularak Doğrulanması",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3D74872E-B4BD-418A-9A74-E6A3DBA928EA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 110,
+        "expected_rework_time": 21,
+        "expected_waiting_time": 15,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 12.73,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 1,
+              "hourlyRate": 39,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 11.15,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 4,
+              "hourlyRate": 44,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 192706,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-192706-7",
+        "task_company_id": null,
+        "task_name": "Ürünlerin Sevkiyat Aracına Yüklenmesi",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7682BB9E-3E6A-443D-806F-2C69D7036E45.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 50,
+        "expected_rework_time": 10,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 5.15,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 3,
+              "hourlyRate": 96,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "2906796f01974628879a0db7cb205d8b",
+    "model_id": "5d173446ef3940a7b56649d3e814f827",
+    "organization_id": "3319d4e91f11470e8fefdecc8f5e206b"
+  }
+}

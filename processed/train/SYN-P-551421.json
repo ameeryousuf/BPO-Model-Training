@@ -1,0 +1,691 @@
+{
+  "process_id": 551421,
+  "company_id": 1451421,
+  "created_at": "2018-06-20 15:22:29",
+  "updated_at": "2018-06-20 15:22:29",
+  "capacity_requirement_minutes": 595,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-551421",
+  "process_name": "Login Flow",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-551421\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-551421\" name=\"Login Flow\" isExecutable=\"false\"><bpmn:task id=\"sid-D693901C-4DBC-49DD-BDC6-020C1DEB6868\" name=\"Display OTP Challenge Page\" /><bpmn:task id=\"sid-AAAF8D06-B54E-48D4-82F0-FECA6F8136FA\" name=\"Display KBA Challenge Page\" /><bpmn:task id=\"sid-7470C7FC-1494-457F-AE70-450E26E600D7\" name=\"Set LDAP Lock (CRQ lock)\" /><bpmn:task id=\"sid-BC1EEC7B-AB7D-4F27-BD8E-F8FE70F2BEEA\" name=\"Determine if SecurityLock is on (LDAP/Dolphin) CRQ Counter\" /><bpmn:task id=\"sid-8060BEC1-FFB9-41E7-AA30-94052DBBC456\" name=\"Check if OTP is eligible for verification\" /><bpmn:task id=\"sid-2386B69B-2F15-475C-AA20-2A4885D55734\" name=\"Determine if Challenge is Passed\" /><bpmn:task id=\"sid-1A43FD68-4BA3-493E-96BA-FA94DD44A0CA\" name=\"Analyze Call\" /><bpmn:endEvent id=\"sid-989ABC25-506D-4113-A04C-784403C78446\" name=\"Screen Instructing User to Call CSC is Displayed\" /><bpmn:endEvent id=\"sid-44D1BE45-64BA-458E-BCF7-3C3A3ADD8742\" name=\"RSA Notified with Challenge Result (KBA/OTP only)\" /><bpmn:endEvent id=\"sid-8AC45DDD-7CE6-4C8A-B2E1-3A6C96650B16\" name=\"Grant MSO Full Access\" /><bpmn:startEvent id=\"sid-C8E369D4-FE47-4373-AACD-8B252268CA31\" name=\"Verify username/ password through LDAP\" /><bpmn:endEvent id=\"sid-B689E09E-25DE-40FC-A7FD-332DB9B472B6\" name=\"User Not Allowed in System\" /><bpmn:exclusiveGateway id=\"sid-167B906C-54AF-4D60-9A31-9AE4D3B5A41B\" name=\"SecurityLock On?\" /><bpmn:exclusiveGateway id=\"sid-103BDF25-CE5A-48C6-BC86-EA93758B9BF0\" name=\"Is OTP Eligible?\" /><bpmn:exclusiveGateway id=\"sid-B711466E-ADC0-4B2E-ACD8-DC1B338EDD60\" name=\"Is KBA Eligible?\" /><bpmn:exclusiveGateway id=\"sid-9AC2F7D7-556F-4B4E-8086-BD90F3B5F694\" name=\"Challenge Passed?\" /><bpmn:exclusiveGateway id=\"sid-6F907881-5E9A-4472-89A6-259B5D8A2390\" name=\"Is RSA Down?\" /><bpmn:exclusiveGateway id=\"sid-0A58BC12-67EC-4BE8-AB29-8ECEF09E4BC0\" name=\"Is it an OFAC country?\" /><bpmn:exclusiveGateway id=\"sid-7BE48010-9D56-436F-8295-337DC4F324BC\" name=\"Determine Risk Score\" /><bpmn:sequenceFlow id=\"sid-BB093E8C-2AF5-4677-BE56-D4EB5C565C41\" targetRef=\"sid-6F907881-5E9A-4472-89A6-259B5D8A2390\" /><bpmn:sequenceFlow id=\"sid-C8BFCA16-21A5-4638-9935-8D20C7637450\" targetRef=\"sid-0A58BC12-67EC-4BE8-AB29-8ECEF09E4BC0\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-F085A571-49D8-47B3-8F57-BB3DBF517392\" targetRef=\"sid-B711466E-ADC0-4B2E-ACD8-DC1B338EDD60\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-AE702743-69DA-423D-86CD-9EF27CBF10B7\" targetRef=\"sid-AAAF8D06-B54E-48D4-82F0-FECA6F8136FA\" /><bpmn:sequenceFlow id=\"sid-4E851166-4AA0-4D56-BEBF-AD3A8377A780\" targetRef=\"sid-7BE48010-9D56-436F-8295-337DC4F324BC\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-BCB1E1F3-3D74-4A51-9689-90411AF3582E\" targetRef=\"sid-B689E09E-25DE-40FC-A7FD-332DB9B472B6\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-E44A5D55-029A-49A3-A417-FCE174946BCF\" targetRef=\"sid-8AC45DDD-7CE6-4C8A-B2E1-3A6C96650B16\" name=\"Low\" /><bpmn:sequenceFlow id=\"sid-9233CD28-FA72-40D3-BA32-3AD199434212\" targetRef=\"sid-1A43FD68-4BA3-493E-96BA-FA94DD44A0CA\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-A13271CF-AFD1-4EE2-B530-E0B60FFC3A23\" targetRef=\"sid-BC1EEC7B-AB7D-4F27-BD8E-F8FE70F2BEEA\" /><bpmn:sequenceFlow id=\"sid-556130C1-F14B-4F49-8C3A-A7E3A3826119\" targetRef=\"sid-167B906C-54AF-4D60-9A31-9AE4D3B5A41B\" /><bpmn:sequenceFlow id=\"sid-C6A003FD-2627-4C30-B751-8F34FF085886\" targetRef=\"sid-103BDF25-CE5A-48C6-BC86-EA93758B9BF0\" /><bpmn:sequenceFlow id=\"sid-31EC2AE0-B67A-4F63-AC56-9CDDECEFEC35\" targetRef=\"sid-8060BEC1-FFB9-41E7-AA30-94052DBBC456\" name=\"High\" /><bpmn:sequenceFlow id=\"sid-07962620-02B7-44D1-AC77-A7A545232613\" targetRef=\"sid-8060BEC1-FFB9-41E7-AA30-94052DBBC456\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-F68A05E3-2F66-4C33-8D0B-9ED894E6BAD1\" targetRef=\"sid-D693901C-4DBC-49DD-BDC6-020C1DEB6868\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-64BF5CDC-3AF0-48CE-A745-9B85C9AD79C1\" targetRef=\"sid-44D1BE45-64BA-458E-BCF7-3C3A3ADD8742\" /><bpmn:sequenceFlow id=\"sid-E686D3D6-E4BE-42CD-B8C9-51C2CE9C13F3\" targetRef=\"sid-9AC2F7D7-556F-4B4E-8086-BD90F3B5F694\" /><bpmn:sequenceFlow id=\"sid-F49ED927-F786-4DF0-A150-F581A6687E58\" targetRef=\"sid-2386B69B-2F15-475C-AA20-2A4885D55734\" /><bpmn:sequenceFlow id=\"sid-62A0F3A1-D4F0-400D-BAD1-DA5FA9A15D04\" targetRef=\"sid-2386B69B-2F15-475C-AA20-2A4885D55734\" /><bpmn:sequenceFlow id=\"sid-B4DF805C-C83B-472B-B367-3969D99F1344\" targetRef=\"sid-8AC45DDD-7CE6-4C8A-B2E1-3A6C96650B16\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-C44B98F5-4B5D-4815-ABCA-F0CE70056502\" targetRef=\"sid-7470C7FC-1494-457F-AE70-450E26E600D7\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-2637B336-82F1-44CE-AD60-2DC458C2C290\" targetRef=\"sid-989ABC25-506D-4113-A04C-784403C78446\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-8CF09279-EA16-45B9-A838-A9095162868C\" targetRef=\"sid-989ABC25-506D-4113-A04C-784403C78446\" /><bpmn:sequenceFlow id=\"sid-F847A19C-1873-44D2-8C60-5ADCDE662887\" targetRef=\"sid-989ABC25-506D-4113-A04C-784403C78446\" name=\"No\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-06-20 15:22:29",
+  "company": {
+    "company_id": 1451421,
+    "companyCode": "SYN-551421",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "SecurityLock On?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "SecurityLock On?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.56
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "SecurityLock On?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Is OTP Eligible?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Is OTP Eligible?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.51
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Is OTP Eligible?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.49
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Is KBA Eligible?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Is KBA Eligible?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.59
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Is KBA Eligible?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.41
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Challenge Passed?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Challenge Passed?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.28
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Challenge Passed?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.33
+        },
+        {
+          "id": 10042,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Challenge Passed?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.39
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Is RSA Down?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Is RSA Down?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.25
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Is RSA Down?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.75
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1006,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Is it an OFAC country?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10060,
+          "gateway_pk_id": 1006,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Is it an OFAC country?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.86
+        },
+        {
+          "id": 10061,
+          "gateway_pk_id": 1006,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Is it an OFAC country?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.14
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1007,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Determine Risk Score",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10070,
+          "gateway_pk_id": 1007,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Determine Risk Score",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.24
+        },
+        {
+          "id": 10071,
+          "gateway_pk_id": 1007,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Determine Risk Score",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.76
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 551421,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-551421-1",
+        "task_company_id": null,
+        "task_name": "Display OTP Challenge Page",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D693901C-4DBC-49DD-BDC6-020C1DEB6868.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 66,
+        "expected_rework_time": 5,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 15.23,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 50,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 551421,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-551421-2",
+        "task_company_id": null,
+        "task_name": "Display KBA Challenge Page",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AAAF8D06-B54E-48D4-82F0-FECA6F8136FA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 61,
+        "expected_rework_time": 5,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 11.19,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 107,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 551421,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-551421-3",
+        "task_company_id": null,
+        "task_name": "Set LDAP Lock (CRQ lock)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7470C7FC-1494-457F-AE70-450E26E600D7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 76,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 5.58,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 34,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 551421,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-551421-4",
+        "task_company_id": null,
+        "task_name": "Determine if SecurityLock is on (LDAP/Dolphin) CRQ Counter",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BC1EEC7B-AB7D-4F27-BD8E-F8FE70F2BEEA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 84,
+        "expected_rework_time": 4,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 2.91,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 1,
+              "hourlyRate": 66,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 8.07,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 3,
+              "hourlyRate": 61,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 551421,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-551421-5",
+        "task_company_id": null,
+        "task_name": "Check if OTP is eligible for verification",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-8060BEC1-FFB9-41E7-AA30-94052DBBC456.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 74,
+        "expected_rework_time": 7,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 8.1,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 1,
+              "hourlyRate": 37,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 551421,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-551421-6",
+        "task_company_id": null,
+        "task_name": "Determine if Challenge is Passed",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2386B69B-2F15-475C-AA20-2A4885D55734.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 37,
+        "expected_rework_time": 2,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "C",
+            "time_allocation_percentage": 3.14,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 3,
+              "hourlyRate": 32,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 551421,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-551421-7",
+        "task_company_id": null,
+        "task_name": "Analyze Call",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1A43FD68-4BA3-493E-96BA-FA94DD44A0CA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 197,
+        "expected_rework_time": 30,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 11.56,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 5,
+              "hourlyRate": 24,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "R",
+            "time_allocation_percentage": 10.17,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 2,
+              "hourlyRate": 106,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "aabd8edf96b84fcf8a8111e99bf0801f",
+    "model_id": "784c81b47686469797850c57ed86cf01",
+    "organization_id": "36fbc1ee23334e1ab987b07d2108eef2"
+  }
+}

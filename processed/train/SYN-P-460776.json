@@ -1,0 +1,410 @@
+{
+  "process_id": 460776,
+  "company_id": 1360776,
+  "created_at": "2021-08-14 08:15:55",
+  "updated_at": "2021-08-14 08:15:55",
+  "capacity_requirement_minutes": 839,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-460776",
+  "process_name": "12345678",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-460776\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-460776\" name=\"12345678\" isExecutable=\"false\"><bpmn:task id=\"sid-30F9097C-E18B-4EC5-9839-C85C55152349\" name=\"Anmeldung mit der Versicherten - karte\" /><bpmn:task id=\"sid-C498A8DD-5554-4037-83A1-5F3A5993D47D\" name=\"Untersuchung des Patienten, Importieren der Patienten - daten in die Datenbank\" /><bpmn:task id=\"sid-A56135F2-C598-4AB0-B17C-3259B719D48A\" name=\"Rezept aufschreiben\" /><bpmn:task id=\"sid-FFADADAC-54BB-48B9-B6C8-C610BE92C08A\" name=\"Einweisung in die Klinik\" /><bpmn:task id=\"sid-DCBED613-E4E0-48A8-A8DE-28027163BC6B\" name=\"Anlegen einer Patienten - datenbank\" /><bpmn:startEvent id=\"sid-D03E617A-B4A9-42C8-9D26-938851F85CA1\" name=\"Eintritt in die Praxis\" /><bpmn:endEvent id=\"sid-D7B63AD6-3522-4AFB-A736-5430F04BB0F4\" name=\"Verlassen der Praxis\" /><bpmn:exclusiveGateway id=\"sid-E64AD44F-6FC2-4F01-81DF-335D2EB239D4\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-41A10F1C-BA19-4595-B689-E2C52E75BA42\" name=\"\" /><bpmn:sequenceFlow id=\"sid-8D85F481-2BBE-44E8-B57E-AD9C467F36DC\" targetRef=\"sid-30F9097C-E18B-4EC5-9839-C85C55152349\" /><bpmn:sequenceFlow id=\"sid-2965B2C9-D222-41C9-BC22-3916A082F32A\" targetRef=\"sid-C498A8DD-5554-4037-83A1-5F3A5993D47D\" /><bpmn:sequenceFlow id=\"sid-443D2AF8-19BC-4BEC-A8CD-8A83718F34FD\" targetRef=\"sid-E64AD44F-6FC2-4F01-81DF-335D2EB239D4\" /><bpmn:sequenceFlow id=\"sid-294AE2D1-4AD8-4EA0-8D72-0D826D3BCE32\" targetRef=\"sid-D7B63AD6-3522-4AFB-A736-5430F04BB0F4\" /><bpmn:sequenceFlow id=\"sid-15A18C0D-0891-4212-9063-FF86E8389146\" targetRef=\"sid-A56135F2-C598-4AB0-B17C-3259B719D48A\" /><bpmn:sequenceFlow id=\"sid-9E2DF111-D77A-4DF5-8A58-A99A5F3A9D8C\" targetRef=\"sid-FFADADAC-54BB-48B9-B6C8-C610BE92C08A\" /><bpmn:sequenceFlow id=\"sid-CCC9AFB4-9730-4CF5-AA75-66E69E2B43B9\" targetRef=\"sid-41A10F1C-BA19-4595-B689-E2C52E75BA42\" /><bpmn:sequenceFlow id=\"sid-F1272EAF-8196-40F7-81A8-DD2455E1B272\" targetRef=\"sid-D7B63AD6-3522-4AFB-A736-5430F04BB0F4\" /><bpmn:sequenceFlow id=\"sid-064E3227-6EFF-4232-8F89-F1EC52A3CC0E\" targetRef=\"sid-41A10F1C-BA19-4595-B689-E2C52E75BA42\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-08-14 08:15:55",
+  "company": {
+    "company_id": 1360776,
+    "companyCode": "SYN-460776",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.67
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.15
+        },
+        {
+          "id": 10012,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.18
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.73
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.27
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 460776,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-460776-1",
+        "task_company_id": null,
+        "task_name": "Anmeldung mit der Versicherten - karte",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-30F9097C-E18B-4EC5-9839-C85C55152349.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 129,
+        "expected_rework_time": 31,
+        "expected_waiting_time": 7,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 1.86,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 5,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 17.38,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 460776,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-460776-2",
+        "task_company_id": null,
+        "task_name": "Untersuchung des Patienten, Importieren der Patienten - daten in die Datenbank",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C498A8DD-5554-4037-83A1-5F3A5993D47D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 151,
+        "expected_rework_time": 30,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 13.55,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 93,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 17.48,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 4,
+              "hourlyRate": 90,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 460776,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-460776-3",
+        "task_company_id": null,
+        "task_name": "Rezept aufschreiben",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A56135F2-C598-4AB0-B17C-3259B719D48A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 231,
+        "expected_rework_time": 42,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 17.86,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 47,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 460776,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-460776-4",
+        "task_company_id": null,
+        "task_name": "Einweisung in die Klinik",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FFADADAC-54BB-48B9-B6C8-C610BE92C08A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 155,
+        "expected_rework_time": 37,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 18.44,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 73,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 460776,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-460776-5",
+        "task_company_id": null,
+        "task_name": "Anlegen einer Patienten - datenbank",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-DCBED613-E4E0-48A8-A8DE-28027163BC6B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 173,
+        "expected_rework_time": 42,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 6.25,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 6,
+              "hourlyRate": 113,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "01cfa288b76b42829ee95e7fdb497d2e",
+    "model_id": "b437bedfe07d4d939f2d23089b486fba",
+    "organization_id": "c41660388a04449a995dccf97d894f46"
+  }
+}

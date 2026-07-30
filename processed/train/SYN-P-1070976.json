@@ -1,0 +1,283 @@
+{
+  "process_id": 1070976,
+  "company_id": 1970976,
+  "created_at": "2021-04-17 03:23:32",
+  "updated_at": "2021-04-17 03:23:32",
+  "capacity_requirement_minutes": 300,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1070976",
+  "process_name": "BUSA379Ch3Ex4_Bhattarai_6091",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1070976\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1070976\" name=\"BUSA379Ch3Ex4_Bhattarai_6091\" isExecutable=\"false\"><bpmn:task id=\"sid-FC439EA7-B04D-4B6A-A25E-59B091E26FD6\" name=\"Check application form completeness\" /><bpmn:task id=\"sid-7DE4CF48-E625-431E-884E-EB24516F9C02\" name=\"Return application back to applicant\" /><bpmn:task id=\"sid-243EED06-A903-4953-8C84-9B2FE53267DD\" name=\"Receive updated application\" /><bpmn:startEvent id=\"sid-BEAB9D17-96D8-4767-91F1-716B821AE03C\" name=\"Loan application received\" /><bpmn:endEvent id=\"sid-82AB9F3E-3D97-4701-AD4B-C09153BA8A55\" name=\"Form checked\" /><bpmn:exclusiveGateway id=\"sid-A335DD58-78B4-46A0-9F78-BD97C19D07DF\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-1049214E-B947-4277-83B2-91D353F9B76E\" name=\"Form complete\" /><bpmn:sequenceFlow id=\"sid-971F3E1E-A02B-44A4-9CE8-B1423F0392D1\" targetRef=\"sid-A335DD58-78B4-46A0-9F78-BD97C19D07DF\" /><bpmn:sequenceFlow id=\"sid-6F3596D8-4EDC-4AC4-B118-F5F1076B4FC7\" targetRef=\"sid-FC439EA7-B04D-4B6A-A25E-59B091E26FD6\" /><bpmn:sequenceFlow id=\"sid-2057F4BB-4E02-4029-AF45-383BB68B49E2\" targetRef=\"sid-1049214E-B947-4277-83B2-91D353F9B76E\" /><bpmn:sequenceFlow id=\"sid-B402764A-7964-4F99-A2E0-D2A4DA8EF4F9\" targetRef=\"sid-82AB9F3E-3D97-4701-AD4B-C09153BA8A55\" /><bpmn:sequenceFlow id=\"sid-15E8AACE-8992-49FC-A22B-8BD75965681E\" targetRef=\"sid-A335DD58-78B4-46A0-9F78-BD97C19D07DF\" /><bpmn:sequenceFlow id=\"sid-CC923048-7EBD-41DE-BFB8-39AD63A680C5\" targetRef=\"sid-7DE4CF48-E625-431E-884E-EB24516F9C02\" name=\"Form incomplete\" /><bpmn:sequenceFlow id=\"sid-F724AE78-5B9B-4F62-BAC0-8E2918786E60\" targetRef=\"sid-243EED06-A903-4953-8C84-9B2FE53267DD\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-04-17 03:23:32",
+  "company": {
+    "company_id": 1970976,
+    "companyCode": "SYN-1070976",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.53
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.47
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Form complete",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Form complete",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.66
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Form complete",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.34
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1070976,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1070976-1",
+        "task_company_id": null,
+        "task_name": "Check application form completeness",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FC439EA7-B04D-4B6A-A25E-59B091E26FD6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 84,
+        "expected_rework_time": 13,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 9.13,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 115,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1070976,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1070976-2",
+        "task_company_id": null,
+        "task_name": "Return application back to applicant",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7DE4CF48-E625-431E-884E-EB24516F9C02.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 41,
+        "expected_rework_time": 5,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 7.64,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 18,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 2.1,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 5,
+              "hourlyRate": 59,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1070976,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1070976-3",
+        "task_company_id": null,
+        "task_name": "Receive updated application",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-243EED06-A903-4953-8C84-9B2FE53267DD.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 175,
+        "expected_rework_time": 40,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 16.98,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 1,
+              "hourlyRate": 18,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "b7bf760e8d644afa9651b01618d60da0",
+    "model_id": "ff85f1cc754a4754b606ae7e5d3bafb1",
+    "organization_id": "f04260bd0efe44bdad2ae2e769e31188"
+  }
+}

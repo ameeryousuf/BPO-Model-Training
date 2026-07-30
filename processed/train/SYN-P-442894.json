@@ -1,0 +1,864 @@
+{
+  "process_id": 442894,
+  "company_id": 1342894,
+  "created_at": "2021-04-07 06:00:11",
+  "updated_at": "2021-04-07 06:00:11",
+  "capacity_requirement_minutes": 1598,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-442894",
+  "process_name": "BPM Assignment 1 First Draft (Collaboration versions)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-442894\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-442894\" name=\"BPM Assignment 1 First Draft (Collaboration versions)\" isExecutable=\"false\"><bpmn:task id=\"sid-AB986C8F-98B5-49D5-8306-B62B14B43329\" name=\"Access and complete insurance claim\" /><bpmn:task id=\"sid-92FCBE27-1185-4250-AB49-BCE638999965\" name=\"Lodge insurance claim\" /><bpmn:task id=\"sid-620BC9B0-D39E-4FAE-933C-A8D9D64FE360\" name=\"Examine claim completeness\" /><bpmn:task id=\"sid-C6A6C2CC-6EE9-4445-8EAF-D18EAB3CE077\" name=\"Examine claim validity\" /><bpmn:task id=\"sid-9795054E-40F4-4183-8A2A-7E685408A02D\" name=\"Access claim\" /><bpmn:task id=\"sid-D7567E85-3364-452B-A373-4BB5DCAD607B\" name=\"Register claim in We-Insure system\" /><bpmn:task id=\"sid-6DB26246-C37D-4541-B32C-2043FA79F409\" name=\"Request documents\" /><bpmn:task id=\"sid-EC96866F-6DD7-4BBC-BBB9-9746D6E897F8\" name=\"Reject claim and send automated email\" /><bpmn:task id=\"sid-966577CC-3A6B-4098-BBEB-A3A83C7D19AF\" name=\"Access claim and examine quote\" /><bpmn:task id=\"sid-92E77F8C-BD5C-4FB7-98C9-C63A3647998A\" name=\"Phone non-partner workshop and confirm quote amount and validity\" /><bpmn:task id=\"sid-63EF58B5-A64D-4C60-9DB6-FF2D7CEFE4E0\" name=\"Untitled Task\" /><bpmn:task id=\"sid-59EC58AD-BF9D-42EC-8B95-136B8A607F33\" name=\"Phone partner workshop and arrange on-site inspection\" /><bpmn:startEvent id=\"sid-81827DF9-AA87-460A-A947-2794D8E87640\" name=\"Accident event\" /><bpmn:endEvent id=\"sid-75FE2CAA-9561-49FD-A622-D94527C0CEE7\" name=\"Claim finalised\" /><bpmn:intermediateCatchEvent id=\"sid-568225C6-6795-4ADE-92EC-0281EA5B1A4C\" name=\"\" /><bpmn:startEvent id=\"sid-90D0AC11-BEA3-41D2-8C3B-1BAA117447C9\" name=\"Claim received\" /><bpmn:endEvent id=\"sid-60693B7C-DE31-4AA4-B11C-1CFCFC9169B4\" name=\"Claim validated\" /><bpmn:startEvent id=\"sid-898D48AE-6CCE-49D8-A7F2-4AD8CC84187E\" name=\"Claim moved\" /><bpmn:exclusiveGateway id=\"sid-9B43948C-E2E1-459D-9FFE-929252B5DF58\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-6E147399-4F97-4BBF-AEEE-E5B8F019EA5F\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-AF83E386-875F-4BFD-ACDE-DBA689EDD606\" name=\"\" /><bpmn:inclusiveGateway id=\"sid-5183355F-AD6A-4ACC-A054-0467F3A6924D\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-229E9507-8F79-4632-9F5B-1CB3721A02B7\" name=\"\" /><bpmn:sequenceFlow id=\"sid-1FDF5259-64B6-4E86-80CF-158AE1227AB7\" targetRef=\"sid-C6A6C2CC-6EE9-4445-8EAF-D18EAB3CE077\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-B4EF680E-59A8-4969-8ADD-F03D405A715E\" targetRef=\"sid-6DB26246-C37D-4541-B32C-2043FA79F409\" /><bpmn:sequenceFlow id=\"sid-F8A194D8-98DF-4333-8C21-99DC5B1E608D\" targetRef=\"sid-9795054E-40F4-4183-8A2A-7E685408A02D\" /><bpmn:sequenceFlow id=\"sid-45A5EF74-92F3-4F52-B7A0-E027F6A45413\" targetRef=\"sid-6E147399-4F97-4BBF-AEEE-E5B8F019EA5F\" name=\"Is claim complete?\" /><bpmn:sequenceFlow id=\"sid-DFD9BCFE-F88D-45C5-B862-8D3520FC3579\" targetRef=\"sid-620BC9B0-D39E-4FAE-933C-A8D9D64FE360\" /><bpmn:sequenceFlow id=\"sid-E3E167FA-6D61-48EA-822D-75D5975BBE81\" targetRef=\"sid-D7567E85-3364-452B-A373-4BB5DCAD607B\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-74876DEC-3088-4B23-8A26-32621527A1BF\" targetRef=\"sid-EC96866F-6DD7-4BBC-BBB9-9746D6E897F8\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-A3D56482-F54D-49CE-9AF2-3E3F7E665C98\" targetRef=\"sid-AF83E386-875F-4BFD-ACDE-DBA689EDD606\" name=\"Is claim valid?\" /><bpmn:sequenceFlow id=\"sid-3E47B6EE-FDED-4128-A414-65FFD851C88B\" targetRef=\"sid-568225C6-6795-4ADE-92EC-0281EA5B1A4C\" name=\"wait\" /><bpmn:sequenceFlow id=\"sid-94182815-BE4F-4DC6-AA51-6D20B80A83ED\" targetRef=\"sid-9B43948C-E2E1-459D-9FFE-929252B5DF58\" /><bpmn:sequenceFlow id=\"sid-E856BFCF-6F50-4812-B849-E77864F5443B\" targetRef=\"sid-966577CC-3A6B-4098-BBEB-A3A83C7D19AF\" /><bpmn:sequenceFlow id=\"sid-F12770C2-3943-43D8-A2F8-F1E71272E3C0\" targetRef=\"sid-229E9507-8F79-4632-9F5B-1CB3721A02B7\" name=\"Is quote from &#10;partner workshop?\" /><bpmn:sequenceFlow id=\"sid-944D21EB-A93D-465D-A4EE-45EDE58989AF\" targetRef=\"sid-63EF58B5-A64D-4C60-9DB6-FF2D7CEFE4E0\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-D9D2201E-658C-466E-B7F0-7EA30235DF0D\" targetRef=\"sid-92E77F8C-BD5C-4FB7-98C9-C63A3647998A\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-47DBD851-7C1B-47F9-831B-926651E95F87\" targetRef=\"sid-5183355F-AD6A-4ACC-A054-0467F3A6924D\" /><bpmn:sequenceFlow id=\"sid-8E6A8189-EA66-4DEE-B95C-547A50363CCC\" targetRef=\"sid-5183355F-AD6A-4ACC-A054-0467F3A6924D\" /><bpmn:sequenceFlow id=\"sid-E56D5E1D-42E9-45EE-AC25-0F6FA5737E66\" targetRef=\"sid-60693B7C-DE31-4AA4-B11C-1CFCFC9169B4\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-04-07 06:00:11",
+  "company": {
+    "company_id": 1342894,
+    "companyCode": "SYN-442894",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.58
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.42
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.48
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.52
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.76
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.24
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "INCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.2
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.8
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 5",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.63
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.37
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 442894,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-442894-1",
+        "task_company_id": null,
+        "task_name": "Access and complete insurance claim",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AB986C8F-98B5-49D5-8306-B62B14B43329.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 178,
+        "expected_rework_time": 16,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 5.59,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 17,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 442894,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-442894-2",
+        "task_company_id": null,
+        "task_name": "Lodge insurance claim",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-92FCBE27-1185-4250-AB49-BCE638999965.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 139,
+        "expected_rework_time": 14,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 3.07,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 37,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 11.99,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 15,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 442894,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-442894-3",
+        "task_company_id": null,
+        "task_name": "Examine claim completeness",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-620BC9B0-D39E-4FAE-933C-A8D9D64FE360.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 175,
+        "expected_rework_time": 32,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 12.72,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 30,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 442894,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-442894-4",
+        "task_company_id": null,
+        "task_name": "Examine claim validity",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C6A6C2CC-6EE9-4445-8EAF-D18EAB3CE077.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 40,
+        "expected_rework_time": 3,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 18.25,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 77,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 442894,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-442894-5",
+        "task_company_id": null,
+        "task_name": "Access claim",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9795054E-40F4-4183-8A2A-7E685408A02D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 220,
+        "expected_rework_time": 15,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "R",
+            "time_allocation_percentage": 1.37,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 3,
+              "hourlyRate": 28,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 442894,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-442894-6",
+        "task_company_id": null,
+        "task_name": "Register claim in We-Insure system",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D7567E85-3364-452B-A373-4BB5DCAD607B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 201,
+        "expected_rework_time": 38,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 10.87,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 5,
+              "hourlyRate": 64,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 2.42,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 4,
+              "hourlyRate": 54,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 442894,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-442894-7",
+        "task_company_id": null,
+        "task_name": "Request documents",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6DB26246-C37D-4541-B32C-2043FA79F409.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 40,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 21,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "A",
+            "time_allocation_percentage": 11.74,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 5,
+              "hourlyRate": 96,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 10,
+            "task_id": 5007,
+            "role": "I",
+            "time_allocation_percentage": 16.08,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 1,
+              "hourlyRate": 103,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 442894,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-442894-8",
+        "task_company_id": null,
+        "task_name": "Reject claim and send automated email",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EC96866F-6DD7-4BBC-BBB9-9746D6E897F8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 229,
+        "expected_rework_time": 32,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5008,
+            "role": "C",
+            "time_allocation_percentage": 16.27,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 4,
+              "hourlyRate": 80,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 442894,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-442894-9",
+        "task_company_id": null,
+        "task_name": "Access claim and examine quote",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-966577CC-3A6B-4098-BBEB-A3A83C7D19AF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 37,
+        "expected_rework_time": 4,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5009,
+            "role": "I",
+            "time_allocation_percentage": 7.74,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 5,
+              "hourlyRate": 103,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 442894,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-442894-10",
+        "task_company_id": null,
+        "task_name": "Phone non-partner workshop and confirm quote amount and validity",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-92E77F8C-BD5C-4FB7-98C9-C63A3647998A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 93,
+        "expected_rework_time": 11,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5010,
+            "role": "C",
+            "time_allocation_percentage": 3.38,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 5,
+              "hourlyRate": 60,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 442894,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-442894-11",
+        "task_company_id": null,
+        "task_name": "Untitled Task",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-63EF58B5-A64D-4C60-9DB6-FF2D7CEFE4E0.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 6,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 9,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5011,
+            "role": "I",
+            "time_allocation_percentage": 5.4,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 3,
+              "hourlyRate": 88,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 442894,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-442894-12",
+        "task_company_id": null,
+        "task_name": "Phone partner workshop and arrange on-site inspection",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-59EC58AD-BF9D-42EC-8B95-136B8A607F33.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 240,
+        "expected_rework_time": 50,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 15,
+            "task_id": 5012,
+            "role": "C",
+            "time_allocation_percentage": 12.95,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 6,
+              "hourlyRate": 101,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "7eaadb07c43c4f2fa971d961705fa9ec",
+    "model_id": "8761ea6af6ce456495487531c157f25b",
+    "organization_id": "9f459ec02a1d44b9a2c5d1763b5af69c"
+  }
+}

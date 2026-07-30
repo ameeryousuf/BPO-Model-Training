@@ -1,0 +1,216 @@
+{
+  "process_id": 354702,
+  "company_id": 1254702,
+  "created_at": "2021-02-04 18:50:25",
+  "updated_at": "2021-02-04 18:50:25",
+  "capacity_requirement_minutes": 440,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-354702",
+  "process_name": "Check iability",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-354702\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-354702\" name=\"Check iability\" isExecutable=\"false\"><bpmn:task id=\"sid-6DEF2AC4-E120-46A8-B339-97B1B9723F22\" name=\"Check character\" /><bpmn:task id=\"sid-6643CB4D-3502-472D-B154-66E22DB82550\" name=\"Check credit history\" /><bpmn:startEvent id=\"sid-050C6B41-1C6A-4E8B-AC07-F5DAF0509F23\" name=\"Home loan application registered\" /><bpmn:endEvent id=\"sid-0FB40C34-72C4-4524-998C-AF8653B10BF6\" name=\"Home loan application checked\" /><bpmn:parallelGateway id=\"sid-F356D7EB-D57F-4860-B25F-5AA1CC04DCFA\" name=\"\" /><bpmn:parallelGateway id=\"sid-71F07130-F0C8-423B-A1F8-B76623D78102\" name=\"\" /><bpmn:sequenceFlow id=\"sid-9615121C-CDE6-4AEE-A312-C1FFE9415FCE\" targetRef=\"sid-F356D7EB-D57F-4860-B25F-5AA1CC04DCFA\" /><bpmn:sequenceFlow id=\"sid-4C39266A-201C-4611-A1DD-4A4663DE2CD1\" targetRef=\"sid-6DEF2AC4-E120-46A8-B339-97B1B9723F22\" /><bpmn:sequenceFlow id=\"sid-F7592C61-23B0-40F5-B6FD-E279791F6BCD\" targetRef=\"sid-6643CB4D-3502-472D-B154-66E22DB82550\" /><bpmn:sequenceFlow id=\"sid-92830F5E-4000-45F2-A2D8-7D5CD1C99D1F\" targetRef=\"sid-71F07130-F0C8-423B-A1F8-B76623D78102\" /><bpmn:sequenceFlow id=\"sid-4446A0B0-EF00-49D8-B020-4AD0E5D65B22\" targetRef=\"sid-71F07130-F0C8-423B-A1F8-B76623D78102\" /><bpmn:sequenceFlow id=\"sid-72626C10-E881-46AB-B43D-6F891D4B3490\" targetRef=\"sid-0FB40C34-72C4-4524-998C-AF8653B10BF6\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-02-04 18:50:25",
+  "company": {
+    "company_id": 1254702,
+    "companyCode": "SYN-354702",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.43
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.57
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.36
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.64
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 354702,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-354702-1",
+        "task_company_id": null,
+        "task_name": "Check character",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6DEF2AC4-E120-46A8-B339-97B1B9723F22.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 208,
+        "expected_rework_time": 19,
+        "expected_waiting_time": 3,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 11.15,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 64,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 354702,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-354702-2",
+        "task_company_id": null,
+        "task_name": "Check credit history",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6643CB4D-3502-472D-B154-66E22DB82550.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 232,
+        "expected_rework_time": 28,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 5.79,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 25,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "f83514916a1c41d7bed52e9c6ab17003",
+    "model_id": "7baa0714ca39480baa8afe156ee424de",
+    "organization_id": "7973fe1261884a9bac69a1165c1a7b0c"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "process_id": 224268,
+  "company_id": 1124268,
+  "created_at": "2018-04-12 10:01:45",
+  "updated_at": "2018-04-12 10:01:45",
+  "capacity_requirement_minutes": 219,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-224268",
+  "process_name": "5 Production (Draft)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-224268\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-224268\" name=\"5 Production (Draft)\" isExecutable=\"false\"><bpmn:task id=\"sid-04A64479-D29D-4784-83CA-FC22F26C1F78\" name=\"Count drugs\" /><bpmn:task id=\"sid-1C71AF03-7F1F-4A56-A9B4-C443E6190E74\" name=\"Verify drugs\" /><bpmn:task id=\"sid-00C2ED8E-2AFD-44BB-BA60-303F9AD44658\" name=\"Record out of stock internally\" /><bpmn:startEvent id=\"sid-17DEC4BE-8CE9-4AC0-8E89-98B30FC11130\" name=\"Drug approval received\" /><bpmn:endEvent id=\"sid-CFF30B05-EF5C-4512-9A5E-7663E8BDEB58\" name=\"Drugs acquired\" /><bpmn:endEvent id=\"sid-41ADA4EE-9741-4F44-A228-65707EB59D12\" name=\"Script unfulfilled due to drug unavailable\" /><bpmn:exclusiveGateway id=\"sid-E45836A4-6095-4835-8C22-EF5612263F2A\" name=\"\" /><bpmn:sequenceFlow id=\"sid-97BFF993-8756-4684-B18F-3BDEA3889315\" targetRef=\"sid-04A64479-D29D-4784-83CA-FC22F26C1F78\" /><bpmn:sequenceFlow id=\"sid-AA9130AB-4CBC-45E2-A352-E4ABB68483BD\" targetRef=\"sid-E45836A4-6095-4835-8C22-EF5612263F2A\" /><bpmn:sequenceFlow id=\"sid-C1B8C815-480F-459B-A8DF-A528062AE901\" targetRef=\"sid-CFF30B05-EF5C-4512-9A5E-7663E8BDEB58\" /><bpmn:sequenceFlow id=\"sid-55696CB7-2BD3-4167-95BE-13CD90DF2FB2\" targetRef=\"sid-41ADA4EE-9741-4F44-A228-65707EB59D12\" /><bpmn:sequenceFlow id=\"sid-6A045AF4-6138-42A0-996D-311CA0766A5D\" targetRef=\"sid-1C71AF03-7F1F-4A56-A9B4-C443E6190E74\" name=\"drug in stock\" /><bpmn:sequenceFlow id=\"sid-B78B05F4-1F3E-4EC4-8CD5-526EEA41151E\" targetRef=\"sid-00C2ED8E-2AFD-44BB-BA60-303F9AD44658\" name=\"drug out of stock\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-04-12 10:01:45",
+  "company": {
+    "company_id": 1124268,
+    "companyCode": "SYN-224268",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.49
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.51
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 224268,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-224268-1",
+        "task_company_id": null,
+        "task_name": "Count drugs",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-04A64479-D29D-4784-83CA-FC22F26C1F78.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 143,
+        "expected_rework_time": 17,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 14.26,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 6,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 224268,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-224268-2",
+        "task_company_id": null,
+        "task_name": "Verify drugs",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1C71AF03-7F1F-4A56-A9B4-C443E6190E74.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 71,
+        "expected_rework_time": 18,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 2.01,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 78,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 224268,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-224268-3",
+        "task_company_id": null,
+        "task_name": "Record out of stock internally",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-00C2ED8E-2AFD-44BB-BA60-303F9AD44658.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 5,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 18.21,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 64,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 8.23,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 97,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "a235d3b773384abca91f548cac775084",
+    "model_id": "f1485300bbe040e598b08e556172d266",
+    "organization_id": "aa571a77f32f49ba97c9e0cab9e56b34"
+  }
+}

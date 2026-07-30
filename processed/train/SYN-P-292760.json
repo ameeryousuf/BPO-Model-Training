@@ -1,0 +1,830 @@
+{
+  "process_id": 292760,
+  "company_id": 1192760,
+  "created_at": "2020-09-15 04:24:23",
+  "updated_at": "2020-09-15 04:24:23",
+  "capacity_requirement_minutes": 1681,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-292760",
+  "process_name": "Cash Receipts Lozano",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-292760\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-292760\" name=\"Cash Receipts Lozano\" isExecutable=\"false\"><bpmn:task id=\"sid-E5F6B625-AE25-4303-8579-AB371EF52271\" name=\"Collect Remittance Slip from checks received for accounts due\" /><bpmn:task id=\"sid-D4DE474A-3C66-4E0F-BC39-BFFD14E0D6CD\" name=\"Endorse all checks\" /><bpmn:task id=\"sid-FB62C8AE-AD42-407E-99C9-DF7CD624C310\" name=\"Prepare deposit slip for checks and cash daily totals\" /><bpmn:task id=\"sid-FFDA18D3-BFE9-48AA-A101-815B6A487626\" name=\"Send Remittance slips to A/R\" /><bpmn:task id=\"sid-7E363AF8-A2B5-40E3-888B-A2A3552C4733\" name=\"Collect checks, cash, and deposit slip\" /><bpmn:task id=\"sid-4899148E-1CEE-4DED-B106-2A982D1D0709\" name=\"Deposit all checks, cash and deposit slip at bank\" /><bpmn:task id=\"sid-A47E20B6-2836-49B6-86FD-F2F336F76FD4\" name=\"File Remittance Slips by date\" /><bpmn:task id=\"sid-74233CA7-00B9-4446-8A04-66B4D9E73B23\" name=\"Enter data from Remittance slips into computer\" /><bpmn:task id=\"sid-A8D3FB3A-C82B-469E-9A57-0DC733EBFD9E\" name=\"Weekly Cash Receipt Report Generated\" /><bpmn:task id=\"sid-B718498E-9BC6-4773-BCF5-C3556443F0D8\" name=\"Weekly Aged Trial Balance Report Generated\" /><bpmn:task id=\"sid-464884FD-D58C-454A-A5A5-02545FE053C8\" name=\"Send Cash Receipt Report to Jane Doe &amp;\" /><bpmn:task id=\"sid-A6E20B49-0E37-4133-98FB-32EB6CC1B676\" name=\"Send copy of aged Trial Balance Report to Collections\" /><bpmn:task id=\"sid-92EE42EC-9B72-4797-90F1-164006FD59AF\" name=\"Review Cash Receipt Report\" /><bpmn:task id=\"sid-B8D039AA-25BA-4E54-B878-200E78294B95\" name=\"Review Trial Balance\" /><bpmn:startEvent id=\"sid-28F7922A-2FBC-4DE2-B843-2A01AC86CA59\" name=\"Cash or Check Payment Received\" /><bpmn:endEvent id=\"sid-C08E046D-A45F-4295-B899-870958B1A395\" name=\"\" /><bpmn:endEvent id=\"sid-87E2F942-A949-45F4-BE76-5D8602EA5874\" name=\"\" /><bpmn:endEvent id=\"sid-2FFD3D6B-54D5-489C-90A9-15426F5970C2\" name=\"\" /><bpmn:endEvent id=\"sid-F5938FCA-EC10-405E-9607-927838D384C6\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-115D8413-8355-48E1-AC8D-E6F330EB6597\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-6E3C9A8F-5736-41B4-92C6-F4F3EF274444\" name=\"Database updated\" /><bpmn:sequenceFlow id=\"sid-3ED9B02B-604A-4D3E-B7FF-EA67821BAA81\" targetRef=\"sid-E5F6B625-AE25-4303-8579-AB371EF52271\" /><bpmn:sequenceFlow id=\"sid-1890339A-AB24-4457-921D-CD2E3A67BF2C\" targetRef=\"sid-7E363AF8-A2B5-40E3-888B-A2A3552C4733\" /><bpmn:sequenceFlow id=\"sid-D8E824E8-6CC8-4043-AA0F-13878DF1F340\" targetRef=\"sid-4899148E-1CEE-4DED-B106-2A982D1D0709\" /><bpmn:sequenceFlow id=\"sid-AB8787F0-F9EA-4D1C-8E47-38CA9DFED43F\" targetRef=\"sid-C08E046D-A45F-4295-B899-870958B1A395\" /><bpmn:sequenceFlow id=\"sid-351D205E-3FFD-4BEF-A8E3-860FF87CFF0B\" targetRef=\"sid-115D8413-8355-48E1-AC8D-E6F330EB6597\" /><bpmn:sequenceFlow id=\"sid-833BA70F-1798-40E0-AB4B-1CD89689AD15\" targetRef=\"sid-6E3C9A8F-5736-41B4-92C6-F4F3EF274444\" /><bpmn:sequenceFlow id=\"sid-40A23DE2-3914-474E-BC5E-31AABA7E7E0F\" targetRef=\"sid-92EE42EC-9B72-4797-90F1-164006FD59AF\" /><bpmn:sequenceFlow id=\"sid-0096B764-038F-472A-A184-425A68011BCA\" targetRef=\"sid-B8D039AA-25BA-4E54-B878-200E78294B95\" /><bpmn:sequenceFlow id=\"sid-511BD6D3-59EA-46EE-838C-4103673B62BA\" targetRef=\"sid-F5938FCA-EC10-405E-9607-927838D384C6\" /><bpmn:sequenceFlow id=\"sid-B9C550D5-98EB-4A87-BC0F-744225D01576\" targetRef=\"sid-2FFD3D6B-54D5-489C-90A9-15426F5970C2\" /><bpmn:sequenceFlow id=\"sid-99B5C12F-D0CF-4E70-A228-EAF67149FAE4\" targetRef=\"sid-FFDA18D3-BFE9-48AA-A101-815B6A487626\" /><bpmn:sequenceFlow id=\"sid-55570FDB-B0A6-4F57-9E3A-BB9F7EAA6E12\" targetRef=\"sid-87E2F942-A949-45F4-BE76-5D8602EA5874\" /><bpmn:sequenceFlow id=\"sid-BBBC75B7-C5D8-4644-AEA6-CED56F78109B\" targetRef=\"sid-74233CA7-00B9-4446-8A04-66B4D9E73B23\" /><bpmn:sequenceFlow id=\"sid-9D6CE61E-B68E-4177-BC67-A798B01A14D5\" targetRef=\"sid-A6E20B49-0E37-4133-98FB-32EB6CC1B676\" /><bpmn:sequenceFlow id=\"sid-EFA2CE66-5428-4EC2-B4F0-1CF93D5DF159\" targetRef=\"sid-D4DE474A-3C66-4E0F-BC39-BFFD14E0D6CD\" /><bpmn:sequenceFlow id=\"sid-62506BA0-FD46-406B-AF62-0EBCAD781173\" targetRef=\"sid-FB62C8AE-AD42-407E-99C9-DF7CD624C310\" /><bpmn:sequenceFlow id=\"sid-F2EEF91B-123E-44A3-A460-5AA07EAE80DD\" targetRef=\"sid-A47E20B6-2836-49B6-86FD-F2F336F76FD4\" /><bpmn:sequenceFlow id=\"sid-7F9F1B95-C413-468C-A0BF-8376D5E56766\" targetRef=\"sid-A8D3FB3A-C82B-469E-9A57-0DC733EBFD9E\" /><bpmn:sequenceFlow id=\"sid-72752C8A-5A3F-49CF-A663-37422139D0B6\" targetRef=\"sid-B718498E-9BC6-4773-BCF5-C3556443F0D8\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-09-15 04:24:23",
+  "company": {
+    "company_id": 1192760,
+    "companyCode": "SYN-292760",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.31
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.69
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Database updated",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Database updated",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.27
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Database updated",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.73
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 292760,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-292760-1",
+        "task_company_id": null,
+        "task_name": "Collect Remittance Slip from checks received for accounts due",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E5F6B625-AE25-4303-8579-AB371EF52271.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 177,
+        "expected_rework_time": 30,
+        "expected_waiting_time": 14,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 14.04,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 6,
+              "hourlyRate": 45,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 292760,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-292760-2",
+        "task_company_id": null,
+        "task_name": "Endorse all checks",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D4DE474A-3C66-4E0F-BC39-BFFD14E0D6CD.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 120,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 10.27,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 18,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 9.82,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 43,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 292760,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-292760-3",
+        "task_company_id": null,
+        "task_name": "Prepare deposit slip for checks and cash daily totals",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FB62C8AE-AD42-407E-99C9-DF7CD624C310.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 111,
+        "expected_rework_time": 19,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 18.29,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 17,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 292760,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-292760-4",
+        "task_company_id": null,
+        "task_name": "Send Remittance slips to A/R",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FFDA18D3-BFE9-48AA-A101-815B6A487626.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 154,
+        "expected_rework_time": 38,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 15.76,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 75,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 292760,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-292760-5",
+        "task_company_id": null,
+        "task_name": "Collect checks, cash, and deposit slip",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7E363AF8-A2B5-40E3-888B-A2A3552C4733.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 212,
+        "expected_rework_time": 42,
+        "expected_waiting_time": 29,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "R",
+            "time_allocation_percentage": 14.05,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 6,
+              "hourlyRate": 106,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 7,
+            "task_id": 5005,
+            "role": "C",
+            "time_allocation_percentage": 16.78,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 4,
+              "hourlyRate": 78,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 292760,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-292760-6",
+        "task_company_id": null,
+        "task_name": "Deposit all checks, cash and deposit slip at bank",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4899148E-1CEE-4DED-B106-2A982D1D0709.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 132,
+        "expected_rework_time": 15,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 14.63,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 6,
+              "hourlyRate": 59,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 292760,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-292760-7",
+        "task_company_id": null,
+        "task_name": "File Remittance Slips by date",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A47E20B6-2836-49B6-86FD-F2F336F76FD4.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 13,
+        "expected_rework_time": 3,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "I",
+            "time_allocation_percentage": 19.12,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 2,
+              "hourlyRate": 66,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 292760,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-292760-8",
+        "task_company_id": null,
+        "task_name": "Enter data from Remittance slips into computer",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-74233CA7-00B9-4446-8A04-66B4D9E73B23.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 36,
+        "expected_rework_time": 9,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5008,
+            "role": "R",
+            "time_allocation_percentage": 1.29,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 6,
+              "hourlyRate": 65,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 292760,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-292760-9",
+        "task_company_id": null,
+        "task_name": "Weekly Cash Receipt Report Generated",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A8D3FB3A-C82B-469E-9A57-0DC733EBFD9E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 192,
+        "expected_rework_time": 44,
+        "expected_waiting_time": 24,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5009,
+            "role": "A",
+            "time_allocation_percentage": 18.88,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 6,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 292760,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-292760-10",
+        "task_company_id": null,
+        "task_name": "Weekly Aged Trial Balance Report Generated",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B718498E-9BC6-4773-BCF5-C3556443F0D8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 56,
+        "expected_rework_time": 7,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5010,
+            "role": "I",
+            "time_allocation_percentage": 15.36,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 4,
+              "hourlyRate": 16,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 292760,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-292760-11",
+        "task_company_id": null,
+        "task_name": "Send Cash Receipt Report to Jane Doe &",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-464884FD-D58C-454A-A5A5-02545FE053C8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 85,
+        "expected_rework_time": 21,
+        "expected_waiting_time": 26,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5011,
+            "role": "A",
+            "time_allocation_percentage": 14.33,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 2,
+              "hourlyRate": 120,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 292760,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-292760-12",
+        "task_company_id": null,
+        "task_name": "Send copy of aged Trial Balance Report to Collections",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A6E20B49-0E37-4133-98FB-32EB6CC1B676.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 31,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5012,
+            "role": "C",
+            "time_allocation_percentage": 10.15,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 6,
+              "hourlyRate": 71,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 292760,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-292760-13",
+        "task_company_id": null,
+        "task_name": "Review Cash Receipt Report",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-92EE42EC-9B72-4797-90F1-164006FD59AF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 234,
+        "expected_rework_time": 58,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 15,
+            "task_id": 5013,
+            "role": "A",
+            "time_allocation_percentage": 18.29,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 2,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6014,
+      "process_id": 292760,
+      "task_id": 5014,
+      "order": 14,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5014,
+        "task_code": "SYN-T-292760-14",
+        "task_company_id": null,
+        "task_name": "Review Trial Balance",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B8D039AA-25BA-4E54-B878-200E78294B95.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 128,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 16,
+            "task_id": 5014,
+            "role": "R",
+            "time_allocation_percentage": 4.79,
+            "job": {
+              "job_id": 16,
+              "jobCode": "SYN-J-16",
+              "job_level_id": 4,
+              "hourlyRate": 119,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "c3d460dea8d64647a0f99eb8b58b8234",
+    "model_id": "490dc8397ebf43b49073340c2af951eb",
+    "organization_id": "92aa4c26dd074bb292f61d3678ebc1b5"
+  }
+}

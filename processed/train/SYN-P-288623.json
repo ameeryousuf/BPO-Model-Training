@@ -1,0 +1,972 @@
+{
+  "process_id": 288623,
+  "company_id": 1188623,
+  "created_at": "2020-06-01 04:50:58",
+  "updated_at": "2020-06-01 04:50:58",
+  "capacity_requirement_minutes": 1860,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-288623",
+  "process_name": "VC2_inspection",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-288623\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-288623\" name=\"VC2_inspection\" isExecutable=\"false\"><bpmn:task id=\"sid-9CDE5AA0-020D-4047-B178-8F6B5A03DDE0\" name=\"Collect Keys\" /><bpmn:task id=\"sid-305ED8A5-703E-4D09-AD4F-2A9CAF09DDA7\" name=\"Record Inspection at Base 2 Outcome\" /><bpmn:task id=\"sid-CEDBCD4C-67ED-430D-A7FE-CA74E8D75E82\" name=\"Move Vehicle to Base 3\" /><bpmn:task id=\"sid-7A70BA19-92CB-4DD1-A1E1-3B6307EB3038\" name=\"Record Inspection at Base 3 Outcome\" /><bpmn:task id=\"sid-711269C0-2584-4A3C-9CDF-9BF0DDA4C21C\" name=\"Notify next customer\" /><bpmn:task id=\"sid-C63D53F8-6C4F-49A3-9929-DFBACCB9D39A\" name=\"Record Inspection at Base 4 Outcome\" /><bpmn:task id=\"sid-5D0D3857-9519-4154-9166-81AE102F4967\" name=\"Notify Customer\" /><bpmn:task id=\"sid-360AC2B9-25D5-4E4D-AB93-2317FF69055F\" name=\"Move Vehicle to Inspection Hall\" /><bpmn:task id=\"sid-81A2C573-4228-43DC-BC85-98A10C808365\" name=\"Perform general inspection\" /><bpmn:task id=\"sid-0CAF4693-FB3B-4A8D-BF4F-04E3E0B6FB7F\" name=\"Notify customer\" /><bpmn:task id=\"sid-E29669CF-3FCF-4E0E-8DEC-2CC214B1E149\" name=\"Move Vehicle to Base 4\" /><bpmn:task id=\"sid-1AF16532-5EB6-44CB-B736-C1BF7F378D57\" name=\"Move the Vehicle to parking lot\" /><bpmn:task id=\"sid-76B15635-7059-4634-8F1D-D33D1AB92F46\" name=\"Collect Inspection Results\" /><bpmn:task id=\"sid-3364025D-0DB2-4551-9FC7-81AEC430BB5B\" name=\"Collect Vehicle\" /><bpmn:task id=\"sid-6BACCDA6-6273-437D-9653-AEB0CFAD11D2\" name=\"Leave the Vehicle\" /><bpmn:startEvent id=\"sid-43C7B1A9-E34E-4FAD-A6D7-AA03F5F5A726\" name=\"New Vehicle at parking lot\" /><bpmn:endEvent id=\"sid-90ACA06F-B48A-4210-AF1D-313D5EECA3F9\" name=\"Inspection Completed\" /><bpmn:endEvent id=\"sid-2F2321D9-213A-4B13-A8C0-2A1526A94C3A\" name=\"Inspection completed\" /><bpmn:startEvent id=\"sid-976DE6BD-3C4A-476D-9B23-1D949D500C87\" name=\"Inspection Number Called\" /><bpmn:endEvent id=\"sid-C4D6DDBC-1ADE-4380-B8CE-DE4A61622F8E\" name=\"Customer Left the Station\" /><bpmn:intermediateCatchEvent id=\"sid-DD6E0453-3568-4023-A4C2-D362F3BCD658\" name=\"Inspection Completed\" /><bpmn:exclusiveGateway id=\"sid-2F474F6B-0063-4634-9043-3999AE710064\" name=\"\" /><bpmn:parallelGateway id=\"sid-BE3B4E18-FB1D-4599-BC93-344BB8538204\" name=\"\" /><bpmn:parallelGateway id=\"sid-DB025F2C-1793-488A-B56E-1CC1B013569D\" name=\"\" /><bpmn:sequenceFlow id=\"sid-EBB2E81E-D2FB-43DF-8EC6-ADCA1094C7AD\" targetRef=\"sid-1AF16532-5EB6-44CB-B736-C1BF7F378D57\" /><bpmn:sequenceFlow id=\"sid-BFE089E2-9E72-4933-A281-30EA1EC638BA\" targetRef=\"sid-DD6E0453-3568-4023-A4C2-D362F3BCD658\" /><bpmn:sequenceFlow id=\"sid-AC5C7990-E00E-41FC-A652-86E2B5455A03\" targetRef=\"sid-76B15635-7059-4634-8F1D-D33D1AB92F46\" /><bpmn:sequenceFlow id=\"sid-1CF098CA-70A6-4BFF-84B6-245D44D90795\" targetRef=\"sid-6BACCDA6-6273-437D-9653-AEB0CFAD11D2\" /><bpmn:sequenceFlow id=\"sid-7959B6AA-1A0C-4BF5-B19A-4355CF073AF5\" targetRef=\"sid-81A2C573-4228-43DC-BC85-98A10C808365\" /><bpmn:sequenceFlow id=\"sid-1DA62CF5-F2D7-4809-B1A2-4A82D35BEA5A\" targetRef=\"sid-305ED8A5-703E-4D09-AD4F-2A9CAF09DDA7\" /><bpmn:sequenceFlow id=\"sid-E02EA38C-1AA8-43A8-B121-1A342C3FBCF5\" targetRef=\"sid-CEDBCD4C-67ED-430D-A7FE-CA74E8D75E82\" /><bpmn:sequenceFlow id=\"sid-4F6175CC-37C2-4772-BB9F-00F9B1E7A2C4\" targetRef=\"sid-4F732836-3279-4CDE-9B42-D85D68F54EEC\" /><bpmn:sequenceFlow id=\"sid-1773CACE-DD36-4458-B28F-773B1A529989\" targetRef=\"sid-7A70BA19-92CB-4DD1-A1E1-3B6307EB3038\" /><bpmn:sequenceFlow id=\"sid-A35BA8A9-9675-4D19-8469-9A39D36E3085\" targetRef=\"sid-C63D53F8-6C4F-49A3-9929-DFBACCB9D39A\" /><bpmn:sequenceFlow id=\"sid-838CDE7C-E88F-48D4-9D45-2A028E19E37D\" targetRef=\"sid-BE3B4E18-FB1D-4599-BC93-344BB8538204\" /><bpmn:sequenceFlow id=\"sid-944A5081-B44D-4DBE-882D-36148458383F\" targetRef=\"sid-C4D6DDBC-1ADE-4380-B8CE-DE4A61622F8E\" /><bpmn:sequenceFlow id=\"sid-2722D6FE-973D-44DA-9B47-AABE14A8239A\" targetRef=\"sid-3364025D-0DB2-4551-9FC7-81AEC430BB5B\" /><bpmn:sequenceFlow id=\"sid-BEF0EAD1-C2EC-46EB-AB98-0ABCB2F39F2B\" targetRef=\"sid-360AC2B9-25D5-4E4D-AB93-2317FF69055F\" /><bpmn:sequenceFlow id=\"sid-B01A9D60-C2A6-4946-90A4-D39DAF8B04C3\" targetRef=\"sid-90ACA06F-B48A-4210-AF1D-313D5EECA3F9\" /><bpmn:sequenceFlow id=\"sid-2C7001C3-3F3A-4A08-BAD5-3E86C5E9B99F\" targetRef=\"sid-5D0D3857-9519-4154-9166-81AE102F4967\" /><bpmn:sequenceFlow id=\"sid-18A71BF3-8D75-4334-9C7B-E18D2EEC02A3\" targetRef=\"sid-2F474F6B-0063-4634-9043-3999AE710064\" /><bpmn:sequenceFlow id=\"sid-F02B5B53-A16A-41C1-BDC6-37D737FC8436\" targetRef=\"sid-2F2321D9-213A-4B13-A8C0-2A1526A94C3A\" /><bpmn:sequenceFlow id=\"sid-DF91AC7B-86F1-429E-80D6-8F4E504D31E6\" targetRef=\"sid-0CAF4693-FB3B-4A8D-BF4F-04E3E0B6FB7F\" name=\"Minor errors found\" /><bpmn:sequenceFlow id=\"sid-4F1E8FDF-00DA-4142-94F7-CB394DD11113\" targetRef=\"sid-9CDE5AA0-020D-4047-B178-8F6B5A03DDE0\" name=\"No minor errors\" /><bpmn:sequenceFlow id=\"sid-0B0FBFCC-152C-4346-9A5D-8E934A7229B3\" targetRef=\"sid-711269C0-2584-4A3C-9CDF-9BF0DDA4C21C\" /><bpmn:sequenceFlow id=\"sid-7685A8BC-4EA0-4FA8-8856-96D26E28478C\" targetRef=\"sid-E29669CF-3FCF-4E0E-8DEC-2CC214B1E149\" /><bpmn:sequenceFlow id=\"sid-2C60AF40-614F-4B02-A32E-0C8818635373\" targetRef=\"sid-DB025F2C-1793-488A-B56E-1CC1B013569D\" /><bpmn:sequenceFlow id=\"sid-00D8CC93-F4FE-4BDD-B6E7-4DEF382C3F4B\" targetRef=\"sid-DB025F2C-1793-488A-B56E-1CC1B013569D\" /><bpmn:sequenceFlow id=\"sid-8EF55F38-4DC8-4F43-9F89-B77A97C22243\" targetRef=\"sid-68820FB3-C587-485C-AF98-F8A5E70D35F8\" /><bpmn:sequenceFlow id=\"sid-4283A7F2-8919-4513-8C79-31590D0659C2\" targetRef=\"sid-A7EC9A3A-4547-4C68-9620-94EF548E2A65\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-06-01 04:50:58",
+  "company": {
+    "company_id": 1188623,
+    "companyCode": "SYN-288623",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.64
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.36
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.39
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.61
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 288623,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-288623-1",
+        "task_company_id": null,
+        "task_name": "Collect Keys",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9CDE5AA0-020D-4047-B178-8F6B5A03DDE0.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 87,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 3,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 5.31,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 23,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 9.21,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 1,
+              "hourlyRate": 109,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 288623,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-288623-2",
+        "task_company_id": null,
+        "task_name": "Record Inspection at Base 2 Outcome",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-305ED8A5-703E-4D09-AD4F-2A9CAF09DDA7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 58,
+        "expected_rework_time": 7,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 17.69,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 288623,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-288623-3",
+        "task_company_id": null,
+        "task_name": "Move Vehicle to Base 3",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-CEDBCD4C-67ED-430D-A7FE-CA74E8D75E82.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 5,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 9.75,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 104,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 288623,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-288623-4",
+        "task_company_id": null,
+        "task_name": "Record Inspection at Base 3 Outcome",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7A70BA19-92CB-4DD1-A1E1-3B6307EB3038.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 227,
+        "expected_rework_time": 16,
+        "expected_waiting_time": 26,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 6.89,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 72,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 6,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 8.5,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 1,
+              "hourlyRate": 38,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 288623,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-288623-5",
+        "task_company_id": null,
+        "task_name": "Notify next customer",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-711269C0-2584-4A3C-9CDF-9BF0DDA4C21C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 181,
+        "expected_rework_time": 40,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5005,
+            "role": "R",
+            "time_allocation_percentage": 2.21,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 4,
+              "hourlyRate": 106,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 288623,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-288623-6",
+        "task_company_id": null,
+        "task_name": "Record Inspection at Base 4 Outcome",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C63D53F8-6C4F-49A3-9929-DFBACCB9D39A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 6,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 13.83,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 2,
+              "hourlyRate": 100,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 288623,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-288623-7",
+        "task_company_id": null,
+        "task_name": "Notify Customer",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5D0D3857-9519-4154-9166-81AE102F4967.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 180,
+        "expected_rework_time": 31,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 6.14,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 1,
+              "hourlyRate": 68,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 288623,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-288623-8",
+        "task_company_id": null,
+        "task_name": "Move Vehicle to Inspection Hall",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-360AC2B9-25D5-4E4D-AB93-2317FF69055F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 139,
+        "expected_rework_time": 31,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5008,
+            "role": "R",
+            "time_allocation_percentage": 13.48,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 5,
+              "hourlyRate": 88,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 288623,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-288623-9",
+        "task_company_id": null,
+        "task_name": "Perform general inspection",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-81A2C573-4228-43DC-BC85-98A10C808365.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 121,
+        "expected_rework_time": 17,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5009,
+            "role": "I",
+            "time_allocation_percentage": 3.42,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 1,
+              "hourlyRate": 20,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 288623,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-288623-10",
+        "task_company_id": null,
+        "task_name": "Notify customer",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0CAF4693-FB3B-4A8D-BF4F-04E3E0B6FB7F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 162,
+        "expected_rework_time": 37,
+        "expected_waiting_time": 21,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5010,
+            "role": "C",
+            "time_allocation_percentage": 19.89,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 3,
+              "hourlyRate": 60,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 288623,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-288623-11",
+        "task_company_id": null,
+        "task_name": "Move Vehicle to Base 4",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E29669CF-3FCF-4E0E-8DEC-2CC214B1E149.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 229,
+        "expected_rework_time": 41,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5011,
+            "role": "C",
+            "time_allocation_percentage": 18.3,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 1,
+              "hourlyRate": 114,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 288623,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-288623-12",
+        "task_company_id": null,
+        "task_name": "Move the Vehicle to parking lot",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1AF16532-5EB6-44CB-B736-C1BF7F378D57.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 80,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 20,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5012,
+            "role": "A",
+            "time_allocation_percentage": 18.5,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 4,
+              "hourlyRate": 27,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 15,
+            "task_id": 5012,
+            "role": "I",
+            "time_allocation_percentage": 8.88,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 4,
+              "hourlyRate": 102,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 288623,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-288623-13",
+        "task_company_id": null,
+        "task_name": "Collect Inspection Results",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-76B15635-7059-4634-8F1D-D33D1AB92F46.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 197,
+        "expected_rework_time": 18,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 16,
+            "task_id": 5013,
+            "role": "R",
+            "time_allocation_percentage": 8.36,
+            "job": {
+              "job_id": 16,
+              "jobCode": "SYN-J-16",
+              "job_level_id": 6,
+              "hourlyRate": 91,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6014,
+      "process_id": 288623,
+      "task_id": 5014,
+      "order": 14,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5014,
+        "task_code": "SYN-T-288623-14",
+        "task_company_id": null,
+        "task_name": "Collect Vehicle",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3364025D-0DB2-4551-9FC7-81AEC430BB5B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 38,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 17,
+            "task_id": 5014,
+            "role": "A",
+            "time_allocation_percentage": 17.19,
+            "job": {
+              "job_id": 17,
+              "jobCode": "SYN-J-17",
+              "job_level_id": 6,
+              "hourlyRate": 89,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 18,
+            "task_id": 5014,
+            "role": "A",
+            "time_allocation_percentage": 11.19,
+            "job": {
+              "job_id": 18,
+              "jobCode": "SYN-J-18",
+              "job_level_id": 6,
+              "hourlyRate": 95,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6015,
+      "process_id": 288623,
+      "task_id": 5015,
+      "order": 15,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5015,
+        "task_code": "SYN-T-288623-15",
+        "task_company_id": null,
+        "task_name": "Leave the Vehicle",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6BACCDA6-6273-437D-9653-AEB0CFAD11D2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 150,
+        "expected_rework_time": 27,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 19,
+            "task_id": 5015,
+            "role": "I",
+            "time_allocation_percentage": 17.14,
+            "job": {
+              "job_id": 19,
+              "jobCode": "SYN-J-19",
+              "job_level_id": 2,
+              "hourlyRate": 61,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 20,
+            "task_id": 5015,
+            "role": "R",
+            "time_allocation_percentage": 7.05,
+            "job": {
+              "job_id": 20,
+              "jobCode": "SYN-J-20",
+              "job_level_id": 1,
+              "hourlyRate": 107,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "e953ab4ff9224b1f81561b4ed4ec336f",
+    "model_id": "6881638319e2463ab9f4c19d2a37ea8b",
+    "organization_id": "04959d348d5f444a941bbde89b72d9de"
+  }
+}

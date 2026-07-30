@@ -1,0 +1,216 @@
+{
+  "process_id": 119734,
+  "company_id": 1019734,
+  "created_at": "2019-01-31 13:37:55",
+  "updated_at": "2019-01-31 13:37:55",
+  "capacity_requirement_minutes": 305,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-119734",
+  "process_name": "CH3-With-Subprocesses-TR",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-119734\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-119734\" name=\"CH3-With-Subprocesses-TR\" isExecutable=\"false\"><bpmn:task id=\"sid-CCB28658-1996-49BC-8F9E-0DB973D23E50\" name=\"Report Adverse Event\" /><bpmn:task id=\"sid-1B52DAF0-4225-4B79-BE57-5AE2B090B6AE\" name=\"Determine Regulatory Non-conformance\" /><bpmn:startEvent id=\"sid-51B7328D-3E88-4EED-B40F-8066E948821F\" name=\"\" /><bpmn:endEvent id=\"sid-6F11CA4D-D0BF-49FB-A5C2-39C18184BF79\" name=\"Adverse Event Decision sent\" /><bpmn:exclusiveGateway id=\"sid-421E40EA-7BCC-4BC0-B6CA-4B18CD033CB3\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-49F58FDB-13D9-4803-A26E-6A2057C6BD37\" name=\"Regulatory Non-conformance?\" /><bpmn:sequenceFlow id=\"sid-7D7889EA-32EE-45C1-B4CB-1DDAE3F8DFE3\" targetRef=\"sid-49F58FDB-13D9-4803-A26E-6A2057C6BD37\" /><bpmn:sequenceFlow id=\"sid-B7D3073B-C274-4DA1-ADE5-55A4FC0F6284\" targetRef=\"sid-6F11CA4D-D0BF-49FB-A5C2-39C18184BF79\" /><bpmn:sequenceFlow id=\"sid-F1980720-254D-4468-98B3-87D9CA33F250\" targetRef=\"sid-421E40EA-7BCC-4BC0-B6CA-4B18CD033CB3\" /><bpmn:sequenceFlow id=\"sid-B0BFA36D-B80E-4A34-9A7B-4F91D22D3F7B\" targetRef=\"sid-421E40EA-7BCC-4BC0-B6CA-4B18CD033CB3\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-D4EBCD34-AE15-422C-8D16-116AACF2FC4E\" targetRef=\"sid-1B52DAF0-4225-4B79-BE57-5AE2B090B6AE\" /><bpmn:sequenceFlow id=\"sid-3ACB4912-34D4-4151-B994-2D087C787A7B\" targetRef=\"sid-CCB28658-1996-49BC-8F9E-0DB973D23E50\" name=\"Yes\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2019-01-31 13:37:55",
+  "company": {
+    "company_id": 1019734,
+    "companyCode": "SYN-119734",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.28
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.72
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Regulatory Non-conformance?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Regulatory Non-conformance?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.11
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Regulatory Non-conformance?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.89
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 119734,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-119734-1",
+        "task_company_id": null,
+        "task_name": "Report Adverse Event",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-CCB28658-1996-49BC-8F9E-0DB973D23E50.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 235,
+        "expected_rework_time": 49,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 13.83,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 89,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 119734,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-119734-2",
+        "task_company_id": null,
+        "task_name": "Determine Regulatory Non-conformance",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1B52DAF0-4225-4B79-BE57-5AE2B090B6AE.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 70,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 27,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 5.63,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 108,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "41ebfb62d6b84f58b09c20b502884497",
+    "model_id": "66491fd3123345b8b2fdd24eb1d4fb73",
+    "organization_id": "988331801d9a4aecb57540c848d631f4"
+  }
+}

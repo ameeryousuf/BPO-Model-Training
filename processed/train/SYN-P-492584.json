@@ -1,0 +1,726 @@
+{
+  "process_id": 492584,
+  "company_id": 1392584,
+  "created_at": "2019-04-12 19:15:36",
+  "updated_at": "2019-04-12 19:15:36",
+  "capacity_requirement_minutes": 1715,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-492584",
+  "process_name": "Lean Six - New - Process Flows - Tier I/II",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-492584\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-492584\" name=\"Lean Six - New - Process Flows - Tier I/II\" isExecutable=\"false\"><bpmn:task id=\"sid-89884D08-1745-4B2E-AE98-35C55818AA81\" name=\"Debit dealer account\" /><bpmn:task id=\"sid-5631AD52-D708-49A6-B8D7-5F39474AF44B\" name=\"Open &quot;AGCO Dashboard&quot;\" /><bpmn:task id=\"sid-A394A3CA-8F1C-4736-B9C2-1D0231669026\" name=\"For Tier I, Filter for &quot;NAMEDCUST &quot;\" /><bpmn:task id=\"sid-FD639659-30EC-4C94-A72A-D6AE8708F69D\" name=\"Check for other discounts applied for entries in the filtered list\" /><bpmn:task id=\"sid-9D6856B4-68BF-4960-BC68-A4DF37DDB395\" name=\"For Tier I, Check if Multi-Unit or NA or PSD or ST discounts are applied\" /><bpmn:task id=\"sid-123DBB86-D7BE-4697-9300-BD66BEA622FC\" name=\"Discount is Valid\" /><bpmn:task id=\"sid-3883CC09-CCDB-41F2-88D5-903EE57615CD\" name=\"Update status in &quot;AGCO Dashboard&quot; for the entry as &quot;Invalid Discount&quot;\" /><bpmn:task id=\"sid-524A85E0-7CDD-4A7B-A8F6-890BDE2387FD\" name=\"Reject the entry in &quot;AGCO Dashboard&quot;\" /><bpmn:task id=\"sid-C76C74BB-A531-4D87-B29B-E01BD4878F9B\" name=\"&quot;AGCO Dashboard&quot; auto updates the status of this entry in &quot;Dealer Portal&quot;\" /><bpmn:task id=\"sid-1E372955-9B58-48F6-A488-CF5F430C56F8\" name=\"Update the status as &quot;Sent to DFS for chargeback&quot; in &quot;AGCO Dashboard&quot;\" /><bpmn:task id=\"sid-7D035299-18FB-492E-B9B7-2432D35625B0\" name=\"Check with the corresponding dealer about the entry\" /><bpmn:task id=\"sid-B7229885-DF49-4B26-B7A7-547CF799ACEF\" name=\"Open &quot;Dealer Portal&quot;\" /><bpmn:task id=\"sid-882D50EA-4D07-4C74-9FEA-86982839A4AC\" name=\"Acknowledge receipt of rejection notification in &quot;Dealer Portal&quot;\" /><bpmn:intermediateCatchEvent id=\"sid-BF3AF77E-CD99-4030-B481-EA36405B6AA5\" name=\"Receive E-Mail notification from &quot;AGCO Dashboard&quot; to debit dealer account\" /><bpmn:endEvent id=\"sid-A4ABC054-E491-475F-BC86-D0FF163C75D3\" name=\"Audit Complete\" /><bpmn:startEvent id=\"sid-E9E86151-22B3-4C10-BABA-D7AEDF0A23FB\" name=\"Start Audit\" /><bpmn:endEvent id=\"sid-12163C53-2607-4FE5-8900-0160EEE9CCF0\" name=\"Audit Ends\" /><bpmn:intermediateCatchEvent id=\"sid-2541F460-6EAF-4E06-8FA6-93F04CCC20D6\" name=\"&quot;AGCO Dashboard&quot; notifies AM about the rejected entry\" /><bpmn:intermediateCatchEvent id=\"sid-D256550A-BA0D-4848-BD5A-BFD57F23D512\" name=\"&quot;AGCO Dashboard&quot; notifies dealer about the rejected entry\" /><bpmn:intermediateCatchEvent id=\"sid-8DFD13A1-3914-455B-BE82-046C04463FF3\" name=\"Jane Doe notification in &quot;AGCO Dashboard&quot; about the entry\" /><bpmn:intermediateCatchEvent id=\"sid-8EA036DA-16AC-4A8E-9E6B-F328746986EC\" name=\"&quot;AGCO Dashboard&quot; sends a mail to DFS about the entry for a chargeback\" /><bpmn:intermediateCatchEvent id=\"sid-3BD0351B-9053-4824-A553-FA7E6F118F7C\" name=\"AM receives notification from &quot;AGCO Dashboard&quot; about the rejected entry\" /><bpmn:intermediateCatchEvent id=\"sid-42712ABE-EE7F-4FAA-8B70-5D1383FACDC3\" name=\"Receive communication from AM about the rejected entry\" /><bpmn:intermediateCatchEvent id=\"sid-744E6D13-BDEA-4D31-BFA6-68CD37A250CE\" name=\"Receive notification about the rejected entry in the &quot;Dealer Portal&quot;\" /><bpmn:intermediateCatchEvent id=\"sid-5FB31A26-D28C-49BC-81A7-BA285C86AE94\" name=\"&quot;Dealer Portal&quot; notifies &quot;AGCO Dashboard&quot; about the acknowledgement\" /><bpmn:exclusiveGateway id=\"sid-0030A527-5DD7-4FE0-9E97-37D0852FE8F8\" name=\"Any other discounts applied?\" /><bpmn:sequenceFlow id=\"sid-EF358FB8-9A1F-464B-AF5F-A25F6282BB1A\" targetRef=\"sid-5631AD52-D708-49A6-B8D7-5F39474AF44B\" /><bpmn:sequenceFlow id=\"sid-A332A6A6-09C5-49F8-A0DD-533615C43CA3\" targetRef=\"sid-A394A3CA-8F1C-4736-B9C2-1D0231669026\" /><bpmn:sequenceFlow id=\"sid-DD66C8B3-84B4-4D54-B413-C889B58C9A1A\" targetRef=\"sid-FD639659-30EC-4C94-A72A-D6AE8708F69D\" /><bpmn:sequenceFlow id=\"sid-2D78550D-FE81-4F38-B834-1F524A4440E8\" targetRef=\"sid-9D6856B4-68BF-4960-BC68-A4DF37DDB395\" /><bpmn:sequenceFlow id=\"sid-FB0083FA-1E9D-4EC9-BBE5-835B2D1A4BFD\" targetRef=\"sid-0030A527-5DD7-4FE0-9E97-37D0852FE8F8\" /><bpmn:sequenceFlow id=\"sid-C18682E7-EB96-4022-86FD-0BBCBF58E0DF\" targetRef=\"sid-12163C53-2607-4FE5-8900-0160EEE9CCF0\" /><bpmn:sequenceFlow id=\"sid-7A221967-079C-4B50-8D74-95BACD1EB0DA\" targetRef=\"sid-3883CC09-CCDB-41F2-88D5-903EE57615CD\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-60F4C5DF-BC5D-4298-B1B6-FE51616ED6C9\" targetRef=\"sid-123DBB86-D7BE-4697-9300-BD66BEA622FC\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-680FF027-5A48-467B-886D-15BCAAC7E778\" targetRef=\"sid-C76C74BB-A531-4D87-B29B-E01BD4878F9B\" /><bpmn:sequenceFlow id=\"sid-676296F6-16E6-46F8-8C85-3980F4D966D7\" targetRef=\"sid-2541F460-6EAF-4E06-8FA6-93F04CCC20D6\" /><bpmn:sequenceFlow id=\"sid-469EB442-A482-4249-9225-3C10775C5E0F\" targetRef=\"sid-D256550A-BA0D-4848-BD5A-BFD57F23D512\" /><bpmn:sequenceFlow id=\"sid-8F719E6F-0FE4-40C5-9889-D2BEE77194DC\" targetRef=\"sid-524A85E0-7CDD-4A7B-A8F6-890BDE2387FD\" /><bpmn:sequenceFlow id=\"sid-A3080EE2-E5FB-4AA2-B8EE-F44D465300F6\" targetRef=\"sid-7D035299-18FB-492E-B9B7-2432D35625B0\" /><bpmn:sequenceFlow id=\"sid-3C341B44-BD6E-43D1-AA61-F7520F52C4A9\" targetRef=\"sid-B7229885-DF49-4B26-B7A7-547CF799ACEF\" /><bpmn:sequenceFlow id=\"sid-F4441055-B296-4B8C-86C3-6E893578940C\" targetRef=\"sid-3BD0351B-9053-4824-A553-FA7E6F118F7C\" /><bpmn:sequenceFlow id=\"sid-00AFC5A8-2F2E-47EB-9A7F-D5E9A4D26B65\" targetRef=\"sid-B7229885-DF49-4B26-B7A7-547CF799ACEF\" /><bpmn:sequenceFlow id=\"sid-42EEB68A-85BC-4B8F-8EC8-2BB98A1D88B0\" targetRef=\"sid-882D50EA-4D07-4C74-9FEA-86982839A4AC\" /><bpmn:sequenceFlow id=\"sid-B4ED19D8-10F5-4DB7-A3CA-2D157B7BA2B6\" targetRef=\"sid-5FB31A26-D28C-49BC-81A7-BA285C86AE94\" /><bpmn:sequenceFlow id=\"sid-95E11099-F7C2-4661-957A-B7461F1374F5\" targetRef=\"sid-1E372955-9B58-48F6-A488-CF5F430C56F8\" /><bpmn:sequenceFlow id=\"sid-8C95C200-D0CB-4B5A-B2A1-032DD54800A5\" targetRef=\"sid-8EA036DA-16AC-4A8E-9E6B-F328746986EC\" /><bpmn:sequenceFlow id=\"sid-9FB0E2AC-A04A-42BD-8036-0ACDD4519A80\" targetRef=\"sid-89884D08-1745-4B2E-AE98-35C55818AA81\" /><bpmn:sequenceFlow id=\"sid-E7148B6C-FF4E-4819-89EF-F1697CB46B76\" targetRef=\"sid-A4ABC054-E491-475F-BC86-D0FF163C75D3\" /><bpmn:sequenceFlow id=\"sid-A3424C30-4D4F-4656-BA27-314CAC5B47F8\" targetRef=\"sid-BF3AF77E-CD99-4030-B481-EA36405B6AA5\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2019-04-12 19:15:36",
+  "company": {
+    "company_id": 1392584,
+    "companyCode": "SYN-492584",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Any other discounts applied?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Any other discounts applied?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.54
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Any other discounts applied?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.46
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 492584,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-492584-1",
+        "task_company_id": null,
+        "task_name": "Debit dealer account",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-89884D08-1745-4B2E-AE98-35C55818AA81.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 87,
+        "expected_rework_time": 7,
+        "expected_waiting_time": 2,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 19.73,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 105,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 492584,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-492584-2",
+        "task_company_id": null,
+        "task_name": "Open \"AGCO Dashboard\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5631AD52-D708-49A6-B8D7-5F39474AF44B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 78,
+        "expected_rework_time": 5,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 18.54,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 119,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 7.44,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 29,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 492584,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-492584-3",
+        "task_company_id": null,
+        "task_name": "For Tier I, Filter for \"NAMEDCUST \"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A394A3CA-8F1C-4736-B9C2-1D0231669026.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 5,
+        "expected_rework_time": 1,
+        "expected_waiting_time": 21,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 17.64,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 108,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 492584,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-492584-4",
+        "task_company_id": null,
+        "task_name": "Check for other discounts applied for entries in the filtered list",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FD639659-30EC-4C94-A72A-D6AE8708F69D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 106,
+        "expected_rework_time": 16,
+        "expected_waiting_time": 29,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 14.03,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 49,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 492584,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-492584-5",
+        "task_company_id": null,
+        "task_name": "For Tier I, Check if Multi-Unit or NA or PSD or ST discounts are applied",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9D6856B4-68BF-4960-BC68-A4DF37DDB395.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 75,
+        "expected_rework_time": 8,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "R",
+            "time_allocation_percentage": 12.63,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 3,
+              "hourlyRate": 65,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 492584,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-492584-6",
+        "task_company_id": null,
+        "task_name": "Discount is Valid",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-123DBB86-D7BE-4697-9300-BD66BEA622FC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 135,
+        "expected_rework_time": 28,
+        "expected_waiting_time": 2,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 3.13,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 4,
+              "hourlyRate": 87,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 492584,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-492584-7",
+        "task_company_id": null,
+        "task_name": "Update status in \"AGCO Dashboard\" for the entry as \"Invalid Discount\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3883CC09-CCDB-41F2-88D5-903EE57615CD.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 135,
+        "expected_rework_time": 22,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5007,
+            "role": "C",
+            "time_allocation_percentage": 13.12,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 1,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 492584,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-492584-8",
+        "task_company_id": null,
+        "task_name": "Reject the entry in \"AGCO Dashboard\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-524A85E0-7CDD-4A7B-A8F6-890BDE2387FD.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 165,
+        "expected_rework_time": 38,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5008,
+            "role": "A",
+            "time_allocation_percentage": 12.67,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 2,
+              "hourlyRate": 86,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 492584,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-492584-9",
+        "task_company_id": null,
+        "task_name": "\"AGCO Dashboard\" auto updates the status of this entry in \"Dealer Portal\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C76C74BB-A531-4D87-B29B-E01BD4878F9B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 144,
+        "expected_rework_time": 24,
+        "expected_waiting_time": 28,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5009,
+            "role": "R",
+            "time_allocation_percentage": 7.69,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 5,
+              "hourlyRate": 51,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 492584,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-492584-10",
+        "task_company_id": null,
+        "task_name": "Update the status as \"Sent to DFS for chargeback\" in \"AGCO Dashboard\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1E372955-9B58-48F6-A488-CF5F430C56F8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 147,
+        "expected_rework_time": 9,
+        "expected_waiting_time": 1,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5010,
+            "role": "C",
+            "time_allocation_percentage": 1.37,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 5,
+              "hourlyRate": 111,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 492584,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-492584-11",
+        "task_company_id": null,
+        "task_name": "Check with the corresponding dealer about the entry",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7D035299-18FB-492E-B9B7-2432D35625B0.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 235,
+        "expected_rework_time": 42,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5011,
+            "role": "C",
+            "time_allocation_percentage": 2.44,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 3,
+              "hourlyRate": 36,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 492584,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-492584-12",
+        "task_company_id": null,
+        "task_name": "Open \"Dealer Portal\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B7229885-DF49-4B26-B7A7-547CF799ACEF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 217,
+        "expected_rework_time": 35,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5012,
+            "role": "R",
+            "time_allocation_percentage": 4.25,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 3,
+              "hourlyRate": 117,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 492584,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-492584-13",
+        "task_company_id": null,
+        "task_name": "Acknowledge receipt of rejection notification in \"Dealer Portal\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-882D50EA-4D07-4C74-9FEA-86982839A4AC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 186,
+        "expected_rework_time": 19,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5013,
+            "role": "I",
+            "time_allocation_percentage": 5.62,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 4,
+              "hourlyRate": 99,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "24e3aa4d99744069bd31cde69e5067c6",
+    "model_id": "0f735bad18864d6e88841705b358c049",
+    "organization_id": "c6d5670676c24b25af5273239ac0b37d"
+  }
+}

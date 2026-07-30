@@ -1,0 +1,239 @@
+{
+  "process_id": 459702,
+  "company_id": 1359702,
+  "created_at": "2020-05-24 13:15:55",
+  "updated_at": "2020-05-24 13:15:55",
+  "capacity_requirement_minutes": 345,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-459702",
+  "process_name": "Verify loan application documents",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-459702\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-459702\" name=\"Verify loan application documents\" isExecutable=\"false\"><bpmn:task id=\"sid-B98971C1-B293-447E-A579-5ABBB8B1C565\" name=\"Verify loan application documents (30m)\" /><bpmn:task id=\"sid-43BB30BA-9F58-49AF-83DB-33CCD4067BF4\" name=\"Re-check loan application documents (30m)\" /><bpmn:task id=\"sid-25FFEDAA-41B6-4C03-8AF8-1640F466BCA5\" name=\"Send to Business Service Team to re-verify (5m)\" /><bpmn:startEvent id=\"sid-DCFF7166-675C-493D-9A66-446EE8A12551\" name=\"Request for feedback received\" /><bpmn:intermediateCatchEvent id=\"sid-49559481-E113-4C4A-A75B-44A48987B553\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-DD3B6F04-E15E-4BE1-B513-1688551C9EE8\" name=\"Loan application documents received\" /><bpmn:endEvent id=\"sid-E4669444-2984-41B5-8B51-BDDCE6FAC3DC\" name=\"Loan application documents verified\" /><bpmn:exclusiveGateway id=\"sid-FB3BB412-DB89-4099-A6D8-9314AA0B560B\" name=\"Are documents verified as correct?\" /><bpmn:sequenceFlow id=\"sid-53F0A03F-89CD-4E3D-91C1-01B4A1EB3538\" targetRef=\"sid-B98971C1-B293-447E-A579-5ABBB8B1C565\" /><bpmn:sequenceFlow id=\"sid-7D02AD43-D318-4333-BD8E-083638E9CF6D\" targetRef=\"sid-49559481-E113-4C4A-A75B-44A48987B553\" /><bpmn:sequenceFlow id=\"sid-0031F499-B97D-48F0-A283-24028BC9759C\" targetRef=\"sid-DD3B6F04-E15E-4BE1-B513-1688551C9EE8\" /><bpmn:sequenceFlow id=\"sid-46352DB1-31AD-47DC-9A92-AF26AD0AE246\" targetRef=\"sid-43BB30BA-9F58-49AF-83DB-33CCD4067BF4\" /><bpmn:sequenceFlow id=\"sid-41F06175-855D-4DFF-98A3-FFF81B13DB49\" targetRef=\"sid-FB3BB412-DB89-4099-A6D8-9314AA0B560B\" /><bpmn:sequenceFlow id=\"sid-68231D44-EA8E-4B7A-A8C7-5EF3DC775992\" targetRef=\"sid-B98971C1-B293-447E-A579-5ABBB8B1C565\" /><bpmn:sequenceFlow id=\"sid-C01443D3-5677-493A-94F3-AF2FB3F479BE\" targetRef=\"sid-25FFEDAA-41B6-4C03-8AF8-1640F466BCA5\" name=\"20% No\" /><bpmn:sequenceFlow id=\"sid-B4A84D21-6972-4E7B-A74A-71251C58A113\" targetRef=\"sid-E4669444-2984-41B5-8B51-BDDCE6FAC3DC\" name=\"80% Yes\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-05-24 13:15:55",
+  "company": {
+    "company_id": 1359702,
+    "companyCode": "SYN-459702",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Are documents verified as correct?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Are documents verified as correct?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.69
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Are documents verified as correct?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.13
+        },
+        {
+          "id": 10012,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Are documents verified as correct?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.18
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 459702,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-459702-1",
+        "task_company_id": null,
+        "task_name": "Verify loan application documents (30m)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B98971C1-B293-447E-A579-5ABBB8B1C565.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 53,
+        "expected_rework_time": 5,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 19.42,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 44,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 459702,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-459702-2",
+        "task_company_id": null,
+        "task_name": "Re-check loan application documents (30m)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-43BB30BA-9F58-49AF-83DB-33CCD4067BF4.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 232,
+        "expected_rework_time": 21,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 5.22,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 80,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 459702,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-459702-3",
+        "task_company_id": null,
+        "task_name": "Send to Business Service Team to re-verify (5m)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-25FFEDAA-41B6-4C03-8AF8-1640F466BCA5.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 60,
+        "expected_rework_time": 6,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 16.37,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 40,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "eae2ea36ca69427a988f939f07efc11c",
+    "model_id": "b3f1bddcd09647d8b04ed920e64894eb",
+    "organization_id": "d0b4d0dd58cd43cea4863de6ca5fbf51"
+  }
+}

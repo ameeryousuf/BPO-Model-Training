@@ -1,0 +1,312 @@
+{
+  "process_id": 154756,
+  "company_id": 1054756,
+  "created_at": "2017-11-07 02:29:13",
+  "updated_at": "2017-11-07 02:29:13",
+  "capacity_requirement_minutes": 394,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-154756",
+  "process_name": "W4(Shipping Goods)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-154756\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-154756\" name=\"W4(Shipping Goods)\" isExecutable=\"false\"><bpmn:task id=\"sid-B6FC519B-41C2-4CCE-B0F2-E8E4FE7520C0\" name=\"SHIPPING GOOD\" /><bpmn:task id=\"sid-7E2BE6B0-8EBD-4654-8A78-FE582C28A5E8\" name=\"CONTACT AIRLINE\" /><bpmn:task id=\"sid-0C8A8452-6EBF-4728-86CF-E3FA309BAD9E\" name=\"CONTACT CONTAINER PORT\" /><bpmn:task id=\"sid-9576D9A1-082C-464C-9652-1E8F5E4E7398\" name=\"PREPARE DO\" /><bpmn:startEvent id=\"sid-F174A281-BBC8-40C4-BFA9-DB4090FC1ABE\" name=\"\" /><bpmn:endEvent id=\"sid-2DCE1569-12E3-4427-BD89-377D6E5C81D3\" name=\"\" /><bpmn:inclusiveGateway id=\"sid-FB91733E-3FFB-4D38-8615-9072AACA0A6C\" name=\"SHIPPING METHOD\" /><bpmn:inclusiveGateway id=\"sid-7F191124-6B3A-413C-890D-481787A5AD5A\" name=\"\" /><bpmn:sequenceFlow id=\"sid-A914D24A-6547-4D9B-A41E-7540492DAD00\" targetRef=\"sid-FB91733E-3FFB-4D38-8615-9072AACA0A6C\" /><bpmn:sequenceFlow id=\"sid-7F561741-15BC-4AB3-88BB-6957A68BC2EE\" targetRef=\"sid-7F191124-6B3A-413C-890D-481787A5AD5A\" /><bpmn:sequenceFlow id=\"sid-F45FB68B-43F4-454F-B07F-D78153B241D6\" targetRef=\"sid-7F191124-6B3A-413C-890D-481787A5AD5A\" /><bpmn:sequenceFlow id=\"sid-E3D3FC09-F97F-4E78-96DC-ADDA93FA7BDD\" targetRef=\"sid-B6FC519B-41C2-4CCE-B0F2-E8E4FE7520C0\" /><bpmn:sequenceFlow id=\"sid-DF5D9EA7-4CD9-4CA3-A5E7-08CDBFE5BDA8\" targetRef=\"sid-9576D9A1-082C-464C-9652-1E8F5E4E7398\" /><bpmn:sequenceFlow id=\"sid-55CCBE9A-24EA-4A7F-BACF-2F8A0E35B3B6\" targetRef=\"sid-2DCE1569-12E3-4427-BD89-377D6E5C81D3\" /><bpmn:sequenceFlow id=\"sid-2198A359-1CE4-48FB-9873-F72E0ACEFA66\" targetRef=\"sid-7E2BE6B0-8EBD-4654-8A78-FE582C28A5E8\" name=\"BY AIR\" /><bpmn:sequenceFlow id=\"sid-65E2771E-90DF-4906-90B1-BB9BA9DD59F3\" targetRef=\"sid-0C8A8452-6EBF-4728-86CF-E3FA309BAD9E\" name=\"BY SEA\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2017-11-07 02:29:13",
+  "company": {
+    "company_id": 1054756,
+    "companyCode": "SYN-154756",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "INCLUSIVE",
+      "after_task_id": null,
+      "name": "SHIPPING METHOD",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "SHIPPING METHOD",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.26
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "SHIPPING METHOD",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.74
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "INCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.67
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.33
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 154756,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-154756-1",
+        "task_company_id": null,
+        "task_name": "SHIPPING GOOD",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B6FC519B-41C2-4CCE-B0F2-E8E4FE7520C0.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 220,
+        "expected_rework_time": 22,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 16.65,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 6,
+              "hourlyRate": 22,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 154756,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-154756-2",
+        "task_company_id": null,
+        "task_name": "CONTACT AIRLINE",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7E2BE6B0-8EBD-4654-8A78-FE582C28A5E8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 21,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 26,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 8.1,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 117,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 154756,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-154756-3",
+        "task_company_id": null,
+        "task_name": "CONTACT CONTAINER PORT",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-0C8A8452-6EBF-4728-86CF-E3FA309BAD9E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 117,
+        "expected_rework_time": 29,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 13.11,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 101,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 154756,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-154756-4",
+        "task_company_id": null,
+        "task_name": "PREPARE DO",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9576D9A1-082C-464C-9652-1E8F5E4E7398.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 36,
+        "expected_rework_time": 9,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 11.27,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 115,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "ba4fb14b8bb24c809518b01469dbb537",
+    "model_id": "00da8c27f74f42a1b05c24e582dbab40",
+    "organization_id": "1a9bf87ba0cd4b12a2043ec7777b38d7"
+  }
+}

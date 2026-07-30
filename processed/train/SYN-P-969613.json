@@ -1,0 +1,331 @@
+{
+  "process_id": 969613,
+  "company_id": 1869613,
+  "created_at": "2019-12-01 04:32:10",
+  "updated_at": "2019-12-01 04:32:10",
+  "capacity_requirement_minutes": 767,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-969613",
+  "process_name": "Apply-for-admission",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-969613\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-969613\" name=\"Apply-for-admission\" isExecutable=\"false\"><bpmn:task id=\"sid-B61B2FD3-D23E-4622-8B72-B5ACEA1C6DB5\" name=\"Fill in and submit online application\" /><bpmn:task id=\"sid-2CB9F6E8-0917-4956-A1BF-89C9BD1ABF3B\" name=\"Download and sign PDF\" /><bpmn:task id=\"sid-44993480-9ECC-400F-8213-B6260FFD337E\" name=\"Admin check\" /><bpmn:task id=\"sid-A506192C-43FA-4084-93C9-0589D1C51873\" name=\"Disqualify application\" /><bpmn:startEvent id=\"sid-213FECB8-488B-470A-9D81-523073ACEED3\" name=\"Application started\" /><bpmn:intermediateCatchEvent id=\"sid-2092BA29-F545-4ED0-9E6C-43327A3EF867\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-A1D35EC6-6994-4468-907F-AD8D0B998A5F\" name=\"deadline expired\" /><bpmn:endEvent id=\"sid-A5C1A5F4-65C5-4229-9168-D3CF64ECFCAD\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-2DD4DFF9-B3E6-4347-9B1A-A670B1BD12ED\" name=\"\" /><bpmn:intermediateCatchEvent id=\"sid-A3DEB382-19C8-48BD-B685-9AE98D10B84D\" name=\"Status changed to &quot;Passed admin check&quot;\" /><bpmn:endEvent id=\"sid-75F702D2-5F0C-4454-9990-DF5BBA278CEA\" name=\"\" /><bpmn:startEvent id=\"sid-1617F7F2-3CED-4832-8BF4-67CF9C03AA4B\" name=\"Few days after submission\" /><bpmn:endEvent id=\"sid-801B7291-3D2F-4E4F-BE66-3D8550707DA5\" name=\"E-mail send to candidate\" /><bpmn:endEvent id=\"sid-1560BECD-4986-4D5A-B81A-20B0254504D3\" name=\"Status changed to &quot;Passed admin check&quot;\" /><bpmn:endEvent id=\"sid-12221181-96CB-41F7-90D5-0AF664DD532A\" name=\"Appliation Disqualified\" /><bpmn:startEvent id=\"sid-87EF11A8-53C3-4CE0-BA76-3EC09D1BC5BD\" name=\"4 weeks after submission\" /><bpmn:startEvent id=\"sid-0E5894DE-A469-44C6-B28C-E64A8B4F8083\" name=\"Documents received\" /><bpmn:endEvent id=\"sid-6744DBC1-AD2A-418E-B4C4-CE95BADC77D5\" name=\"\" /><bpmn:eventBasedGateway id=\"sid-A74CBD19-0DBA-4401-8B6A-0469338C7DA9\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-D1667A82-042E-4C0F-B89A-7A080F115063\" name=\"\" /><bpmn:sequenceFlow id=\"sid-7EDDFCD3-A024-4242-804D-4990A6A826B7\" targetRef=\"sid-44993480-9ECC-400F-8213-B6260FFD337E\" /><bpmn:sequenceFlow id=\"sid-50ECDA23-C1ED-41E0-AF3D-338B759FD6A1\" targetRef=\"sid-D1667A82-042E-4C0F-B89A-7A080F115063\" /><bpmn:sequenceFlow id=\"sid-AEEE9941-12CD-4216-AC5F-BE1B83457C01\" targetRef=\"sid-B61B2FD3-D23E-4622-8B72-B5ACEA1C6DB5\" /><bpmn:sequenceFlow id=\"sid-F64719AB-0208-45B4-9DED-FF12CF6CA8D4\" targetRef=\"sid-A506192C-43FA-4084-93C9-0589D1C51873\" /><bpmn:sequenceFlow id=\"sid-913AF49C-2BAB-4203-B25F-8B85B6382D61\" targetRef=\"sid-12221181-96CB-41F7-90D5-0AF664DD532A\" /><bpmn:sequenceFlow id=\"sid-3F4E4DBA-3DDC-4981-9E4C-252587689E84\" targetRef=\"sid-2CB9F6E8-0917-4956-A1BF-89C9BD1ABF3B\" /><bpmn:sequenceFlow id=\"sid-6E56D2EB-2D0A-4DD9-9D08-2AB2A21CD644\" targetRef=\"sid-2092BA29-F545-4ED0-9E6C-43327A3EF867\" /><bpmn:sequenceFlow id=\"sid-93FA6416-2637-44EC-81A2-2CF9C7A1ED36\" targetRef=\"sid-6744DBC1-AD2A-418E-B4C4-CE95BADC77D5\" /><bpmn:sequenceFlow id=\"sid-524C1880-19C3-4A75-9510-CA3E46BADAC2\" targetRef=\"sid-801B7291-3D2F-4E4F-BE66-3D8550707DA5\" name=\"deficiency in application\" /><bpmn:sequenceFlow id=\"sid-D521E354-F113-4088-A41A-BDD2F5F03C01\" targetRef=\"sid-A5C1A5F4-65C5-4229-9168-D3CF64ECFCAD\" /><bpmn:sequenceFlow id=\"sid-364EB960-65D7-4453-AFEF-E6965A098B39\" targetRef=\"sid-A74CBD19-0DBA-4401-8B6A-0469338C7DA9\" /><bpmn:sequenceFlow id=\"sid-794B7CC9-E20C-444B-9829-1D8EB3E6937F\" targetRef=\"sid-A3DEB382-19C8-48BD-B685-9AE98D10B84D\" /><bpmn:sequenceFlow id=\"sid-1299182D-EF19-487F-92A0-B1082E389E4C\" targetRef=\"sid-B61B2FD3-D23E-4622-8B72-B5ACEA1C6DB5\" name=\"Re-submit\" /><bpmn:sequenceFlow id=\"sid-67B4125E-C0B5-4101-AF82-EC50B49B405C\" targetRef=\"sid-2DD4DFF9-B3E6-4347-9B1A-A670B1BD12ED\" /><bpmn:sequenceFlow id=\"sid-D2261401-6792-4B2A-B6FB-79C2E109CA88\" targetRef=\"sid-1560BECD-4986-4D5A-B81A-20B0254504D3\" name=\"administratively correct and complete\" /><bpmn:sequenceFlow id=\"sid-7E5E9F49-EEA5-4279-82E2-F3F669FC0C79\" targetRef=\"sid-75F702D2-5F0C-4454-9990-DF5BBA278CEA\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2019-12-01 04:32:10",
+  "company": {
+    "company_id": 1869613,
+    "companyCode": "SYN-969613",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EVENT_BASED",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.61
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.39
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.51
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.49
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 969613,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-969613-1",
+        "task_company_id": null,
+        "task_name": "Fill in and submit online application",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-B61B2FD3-D23E-4622-8B72-B5ACEA1C6DB5.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 164,
+        "expected_rework_time": 25,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 6.52,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 32,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 969613,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-969613-2",
+        "task_company_id": null,
+        "task_name": "Download and sign PDF",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2CB9F6E8-0917-4956-A1BF-89C9BD1ABF3B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 193,
+        "expected_rework_time": 44,
+        "expected_waiting_time": 28,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 15.16,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 104,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 969613,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-969613-3",
+        "task_company_id": null,
+        "task_name": "Admin check",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-44993480-9ECC-400F-8213-B6260FFD337E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 214,
+        "expected_rework_time": 51,
+        "expected_waiting_time": 1,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 17.05,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 42,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 11.97,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 1,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 969613,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-969613-4",
+        "task_company_id": null,
+        "task_name": "Disqualify application",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A506192C-43FA-4084-93C9-0589D1C51873.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 196,
+        "expected_rework_time": 45,
+        "expected_waiting_time": 15,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 14.37,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 5,
+              "hourlyRate": 39,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "d9f241cb84504edf9d0b9b871f4f8d2c",
+    "model_id": "a9ed0d8c29e046f19984d7f36b90d1fc",
+    "organization_id": "39bc11ff8b99481b91a3d3f16543c5c7"
+  }
+}

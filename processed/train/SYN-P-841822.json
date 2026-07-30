@@ -1,0 +1,312 @@
+{
+  "process_id": 841822,
+  "company_id": 1741822,
+  "created_at": "2021-08-20 22:53:00",
+  "updated_at": "2021-08-20 22:53:00",
+  "capacity_requirement_minutes": 412,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-841822",
+  "process_name": "12345678",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-841822\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-841822\" name=\"12345678\" isExecutable=\"false\"><bpmn:task id=\"sid-601181AF-C900-4161-BD0D-454FC6312AFB\" name=\"check purchase invoice formally\" /><bpmn:task id=\"sid-2A80886C-BB3D-49F0-B893-B0B96FB5BBC4\" name=\"trigger payment\" /><bpmn:task id=\"sid-69B5CA62-6E06-45D1-9486-43589F74A6CC\" name=\"approve purchase invoice\" /><bpmn:task id=\"sid-D2DFDCD9-1814-45D3-A073-609BBBB4EDA7\" name=\"check for factually correct purchase invoice\" /><bpmn:intermediateCatchEvent id=\"sid-D1830F54-0EDE-4650-817B-B58B856B3587\" name=\"from Purchase Order- to-Delivery\" /><bpmn:endEvent id=\"sid-F773231D-0C52-45E4-846A-D733CA819886\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-0CD5DAC4-4FA5-4D93-B23A-84638731ED3B\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-0B5B80D2-4873-4369-9784-F5297D8E679C\" name=\"\" /><bpmn:sequenceFlow id=\"sid-C46B79E6-19D1-4D00-A2F9-2757EA424341\" targetRef=\"sid-601181AF-C900-4161-BD0D-454FC6312AFB\" /><bpmn:sequenceFlow id=\"sid-1510D3E9-B572-42FE-A0CB-22C5AB95B752\" targetRef=\"sid-D2DFDCD9-1814-45D3-A073-609BBBB4EDA7\" /><bpmn:sequenceFlow id=\"sid-690F965C-0D92-4C22-9BB7-E2B09E71FD21\" targetRef=\"sid-0B5B80D2-4873-4369-9784-F5297D8E679C\" /><bpmn:sequenceFlow id=\"sid-0C197198-F578-472D-AA8E-3EBEBA84375A\" targetRef=\"sid-2A80886C-BB3D-49F0-B893-B0B96FB5BBC4\" /><bpmn:sequenceFlow id=\"sid-755B31FA-375B-448F-9F1F-25EADC6B13F8\" targetRef=\"sid-0CD5DAC4-4FA5-4D93-B23A-84638731ED3B\" /><bpmn:sequenceFlow id=\"sid-AF99C70D-D993-4DAD-B71C-2D4A1842F8FA\" targetRef=\"sid-F773231D-0C52-45E4-846A-D733CA819886\" /><bpmn:sequenceFlow id=\"sid-3DD0717B-2AAF-4807-A7E1-687EEC8EEC4A\" targetRef=\"sid-69B5CA62-6E06-45D1-9486-43589F74A6CC\" name=\"invoice amount&#10;&gt; $5000\" /><bpmn:sequenceFlow id=\"sid-A87D1433-4070-44D2-A0FC-5F8ACAB2316E\" targetRef=\"sid-0CD5DAC4-4FA5-4D93-B23A-84638731ED3B\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-08-20 22:53:00",
+  "company": {
+    "company_id": 1741822,
+    "companyCode": "SYN-841822",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.46
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.54
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.65
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.35
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 841822,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-841822-1",
+        "task_company_id": null,
+        "task_name": "check purchase invoice formally",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-601181AF-C900-4161-BD0D-454FC6312AFB.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 84,
+        "expected_rework_time": 17,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 3.51,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 25,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 841822,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-841822-2",
+        "task_company_id": null,
+        "task_name": "trigger payment",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2A80886C-BB3D-49F0-B893-B0B96FB5BBC4.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 34,
+        "expected_rework_time": 5,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 14.42,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 59,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 841822,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-841822-3",
+        "task_company_id": null,
+        "task_name": "approve purchase invoice",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-69B5CA62-6E06-45D1-9486-43589F74A6CC.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 205,
+        "expected_rework_time": 23,
+        "expected_waiting_time": 27,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 4.16,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 6,
+              "hourlyRate": 81,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 841822,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-841822-4",
+        "task_company_id": null,
+        "task_name": "check for factually correct purchase invoice",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D2DFDCD9-1814-45D3-A073-609BBBB4EDA7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 89,
+        "expected_rework_time": 8,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 7.45,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 4,
+              "hourlyRate": 75,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "63bd4fb9974740bcb5560c4cbd4d9034",
+    "model_id": "37513fcdd3d4463cbe65578ca1c75f06",
+    "organization_id": "c41660388a04449a995dccf97d894f46"
+  }
+}

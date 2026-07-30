@@ -1,0 +1,568 @@
+{
+  "process_id": 550735,
+  "company_id": 1450735,
+  "created_at": "2021-02-08 10:36:38",
+  "updated_at": "2021-02-08 10:36:38",
+  "capacity_requirement_minutes": 1087,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-550735",
+  "process_name": "Home Exercise 1 (Copy)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-550735\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-550735\" name=\"Home Exercise 1 (Copy)\" isExecutable=\"false\"><bpmn:task id=\"sid-F1361889-9ECC-4220-9D78-D8DBB1733528\" name=\"create fee notice\" /><bpmn:task id=\"sid-037F58CB-4561-42CF-9131-AEEDCCBE83C2\" name=\"check payment status\" /><bpmn:task id=\"sid-D7D75890-B369-42E2-8559-74816B634E49\" name=\"generate receipt for additional fees\" /><bpmn:task id=\"sid-E6AF2A15-160E-4311-AFE5-2E852F05BD80\" name=\"allocate hearing date\" /><bpmn:task id=\"sid-E1F6D7D7-7E2E-4F40-9033-FFEB94A75599\" name=\"check payment status\" /><bpmn:task id=\"sid-5426CDF7-CEC6-4AAA-87C5-A6B49E890D80\" name=\"check additional fees payment status\" /><bpmn:task id=\"sid-68745B3B-716E-4A4A-B3A5-57348D30068D\" name=\"check if addtional fees are required\" /><bpmn:endEvent id=\"sid-215EAD91-6052-41FD-8CA2-07E48F25D10C\" name=\"hearing to assess compensation\" /><bpmn:startEvent id=\"sid-7F108F2A-4C45-4059-9692-2CDB3AF9B9EC\" name=\"request for compensation received\" /><bpmn:exclusiveGateway id=\"sid-91C9977B-EBBC-4EBA-A4AA-64FF51946210\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-92A9E9F0-9B62-4C49-B933-9FEE766EA03B\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-0B74D8A8-13FB-4111-9C01-973AB5B12186\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-149E866D-EE4A-44A4-B95F-09F074D07001\" name=\"\" /><bpmn:sequenceFlow id=\"sid-C9A935A0-D90F-4ADF-BA5D-98115AEE5B13\" targetRef=\"sid-F1361889-9ECC-4220-9D78-D8DBB1733528\" name=\"fees not paid&#10;\" /><bpmn:sequenceFlow id=\"sid-E875159C-59D7-4C3C-A0BD-0BAA31C117DE\" targetRef=\"sid-92A9E9F0-9B62-4C49-B933-9FEE766EA03B\" /><bpmn:sequenceFlow id=\"sid-945967F9-10A0-4CB0-965E-D2338ABDA55D\" targetRef=\"sid-1BDFD62D-5A70-4042-B49C-94940AE555CB\" /><bpmn:sequenceFlow id=\"sid-654A9E3C-E561-4CD8-888E-22B422EFF312\" targetRef=\"sid-92A9E9F0-9B62-4C49-B933-9FEE766EA03B\" /><bpmn:sequenceFlow id=\"sid-6A70C220-CCCC-4208-AB2D-CB0C305854E0\" targetRef=\"sid-037F58CB-4561-42CF-9131-AEEDCCBE83C2\" /><bpmn:sequenceFlow id=\"sid-E68B5D31-D99E-46B5-AC2E-04C027F97E6C\" targetRef=\"sid-E1F6D7D7-7E2E-4F40-9033-FFEB94A75599\" /><bpmn:sequenceFlow id=\"sid-02175177-C9DB-4860-B78A-CC755B98E364\" targetRef=\"sid-E6AF2A15-160E-4311-AFE5-2E852F05BD80\" /><bpmn:sequenceFlow id=\"sid-DC564409-3D7A-4877-B580-C814CD78A366\" targetRef=\"sid-E6AF2A15-160E-4311-AFE5-2E852F05BD80\" name=\"additional fees not required\" /><bpmn:sequenceFlow id=\"sid-AB5895CA-CB15-445C-AE2D-3FC333ACC43E\" targetRef=\"sid-215EAD91-6052-41FD-8CA2-07E48F25D10C\" /><bpmn:sequenceFlow id=\"sid-6C74B85D-8814-498E-ABDF-125579271402\" targetRef=\"sid-91C9977B-EBBC-4EBA-A4AA-64FF51946210\" /><bpmn:sequenceFlow id=\"sid-F5020CD5-AFC5-4DAB-9E18-C0EF8DAE5A7A\" targetRef=\"sid-68745B3B-716E-4A4A-B3A5-57348D30068D\" name=\"fees paid\" /><bpmn:sequenceFlow id=\"sid-3113D5A0-3DBE-48B4-A0CB-5C1D700E8BC0\" targetRef=\"sid-149E866D-EE4A-44A4-B95F-09F074D07001\" /><bpmn:sequenceFlow id=\"sid-EEE0EAC7-9F88-4562-B640-D347CB89D223\" targetRef=\"sid-5426CDF7-CEC6-4AAA-87C5-A6B49E890D80\" name=\"additional fees required\" /><bpmn:sequenceFlow id=\"sid-143BBCA8-3852-458C-BB92-B718B6DD0C0B\" targetRef=\"sid-0B74D8A8-13FB-4111-9C01-973AB5B12186\" /><bpmn:sequenceFlow id=\"sid-ED2594D7-6590-44F4-888C-541D70B69C26\" targetRef=\"sid-F1361889-9ECC-4220-9D78-D8DBB1733528\" name=\"additional fees not paid\" /><bpmn:sequenceFlow id=\"sid-5B40B98E-E22E-4008-9113-DB3658699844\" targetRef=\"sid-D7D75890-B369-42E2-8559-74816B634E49\" name=\"additional fees paid\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-02-08 10:36:38",
+  "company": {
+    "company_id": 1450735,
+    "companyCode": "SYN-550735",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.57
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.43
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.66
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.34
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.4
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.6
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 4",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.78
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.22
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 550735,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-550735-1",
+        "task_company_id": null,
+        "task_name": "create fee notice",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F1361889-9ECC-4220-9D78-D8DBB1733528.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 239,
+        "expected_rework_time": 50,
+        "expected_waiting_time": 14,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 9.56,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 51,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 550735,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-550735-2",
+        "task_company_id": null,
+        "task_name": "check payment status",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-037F58CB-4561-42CF-9131-AEEDCCBE83C2.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 28,
+        "expected_rework_time": 3,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 10.1,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 63,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 550735,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-550735-3",
+        "task_company_id": null,
+        "task_name": "generate receipt for additional fees",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D7D75890-B369-42E2-8559-74816B634E49.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 131,
+        "expected_rework_time": 17,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 8.15,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 6,
+              "hourlyRate": 56,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 550735,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-550735-4",
+        "task_company_id": null,
+        "task_name": "allocate hearing date",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E6AF2A15-160E-4311-AFE5-2E852F05BD80.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 31,
+        "expected_rework_time": 8,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 12.29,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 45,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 550735,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-550735-5",
+        "task_company_id": null,
+        "task_name": "check payment status",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E1F6D7D7-7E2E-4F40-9033-FFEB94A75599.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 236,
+        "expected_rework_time": 31,
+        "expected_waiting_time": 5,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 3.61,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 85,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 16.94,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 2,
+              "hourlyRate": 97,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 550735,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-550735-6",
+        "task_company_id": null,
+        "task_name": "check additional fees payment status",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5426CDF7-CEC6-4AAA-87C5-A6B49E890D80.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 230,
+        "expected_rework_time": 28,
+        "expected_waiting_time": 30,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 1.53,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 1,
+              "hourlyRate": 114,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "C",
+            "time_allocation_percentage": 2.77,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 1,
+              "hourlyRate": 88,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 550735,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-550735-7",
+        "task_company_id": null,
+        "task_name": "check if addtional fees are required",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-68745B3B-716E-4A4A-B3A5-57348D30068D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 192,
+        "expected_rework_time": 31,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "I",
+            "time_allocation_percentage": 7.31,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 6,
+              "hourlyRate": 87,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "db490781ffc1435eb69ef464aa6a61e4",
+    "model_id": "7822c583c1274e7d8ea1a77e03495774",
+    "organization_id": "d7620a0c18cd463e91f32ccaed7bd832"
+  }
+}

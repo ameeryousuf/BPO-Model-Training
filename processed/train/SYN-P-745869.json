@@ -1,0 +1,738 @@
+{
+  "process_id": 745869,
+  "company_id": 1645869,
+  "created_at": "2020-05-01 12:11:32",
+  "updated_at": "2020-05-01 12:11:32",
+  "capacity_requirement_minutes": 1551,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-745869",
+  "process_name": "Credite",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-745869\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-745869\" name=\"Credite\" isExecutable=\"false\"><bpmn:task id=\"sid-4229EDEB-96E8-4559-A9C6-1062F1A7D5F9\" name=\"Inmanare oferta de credit\" /><bpmn:task id=\"sid-1AAB6E74-22BD-4E68-96AA-7094A51F1824\" name=\"Imprumut banca A\" /><bpmn:task id=\"sid-3AFB0794-05C8-4B81-883A-FC90739BE41C\" name=\"Imprumut banca B\" /><bpmn:task id=\"sid-F4CC43FB-CA67-4B2E-9EAF-B498F32C3538\" name=\"Trimitere pre-verificare imrumut\" /><bpmn:task id=\"sid-F6BF21DC-EFEF-44FE-9D7C-750E2136B314\" name=\"Discutare garantie\" /><bpmn:task id=\"sid-19A2B7B7-6424-431D-9740-9A56D278727A\" name=\"Completare cerere de credit\" /><bpmn:task id=\"sid-07E9536E-7804-48D3-B123-12FE0587D270\" name=\"Completare suma dorita\" /><bpmn:task id=\"sid-FD9948B4-A018-422E-9234-F668A847C744\" name=\"Completare venit lunar\" /><bpmn:task id=\"sid-A592352F-57F3-4336-A6D0-16E831E9DAD1\" name=\"Primire oferta de credit\" /><bpmn:startEvent id=\"sid-2A9F6939-62B1-4892-9A8B-AA6808E3C2CA\" name=\"Cerere primita\" /><bpmn:startEvent id=\"sid-7A6890AE-81C3-4C22-A3E0-E22B656EAF02\" name=\"Start\" /><bpmn:endEvent id=\"sid-800AE8B4-D5D0-4D8A-B8EA-DD56FF7EF891\" name=\"Stop\" /><bpmn:exclusiveGateway id=\"sid-2531E8B0-3EE8-4DA5-92AC-3C077BFD4FBC\" name=\"XOR Split 1\" /><bpmn:exclusiveGateway id=\"sid-BF9D2C0E-901D-4893-BB2A-064E723231FA\" name=\"XOR Split 2\" /><bpmn:exclusiveGateway id=\"sid-5018F3BF-2F93-4761-AE68-809A0346B171\" name=\"XOR Join 2\" /><bpmn:exclusiveGateway id=\"sid-B33A409C-7E19-4FED-A03A-29142EB86E93\" name=\"XOR Join 1\" /><bpmn:parallelGateway id=\"sid-E65B2BA4-8ECE-4E90-9382-33184312719E\" name=\"AND Split\" /><bpmn:parallelGateway id=\"sid-A9A2A45F-4EE6-467C-936E-4DA429BDD920\" name=\"AND Join\" /><bpmn:sequenceFlow id=\"sid-C1E4A4B2-8466-4158-99F8-3F4E9C30941D\" targetRef=\"sid-19A2B7B7-6424-431D-9740-9A56D278727A\" /><bpmn:sequenceFlow id=\"sid-57C1E98E-A055-45B5-AC32-2DE928B55819\" targetRef=\"sid-E65B2BA4-8ECE-4E90-9382-33184312719E\" /><bpmn:sequenceFlow id=\"sid-F90D4C48-7EC1-4F02-B356-21315C703820\" targetRef=\"sid-07E9536E-7804-48D3-B123-12FE0587D270\" /><bpmn:sequenceFlow id=\"sid-A2F6A0A7-7B09-4336-B248-51EA12A39E71\" targetRef=\"sid-FD9948B4-A018-422E-9234-F668A847C744\" /><bpmn:sequenceFlow id=\"sid-9924C90D-012F-40A2-8627-CDD47E4B906B\" targetRef=\"sid-A9A2A45F-4EE6-467C-936E-4DA429BDD920\" /><bpmn:sequenceFlow id=\"sid-34471787-2452-4740-86B9-0E81AE3A1441\" targetRef=\"sid-A9A2A45F-4EE6-467C-936E-4DA429BDD920\" /><bpmn:sequenceFlow id=\"sid-DEA2832C-612C-4159-B5DA-E0DDE215F7B1\" targetRef=\"sid-2531E8B0-3EE8-4DA5-92AC-3C077BFD4FBC\" /><bpmn:sequenceFlow id=\"sid-1CB27E62-E528-456A-8D55-D1F167E0DB65\" targetRef=\"sid-1AAB6E74-22BD-4E68-96AA-7094A51F1824\" name=\"Alegere banca A\" /><bpmn:sequenceFlow id=\"sid-5325B975-D908-4DE8-BDD9-700138E40409\" targetRef=\"sid-3AFB0794-05C8-4B81-883A-FC90739BE41C\" name=\"Alegere banca B\" /><bpmn:sequenceFlow id=\"sid-BD9C0EFA-AA80-458B-BCF4-118AA7FFFD5D\" targetRef=\"sid-BF9D2C0E-901D-4893-BB2A-064E723231FA\" /><bpmn:sequenceFlow id=\"sid-F8E6B008-751F-4E30-8AE5-64D0874E02BC\" targetRef=\"sid-F4CC43FB-CA67-4B2E-9EAF-B498F32C3538\" name=\"&lt; 25000\" /><bpmn:sequenceFlow id=\"sid-91AB93DE-600F-4F6F-A2E9-ACB2A3D1246F\" targetRef=\"sid-F6BF21DC-EFEF-44FE-9D7C-750E2136B314\" name=\"&gt; 25000\" /><bpmn:sequenceFlow id=\"sid-209DA47F-F08E-4A83-B385-130AF7498F3B\" targetRef=\"sid-5018F3BF-2F93-4761-AE68-809A0346B171\" /><bpmn:sequenceFlow id=\"sid-9F9B1A9E-FAF1-4139-968F-4433381A82DE\" targetRef=\"sid-5018F3BF-2F93-4761-AE68-809A0346B171\" /><bpmn:sequenceFlow id=\"sid-1F381064-2B8F-40FC-8FEF-98DD16E9F443\" targetRef=\"sid-800AE8B4-D5D0-4D8A-B8EA-DD56FF7EF891\" /><bpmn:sequenceFlow id=\"sid-187C079B-E755-4F0E-8CBC-6F419C382DE2\" targetRef=\"sid-B33A409C-7E19-4FED-A03A-29142EB86E93\" /><bpmn:sequenceFlow id=\"sid-B5519C42-3D2D-4B36-AB8A-FD4B0F97A25B\" targetRef=\"sid-B33A409C-7E19-4FED-A03A-29142EB86E93\" /><bpmn:sequenceFlow id=\"sid-82BDC00F-699A-4BA6-B18A-35952DAE8DBF\" targetRef=\"sid-4229EDEB-96E8-4559-A9C6-1062F1A7D5F9\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-05-01 12:11:32",
+  "company": {
+    "company_id": 1645869,
+    "companyCode": "SYN-745869",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "XOR Split 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "XOR Split 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.4
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "XOR Split 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.6
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "XOR Split 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "XOR Split 2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.5
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "XOR Split 2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.5
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "XOR Join 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "XOR Join 2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.52
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "XOR Join 2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.48
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "XOR Join 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "XOR Join 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.48
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "XOR Join 1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.52
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "AND Split",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "AND Split",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.32
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "AND Split",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.68
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1006,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "AND Join",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10060,
+          "gateway_pk_id": 1006,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "AND Join",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.43
+        },
+        {
+          "id": 10061,
+          "gateway_pk_id": 1006,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "AND Join",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.57
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 745869,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-745869-1",
+        "task_company_id": null,
+        "task_name": "Inmanare oferta de credit",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4229EDEB-96E8-4559-A9C6-1062F1A7D5F9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 219,
+        "expected_rework_time": 37,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 16.88,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 56,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 2,
+            "task_id": 5001,
+            "role": "R",
+            "time_allocation_percentage": 15.77,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 3,
+              "hourlyRate": 20,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 745869,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-745869-2",
+        "task_company_id": null,
+        "task_name": "Imprumut banca A",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1AAB6E74-22BD-4E68-96AA-7094A51F1824.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 229,
+        "expected_rework_time": 46,
+        "expected_waiting_time": 18,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 6.64,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 6,
+              "hourlyRate": 54,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 745869,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-745869-3",
+        "task_company_id": null,
+        "task_name": "Imprumut banca B",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3AFB0794-05C8-4B81-883A-FC90739BE41C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 117,
+        "expected_rework_time": 26,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 5.63,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 45,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 745869,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-745869-4",
+        "task_company_id": null,
+        "task_name": "Trimitere pre-verificare imrumut",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F4CC43FB-CA67-4B2E-9EAF-B498F32C3538.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 214,
+        "expected_rework_time": 17,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 12.52,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 5,
+              "hourlyRate": 51,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 745869,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-745869-5",
+        "task_company_id": null,
+        "task_name": "Discutare garantie",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F6BF21DC-EFEF-44FE-9D7C-750E2136B314.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 130,
+        "expected_rework_time": 21,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 3.58,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 5,
+              "hourlyRate": 109,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 745869,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-745869-6",
+        "task_company_id": null,
+        "task_name": "Completare cerere de credit",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-19A2B7B7-6424-431D-9740-9A56D278727A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 142,
+        "expected_rework_time": 31,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 7.27,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 5,
+              "hourlyRate": 83,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 8,
+            "task_id": 5006,
+            "role": "A",
+            "time_allocation_percentage": 19.5,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 2,
+              "hourlyRate": 90,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 745869,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-745869-7",
+        "task_company_id": null,
+        "task_name": "Completare suma dorita",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-07E9536E-7804-48D3-B123-12FE0587D270.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 240,
+        "expected_rework_time": 55,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5007,
+            "role": "I",
+            "time_allocation_percentage": 10.01,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 6,
+              "hourlyRate": 69,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 745869,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-745869-8",
+        "task_company_id": null,
+        "task_name": "Completare venit lunar",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-FD9948B4-A018-422E-9234-F668A847C744.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 113,
+        "expected_rework_time": 17,
+        "expected_waiting_time": 17,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5008,
+            "role": "R",
+            "time_allocation_percentage": 9.91,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 2,
+              "hourlyRate": 119,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 745869,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-745869-9",
+        "task_company_id": null,
+        "task_name": "Primire oferta de credit",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A592352F-57F3-4336-A6D0-16E831E9DAD1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 147,
+        "expected_rework_time": 34,
+        "expected_waiting_time": 20,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 11,
+            "task_id": 5009,
+            "role": "R",
+            "time_allocation_percentage": 1.35,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 3,
+              "hourlyRate": 91,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "78359368e0e84b7888fe8bd8c13e9914",
+    "model_id": "1265390b63d84ed9ac087fad28ec50c4",
+    "organization_id": "edd5a8c116b143abada9523795ceecf5"
+  }
+}

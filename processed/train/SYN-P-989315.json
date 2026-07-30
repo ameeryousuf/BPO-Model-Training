@@ -1,0 +1,237 @@
+{
+  "process_id": 989315,
+  "company_id": 1889315,
+  "created_at": "2018-05-30 10:49:36",
+  "updated_at": "2018-05-30 10:49:36",
+  "capacity_requirement_minutes": 554,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-989315",
+  "process_name": "Correction process facture",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-989315\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-989315\" name=\"Correction process facture\" isExecutable=\"false\"><bpmn:task id=\"sid-58D0D54C-E569-46F0-97BA-B962E528921D\" name=\"Enregistrer nombre de jours\" /><bpmn:task id=\"sid-F49DA716-9774-424B-860E-1AD510950123\" name=\"Facturer\" /><bpmn:task id=\"sid-7C804535-ABC6-49BE-9F89-6568BA3ADCAE\" name=\"Valider nombre de jours\" /><bpmn:task id=\"sid-87D50BCF-996F-48B1-8B79-56065DE9F1BF\" name=\"Fournir nombre de jour travaillé\" /><bpmn:intermediateCatchEvent id=\"sid-D7A9985B-726E-42A6-A785-C541D6EBCF88\" name=\"Paiement\" /><bpmn:endEvent id=\"sid-1BBB8C54-1592-4A66-9132-26032C371D4F\" name=\"Paiement en cours\" /><bpmn:startEvent id=\"sid-39E51187-4F91-42AD-8A82-C9C99664DD3C\" name=\"4 jours avant fin du mois\" /><bpmn:sequenceFlow id=\"sid-5F37D795-8439-421A-B1AA-CEE6438F827A\" targetRef=\"sid-87D50BCF-996F-48B1-8B79-56065DE9F1BF\" /><bpmn:sequenceFlow id=\"sid-0CA900DB-7471-4F2C-A81B-80F38D737CB1\" targetRef=\"sid-58D0D54C-E569-46F0-97BA-B962E528921D\" /><bpmn:sequenceFlow id=\"sid-DB75F814-5BA3-42BA-B67C-816673F1013D\" targetRef=\"sid-7C804535-ABC6-49BE-9F89-6568BA3ADCAE\" /><bpmn:sequenceFlow id=\"sid-9DF71A89-C493-4659-8B8A-812DC7654BAA\" targetRef=\"sid-F49DA716-9774-424B-860E-1AD510950123\" /><bpmn:sequenceFlow id=\"sid-0D2672E7-69CD-47A9-A641-BECC69D68C2B\" targetRef=\"sid-D7A9985B-726E-42A6-A785-C541D6EBCF88\" /><bpmn:sequenceFlow id=\"sid-0A5F5E64-6AED-4399-BA21-D0AA2B6D8ED1\" targetRef=\"sid-1BBB8C54-1592-4A66-9132-26032C371D4F\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-05-30 10:49:36",
+  "company": {
+    "company_id": 1889315,
+    "companyCode": "SYN-989315",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 989315,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-989315-1",
+        "task_company_id": null,
+        "task_name": "Enregistrer nombre de jours",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-58D0D54C-E569-46F0-97BA-B962E528921D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 169,
+        "expected_rework_time": 27,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 2.5,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 29,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 989315,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-989315-2",
+        "task_company_id": null,
+        "task_name": "Facturer",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F49DA716-9774-424B-860E-1AD510950123.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 8,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 9.53,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 37,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 989315,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-989315-3",
+        "task_company_id": null,
+        "task_name": "Valider nombre de jours",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7C804535-ABC6-49BE-9F89-6568BA3ADCAE.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 189,
+        "expected_rework_time": 34,
+        "expected_waiting_time": 17,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 4.79,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 71,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 989315,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-989315-4",
+        "task_company_id": null,
+        "task_name": "Fournir nombre de jour travaillé",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-87D50BCF-996F-48B1-8B79-56065DE9F1BF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 188,
+        "expected_rework_time": 26,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 7.41,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 28,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "0f00ab0844344131970b4ee0f8a509f7",
+    "model_id": "f515797fe96f46d6af951b78e02822fd",
+    "organization_id": "8071ef15875a43bc99ba0ab89f8842be"
+  }
+}

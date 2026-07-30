@@ -1,0 +1,283 @@
+{
+  "process_id": 129168,
+  "company_id": 1029168,
+  "created_at": "2020-05-14 13:06:26",
+  "updated_at": "2020-05-14 13:06:26",
+  "capacity_requirement_minutes": 373,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-129168",
+  "process_name": "Check towing device (Step 2.4) ",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-129168\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-129168\" name=\"Check towing device (Step 2.4) \" isExecutable=\"false\"><bpmn:task id=\"sid-3B315892-F6D1-42DE-85E0-CF6507871B29\" name=\"Check towing device for safety compliance\" /><bpmn:task id=\"sid-11E32037-1A2C-4CD0-8051-395039CF8117\" name=\"Check for towing device\" /><bpmn:task id=\"sid-CA84F9E1-627E-4704-99E3-52574DD2B297\" name=\"Check registration in database\" /><bpmn:startEvent id=\"sid-823FC12D-8B98-4536-8FBF-5045E0A4C3B5\" name=\"Towing device check initiated\" /><bpmn:endEvent id=\"sid-05A3F420-7647-45E0-8E52-C90EACFF6C81\" name=\"Towing device check completed\" /><bpmn:exclusiveGateway id=\"sid-3E53F49A-D7A6-4248-9E2A-7266159BFA3D\" name=\"Vehicle with towing device\" /><bpmn:exclusiveGateway id=\"sid-A9F95C16-6503-43BC-B7FF-4BCAD27AB99E\" name=\"\" /><bpmn:sequenceFlow id=\"sid-BC0EDB2D-325F-41F6-A109-690C78E6CA1A\" targetRef=\"sid-3B315892-F6D1-42DE-85E0-CF6507871B29\" /><bpmn:sequenceFlow id=\"sid-2B6EB737-CF2B-440D-894F-42CC11EFD4FE\" targetRef=\"sid-CA84F9E1-627E-4704-99E3-52574DD2B297\" /><bpmn:sequenceFlow id=\"sid-E6E10D05-A068-496C-8BE2-B0573E3526DB\" targetRef=\"sid-A9F95C16-6503-43BC-B7FF-4BCAD27AB99E\" /><bpmn:sequenceFlow id=\"sid-D54C41E0-5213-41B3-83F7-AA744886627F\" targetRef=\"sid-11E32037-1A2C-4CD0-8051-395039CF8117\" /><bpmn:sequenceFlow id=\"sid-D77505D4-FA98-427D-BCC5-B0D137B683D8\" targetRef=\"sid-3E53F49A-D7A6-4248-9E2A-7266159BFA3D\" /><bpmn:sequenceFlow id=\"sid-A410E653-C198-45C6-89F1-9E44751A2A76\" targetRef=\"sid-05A3F420-7647-45E0-8E52-C90EACFF6C81\" /><bpmn:sequenceFlow id=\"sid-3E0A1809-8CF7-4E46-8441-55E97060C2BD\" targetRef=\"sid-A9F95C16-6503-43BC-B7FF-4BCAD27AB99E\" name=\"Vehicle without towing device\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-05-14 13:06:26",
+  "company": {
+    "company_id": 1029168,
+    "companyCode": "SYN-129168",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Vehicle with towing device",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Vehicle with towing device",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.48
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Vehicle with towing device",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.52
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.56
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.44
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 129168,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-129168-1",
+        "task_company_id": null,
+        "task_name": "Check towing device for safety compliance",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3B315892-F6D1-42DE-85E0-CF6507871B29.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 206,
+        "expected_rework_time": 43,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 12.17,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 5,
+              "hourlyRate": 43,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 129168,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-129168-2",
+        "task_company_id": null,
+        "task_name": "Check for towing device",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-11E32037-1A2C-4CD0-8051-395039CF8117.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 106,
+        "expected_rework_time": 8,
+        "expected_waiting_time": 8,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 7.23,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 91,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 3.03,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 66,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 129168,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-129168-3",
+        "task_company_id": null,
+        "task_name": "Check registration in database",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-CA84F9E1-627E-4704-99E3-52574DD2B297.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 61,
+        "expected_rework_time": 13,
+        "expected_waiting_time": 3,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 6.06,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 101,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "da1c808b553741948f8b95d7b24b74ff",
+    "model_id": "3bfeda0f778f4ff088049d8d2232a9f3",
+    "organization_id": "acb129194bab4d73b2a30734a38e504f"
+  }
+}

@@ -1,0 +1,997 @@
+{
+  "process_id": 187443,
+  "company_id": 1087443,
+  "created_at": "2017-05-09 16:52:25",
+  "updated_at": "2017-05-09 16:52:25",
+  "capacity_requirement_minutes": 1817,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-187443",
+  "process_name": "New Process",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-187443\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-187443\" name=\"New Process\" isExecutable=\"false\"><bpmn:task id=\"sid-644739DF-AC90-4D6B-BB94-6F0B8FF7F55E\" name=\"prihvatanje prijave\" /><bpmn:task id=\"sid-5DF07E94-52BF-432E-8886-1930F12E1915\" name=\"proveravanje prijave\" /><bpmn:task id=\"sid-6779668E-2BD4-4681-AD26-B1449A99C094\" name=\"zavrsavanje procesa prijave\" /><bpmn:task id=\"sid-2A413BBE-0F7B-461E-B458-AA7383FE00A1\" name=\"prihvatanje radova\" /><bpmn:task id=\"sid-A11EE5EB-B7D9-4174-AF33-7BBFEE678B55\" name=\"pregledanje opste informisanosti\" /><bpmn:task id=\"sid-913B01C6-72B5-480B-8BA5-CFE1EB14785E\" name=\"pregledanje matematike\" /><bpmn:task id=\"sid-342297BE-D234-43C1-8E0F-A54437B01E35\" name=\"utvrdjivanje ukupnog broja poena\" /><bpmn:task id=\"sid-1914E9C7-0D9F-4D84-A8EC-A635AEF7C06C\" name=\"objavljivan da Jane Doe je primljen\" /><bpmn:task id=\"sid-7B1914D3-EF53-465B-85EB-E01965FA82EA\" name=\"upis kandidata\" /><bpmn:task id=\"sid-C95755FC-5751-4A01-AE54-5A5FA864D660\" name=\"podnosenje prijave\" /><bpmn:task id=\"sid-42BE3A5B-2938-40AE-A21D-240F46CAD69F\" name=\"polaganje matematike\" /><bpmn:task id=\"sid-A0BC2567-7138-4F83-AD35-67F4A6291F5D\" name=\"polaganje opste informisanosti\" /><bpmn:task id=\"sid-5675AE50-23AD-41F9-B170-7EFC98B3CA45\" name=\"predaja radova komisiji\" /><bpmn:task id=\"sid-7AEBB060-C2B2-49E3-8CE7-31CC65C0ECAB\" name=\"podnosenje dokumenata za upis\" /><bpmn:endEvent id=\"sid-05E2FEAA-3BB9-433F-9DFE-B86468153939\" name=\"prijava nekorektna\" /><bpmn:endEvent id=\"sid-48AE8AEB-397E-46DE-909E-6B05C28DCF9F\" name=\"nije primljen\" /><bpmn:endEvent id=\"sid-E4A7F504-A6C1-4301-92B1-9F0F04E2A8FF\" name=\"upisan\" /><bpmn:startEvent id=\"sid-562B0B8D-64BB-468A-9070-8B5CA36084F7\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-674F3340-4590-4F4B-8055-D5616BCC2F13\" name=\"[prijava korektna?]\" /><bpmn:parallelGateway id=\"sid-742042FA-FC28-41AD-88D9-B976BC38E9C7\" name=\"\" /><bpmn:parallelGateway id=\"sid-A4BDC0C9-489B-43FD-B243-E98475DA2F3A\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-E38805AE-0BE2-4AE3-B9B8-93668270A017\" name=\"[primljen?]\" /><bpmn:parallelGateway id=\"sid-A459150D-0932-4E6C-B6F2-D6678C6C43D7\" name=\"\" /><bpmn:parallelGateway id=\"sid-B04F0066-F080-4121-98EA-0A75F3A8091B\" name=\"\" /><bpmn:sequenceFlow id=\"sid-4126AB08-C2DB-4DA6-BED3-268FCC8C8A8F\" targetRef=\"sid-C95755FC-5751-4A01-AE54-5A5FA864D660\" /><bpmn:sequenceFlow id=\"sid-77EF2F7F-0413-477E-BBB9-6584CD346A8F\" targetRef=\"sid-644739DF-AC90-4D6B-BB94-6F0B8FF7F55E\" /><bpmn:sequenceFlow id=\"sid-622DE7BC-7303-441B-A088-E4353E1E67A4\" targetRef=\"sid-5DF07E94-52BF-432E-8886-1930F12E1915\" /><bpmn:sequenceFlow id=\"sid-7A201AF6-4331-4BE1-AB89-69B40FE60779\" targetRef=\"sid-674F3340-4590-4F4B-8055-D5616BCC2F13\" /><bpmn:sequenceFlow id=\"sid-AEDDB423-8E9F-4833-8527-2E3D320F5D99\" targetRef=\"sid-05E2FEAA-3BB9-433F-9DFE-B86468153939\" /><bpmn:sequenceFlow id=\"sid-A726F024-7D4B-4540-BBE4-F558C96A4382\" targetRef=\"sid-6779668E-2BD4-4681-AD26-B1449A99C094\" name=\"[ne]\" /><bpmn:sequenceFlow id=\"sid-FEF40D40-F86E-4873-8FB4-4CFCC36EE751\" targetRef=\"sid-A459150D-0932-4E6C-B6F2-D6678C6C43D7\" name=\"[da]\" /><bpmn:sequenceFlow id=\"sid-D3C736C8-86EC-4A7D-A9E3-08A3A7EC15C2\" targetRef=\"sid-42BE3A5B-2938-40AE-A21D-240F46CAD69F\" /><bpmn:sequenceFlow id=\"sid-B8870753-1B42-42D5-825B-70215A7D2388\" targetRef=\"sid-A0BC2567-7138-4F83-AD35-67F4A6291F5D\" /><bpmn:sequenceFlow id=\"sid-DA78C416-58C7-4C6E-BE19-479C08AAA910\" targetRef=\"sid-B04F0066-F080-4121-98EA-0A75F3A8091B\" /><bpmn:sequenceFlow id=\"sid-CE44E0AF-7275-4369-AAD1-6E7D3B30BDD7\" targetRef=\"sid-B04F0066-F080-4121-98EA-0A75F3A8091B\" /><bpmn:sequenceFlow id=\"sid-9C151A3C-4169-4A5C-801A-24F269EEBD7D\" targetRef=\"sid-5675AE50-23AD-41F9-B170-7EFC98B3CA45\" /><bpmn:sequenceFlow id=\"sid-685C0F6F-2324-4C92-9998-4DE2AF21E68D\" targetRef=\"sid-2A413BBE-0F7B-461E-B458-AA7383FE00A1\" /><bpmn:sequenceFlow id=\"sid-653E84F6-AA54-49AF-BEDC-23159A455D9A\" targetRef=\"sid-742042FA-FC28-41AD-88D9-B976BC38E9C7\" /><bpmn:sequenceFlow id=\"sid-97D9290B-3075-4A39-B2B7-C473B7CE2337\" targetRef=\"sid-A11EE5EB-B7D9-4174-AF33-7BBFEE678B55\" /><bpmn:sequenceFlow id=\"sid-E2904214-DF8E-4D9C-A918-E018FA62FC2A\" targetRef=\"sid-913B01C6-72B5-480B-8BA5-CFE1EB14785E\" /><bpmn:sequenceFlow id=\"sid-50579FD7-1BA4-48F8-AEF9-DFB1045B83FC\" targetRef=\"sid-A4BDC0C9-489B-43FD-B243-E98475DA2F3A\" /><bpmn:sequenceFlow id=\"sid-65224F89-6A2D-46A4-B4B6-A97752D36917\" targetRef=\"sid-A4BDC0C9-489B-43FD-B243-E98475DA2F3A\" /><bpmn:sequenceFlow id=\"sid-FA0B056A-4A24-4C51-A76A-532FFFD0F7BA\" targetRef=\"sid-342297BE-D234-43C1-8E0F-A54437B01E35\" /><bpmn:sequenceFlow id=\"sid-3252ED1C-B0A5-4ACB-82BE-E00E54294E21\" targetRef=\"sid-1914E9C7-0D9F-4D84-A8EC-A635AEF7C06C\" /><bpmn:sequenceFlow id=\"sid-3AE41A88-CF81-4187-9EA6-53EB2F2375F7\" targetRef=\"sid-E38805AE-0BE2-4AE3-B9B8-93668270A017\" /><bpmn:sequenceFlow id=\"sid-48F7A724-C8E1-45C9-BA78-C2269E52F703\" targetRef=\"sid-48AE8AEB-397E-46DE-909E-6B05C28DCF9F\" name=\"[ne]\" /><bpmn:sequenceFlow id=\"sid-BB39558E-4ACD-4044-B9D0-8B477FD3DAE1\" targetRef=\"sid-7AEBB060-C2B2-49E3-8CE7-31CC65C0ECAB\" name=\"[da]\" /><bpmn:sequenceFlow id=\"sid-68BEEB57-2516-4FEE-B7E0-5EEE784BB8D5\" targetRef=\"sid-7B1914D3-EF53-465B-85EB-E01965FA82EA\" /><bpmn:sequenceFlow id=\"sid-2CD8B7AF-38AD-49CC-B043-A50ED6584ACE\" targetRef=\"sid-E4A7F504-A6C1-4301-92B1-9F0F04E2A8FF\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2017-05-09 16:52:25",
+  "company": {
+    "company_id": 1087443,
+    "companyCode": "SYN-187443",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "[prijava korektna?]",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "[prijava korektna?]",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.51
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "[prijava korektna?]",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.49
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.59
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.41
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1003,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 3",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10030,
+          "gateway_pk_id": 1003,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.49
+        },
+        {
+          "id": 10031,
+          "gateway_pk_id": 1003,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.51
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1004,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "[primljen?]",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10040,
+          "gateway_pk_id": 1004,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "[primljen?]",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.61
+        },
+        {
+          "id": 10041,
+          "gateway_pk_id": 1004,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "[primljen?]",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.39
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1005,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 5",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10050,
+          "gateway_pk_id": 1005,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.3
+        },
+        {
+          "id": 10051,
+          "gateway_pk_id": 1005,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.7
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1006,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 6",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10060,
+          "gateway_pk_id": 1006,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.29
+        },
+        {
+          "id": 10061,
+          "gateway_pk_id": 1006,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.71
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 187443,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-187443-1",
+        "task_company_id": null,
+        "task_name": "prihvatanje prijave",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-644739DF-AC90-4D6B-BB94-6F0B8FF7F55E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 236,
+        "expected_rework_time": 40,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 9.48,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 95,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 187443,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-187443-2",
+        "task_company_id": null,
+        "task_name": "proveravanje prijave",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5DF07E94-52BF-432E-8886-1930F12E1915.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 121,
+        "expected_rework_time": 23,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 6.37,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 110,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 10.51,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 1,
+              "hourlyRate": 101,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 187443,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-187443-3",
+        "task_company_id": null,
+        "task_name": "zavrsavanje procesa prijave",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-6779668E-2BD4-4681-AD26-B1449A99C094.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 88,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 9,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 17.18,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 4,
+              "hourlyRate": 28,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 187443,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-187443-4",
+        "task_company_id": null,
+        "task_name": "prihvatanje radova",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2A413BBE-0F7B-461E-B458-AA7383FE00A1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 144,
+        "expected_rework_time": 26,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 5.54,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 3,
+              "hourlyRate": 82,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 187443,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-187443-5",
+        "task_company_id": null,
+        "task_name": "pregledanje opste informisanosti",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A11EE5EB-B7D9-4174-AF33-7BBFEE678B55.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 53,
+        "expected_rework_time": 7,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "I",
+            "time_allocation_percentage": 8.29,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 4,
+              "hourlyRate": 65,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 187443,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-187443-6",
+        "task_company_id": null,
+        "task_name": "pregledanje matematike",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-913B01C6-72B5-480B-8BA5-CFE1EB14785E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 171,
+        "expected_rework_time": 17,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 14.39,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 6,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6007,
+      "process_id": 187443,
+      "task_id": 5007,
+      "order": 7,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5007,
+        "task_code": "SYN-T-187443-7",
+        "task_company_id": null,
+        "task_name": "utvrdjivanje ukupnog broja poena",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-342297BE-D234-43C1-8E0F-A54437B01E35.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 121,
+        "expected_rework_time": 16,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 8,
+            "task_id": 5007,
+            "role": "A",
+            "time_allocation_percentage": 18.39,
+            "job": {
+              "job_id": 8,
+              "jobCode": "SYN-J-8",
+              "job_level_id": 1,
+              "hourlyRate": 40,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6008,
+      "process_id": 187443,
+      "task_id": 5008,
+      "order": 8,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5008,
+        "task_code": "SYN-T-187443-8",
+        "task_company_id": null,
+        "task_name": "objavljivan da Jane Doe je primljen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-1914E9C7-0D9F-4D84-A8EC-A635AEF7C06C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 208,
+        "expected_rework_time": 52,
+        "expected_waiting_time": 10,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 9,
+            "task_id": 5008,
+            "role": "I",
+            "time_allocation_percentage": 13.74,
+            "job": {
+              "job_id": 9,
+              "jobCode": "SYN-J-9",
+              "job_level_id": 1,
+              "hourlyRate": 97,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6009,
+      "process_id": 187443,
+      "task_id": 5009,
+      "order": 9,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5009,
+        "task_code": "SYN-T-187443-9",
+        "task_company_id": null,
+        "task_name": "upis kandidata",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7B1914D3-EF53-465B-85EB-E01965FA82EA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 79,
+        "expected_rework_time": 14,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 10,
+            "task_id": 5009,
+            "role": "I",
+            "time_allocation_percentage": 14.91,
+            "job": {
+              "job_id": 10,
+              "jobCode": "SYN-J-10",
+              "job_level_id": 5,
+              "hourlyRate": 82,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 11,
+            "task_id": 5009,
+            "role": "I",
+            "time_allocation_percentage": 10.77,
+            "job": {
+              "job_id": 11,
+              "jobCode": "SYN-J-11",
+              "job_level_id": 4,
+              "hourlyRate": 82,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6010,
+      "process_id": 187443,
+      "task_id": 5010,
+      "order": 10,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5010,
+        "task_code": "SYN-T-187443-10",
+        "task_company_id": null,
+        "task_name": "podnosenje prijave",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C95755FC-5751-4A01-AE54-5A5FA864D660.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 161,
+        "expected_rework_time": 26,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 12,
+            "task_id": 5010,
+            "role": "A",
+            "time_allocation_percentage": 8.55,
+            "job": {
+              "job_id": 12,
+              "jobCode": "SYN-J-12",
+              "job_level_id": 5,
+              "hourlyRate": 115,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6011,
+      "process_id": 187443,
+      "task_id": 5011,
+      "order": 11,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5011,
+        "task_code": "SYN-T-187443-11",
+        "task_company_id": null,
+        "task_name": "polaganje matematike",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-42BE3A5B-2938-40AE-A21D-240F46CAD69F.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 186,
+        "expected_rework_time": 28,
+        "expected_waiting_time": 12,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 13,
+            "task_id": 5011,
+            "role": "I",
+            "time_allocation_percentage": 8.72,
+            "job": {
+              "job_id": 13,
+              "jobCode": "SYN-J-13",
+              "job_level_id": 2,
+              "hourlyRate": 111,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6012,
+      "process_id": 187443,
+      "task_id": 5012,
+      "order": 12,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5012,
+        "task_code": "SYN-T-187443-12",
+        "task_company_id": null,
+        "task_name": "polaganje opste informisanosti",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-A0BC2567-7138-4F83-AD35-67F4A6291F5D.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 90,
+        "expected_rework_time": 22,
+        "expected_waiting_time": 17,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 14,
+            "task_id": 5012,
+            "role": "A",
+            "time_allocation_percentage": 3.68,
+            "job": {
+              "job_id": 14,
+              "jobCode": "SYN-J-14",
+              "job_level_id": 6,
+              "hourlyRate": 111,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6013,
+      "process_id": 187443,
+      "task_id": 5013,
+      "order": 13,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5013,
+        "task_code": "SYN-T-187443-13",
+        "task_company_id": null,
+        "task_name": "predaja radova komisiji",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5675AE50-23AD-41F9-B170-7EFC98B3CA45.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 8,
+        "expected_rework_time": 2,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 15,
+            "task_id": 5013,
+            "role": "I",
+            "time_allocation_percentage": 16.9,
+            "job": {
+              "job_id": 15,
+              "jobCode": "SYN-J-15",
+              "job_level_id": 2,
+              "hourlyRate": 118,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6014,
+      "process_id": 187443,
+      "task_id": 5014,
+      "order": 14,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5014,
+        "task_code": "SYN-T-187443-14",
+        "task_company_id": null,
+        "task_name": "podnosenje dokumenata za upis",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-7AEBB060-C2B2-49E3-8CE7-31CC65C0ECAB.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 151,
+        "expected_rework_time": 26,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 16,
+            "task_id": 5014,
+            "role": "I",
+            "time_allocation_percentage": 18.94,
+            "job": {
+              "job_id": 16,
+              "jobCode": "SYN-J-16",
+              "job_level_id": 2,
+              "hourlyRate": 61,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 17,
+            "task_id": 5014,
+            "role": "C",
+            "time_allocation_percentage": 19.74,
+            "job": {
+              "job_id": 17,
+              "jobCode": "SYN-J-17",
+              "job_level_id": 2,
+              "hourlyRate": 21,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "89d17ed7fe7a4bff869a3ed1ce100235",
+    "model_id": "51c0e44fc5194c65a4fbad4364ea4e55",
+    "organization_id": "5e1278d2bfce434b95e80ab3625cdc63"
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "process_id": 588266,
+  "company_id": 1488266,
+  "created_at": "2021-04-15 12:46:15",
+  "updated_at": "2021-04-15 12:46:15",
+  "capacity_requirement_minutes": 758,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-588266",
+  "process_name": "A: Receipt, Data Entry, Check, Classify",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-588266\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-588266\" name=\"A: Receipt, Data Entry, Check, Classify\" isExecutable=\"false\"><bpmn:task id=\"sid-AEAECEC1-86AD-4AB5-AB92-306F4282ADD8\" name=\"Examine/Classify the claim (5 mins)\" /><bpmn:task id=\"sid-C72928D5-E159-4383-A083-A9452CE1F197\" name=\"Notify Rejection\" /><bpmn:task id=\"sid-5AAF4B2B-B913-4F46-A649-97A311CB11E7\" name=\"Enter Claim Information (10 mins.)\" /><bpmn:task id=\"sid-29200FE1-6C93-42DA-ACE3-202239CD82E1\" name=\"Perform Basic Check (5 mins)\" /><bpmn:startEvent id=\"sid-32B4050E-F816-41CB-BB36-043506454907\" name=\"Claim Received\" /><bpmn:endEvent id=\"sid-22BD9A81-60CB-4D46-9D07-0565D49253C5\" name=\"Claim Rejected\" /><bpmn:exclusiveGateway id=\"sid-7D90259F-429C-43D7-814F-DB43FCFE9A3D\" name=\"Is the Claim Valid?\" /><bpmn:sequenceFlow id=\"sid-214313C6-C487-4881-8F8B-09CBCE9CD346\" targetRef=\"sid-5AAF4B2B-B913-4F46-A649-97A311CB11E7\" /><bpmn:sequenceFlow id=\"sid-58CFEB4D-2D77-4397-81B4-327559EC72BD\" targetRef=\"sid-29200FE1-6C93-42DA-ACE3-202239CD82E1\" /><bpmn:sequenceFlow id=\"sid-49A169CE-D78C-4CEA-9CF0-1D9C2F37C3AE\" targetRef=\"sid-7D90259F-429C-43D7-814F-DB43FCFE9A3D\" /><bpmn:sequenceFlow id=\"sid-A274A66C-4046-4078-9108-FBDC00331C83\" targetRef=\"sid-22BD9A81-60CB-4D46-9D07-0565D49253C5\" /><bpmn:sequenceFlow id=\"sid-404675A8-A597-4900-9580-897C7736D699\" targetRef=\"sid-AEAECEC1-86AD-4AB5-AB92-306F4282ADD8\" name=\"Yes&#10;98%\" /><bpmn:sequenceFlow id=\"sid-E25C97BC-8F82-4294-9E50-B396B305DA8A\" targetRef=\"sid-C72928D5-E159-4383-A083-A9452CE1F197\" name=\"No&#10;2%\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-04-15 12:46:15",
+  "company": {
+    "company_id": 1488266,
+    "companyCode": "SYN-588266",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Is the Claim Valid?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Is the Claim Valid?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.15
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Is the Claim Valid?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.85
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 588266,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-588266-1",
+        "task_company_id": null,
+        "task_name": "Examine/Classify the claim (5 mins)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AEAECEC1-86AD-4AB5-AB92-306F4282ADD8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 219,
+        "expected_rework_time": 46,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 18.78,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 37,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 588266,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-588266-2",
+        "task_company_id": null,
+        "task_name": "Notify Rejection",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C72928D5-E159-4383-A083-A9452CE1F197.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 213,
+        "expected_rework_time": 53,
+        "expected_waiting_time": 27,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 4.32,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 87,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 588266,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-588266-3",
+        "task_company_id": null,
+        "task_name": "Enter Claim Information (10 mins.)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5AAF4B2B-B913-4F46-A649-97A311CB11E7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 100,
+        "expected_rework_time": 19,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 1.32,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 111,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 588266,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-588266-4",
+        "task_company_id": null,
+        "task_name": "Perform Basic Check (5 mins)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-29200FE1-6C93-42DA-ACE3-202239CD82E1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 226,
+        "expected_rework_time": 14,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "I",
+            "time_allocation_percentage": 8.51,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 117,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "0762372b293845c990fe1945ef56c2a7",
+    "model_id": "3de65eba887f47bd917d98d233a6b992",
+    "organization_id": "30da146aae4842cfab909b9723944f7a"
+  }
+}

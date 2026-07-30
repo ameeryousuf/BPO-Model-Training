@@ -1,0 +1,312 @@
+{
+  "process_id": 1117382,
+  "company_id": 2017382,
+  "created_at": "2018-03-08 09:30:18",
+  "updated_at": "2018-03-08 09:30:18",
+  "capacity_requirement_minutes": 581,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1117382",
+  "process_name": "Book Travel and Accomodations",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1117382\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1117382\" name=\"Book Travel and Accomodations\" isExecutable=\"false\"><bpmn:task id=\"sid-4BE1413D-2467-4175-851D-FAD9F19EBD47\" name=\"Search Best Flights and Accommodations\" /><bpmn:task id=\"sid-BF2C0E6C-677D-4CA6-ACA4-76B43871E4AD\" name=\"Select Flight and Accommodation\" /><bpmn:task id=\"sid-AFCE0786-2863-4CDB-B530-02B708B7D8E7\" name=\"Book Flight\" /><bpmn:task id=\"sid-590F446F-D466-4E8E-B68E-3D7B8C4985C4\" name=\"Book accommodation\" /><bpmn:startEvent id=\"sid-3FA1B125-B969-4DB7-B392-DBC40B8F2996\" name=\"Travel and Accommodations Needed\" /><bpmn:endEvent id=\"sid-DEDCA8AB-5C83-4983-A314-6C1459419D8C\" name=\"Flights and accommodation Booked\" /><bpmn:parallelGateway id=\"sid-DA0B3913-2B0C-4A5F-8E65-C3A84A41EA49\" name=\"\" /><bpmn:parallelGateway id=\"sid-2F136998-8877-4DE9-B15A-097645A48A42\" name=\"\" /><bpmn:sequenceFlow id=\"sid-2450E6C7-ABB1-4025-9B4C-6508CA7C6ABC\" targetRef=\"sid-BF2C0E6C-677D-4CA6-ACA4-76B43871E4AD\" /><bpmn:sequenceFlow id=\"sid-2F49508E-9724-4422-9F84-A750562EB932\" targetRef=\"sid-AFCE0786-2863-4CDB-B530-02B708B7D8E7\" /><bpmn:sequenceFlow id=\"sid-57FD8AF8-F0D3-4CA8-B76F-A1D1E57B29CD\" targetRef=\"sid-590F446F-D466-4E8E-B68E-3D7B8C4985C4\" /><bpmn:sequenceFlow id=\"sid-97E21DF3-A548-42BD-8072-DDEF22569562\" targetRef=\"sid-2F136998-8877-4DE9-B15A-097645A48A42\" /><bpmn:sequenceFlow id=\"sid-DB3161A3-957D-44D1-8022-A2B4D1917D29\" targetRef=\"sid-2F136998-8877-4DE9-B15A-097645A48A42\" /><bpmn:sequenceFlow id=\"sid-D02F09BF-47CD-4EE1-A1A0-897DB059A39C\" targetRef=\"sid-DEDCA8AB-5C83-4983-A314-6C1459419D8C\" /><bpmn:sequenceFlow id=\"sid-55DB69AA-D3C0-48D9-A00B-82B535FFA222\" targetRef=\"sid-DA0B3913-2B0C-4A5F-8E65-C3A84A41EA49\" /><bpmn:sequenceFlow id=\"sid-04411E2A-A7BD-4C5E-A5A3-423CDFCDC5F8\" targetRef=\"sid-4BE1413D-2467-4175-851D-FAD9F19EBD47\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2018-03-08 09:30:18",
+  "company": {
+    "company_id": 2017382,
+    "companyCode": "SYN-1117382",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.3
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.7
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.59
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.41
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1117382,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1117382-1",
+        "task_company_id": null,
+        "task_name": "Search Best Flights and Accommodations",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-4BE1413D-2467-4175-851D-FAD9F19EBD47.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 164,
+        "expected_rework_time": 28,
+        "expected_waiting_time": 28,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 4.48,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 6,
+              "hourlyRate": 104,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1117382,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1117382-2",
+        "task_company_id": null,
+        "task_name": "Select Flight and Accommodation",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BF2C0E6C-677D-4CA6-ACA4-76B43871E4AD.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 92,
+        "expected_rework_time": 9,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 4.39,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 1,
+              "hourlyRate": 70,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 1117382,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-1117382-3",
+        "task_company_id": null,
+        "task_name": "Book Flight",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-AFCE0786-2863-4CDB-B530-02B708B7D8E7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 157,
+        "expected_rework_time": 20,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "R",
+            "time_allocation_percentage": 15.02,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 2,
+              "hourlyRate": 48,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 1117382,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-1117382-4",
+        "task_company_id": null,
+        "task_name": "Book accommodation",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-590F446F-D466-4E8E-B68E-3D7B8C4985C4.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 168,
+        "expected_rework_time": 24,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 12.45,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 4,
+              "hourlyRate": 105,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "fefbc79ec859407e8ce7f092e0e14bf0",
+    "model_id": "17c74b111c40421481b571e4d1a40666",
+    "organization_id": "6500a7d2ac4c460496e996906be17ba0"
+  }
+}

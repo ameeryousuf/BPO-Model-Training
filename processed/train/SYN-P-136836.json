@@ -1,0 +1,216 @@
+{
+  "process_id": 136836,
+  "company_id": 1036836,
+  "created_at": "2021-03-11 12:57:30",
+  "updated_at": "2021-03-11 12:57:30",
+  "capacity_requirement_minutes": 115,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-136836",
+  "process_name": "Aufgabe exklusives gateway",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-136836\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-136836\" name=\"Aufgabe exklusives gateway\" isExecutable=\"false\"><bpmn:task id=\"sid-ABC6BD76-39B7-4F73-9532-5E553BC57CCF\" name=\"Bahnfahrt buchen\" /><bpmn:task id=\"sid-79D42096-863F-4980-A832-24242621EDF8\" name=\"Flug buchen\" /><bpmn:startEvent id=\"sid-873B69C1-4505-4375-BD9F-1A9EEC548B58\" name=\"Reiseentfernung bestimmen\" /><bpmn:endEvent id=\"sid-8508D84C-9373-4317-A9A0-F24B53E95D23\" name=\"Reise antreten\" /><bpmn:exclusiveGateway id=\"sid-9501CBEC-BF4D-44EA-AA36-E3170C4C5801\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-9FD75B2D-D990-4D33-B95F-EB5ACB79FA96\" name=\"\" /><bpmn:sequenceFlow id=\"sid-FF21D4D1-9C67-4BB5-B5FF-96234F6F531C\" targetRef=\"sid-9501CBEC-BF4D-44EA-AA36-E3170C4C5801\" /><bpmn:sequenceFlow id=\"sid-C60EA02E-64FC-4409-B8B3-E33599737738\" targetRef=\"sid-79D42096-863F-4980-A832-24242621EDF8\" name=\"über 500km&#10;\" /><bpmn:sequenceFlow id=\"sid-F71E5EC1-2943-4700-B766-CA52B8D017BA\" targetRef=\"sid-ABC6BD76-39B7-4F73-9532-5E553BC57CCF\" name=\"unter 500km\" /><bpmn:sequenceFlow id=\"sid-A3B2C821-A64E-4FF1-9386-1E1388B00BE8\" targetRef=\"sid-9FD75B2D-D990-4D33-B95F-EB5ACB79FA96\" /><bpmn:sequenceFlow id=\"sid-FEE0D586-550A-4334-8D74-AB21FF4A3D29\" targetRef=\"sid-9FD75B2D-D990-4D33-B95F-EB5ACB79FA96\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-03-11 12:57:30",
+  "company": {
+    "company_id": 1036836,
+    "companyCode": "SYN-136836",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.52
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.48
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.18
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.82
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 136836,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-136836-1",
+        "task_company_id": null,
+        "task_name": "Bahnfahrt buchen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-ABC6BD76-39B7-4F73-9532-5E553BC57CCF.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 59,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 21,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 6.03,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 98,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 136836,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-136836-2",
+        "task_company_id": null,
+        "task_name": "Flug buchen",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-79D42096-863F-4980-A832-24242621EDF8.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 56,
+        "expected_rework_time": 11,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 3.84,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 67,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "320ee71e13c74a70b26b40b45465c05e",
+    "model_id": "0b7e5e8baa914a7fbe4178c3d01c9aed",
+    "organization_id": "fc17b881d7ee42df9fefae853eb6fc82"
+  }
+}

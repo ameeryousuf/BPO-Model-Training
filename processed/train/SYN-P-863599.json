@@ -1,0 +1,427 @@
+{
+  "process_id": 863599,
+  "company_id": 1763599,
+  "created_at": "2020-01-08 17:09:45",
+  "updated_at": "2020-01-08 17:09:45",
+  "capacity_requirement_minutes": 544,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-863599",
+  "process_name": "Merchant Sign Up Sales Subprocess",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-863599\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-863599\" name=\"Merchant Sign Up Sales Subprocess\" isExecutable=\"false\"><bpmn:task id=\"sid-DA5D203A-3696-4CF6-A9A0-136D2BC6ACEA\" name=\"Validate Tax Documents\" /><bpmn:task id=\"sid-2277F8D7-3098-47C3-BDFC-8E7F01E3791B\" name=\"Validate ID\" /><bpmn:task id=\"sid-F67DF4E5-2ABD-4637-AB9D-5EDC21CF946C\" name=\"Validate bank documents (bank account)\" /><bpmn:task id=\"sid-C0147B46-7C1D-44E9-A550-656D0E097E32\" name=\"Prepare approval message\" /><bpmn:task id=\"sid-E059D595-F218-4F47-97CA-4BFB81D5579E\" name=\"Prepare rejection message\" /><bpmn:task id=\"sid-990D528D-433C-48DB-AD8F-91099A4E36ED\" name=\"Document and send decision\" /><bpmn:startEvent id=\"sid-34831B8E-02CF-49D7-B59E-97CB34764A3E\" name=\"Start approval process\" /><bpmn:endEvent id=\"sid-CEF2D305-2C16-4E87-8D35-28E23275C5C5\" name=\"Approval completed\" /><bpmn:exclusiveGateway id=\"sid-A969B3A2-0B5F-4B0F-976E-DE67F3AACAC9\" name=\"Approve?\" /><bpmn:exclusiveGateway id=\"sid-92362F04-E625-4373-807E-33E407064195\" name=\"\" /><bpmn:sequenceFlow id=\"sid-098C0568-7526-4A14-8734-FC2F4D65A325\" targetRef=\"sid-BE814BCB-3624-4BD2-AB64-FC7EA2FD69AE\" /><bpmn:sequenceFlow id=\"sid-F541813A-F7C6-4C11-BDC1-C770FE6765C5\" targetRef=\"sid-A969B3A2-0B5F-4B0F-976E-DE67F3AACAC9\" /><bpmn:sequenceFlow id=\"sid-166AC10C-10E6-44D8-B364-B2B936B91C2F\" targetRef=\"sid-C0147B46-7C1D-44E9-A550-656D0E097E32\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-72C23FA2-A050-4800-9114-16290D777D06\" targetRef=\"sid-E059D595-F218-4F47-97CA-4BFB81D5579E\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-191BF3C3-542D-4D6E-BC31-1E3FCFC4DC59\" targetRef=\"sid-92362F04-E625-4373-807E-33E407064195\" /><bpmn:sequenceFlow id=\"sid-CE0776EE-5A4A-468E-9470-0C640D2B001E\" targetRef=\"sid-92362F04-E625-4373-807E-33E407064195\" /><bpmn:sequenceFlow id=\"sid-A400CCF8-755B-4EF2-8793-16578B698BAA\" targetRef=\"sid-990D528D-433C-48DB-AD8F-91099A4E36ED\" /><bpmn:sequenceFlow id=\"sid-7505F7FB-061A-4B09-8315-FDF7B836EA8C\" targetRef=\"sid-CEF2D305-2C16-4E87-8D35-28E23275C5C5\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-01-08 17:09:45",
+  "company": {
+    "company_id": 1763599,
+    "companyCode": "SYN-863599",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Approve?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Approve?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.79
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Approve?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.21
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.28
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.72
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 863599,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-863599-1",
+        "task_company_id": null,
+        "task_name": "Validate Tax Documents",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-DA5D203A-3696-4CF6-A9A0-136D2BC6ACEA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 45,
+        "expected_rework_time": 4,
+        "expected_waiting_time": 4,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 1.22,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 2,
+              "hourlyRate": 16,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 863599,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-863599-2",
+        "task_company_id": null,
+        "task_name": "Validate ID",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-2277F8D7-3098-47C3-BDFC-8E7F01E3791B.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 52,
+        "expected_rework_time": 12,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "A",
+            "time_allocation_percentage": 5.55,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 70,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 863599,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-863599-3",
+        "task_company_id": null,
+        "task_name": "Validate bank documents (bank account)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F67DF4E5-2ABD-4637-AB9D-5EDC21CF946C.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 16,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 8.55,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 6,
+              "hourlyRate": 89,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 863599,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-863599-4",
+        "task_company_id": null,
+        "task_name": "Prepare approval message",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-C0147B46-7C1D-44E9-A550-656D0E097E32.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 6,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 8.24,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 4,
+              "hourlyRate": 73,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 5,
+            "task_id": 5004,
+            "role": "R",
+            "time_allocation_percentage": 17.43,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 1,
+              "hourlyRate": 79,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 863599,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-863599-5",
+        "task_company_id": null,
+        "task_name": "Prepare rejection message",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E059D595-F218-4F47-97CA-4BFB81D5579E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 226,
+        "expected_rework_time": 47,
+        "expected_waiting_time": 9,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5005,
+            "role": "C",
+            "time_allocation_percentage": 3.86,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 3,
+              "hourlyRate": 47,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 863599,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-863599-6",
+        "task_company_id": null,
+        "task_name": "Document and send decision",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-990D528D-433C-48DB-AD8F-91099A4E36ED.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 199,
+        "expected_rework_time": 36,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 7,
+            "task_id": 5006,
+            "role": "I",
+            "time_allocation_percentage": 16.73,
+            "job": {
+              "job_id": 7,
+              "jobCode": "SYN-J-7",
+              "job_level_id": 6,
+              "hourlyRate": 27,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "e6c5d1e2ba0941e9aa2babb928d27fb4",
+    "model_id": "4436b2723aa74b2785fdee851ce34717",
+    "organization_id": "1c9814d9b8e347debfbb647e44f8a445"
+  }
+}

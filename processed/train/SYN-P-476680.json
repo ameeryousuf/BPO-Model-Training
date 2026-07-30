@@ -1,0 +1,246 @@
+{
+  "process_id": 476680,
+  "company_id": 1376680,
+  "created_at": "2021-01-22 18:16:20",
+  "updated_at": "2021-01-22 18:16:20",
+  "capacity_requirement_minutes": 370,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-476680",
+  "process_name": "Manage products",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-476680\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-476680\" name=\"Manage products\" isExecutable=\"false\"><bpmn:task id=\"sid-D7F91065-A4FB-4794-BA29-7BBB77E29FA6\" name=\"Add product\" /><bpmn:task id=\"sid-5602D6F9-E2B3-4179-BF95-3248C5C9F490\" name=\"Remove product\" /><bpmn:task id=\"sid-BD8FAF4E-6D7B-4AE6-ABC6-71EEEE981FFA\" name=\"Choose what to do\" /><bpmn:startEvent id=\"sid-7D19A154-884F-48D2-AF13-C51D312313F6\" name=\"Shopping tour\" /><bpmn:endEvent id=\"sid-4F38F07C-1EB4-4C8C-BD86-06BE8356728C\" name=\"done\" /><bpmn:intermediateCatchEvent id=\"sid-339D82B3-C847-45A2-8543-847207D748D3\" name=\"Cancel purchase\" /><bpmn:endEvent id=\"sid-F68376C9-EEF8-487D-AD84-5D7E9DEC9C9F\" name=\"Purchase canceled\" /><bpmn:exclusiveGateway id=\"sid-1D3EB03D-6037-4520-9314-89823565169D\" name=\"What are you doing?\" /><bpmn:sequenceFlow id=\"sid-CFF8FE53-3383-471B-8000-EA1387C99B01\" targetRef=\"sid-1D3EB03D-6037-4520-9314-89823565169D\" /><bpmn:sequenceFlow id=\"sid-41641AD2-DAD6-4A50-9968-D179D60FF8E1\" targetRef=\"sid-4F38F07C-1EB4-4C8C-BD86-06BE8356728C\" /><bpmn:sequenceFlow id=\"sid-1E8FE650-5849-446C-958E-F7B8CA915E8E\" targetRef=\"sid-4F38F07C-1EB4-4C8C-BD86-06BE8356728C\" /><bpmn:sequenceFlow id=\"sid-9B0720F3-34E0-49F7-A3E2-C6AAF3C31CAD\" targetRef=\"sid-BD8FAF4E-6D7B-4AE6-ABC6-71EEEE981FFA\" /><bpmn:sequenceFlow id=\"sid-02FA697D-9A35-4F62-ABB2-B627311D23A6\" targetRef=\"sid-F68376C9-EEF8-487D-AD84-5D7E9DEC9C9F\" /><bpmn:sequenceFlow id=\"sid-D68D6D74-0DD7-4F20-B7CF-925315F5AFB6\" targetRef=\"sid-5602D6F9-E2B3-4179-BF95-3248C5C9F490\" name=\"Deleting product\" /><bpmn:sequenceFlow id=\"sid-6B5E9C4B-A280-4797-B401-0D53B4242087\" targetRef=\"sid-D7F91065-A4FB-4794-BA29-7BBB77E29FA6\" name=\"Catching a product\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2021-01-22 18:16:20",
+  "company": {
+    "company_id": 1376680,
+    "companyCode": "SYN-476680",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "What are you doing?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "What are you doing?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.4
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "What are you doing?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.6
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 476680,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-476680-1",
+        "task_company_id": null,
+        "task_name": "Add product",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-D7F91065-A4FB-4794-BA29-7BBB77E29FA6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 237,
+        "expected_rework_time": 31,
+        "expected_waiting_time": 30,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 2.31,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 1,
+              "hourlyRate": 63,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 476680,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-476680-2",
+        "task_company_id": null,
+        "task_name": "Remove product",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5602D6F9-E2B3-4179-BF95-3248C5C9F490.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 122,
+        "expected_rework_time": 17,
+        "expected_waiting_time": 6,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 8.9,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 6,
+              "hourlyRate": 54,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 476680,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-476680-3",
+        "task_company_id": null,
+        "task_name": "Choose what to do",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-BD8FAF4E-6D7B-4AE6-ABC6-71EEEE981FFA.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 11,
+        "expected_rework_time": 2,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 6.96,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 5,
+              "hourlyRate": 45,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 12.3,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 6,
+              "hourlyRate": 45,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Clerk",
+              "name": "Clerk",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "7c7539f57a004814859521f896c3e012",
+    "model_id": "d138466a7e084a13b4a8416b99f78392",
+    "organization_id": "374e0c237cfb449eb4b0f0edfeb243bc"
+  }
+}

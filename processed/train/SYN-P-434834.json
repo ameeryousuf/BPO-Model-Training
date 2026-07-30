@@ -1,0 +1,283 @@
+{
+  "process_id": 434834,
+  "company_id": 1334834,
+  "created_at": "2017-12-23 21:36:54",
+  "updated_at": "2017-12-23 21:36:54",
+  "capacity_requirement_minutes": 395,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-434834",
+  "process_name": "3. Part 2: Subprocess: Determine Instrument Credit Rating",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-434834\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-434834\" name=\"3. Part 2: Subprocess: Determine Instrument Credit Rating\" isExecutable=\"false\"><bpmn:task id=\"sid-E489B563-D282-4468-AEA6-08452004185E\" name=\"Determine the Imposed Rating\" /><bpmn:task id=\"sid-F96D94F8-D045-4C7C-9C79-EFEE7ED3585A\" name=\"Determine the Failsafe Rating\" /><bpmn:task id=\"sid-DF5AC22B-4AC9-4325-A811-7A6FCC00C329\" name=\"Set the value of the Instrument Credit Rating to &quot;Unknown&quot;\" /><bpmn:startEvent id=\"sid-3DF92643-EF78-4F71-8888-3311DF8E21EC\" name=\"\" /><bpmn:endEvent id=\"sid-3196BEB3-A8D8-4138-84AE-D4E9EBEFC389\" name=\"\" /><bpmn:endEvent id=\"sid-B6827B29-DFC2-48CB-A657-09B7F90F3A03\" name=\"\" /><bpmn:endEvent id=\"sid-7915ADCC-E433-449C-8D5E-B8713E145C9B\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-0C7873EE-CEDC-42E4-A677-563C80ACFF41\" name=\"Imposed Rating is known?\" /><bpmn:exclusiveGateway id=\"sid-EFAD7B60-CDDC-4AC6-AD04-8F433D8470B3\" name=\"Failsafe Rating is known?\" /><bpmn:sequenceFlow id=\"sid-8AE1EB32-D5D9-40E2-9FD3-1DBEAD139A63\" targetRef=\"sid-0C7873EE-CEDC-42E4-A677-563C80ACFF41\" /><bpmn:sequenceFlow id=\"sid-BB7A20DB-82E9-4DFE-AA8E-38F982FC6D7C\" targetRef=\"sid-EFAD7B60-CDDC-4AC6-AD04-8F433D8470B3\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-9FAD5FF8-8497-4DF3-BC6F-2FF4F85AA939\" targetRef=\"sid-DF5AC22B-4AC9-4325-A811-7A6FCC00C329\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-0EE102D7-F101-497E-BAF8-1E30DD5D1559\" targetRef=\"sid-3196BEB3-A8D8-4138-84AE-D4E9EBEFC389\" /><bpmn:sequenceFlow id=\"sid-57EFFE7B-AE46-45E7-83D6-B9DAE133219D\" targetRef=\"sid-B6827B29-DFC2-48CB-A657-09B7F90F3A03\" /><bpmn:sequenceFlow id=\"sid-6FC51083-D685-47CB-A3C4-397400BD88C3\" targetRef=\"sid-7915ADCC-E433-449C-8D5E-B8713E145C9B\" /><bpmn:sequenceFlow id=\"sid-E7A96C50-161A-476F-9BA9-89A2E32B9C11\" targetRef=\"sid-E489B563-D282-4468-AEA6-08452004185E\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-5E13B3E4-5D0F-4C90-A916-1C082084B0D3\" targetRef=\"sid-F96D94F8-D045-4C7C-9C79-EFEE7ED3585A\" name=\"Yes\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2017-12-23 21:36:54",
+  "company": {
+    "company_id": 1334834,
+    "companyCode": "SYN-434834",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Imposed Rating is known?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Imposed Rating is known?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.68
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Imposed Rating is known?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.32
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Failsafe Rating is known?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Failsafe Rating is known?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.59
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Failsafe Rating is known?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.41
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 434834,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-434834-1",
+        "task_company_id": null,
+        "task_name": "Determine the Imposed Rating",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-E489B563-D282-4468-AEA6-08452004185E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 150,
+        "expected_rework_time": 26,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 11.6,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 60,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 434834,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-434834-2",
+        "task_company_id": null,
+        "task_name": "Determine the Failsafe Rating",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F96D94F8-D045-4C7C-9C79-EFEE7ED3585A.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 183,
+        "expected_rework_time": 11,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "I",
+            "time_allocation_percentage": 16.38,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 1,
+              "hourlyRate": 80,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          },
+          {
+            "job_id": 3,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 3.11,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 3,
+              "hourlyRate": 58,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 434834,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-434834-3",
+        "task_company_id": null,
+        "task_name": "Set the value of the Instrument Credit Rating to \"Unknown\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-DF5AC22B-4AC9-4325-A811-7A6FCC00C329.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 62,
+        "expected_rework_time": 10,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5003,
+            "role": "C",
+            "time_allocation_percentage": 13.94,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 3,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "d81562a2f9104505a13b3f6287a834cc",
+    "model_id": "c6ba5b586ed449d6ae68755f4127df60",
+    "organization_id": "e77b2eaa2f7745d9affae6df30de7a29"
+  }
+}

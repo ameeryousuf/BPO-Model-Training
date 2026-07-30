@@ -1,0 +1,371 @@
+{
+  "process_id": 308885,
+  "company_id": 1208885,
+  "created_at": "2020-06-21 06:59:03",
+  "updated_at": "2020-06-21 06:59:03",
+  "capacity_requirement_minutes": 775,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-308885",
+  "process_name": "FA.01.02.01 Port Reservation via COSM v1.0 (Copy)",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-308885\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-308885\" name=\"FA.01.02.01 Port Reservation via COSM v1.0 (Copy)\" isExecutable=\"false\"><bpmn:task id=\"sid-F7EF3CDC-F0B8-4C4D-9B7D-A6BFF26D52D1\" name=\"2.1.1 Extract Accounts\" /><bpmn:task id=\"sid-5EA4263E-ACEA-42BB-898E-2E0B815EBB81\" name=\"2.1.2 Validate Serviceability\" /><bpmn:task id=\"sid-61BAFE4D-DD83-4238-8F29-9BDA4698FD82\" name=\"2.1.3 Check NAP Code with Account Information\" /><bpmn:task id=\"sid-8FDAA012-3324-49F1-AF19-E58CDC986324\" name=\"2.1.6 Update Status &quot;Not Serviceable&quot;\" /><bpmn:task id=\"sid-EB6BDBA7-119F-43A4-B70A-54FA4995C4B7\" name=\"2.1.4 Update Account with the NAP ID\" /><bpmn:task id=\"sid-9C22FAC3-5DAC-4975-8A4A-BA5A248FB1A9\" name=\"2.1.5 Update Status to &quot;For Validation&quot;\" /><bpmn:endEvent id=\"sid-81116E58-AFA0-45EC-84A7-FD21BD9FF70B\" name=\"Application Successfully Port Reserved\" /><bpmn:startEvent id=\"sid-FE4DBFBD-1DD8-4A3A-A348-23A053BDB8A2\" name=\"6:00am\" /><bpmn:intermediateCatchEvent id=\"sid-23EF1234-8FE5-451F-BD5C-388AB878CBB5\" name=\"Customer Notified of Application Status via Email &amp; SMS\" /><bpmn:endEvent id=\"sid-0CD8BE62-B9AF-4346-9842-21876CC34E54\" name=\"Customer Notified of Non-Serviceability\" /><bpmn:exclusiveGateway id=\"sid-96238C89-FF5D-4A9D-BA94-BF3EC0D32ABC\" name=\"Port Available?\" /><bpmn:sequenceFlow id=\"sid-5A8E1F6A-FC43-41D1-AE93-960AF9E06C03\" targetRef=\"sid-5EA4263E-ACEA-42BB-898E-2E0B815EBB81\" /><bpmn:sequenceFlow id=\"sid-D4D8400A-6434-40F7-8273-8ECF6CA119D4\" targetRef=\"sid-96238C89-FF5D-4A9D-BA94-BF3EC0D32ABC\" /><bpmn:sequenceFlow id=\"sid-691544B2-1F5D-4250-91D0-C8BAAF25559E\" targetRef=\"sid-EB6BDBA7-119F-43A4-B70A-54FA4995C4B7\" /><bpmn:sequenceFlow id=\"sid-8B568D90-0A1E-4D81-9EC1-BEC1EA6A53A9\" targetRef=\"sid-9C22FAC3-5DAC-4975-8A4A-BA5A248FB1A9\" /><bpmn:sequenceFlow id=\"sid-CA637AB5-D0EF-45DD-8913-9CD411EA236D\" targetRef=\"sid-F7EF3CDC-F0B8-4C4D-9B7D-A6BFF26D52D1\" /><bpmn:sequenceFlow id=\"sid-317D527E-E764-4518-A2F6-142EBEF9F1B8\" targetRef=\"sid-61BAFE4D-DD83-4238-8F29-9BDA4698FD82\" name=\"Yes\" /><bpmn:sequenceFlow id=\"sid-E0DDBE51-85BB-44DB-8BCF-CD0563DB3AB9\" targetRef=\"sid-8FDAA012-3324-49F1-AF19-E58CDC986324\" name=\"No\" /><bpmn:sequenceFlow id=\"sid-1521E06D-03C6-43A3-90CE-0959DC02D83F\" targetRef=\"sid-81116E58-AFA0-45EC-84A7-FD21BD9FF70B\" /><bpmn:sequenceFlow id=\"sid-F816FE83-7BB8-4E20-A7FB-C248AB0F3483\" targetRef=\"sid-0CD8BE62-B9AF-4346-9842-21876CC34E54\" /><bpmn:sequenceFlow id=\"sid-83BA82EC-3ABB-4758-ADAE-F757C908E1E6\" targetRef=\"sid-23EF1234-8FE5-451F-BD5C-388AB878CBB5\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2020-06-21 06:59:03",
+  "company": {
+    "company_id": 1208885,
+    "companyCode": "SYN-308885",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Port Available?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "Port Available?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.24
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "Port Available?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.76
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 308885,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-308885-1",
+        "task_company_id": null,
+        "task_name": "2.1.1 Extract Accounts",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-F7EF3CDC-F0B8-4C4D-9B7D-A6BFF26D52D1.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 183,
+        "expected_rework_time": 24,
+        "expected_waiting_time": 13,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "A",
+            "time_allocation_percentage": 13.08,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 3,
+              "hourlyRate": 19,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 308885,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-308885-2",
+        "task_company_id": null,
+        "task_name": "2.1.2 Validate Serviceability",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-5EA4263E-ACEA-42BB-898E-2E0B815EBB81.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 153,
+        "expected_rework_time": 32,
+        "expected_waiting_time": 24,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 4.74,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 2,
+              "hourlyRate": 42,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 308885,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-308885-3",
+        "task_company_id": null,
+        "task_name": "2.1.3 Check NAP Code with Account Information",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-61BAFE4D-DD83-4238-8F29-9BDA4698FD82.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 184,
+        "expected_rework_time": 44,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "I",
+            "time_allocation_percentage": 11.51,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 4,
+              "hourlyRate": 34,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 308885,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-308885-4",
+        "task_company_id": null,
+        "task_name": "2.1.6 Update Status \"Not Serviceable\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-8FDAA012-3324-49F1-AF19-E58CDC986324.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 158,
+        "expected_rework_time": 21,
+        "expected_waiting_time": 12,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "C",
+            "time_allocation_percentage": 4.47,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 2,
+              "hourlyRate": 70,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6005,
+      "process_id": 308885,
+      "task_id": 5005,
+      "order": 5,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5005,
+        "task_code": "SYN-T-308885-5",
+        "task_company_id": null,
+        "task_name": "2.1.4 Update Account with the NAP ID",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-EB6BDBA7-119F-43A4-B70A-54FA4995C4B7.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 63,
+        "expected_rework_time": 14,
+        "expected_waiting_time": 11,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 5,
+            "task_id": 5005,
+            "role": "A",
+            "time_allocation_percentage": 3.96,
+            "job": {
+              "job_id": 5,
+              "jobCode": "SYN-J-5",
+              "job_level_id": 6,
+              "hourlyRate": 22,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Specialist",
+              "name": "Specialist",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6006,
+      "process_id": 308885,
+      "task_id": 5006,
+      "order": 6,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5006,
+        "task_code": "SYN-T-308885-6",
+        "task_company_id": null,
+        "task_name": "2.1.5 Update Status to \"For Validation\"",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-9C22FAC3-5DAC-4975-8A4A-BA5A248FB1A9.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 34,
+        "expected_rework_time": 6,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 6,
+            "task_id": 5006,
+            "role": "R",
+            "time_allocation_percentage": 3.28,
+            "job": {
+              "job_id": 6,
+              "jobCode": "SYN-J-6",
+              "job_level_id": 5,
+              "hourlyRate": 81,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "a0f8cec2cf5a42208c5f31bc2403355a",
+    "model_id": "4d235d3ceb0f432fad6eb12d373bfdff",
+    "organization_id": "a41dff7dee3146b98c614702f6e17e3a"
+  }
+}

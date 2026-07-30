@@ -1,0 +1,312 @@
+{
+  "process_id": 927214,
+  "company_id": 1827214,
+  "created_at": "2019-01-16 20:17:25",
+  "updated_at": "2019-01-16 20:17:25",
+  "capacity_requirement_minutes": 556,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-927214",
+  "process_name": "Checkout Jane Doe jane.doe@dummy.com",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-927214\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-927214\" name=\"Checkout Jane Doe jane.doe@dummy.com\" isExecutable=\"false\"><bpmn:task id=\"sid-08502106-627B-4AF2-A036-23D5C319381E\" name=\"scan items and identify payment method\" /><bpmn:task id=\"sid-752ACC38-37CC-474A-B77E-3C76A54773B4\" name=\"Accept cash\" /><bpmn:task id=\"sid-3F250EEC-E998-480D-BE8C-44F21441C2F6\" name=\"Process credit card\" /><bpmn:task id=\"sid-158E5CF3-8D0D-4144-83C4-CBA43CAB1E39\" name=\"Bag items\" /><bpmn:startEvent id=\"sid-FC32C696-6C3C-4749-8B1E-8E615134CE32\" name=\"\" /><bpmn:endEvent id=\"sid-08F1C9F6-4F92-4BF9-86D8-65C17DF0CBC8\" name=\"\" /><bpmn:exclusiveGateway id=\"sid-E5FEA3F6-C243-457D-A140-1CC17B8BF523\" name=\"payment method?\" /><bpmn:exclusiveGateway id=\"sid-990A0A66-FEFF-4316-B7FB-CD834CD2667E\" name=\"\" /><bpmn:sequenceFlow id=\"sid-5C697B77-6D11-4364-98B4-A2EA906FCDDB\" targetRef=\"sid-08502106-627B-4AF2-A036-23D5C319381E\" /><bpmn:sequenceFlow id=\"sid-25E8D414-1498-42C9-87CC-214BAE6C7712\" targetRef=\"sid-E5FEA3F6-C243-457D-A140-1CC17B8BF523\" /><bpmn:sequenceFlow id=\"sid-AB5072F9-E6B8-487E-84B1-8CCBC8EEA1ED\" targetRef=\"sid-990A0A66-FEFF-4316-B7FB-CD834CD2667E\" /><bpmn:sequenceFlow id=\"sid-BEFBF3FE-1EED-4ADD-9B78-08AC326B9606\" targetRef=\"sid-990A0A66-FEFF-4316-B7FB-CD834CD2667E\" /><bpmn:sequenceFlow id=\"sid-7F4AF270-D046-4191-A5A9-C72487AC73B6\" targetRef=\"sid-3F250EEC-E998-480D-BE8C-44F21441C2F6\" name=\"Credit card\" /><bpmn:sequenceFlow id=\"sid-4B052FE9-FB8A-43A3-950D-2F282AE00BA8\" targetRef=\"sid-752ACC38-37CC-474A-B77E-3C76A54773B4\" name=\"Cash\" /><bpmn:sequenceFlow id=\"sid-D320A1A5-0BDE-4EFD-BECB-C19C327207EE\" targetRef=\"sid-158E5CF3-8D0D-4144-83C4-CBA43CAB1E39\" /><bpmn:sequenceFlow id=\"sid-2F86965C-6A30-405C-8D34-80B8522BE39F\" targetRef=\"sid-08F1C9F6-4F92-4BF9-86D8-65C17DF0CBC8\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2019-01-16 20:17:25",
+  "company": {
+    "company_id": 1827214,
+    "companyCode": "SYN-927214",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "payment method?",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "payment method?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.72
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "payment method?",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.28
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.3
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.7
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 927214,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-927214-1",
+        "task_company_id": null,
+        "task_name": "scan items and identify payment method",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-08502106-627B-4AF2-A036-23D5C319381E.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 135,
+        "expected_rework_time": 18,
+        "expected_waiting_time": 5,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "C",
+            "time_allocation_percentage": 19.09,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 115,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Department Manager",
+              "name": "Department Manager",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 927214,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-927214-2",
+        "task_company_id": null,
+        "task_name": "Accept cash",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-752ACC38-37CC-474A-B77E-3C76A54773B4.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 214,
+        "expected_rework_time": 49,
+        "expected_waiting_time": 16,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "R",
+            "time_allocation_percentage": 4.41,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 4,
+              "hourlyRate": 56,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Process Owner",
+              "name": "Process Owner",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6003,
+      "process_id": 927214,
+      "task_id": 5003,
+      "order": 3,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5003,
+        "task_code": "SYN-T-927214-3",
+        "task_company_id": null,
+        "task_name": "Process credit card",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-3F250EEC-E998-480D-BE8C-44F21441C2F6.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 169,
+        "expected_rework_time": 10,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "DAY",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 3,
+            "task_id": 5003,
+            "role": "A",
+            "time_allocation_percentage": 13.88,
+            "job": {
+              "job_id": 3,
+              "jobCode": "SYN-J-3",
+              "job_level_id": 5,
+              "hourlyRate": 99,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "5",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6004,
+      "process_id": 927214,
+      "task_id": 5004,
+      "order": 4,
+      "child_process_id": null,
+      "value_classification": "VA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5004,
+        "task_code": "SYN-T-927214-4",
+        "task_company_id": null,
+        "task_name": "Bag items",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-158E5CF3-8D0D-4144-83C4-CBA43CAB1E39.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 38,
+        "expected_rework_time": 3,
+        "expected_waiting_time": 22,
+        "frequency_interval": 1,
+        "frequency_period": "WEEK",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 4,
+            "task_id": 5004,
+            "role": "A",
+            "time_allocation_percentage": 13.99,
+            "job": {
+              "job_id": 4,
+              "jobCode": "SYN-J-4",
+              "job_level_id": 5,
+              "hourlyRate": 55,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Analyst",
+              "name": "Analyst",
+              "capacity_buffer": "20",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "3d1632de2ee34232a06cbe23ab7f40e5",
+    "model_id": "836ed318a1b04b13a768eb8d0efa2080",
+    "organization_id": "78917266b1c149dc87940a27173c2730"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "process_id": 1107494,
+  "company_id": 2007494,
+  "created_at": "2016-10-14 22:58:53",
+  "updated_at": "2016-10-14 22:58:53",
+  "capacity_requirement_minutes": 79,
+  "parent_process_id": null,
+  "parent_task_id": null,
+  "process_code": "SYN-P-1107494",
+  "process_name": "Stroke Treatment",
+  "process_overview": "<p>No description provided in source data.</p>",
+  "process_category_id": 1,
+  "process_status_id": 1,
+  "process_version": 0,
+  "bpmn_xml": "<?xml version='1.0' encoding='utf-8'?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" id=\"Definitions_SYN-P-1107494\" targetNamespace=\"http://synthetic.local/bpmn\"><bpmn:process id=\"Process_SYN-P-1107494\" name=\"Stroke Treatment\" isExecutable=\"false\"><bpmn:task id=\"sid-73BE2342-21E0-45D0-98E7-F0120F93FD97\" name=\"Examine patient (nursing staff)\" /><bpmn:task id=\"sid-69B1AE22-0AF9-4003-840B-162FC6678A85\" name=\"Trigger stroke alarm\" /><bpmn:startEvent id=\"sid-492FEA00-D82C-4711-AE77-7B06979FA62E\" name=\"Patient admitted\" /><bpmn:endEvent id=\"sid-4E40C623-4E15-4984-86B4-9784B35F8B35\" name=\"Process terminated\" /><bpmn:intermediateCatchEvent id=\"sid-EF2BF1EF-E01B-43FC-8A6C-28C10DFF9626\" name=\"Transport arrives\" /><bpmn:intermediateCatchEvent id=\"sid-322282B2-6043-41DD-AC5F-969E1A120210\" name=\"Patient info queried\" /><bpmn:intermediateCatchEvent id=\"sid-EDEA8E37-279D-44F9-8121-1425AFBF5B2F\" name=\"Neurologist arrives\" /><bpmn:exclusiveGateway id=\"sid-7D0C4287-F276-41AC-A6DF-00B34ED210A9\" name=\"\" /><bpmn:parallelGateway id=\"sid-E1493A97-0FA6-4486-A02B-EEF007CF245F\" name=\"\" /><bpmn:sequenceFlow id=\"sid-14488502-00D0-41AC-BB6C-B22C1BD21C07\" targetRef=\"sid-73BE2342-21E0-45D0-98E7-F0120F93FD97\" /><bpmn:sequenceFlow id=\"sid-84D343D7-79F9-4BF3-80ED-BC89116E02FB\" targetRef=\"sid-7D0C4287-F276-41AC-A6DF-00B34ED210A9\" /><bpmn:sequenceFlow id=\"sid-31DBB1C0-F525-499D-8849-AEDF47CD23A4\" targetRef=\"sid-4E40C623-4E15-4984-86B4-9784B35F8B35\" name=\"not apoplectiform\" /><bpmn:sequenceFlow id=\"sid-C086B4DD-7536-4963-ABBD-9CFBD65ABE11\" targetRef=\"sid-69B1AE22-0AF9-4003-840B-162FC6678A85\" /><bpmn:sequenceFlow id=\"sid-587461D7-697C-4679-B30F-331D89633777\" targetRef=\"sid-E1493A97-0FA6-4486-A02B-EEF007CF245F\" /><bpmn:sequenceFlow id=\"sid-F9BD5D6D-7932-4621-8F2C-308455A635EE\" targetRef=\"sid-EF2BF1EF-E01B-43FC-8A6C-28C10DFF9626\" /><bpmn:sequenceFlow id=\"sid-613DD7C2-83B9-4712-AD53-8F2A1B349B58\" targetRef=\"sid-322282B2-6043-41DD-AC5F-969E1A120210\" /><bpmn:sequenceFlow id=\"sid-A8B7F493-275E-477D-A0E4-BAC3731F46B8\" targetRef=\"sid-EDEA8E37-279D-44F9-8121-1425AFBF5B2F\" /><bpmn:sequenceFlow id=\"sid-845F755D-082D-45D8-818E-9B544CB808D0\" targetRef=\"sid-8EDB20FF-36C4-4A4B-BE6C-2F1C5FDD4BA1\" /></bpmn:process></bpmn:definitions>",
+  "created_by": null,
+  "updated_by": null,
+  "PROCESS_STATUS": "CREATED",
+  "bpmn_xml_updated_at": "2016-10-14 22:58:53",
+  "company": {
+    "company_id": 2007494,
+    "companyCode": "SYN-1107494",
+    "name": "Synthetic Org",
+    "created_by": null,
+    "org_type_id": 1
+  },
+  "process": null,
+  "creator": {
+    "user_id": null,
+    "name": "Synthetic Pipeline"
+  },
+  "processCategory": {
+    "id": 1,
+    "description": "Auto-assigned category for synthetic dataset",
+    "name": "Uncategorized"
+  },
+  "gateways": [
+    {
+      "gateway_pk_id": 1001,
+      "gateway_type": "EXCLUSIVE",
+      "after_task_id": null,
+      "name": "Gateway 1",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10010,
+          "gateway_pk_id": 1001,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.66
+        },
+        {
+          "id": 10011,
+          "gateway_pk_id": 1001,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.34
+        }
+      ]
+    },
+    {
+      "gateway_pk_id": 1002,
+      "gateway_type": "PARALLEL",
+      "after_task_id": null,
+      "name": "Gateway 2",
+      "converge_at_task_id": null,
+      "converge_gateway_name": "",
+      "converge_to_end": false,
+      "converge_at_gateway_id": null,
+      "after_gateway_id": null,
+      "branches": [
+        {
+          "id": 10020,
+          "gateway_pk_id": 1002,
+          "is_default": true,
+          "target_task_id": null,
+          "condition": "branch_1",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.56
+        },
+        {
+          "id": 10021,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_2",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": false,
+          "target_gateway_id": null,
+          "probability": 0.12
+        },
+        {
+          "id": 10022,
+          "gateway_pk_id": 1002,
+          "is_default": false,
+          "target_task_id": null,
+          "condition": "branch_3",
+          "end_event_name": null,
+          "end_task_id": null,
+          "connect_to_end": true,
+          "target_gateway_id": null,
+          "probability": 0.32
+        }
+      ]
+    }
+  ],
+  "process_task": [
+    {
+      "process_task_id": 6001,
+      "process_id": 1107494,
+      "task_id": 5001,
+      "order": 1,
+      "child_process_id": null,
+      "value_classification": "BVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5001,
+        "task_code": "SYN-T-1107494-1",
+        "task_company_id": null,
+        "task_name": "Examine patient (nursing staff)",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-73BE2342-21E0-45D0-98E7-F0120F93FD97.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 20,
+        "expected_rework_time": 1,
+        "expected_waiting_time": null,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 1,
+            "task_id": 5001,
+            "role": "I",
+            "time_allocation_percentage": 3.41,
+            "job": {
+              "job_id": 1,
+              "jobCode": "SYN-J-1",
+              "job_level_id": 4,
+              "hourlyRate": 119,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Supervisor",
+              "name": "Supervisor",
+              "capacity_buffer": "15",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    },
+    {
+      "process_task_id": 6002,
+      "process_id": 1107494,
+      "task_id": 5002,
+      "order": 2,
+      "child_process_id": null,
+      "value_classification": "NVA",
+      "value_rationale": null,
+      "bva_business_goal": null,
+      "value_source": "synthetic",
+      "task": {
+        "task_id": 5002,
+        "task_code": "SYN-T-1107494-2",
+        "task_company_id": null,
+        "task_name": "Trigger stroke alarm",
+        "task_overview": "Synthetically enriched task extracted from diagram element sid-69B1AE22-0AF9-4003-840B-162FC6678A85.",
+        "status_id": 1,
+        "task_version": 0,
+        "expected_process_time": 59,
+        "expected_rework_time": 11,
+        "expected_waiting_time": 15,
+        "frequency_interval": 1,
+        "frequency_period": "MONTH",
+        "occurrences": "1",
+        "jobTasks": [
+          {
+            "job_id": 2,
+            "task_id": 5002,
+            "role": "C",
+            "time_allocation_percentage": 19.63,
+            "job": {
+              "job_id": 2,
+              "jobCode": "SYN-J-2",
+              "job_level_id": 5,
+              "hourlyRate": 35,
+              "maxHoursPerDay": 8,
+              "description": "Synthetic role: Coordinator",
+              "name": "Coordinator",
+              "capacity_buffer": "10",
+              "days_per_week": "5",
+              "hours_per_day": "8",
+              "currencyType": "USD"
+            }
+          }
+        ]
+      },
+      "child_process": null
+    }
+  ],
+  "_source": {
+    "revision_id": "7b9fda0c96c6441c86b840853132518f",
+    "model_id": "e79818c69d784bdf9cec33d0f5429cb5",
+    "organization_id": "5d046629155540cdafefe75b7ea406a3"
+  }
+}
