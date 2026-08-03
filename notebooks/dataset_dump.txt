@@ -1,0 +1,2080 @@
+--- [0] MARKDOWN ---
+# BPMN Dataset Pipeline
+
+Self-contained notebook: loads a raw CSV export, filters to valid BPMN 2.0, converts each into a process schema with real connectivity, computes process measures and flow-analysis metrics, applies 7 redesign heuristics, and writes a train/eval dataset of `{as-is, to-be, redesignTrace}` records.
+
+--- [1] MARKDOWN ---
+## Config
+
+--- [2] CODE ---
+NUM_PROCESSES_TO_SAMPLE = 3000
+
+--- [3] CODE ---
+import copy
+import gc
+import json
+import logging
+import pickle
+import random
+import shutil
+import tempfile
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Optional
+
+import pandas as pd
+from tqdm import tqdm
+
+try:
+    from langdetect import detect, DetectorFactory
+    DetectorFactory.seed = 0
+    LANGDETECT_AVAILABLE = True
+except ImportError:
+    LANGDETECT_AVAILABLE = False
+    print("WARNING: langdetect is not installed. Language filtering will trust each "
+          "diagram's declared language property alone, with no text-based cross-check. "
+          "Run: %pip install langdetect --quiet, then restart the kernel.")
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S")
+logger = logging.getLogger("bpmn_pipeline")
+
+--- [4] CODE ---
+@dataclass
+class Config:
+    input_path: Path = Path(r"C:\Users\yousu\Downloads\SAP\sap_sam_2022\data")
+    csv_glob: str = "*.csv"
+    csv_sep: str = ","
+    csv_encoding: str = "utf-8"
+    chunksize: int = 300
+
+    target_language: str = "English"
+    required_stencilset_substring: str = "bpmn2.0"
+    excluded_name_markers: tuple = ("choreography", "conversation")
+    min_tasks: int = 2
+    max_tasks: int = 200
+
+    sample_size: int = NUM_PROCESSES_TO_SAMPLE
+    random_seed: int = 42
+    train_ratio: float = 0.8
+
+    output_path: Path = Path(r"C:\Users\yousu\Downloads\SAP\sap_sam_2022\processed")
+    train_dirname: str = "train"
+    eval_dirname: str = "eval"
+    metadata_filename: str = "metadata.json"
+    stats_filename: str = "stats_report.json"
+
+    synth_seed: int = 7
+    default_currency: str = "USD"
+    hourly_rate_range: tuple = (15, 120)
+    process_time_range_min: tuple = (5, 240)
+    rework_time_fraction_range: tuple = (0.05, 0.25)
+    default_job_titles: tuple = ("Process Owner", "Department Manager", "Analyst",
+                                  "Coordinator", "Specialist", "Clerk", "Supervisor")
+    default_org_name: str = "Synthetic Org"
+    default_process_category_id: int = 1
+    default_process_category_name: str = "Uncategorized"
+
+
+def make_config(**overrides) -> Config:
+    cfg = Config(**overrides)
+    (cfg.output_path / cfg.train_dirname).mkdir(parents=True, exist_ok=True)
+    (cfg.output_path / cfg.eval_dirname).mkdir(parents=True, exist_ok=True)
+    return cfg
+
+
+CONFIG = make_config()
+random.seed(CONFIG.random_seed)
+logger.info("input_path=%s output_path=%s sample_size=%d", CONFIG.input_path, CONFIG.output_path, CONFIG.sample_size)
+
+--- [5] MARKDOWN ---
+## Flow analysis engine
+
+Graph construction, path enumeration, and process metrics (cycle time, cost, quality/flexibility scores).
+
+--- [6] CODE ---
+@dataclass
+class TaskNode:
+    task_id: int
+    order: int
+    name: str
+    proc_time: float
+    wait_time: float
+    rework_time: float
+    is_subprocess_slot: bool
+    activity_type: str = "basic"
+    value_classification: str = "VA"
+    is_periodic: bool = False
+    is_batch: bool = False
+    job_tasks: list = field(default_factory=list)
+    next_task_id: Optional[int] = None
+    next_gateway_id: Optional[int] = None
+    connects_to_end: bool = False
+
+
+@dataclass
+class GatewayBranch:
+    branch_id: int
+    gateway_pk_id: int
+    condition: str
+    probability: float
+    target_task_id: Optional[int]
+    target_gateway_id: Optional[int]
+    connect_to_end: bool
+    end_event_name: Optional[str]
+    is_default: bool = False
+
+
+@dataclass
+class GatewayNode:
+    gateway_pk_id: int
+    gateway_type: str
+    name: str
+    after_task_id: Optional[int]
+    after_gateway_id: Optional[int]
+    branches: list
+    converge_at_task_id: Optional[int] = None
+    converge_at_gateway_id: Optional[int] = None
+    converge_to_end: bool = False
+
+
+class GraphBuilder:
+    def __init__(self, record: dict):
+        self.record = record
+        self.tasks: dict[int, TaskNode] = {}
+        self.gateways: dict[int, GatewayNode] = {}
+        self._build()
+
+    def _build(self):
+        for pt in self.record.get("process_task", []):
+            task = pt.get("task") or {}
+            if pt.get("task_id") is None and pt.get("child_process_id") is not None:
+                node = TaskNode(
+                    task_id=-abs(pt["child_process_id"]), order=pt["order"],
+                    name=f"[Sub-process {pt['child_process_id']}]",
+                    proc_time=0, wait_time=0, rework_time=0, is_subprocess_slot=True,
+                )
+                self.tasks[node.task_id] = node
+                continue
+
+            node = TaskNode(
+                task_id=task["task_id"], order=pt["order"], name=task.get("task_name", ""),
+                proc_time=task.get("expected_process_time") or 0,
+                wait_time=task.get("expected_waiting_time") or 0,
+                rework_time=task.get("expected_rework_time") or 0,
+                is_subprocess_slot=False,
+                activity_type=task.get("_activity_type", "basic"),
+                value_classification=pt.get("value_classification", "VA"),
+                is_periodic=task.get("_is_periodic", False),
+                is_batch=task.get("_is_batch", False),
+                job_tasks=task.get("jobTasks", []),
+                next_task_id=task.get("_next_task_id"),
+                next_gateway_id=task.get("_next_gateway_id"),
+                connects_to_end=bool(task.get("_connects_to_end")),
+            )
+            self.tasks[node.task_id] = node
+
+        for gw in self.record.get("gateways", []):
+            branches = [
+                GatewayBranch(
+                    branch_id=b.get("id", i), gateway_pk_id=gw["gateway_pk_id"],
+                    condition=b.get("condition") or "", probability=b.get("probability") or 0.0,
+                    target_task_id=b.get("target_task_id"), target_gateway_id=b.get("target_gateway_id"),
+                    connect_to_end=bool(b.get("connect_to_end")) or b.get("end_event_name") is not None,
+                    end_event_name=b.get("end_event_name"), is_default=bool(b.get("is_default")),
+                )
+                for i, b in enumerate(gw.get("branches", []))
+            ]
+            self.gateways[gw["gateway_pk_id"]] = GatewayNode(
+                gateway_pk_id=gw["gateway_pk_id"], gateway_type=gw.get("gateway_type", "EXCLUSIVE"),
+                name=gw.get("name", ""), after_task_id=gw.get("after_task_id"),
+                after_gateway_id=gw.get("after_gateway_id"), branches=branches,
+                converge_at_task_id=gw.get("converge_at_task_id"),
+                converge_at_gateway_id=gw.get("converge_at_gateway_id"),
+                converge_to_end=bool(gw.get("converge_to_end")),
+            )
+
+    def find_start(self):
+        targeted = {b.target_gateway_id for gw in self.gateways.values() for b in gw.branches
+                    if b.target_gateway_id is not None}
+        targeted |= {gw.after_gateway_id for gw in self.gateways.values() if gw.after_gateway_id is not None}
+
+        for gw in self.gateways.values():
+            if gw.after_task_id is None and gw.after_gateway_id is None and gw.gateway_pk_id not in targeted:
+                return ("gateway", gw.gateway_pk_id)
+
+        ordered = sorted(self.tasks.values(), key=lambda t: t.order)
+        if not ordered:
+            raise ValueError("Process has no tasks and no qualifying start gateway.")
+        return ("task", ordered[0].task_id)
+
+    def gateway_after_task(self, task_id: int) -> Optional[GatewayNode]:
+        return next((gw for gw in self.gateways.values() if gw.after_task_id == task_id), None)
+
+    def real_next(self, task_id: int):
+        t = self.tasks.get(task_id)
+        if t is None:
+            return None
+        if t.next_task_id is not None:
+            return ("task", t.next_task_id)
+        if t.next_gateway_id is not None:
+            return ("gateway", t.next_gateway_id)
+        if t.connects_to_end:
+            return ("end", None)
+        return None
+
+
+class PathEnumerator:
+    def __init__(self, gb: GraphBuilder):
+        self.gb = gb
+
+    def enumerate_structured_paths(self) -> list[dict]:
+        raw_paths: list[dict] = []
+        self._expand(self.gb.find_start(), [], 1.0, raw_paths, 0, None)
+        total = sum(p["probability"] for p in raw_paths) or 1.0
+        for p in raw_paths:
+            p["probability"] /= total
+        return raw_paths
+
+    def _resolve_target(self, target_task_id, target_gateway_id, connect_to_end, end_event_name):
+        if target_task_id is not None:
+            return ("task", target_task_id)
+        if target_gateway_id is not None:
+            return ("gateway", target_gateway_id)
+        return ("end", end_event_name or "End")
+
+    def _convergence_ref(self, gw: GatewayNode):
+        if gw.converge_at_task_id is not None:
+            return ("task", gw.converge_at_task_id)
+        if gw.converge_at_gateway_id is not None:
+            return ("gateway", gw.converge_at_gateway_id)
+        return ("end", "End")
+
+    def _expand(self, node_ref, segments, probability, raw_paths, depth, stop_ref):
+        if depth > 200:
+            raise RuntimeError("Path enumeration exceeded max depth (possible cycle).")
+        if stop_ref is not None and node_ref == stop_ref:
+            return segments
+
+        kind, ident = node_ref
+
+        if kind == "end":
+            if stop_ref is not None:
+                return segments
+            raw_paths.append({"segments": segments, "probability": probability})
+            return None
+
+        if kind == "task":
+            segments = segments + [{"type": "task", "task_id": ident}]
+            gw = self.gb.gateway_after_task(ident)
+            if gw is not None:
+                gw_ref = ("gateway", gw.gateway_pk_id)
+                if stop_ref is not None and gw_ref == stop_ref:
+                    return segments
+                return self._enter_gateway(gw, segments, probability, raw_paths, depth, stop_ref)
+            nxt = self.gb.real_next(ident)
+            if nxt is not None and nxt[0] != "end":
+                return self._expand(nxt, segments, probability, raw_paths, depth + 1, stop_ref)
+            if stop_ref is not None:
+                return segments
+            raw_paths.append({"segments": segments, "probability": probability})
+            return None
+
+        if kind == "gateway":
+            return self._enter_gateway(self.gb.gateways[ident], segments, probability, raw_paths, depth, stop_ref)
+
+        raise ValueError(f"Unknown node kind: {kind}")
+
+    def _enter_gateway(self, gw: GatewayNode, segments, probability, raw_paths, depth, stop_ref):
+        if gw.gateway_type in ("EXCLUSIVE", "EVENT_BASED"):
+            if stop_ref is not None:
+                raise NotImplementedError(
+                    f"Nested {gw.gateway_type} gateway inside a parallel/inclusive branch is unsupported."
+                )
+            total = sum(b.probability for b in gw.branches) or 1.0
+            n = len(gw.branches) or 1
+            for b in gw.branches:
+                p = (b.probability / total) if total else (1.0 / n)
+                target = self._resolve_target(b.target_task_id, b.target_gateway_id, b.connect_to_end, b.end_event_name)
+                labeled = segments + [{"type": "branch", "gateway_pk_id": gw.gateway_pk_id, "condition": b.condition}]
+                self._expand(target, labeled, probability * p, raw_paths, depth + 1, stop_ref)
+            return None
+
+        if gw.gateway_type == "PARALLEL":
+            convergence = self._convergence_ref(gw)
+            branches = []
+            for b in gw.branches:
+                target = self._resolve_target(b.target_task_id, b.target_gateway_id, b.connect_to_end, b.end_event_name)
+                sub = self._expand(target, [], 1.0, raw_paths, depth + 1, stop_ref=convergence)
+                branches.append(sub or [])
+            merged = segments + [{"type": "parallel", "gateway_pk_id": gw.gateway_pk_id, "branches": branches}]
+            return self._expand(convergence, merged, probability, raw_paths, depth + 1, stop_ref)
+
+        if gw.gateway_type == "INCLUSIVE":
+            n = len(gw.branches)
+            convergence = self._convergence_ref(gw)
+            for mask in range(1, 2 ** n):
+                active = {i for i in range(n) if (mask >> i) & 1}
+                subset_prob = 1.0
+                branches = []
+                for i, b in enumerate(gw.branches):
+                    if i in active:
+                        subset_prob *= b.probability
+                        target = self._resolve_target(b.target_task_id, b.target_gateway_id,
+                                                        b.connect_to_end, b.end_event_name)
+                        sub = self._expand(target, [], 1.0, raw_paths, depth + 1, stop_ref=convergence)
+                        branches.append(sub or [])
+                    else:
+                        subset_prob *= (1 - b.probability)
+                merged = segments + [{"type": "inclusive_subset", "gateway_pk_id": gw.gateway_pk_id, "branches": branches}]
+                self._expand(convergence, merged, probability * subset_prob, raw_paths, depth + 1, stop_ref)
+            return None
+
+        raise ValueError(f"Unknown gateway type: {gw.gateway_type}")
+
+    def segment_list_metrics(self, seg_list, tasks: dict[int, TaskNode]):
+        task_ids: list[int] = []
+        pt = wt = rt = cost = 0.0
+
+        for seg in seg_list:
+            if seg["type"] == "task":
+                t = tasks[seg["task_id"]]
+                proc_hours = (t.proc_time + t.rework_time) / 60.0
+                c = sum(
+                    proc_hours * ((jt.get("job") or {}).get("hourlyRate", 0) or 0)
+                    * ((jt.get("time_allocation_percentage") or 0) / 100.0)
+                    for jt in t.job_tasks
+                )
+                pt += t.proc_time
+                wt += t.wait_time
+                rt += t.rework_time
+                cost += c
+                task_ids.append(seg["task_id"])
+            elif seg["type"] == "branch":
+                continue
+            elif seg["type"] in ("parallel", "inclusive_subset"):
+                results = [self.segment_list_metrics(b, tasks) for b in seg["branches"]]
+                for ids, *_ in results:
+                    task_ids.extend(ids)
+                durations = [bp + bw + br for _, bp, bw, br, _ in results]
+                if durations:
+                    i = durations.index(max(durations))
+                    _, bp, bw, br, _ = results[i]
+                    pt += bp
+                    wt += bw
+                    rt += br
+                cost += sum(bc for *_, bc in results)
+            else:
+                raise ValueError(f"Unknown segment type: {seg['type']}")
+
+        return task_ids, pt, wt, rt, cost
+
+
+class FlowAnalysisService:
+    def __init__(self, record: dict, currency: str = "USD", rng_seed: Optional[int] = None):
+        self.record = record
+        self.currency = currency
+        self.gb = GraphBuilder(record)
+        self.pe = PathEnumerator(self.gb)
+        self._rng = random.Random(rng_seed)
+
+    def analyze(self, n_flexibility_substitutable: Optional[int] = None,
+                n_parallel_tasks: Optional[int] = None, mc_iterations: int = 10_000) -> dict:
+        raw_paths = self.pe.enumerate_structured_paths()
+        if not raw_paths:
+            raise ValueError("No paths could be enumerated for this process.")
+
+        paths = []
+        for p in raw_paths:
+            ids, pt, wt, rt, cost = self.pe.segment_list_metrics(p["segments"], self.gb.tasks)
+            paths.append({"probability": p["probability"], "task_ids": ids,
+                          "pt": pt, "wt": wt, "rt": rt, "cost": cost, "duration": pt + wt + rt})
+
+        e_ct = sum(m["probability"] * m["duration"] for m in paths)
+        e_pt = sum(m["probability"] * m["pt"] for m in paths)
+        e_wt = sum(m["probability"] * m["wt"] for m in paths)
+        e_rt = sum(m["probability"] * m["rt"] for m in paths)
+        e_cost = sum(m["probability"] * m["cost"] for m in paths)
+        cte = (e_pt / e_ct * 100) if e_ct else 0.0
+
+        e_nva = self._expected_nva_time(paths)
+        rework_share = (e_rt / (e_pt + e_rt)) if (e_pt + e_rt) else 0.0
+        nva_share = (e_nva / (e_pt + e_rt)) if (e_pt + e_rt) else 0.0
+        quality = 100 * (1 - min(1, 0.5 * rework_share + 0.5 * nva_share))
+
+        n_tasks = len([t for t in self.gb.tasks.values() if not t.is_subprocess_slot])
+        n_parallel = n_parallel_tasks if n_parallel_tasks is not None else self._count_parallel_tasks()
+        n_sub = n_flexibility_substitutable if n_flexibility_substitutable is not None else self._count_substitutable()
+        flexibility = 100 * min(1, 0.6 * (n_parallel / n_tasks if n_tasks else 0)
+                                  + 0.4 * (n_sub / n_tasks if n_tasks else 0))
+
+        return {
+            "process": {
+                "process_id": self.record.get("process_id"),
+                "process_name": self.record.get("process_name"),
+                "process_code": self.record.get("process_code"),
+            },
+            "method": "flow_analysis_structured",
+            "currency": self.currency,
+            "cycle_time_minutes": round(e_ct, 2),
+            "processing_time_minutes": round(e_pt, 2),
+            "waiting_time_minutes": round(e_wt, 2),
+            "rework_time_minutes": round(e_rt, 2),
+            "cycle_time_efficiency_percent": round(cte, 1),
+            "labor_cost_per_case": round(e_cost, 2),
+            "quality_score": round(quality, 1),
+            "flexibility_score": round(flexibility, 1),
+            "data_quality": {"task_count": n_tasks, "paths_evaluated": len(paths)},
+            "simulation": self._monte_carlo(paths, mc_iterations),
+            "_paths": paths,
+        }
+
+    def _expected_nva_time(self, paths):
+        nva_ids = {tid for tid, t in self.gb.tasks.items() if t.value_classification == "NVA"}
+        if not nva_ids:
+            return 0.0
+        return sum(
+            m["probability"] * sum(self.gb.tasks[tid].proc_time + self.gb.tasks[tid].rework_time
+                                    for tid in m["task_ids"] if tid in nva_ids)
+            for m in paths
+        )
+
+    def _count_parallel_tasks(self) -> int:
+        ids = set()
+        for gw in self.gb.gateways.values():
+            if gw.gateway_type != "PARALLEL":
+                continue
+            convergence = self.pe._convergence_ref(gw)
+            for b in gw.branches:
+                target = self.pe._resolve_target(b.target_task_id, b.target_gateway_id, b.connect_to_end, b.end_event_name)
+                segs = self.pe._expand(target, [], 1.0, [], 0, stop_ref=convergence) or []
+                ids.update(s["task_id"] for s in segs if s["type"] == "task")
+        return len(ids)
+
+    def _count_substitutable(self) -> int:
+        return sum(1 for t in self.gb.tasks.values() if len(t.job_tasks) > 1)
+
+    def _pert_sample(self, expected: float, optimistic: Optional[float] = None, pessimistic: Optional[float] = None) -> float:
+        a = optimistic if optimistic is not None else expected * 0.8
+        b = pessimistic if pessimistic is not None else expected * 1.2
+        if b <= a:
+            return expected
+        alpha = max(1 + 4 * (expected - a) / (b - a), 1e-6)
+        beta = max(1 + 4 * (b - expected) / (b - a), 1e-6)
+        return a + self._rng.betavariate(alpha, beta) * (b - a)
+
+    def _monte_carlo(self, paths, iterations: int) -> dict:
+        probs = [m["probability"] for m in paths]
+        durations, costs = [], []
+        for _ in range(iterations):
+            path = self._rng.choices(paths, weights=probs, k=1)[0]
+            total_d = total_c = 0.0
+            for tid in path["task_ids"]:
+                t = self.gb.tasks[tid]
+                active = t.proc_time + t.rework_time
+                sampled = self._pert_sample(active) if active > 0 else 0.0
+                total_d += sampled + t.wait_time
+                hours = sampled / 60.0
+                total_c += sum(
+                    hours * ((jt.get("job") or {}).get("hourlyRate", 0) or 0)
+                    * ((jt.get("time_allocation_percentage") or 0) / 100.0)
+                    for jt in t.job_tasks
+                )
+            durations.append(total_d)
+            costs.append(total_c)
+
+        def pct(vals, p):
+            s = sorted(vals)
+            k = (len(s) - 1) * (p / 100)
+            f, c = int(k), min(int(k) + 1, len(s) - 1)
+            return s[f] if f == c else s[f] + (s[c] - s[f]) * (k - f)
+
+        return {
+            "iterations": iterations,
+            "cycle_time_minutes": {"p50": round(pct(durations, 50), 2), "p90": round(pct(durations, 90), 2),
+                                    "p95": round(pct(durations, 95), 2)},
+            "labor_cost_usd": {"p50": round(pct(costs, 50), 2), "p90": round(pct(costs, 90), 2),
+                               "p95": round(pct(costs, 95), 2)},
+        }
+
+--- [7] MARKDOWN ---
+## Connectivity resolver
+
+Resolves real task/gateway connectivity from a raw Signavio BPMN diagram.
+
+--- [8] CODE ---
+class ConnectivityResolutionError(Exception):
+    pass
+
+
+def _walk_shapes(shapes):
+    for shape in shapes or []:
+        stencil = (shape.get("stencil") or {}).get("id", "")
+        yield shape.get("resourceId"), stencil, shape
+        yield from _walk_shapes(shape.get("childShapes"))
+
+
+def _build_registries(model: dict):
+    shapes, flows = {}, {}
+    for rid, stencil, shape in _walk_shapes(model.get("childShapes")):
+        if rid is None:
+            continue
+        props = shape.get("properties") or {}
+        name = (props.get("name") or "").strip()
+        outgoing = [o.get("resourceId") for o in shape.get("outgoing", [])]
+
+        if stencil == "Task":
+            shapes[rid] = {"type": "Task", "stencil": stencil, "name": name, "properties": props, "outgoing": outgoing}
+        elif "Gateway" in stencil:
+            shapes[rid] = {"type": "Gateway", "stencil": stencil, "name": name, "properties": props, "outgoing": outgoing}
+        elif stencil.startswith("Start"):
+            shapes[rid] = {"type": "StartEvent", "stencil": stencil, "name": name, "properties": props, "outgoing": outgoing}
+        elif stencil.startswith("End"):
+            shapes[rid] = {"type": "EndEvent", "stencil": stencil, "name": name, "properties": props, "outgoing": outgoing}
+        elif "Event" in stencil:
+            shapes[rid] = {"type": "IntermediateEvent", "stencil": stencil, "name": name, "properties": props, "outgoing": outgoing}
+        elif stencil == "SequenceFlow":
+            flows[rid] = {"name": name, "target": (shape.get("target") or {}).get("resourceId")}
+
+    return shapes, flows
+
+
+def _classify_gateway_type(shape: dict) -> str:
+    gt = (shape.get("properties") or {}).get("gatewaytype", "").upper()
+    if gt == "XOR":
+        return "EXCLUSIVE"
+    if gt == "AND":
+        return "PARALLEL"
+    if gt == "OR":
+        return "INCLUSIVE"
+    stencil = shape.get("stencil", "")
+    if "Exclusive" in stencil:
+        return "EXCLUSIVE"
+    if "Parallel" in stencil:
+        return "PARALLEL"
+    if "Inclusive" in stencil:
+        return "INCLUSIVE"
+    if "Eventbased" in stencil or "EventBased" in stencil:
+        return "EVENT_BASED"
+    return "EXCLUSIVE"
+
+
+def resolve_connectivity(model: dict) -> dict:
+    shapes, flows = _build_registries(model)
+
+    def outgoing_edges(shape_id):
+        shape = shapes.get(shape_id)
+        if shape is None:
+            return []
+        return [(flows[f]["target"], flows[f].get("name") or "")
+                for f in shape.get("outgoing", []) if f in flows and flows[f].get("target")]
+
+    split_gateways, pass_through = set(), set()
+    for shape_id, shape in shapes.items():
+        if shape["type"] == "Gateway":
+            (split_gateways if len(outgoing_edges(shape_id)) > 1 else pass_through).add(shape_id)
+        elif shape["type"] == "IntermediateEvent":
+            pass_through.add(shape_id)
+
+    def skip_pass_through(shape_id, max_hops=30):
+        current, hops = shape_id, 0
+        while current in pass_through and hops < max_hops:
+            edges = outgoing_edges(current)
+            if not edges:
+                return current
+            current, _ = edges[0]
+            hops += 1
+        if hops >= max_hops:
+            raise ConnectivityResolutionError(f"Pass-through chain from {shape_id} exceeded max hops (cycle?).")
+        return current
+
+    def classify(shape_id):
+        real_id = skip_pass_through(shape_id)
+        shape = shapes.get(real_id)
+        if shape is None:
+            raise ConnectivityResolutionError(f"Unresolvable shape reference: {real_id}")
+        if shape["type"] == "Task":
+            return ("task", real_id)
+        if shape["type"] == "Gateway" and real_id in split_gateways:
+            return ("gateway", real_id)
+        if shape["type"] == "EndEvent":
+            return ("end", shape.get("name") or "End")
+        if real_id in pass_through:
+            return ("end", "End")
+        raise ConnectivityResolutionError(f"Shape {real_id} ({shape['type']}) is not a valid flow destination.")
+
+    task_next = {}
+    for shape_id, shape in shapes.items():
+        if shape["type"] != "Task":
+            continue
+        edges = outgoing_edges(shape_id)
+        task_next[shape_id] = ("end", "End") if not edges else classify(edges[0][0])
+
+    gateway_branches = {
+        gw_id: [{"label": label, **dict(zip(("kind", "target"), classify(target)))}
+                for target, label in outgoing_edges(gw_id)]
+        for gw_id in split_gateways
+    }
+
+    gateway_predecessor = {gw_id: None for gw_id in split_gateways}
+    for shape_id, (kind, target) in task_next.items():
+        if kind == "gateway":
+            gateway_predecessor[target] = ("task", shape_id)
+    for gw_id, branches in gateway_branches.items():
+        for b in branches:
+            if b["kind"] == "gateway":
+                gateway_predecessor[b["target"]] = ("gateway", gw_id)
+
+    def reachable_task_count(ref):
+        seen, count = set(), 0
+
+        def visit(node_ref):
+            nonlocal count
+            kind, ident = node_ref
+            if kind == "end" or (kind, ident) in seen:
+                return
+            seen.add((kind, ident))
+            if kind == "task":
+                count += 1
+                visit(task_next[ident])
+            elif kind == "gateway":
+                for b in gateway_branches[ident]:
+                    if b["kind"] in ("task", "gateway"):
+                        visit((b["kind"], b["target"]))
+
+        visit(ref)
+        return count
+
+    start_events = [sid for sid, s in shapes.items() if s["type"] == "StartEvent"]
+    if not start_events:
+        raise ConnectivityResolutionError("No StartEvent found in diagram.")
+
+    start_ref, best_count = None, -1
+    for se in start_events:
+        edges = outgoing_edges(se)
+        if not edges:
+            continue
+        candidate = classify(edges[0][0])
+        if candidate[0] == "end":
+            continue
+        count = reachable_task_count(candidate)
+        if count > best_count:
+            start_ref, best_count = candidate, count
+
+    if start_ref is None:
+        raise ConnectivityResolutionError("No StartEvent leads to any task.")
+
+    def forward_sequence(ref, max_len=200):
+        seq, seen = [], set()
+        kind, ident = ref
+        while len(seq) < max_len and (kind, ident) not in seen:
+            seen.add((kind, ident))
+            seq.append((kind, ident))
+            if kind == "end":
+                break
+            if kind == "task":
+                kind, ident = task_next[ident]
+            else:
+                break
+        return seq
+
+    gateway_convergence = {}
+    for gw_id in split_gateways:
+        gtype = _classify_gateway_type(shapes[gw_id])
+        if gtype not in ("PARALLEL", "INCLUSIVE"):
+            continue
+        sequences = [forward_sequence((b["kind"], b["target"])) for b in gateway_branches[gw_id]]
+        common = next((node for node in sequences[0] if all(node in s for s in sequences[1:])), None)
+        if common is None:
+            name = shapes[gw_id].get("name") or gw_id
+            raise ConnectivityResolutionError(f"No common convergence point found for gateway '{name}'.")
+        gateway_convergence[gw_id] = common
+
+    return {
+        "shapes": shapes,
+        "split_gateways": split_gateways,
+        "gateway_type_of": {gw_id: _classify_gateway_type(shapes[gw_id]) for gw_id in split_gateways},
+        "start_ref": start_ref,
+        "task_next": task_next,
+        "gateway_predecessor": gateway_predecessor,
+        "gateway_branches": gateway_branches,
+        "gateway_convergence": gateway_convergence,
+    }
+
+
+def build_ordered_task_list(resolved: dict) -> tuple[list[str], set[str]]:
+    """Walk the resolved graph from its true start, assigning visitation
+    order to each real Task shape resourceId (first time reached), and
+    collecting which split gateways are actually reachable along the way.
+
+    Tasks not reached from the chosen start are excluded, not rejected as
+    an error -- this covers multi-pool collaboration diagrams (where the
+    resolver already picked the pool with the most tasks as the process;
+    other pools' tasks are simply out of scope) as well as any other
+    disconnected fragment. Gateways not reached from the true start are
+    excluded from the second return value for the same reason, and because
+    including them risks GraphBuilder's start-node detection mistaking a
+    dead gateway for a legitimate entry point."""
+    order, seen = [], set()
+    reachable_gateways = set()
+
+    def visit(ref):
+        kind, ident = ref
+        if kind == "end" or (kind, ident) in seen:
+            return
+        seen.add((kind, ident))
+        if kind == "task":
+            order.append(ident)
+            visit(resolved["task_next"][ident])
+        elif kind == "gateway":
+            reachable_gateways.add(ident)
+            for b in resolved["gateway_branches"][ident]:
+                if b["kind"] in ("task", "gateway"):
+                    visit((b["kind"], b["target"]))
+
+    visit(resolved["start_ref"])
+    return order, reachable_gateways
+
+--- [9] MARKDOWN ---
+## Task attributes
+
+Deterministic, keyword-derived activity type / value classification / periodicity (no RNG).
+
+--- [10] CODE ---
+"""Derives activity type, value classification, and periodicity from task names."""
+
+CONTROL_KEYWORDS = ("check", "verify", "validate", "inspect", "review", "audit", "confirm")
+AUTHORIZE_KEYWORDS = ("approve", "authorize", "sign off", "sign-off", "accept", "reject")
+COMMUNICATION_KEYWORDS = ("send", "notify", "inform", "contact", "call", "email", "receive", "request", "reply")
+BATCH_KEYWORDS = ("batch", "consolidate", "aggregate", "compile")
+PERIODIC_KEYWORDS = ("end of day", "eod", "daily", "weekly", "monthly", "periodic", "end of month")
+VA_KEYWORDS = ("create", "prepare", "produce", "build", "design", "develop", "generate")
+
+
+def classify_activity_type(name: str) -> str:
+    lower = name.lower()
+    if any(k in lower for k in COMMUNICATION_KEYWORDS):
+        return "communication"
+    if any(k in lower for k in CONTROL_KEYWORDS):
+        return "check"
+    if any(k in lower for k in AUTHORIZE_KEYWORDS):
+        return "authorize"
+    if any(k in lower for k in BATCH_KEYWORDS):
+        return "batch"
+    return "basic"
+
+
+def classify_value(name: str, activity_type: str) -> str:
+    lower = name.lower()
+    if activity_type in ("check", "authorize"):
+        return "BVA"
+    if any(k in lower for k in VA_KEYWORDS):
+        return "VA"
+    return "BVA"
+
+
+def is_periodic(name: str) -> bool:
+    lower = name.lower()
+    return any(k in lower for k in PERIODIC_KEYWORDS)
+
+
+def is_batch(name: str, activity_type: str) -> bool:
+    return activity_type == "batch"
+
+
+def derive(name: str) -> dict:
+    activity_type = classify_activity_type(name)
+    return {
+        "activity_type": activity_type,
+        "value_classification": classify_value(name, activity_type),
+        "is_periodic": is_periodic(name),
+        "is_batch": is_batch(name, activity_type),
+    }
+
+
+AUTOMATABLE_KEYWORDS = ("system", "automatically", "online", "portal", "generate", "auto")
+
+
+def is_automated(name: str, activity_type: str) -> bool:
+    lower = name.lower()
+    return activity_type == "communication" and any(k in lower for k in AUTOMATABLE_KEYWORDS)
+
+--- [11] CODE ---
+_is_automated = is_automated  # alias used by measures.py and heuristics.py
+
+--- [12] MARKDOWN ---
+## Process measures
+
+Netjes et al. process measures, computed from a process record.
+
+--- [13] CODE ---
+DEPARTMENT_OF = {
+    "Process Owner": "Management", "Department Manager": "Management",
+    "Analyst": "Operations", "Specialist": "Operations",
+    "Coordinator": "Coordination", "Supervisor": "Coordination",
+    "Clerk": "Administration",
+}
+
+
+def _task_job_names(task):
+    return [(jt.get("job") or {}).get("name", "") for jt in task.job_tasks]
+
+
+def _departments(task):
+    return {DEPARTMENT_OF.get(n, "Other") for n in _task_job_names(task)}
+
+
+def compute_measures(record: dict) -> dict:
+    gb = GraphBuilder(record)
+    pe = PathEnumerator(gb)
+    tasks = [t for t in gb.tasks.values() if not t.is_subprocess_slot]
+    n = len(tasks) or 1
+    gateways = list(gb.gateways.values())
+
+    parallel_ids = set()
+    for gw in gateways:
+        if gw.gateway_type != "PARALLEL":
+            continue
+        conv = pe._convergence_ref(gw)
+        for b in gw.branches:
+            target = pe._resolve_target(b.target_task_id, b.target_gateway_id, b.connect_to_end, b.end_event_name)
+            segs = pe._expand(target, [], 1.0, [], 0, stop_ref=conv) or []
+            parallel_ids.update(s["task_id"] for s in segs if s["type"] == "task")
+
+    all_depts = set()
+    for t in tasks:
+        all_depts |= _departments(t)
+    dept_share_count = sum(1 for t in tasks if len(_departments(t)) >= 2)
+
+    all_roles = set()
+    for t in tasks:
+        all_roles |= set(_task_job_names(t))
+
+    handoffs, pairs = 0, 0
+    for t in tasks:
+        if t.next_task_id is not None and t.next_task_id in gb.tasks:
+            pairs += 1
+            nxt = gb.tasks[t.next_task_id]
+            if _task_job_names(t) and _task_job_names(nxt) and not (set(_task_job_names(t)) & set(_task_job_names(nxt))):
+                handoffs += 1
+
+    knock_out_branches = sum(
+        1 for gw in gateways if gw.gateway_type in ("EXCLUSIVE", "EVENT_BASED")
+        for b in gw.branches if b.connect_to_end
+    )
+
+    levels = [
+        (jt.get("job") or {}).get("job_level_id", 1)
+        for t in tasks for jt in t.job_tasks
+    ]
+
+    comm_tasks = [t for t in tasks if t.activity_type == "communication"]
+
+    return {
+        "parallelism": len(parallel_ids) / n,
+        "level_of_control": sum(1 for t in tasks if t.activity_type == "check") / n,
+        "level_of_authorization": sum(1 for t in tasks if t.activity_type == "authorize") / n,
+        "batch": sum(1 for t in tasks if t.is_batch) / n,
+        "periodic": sum(1 for t in tasks if t.is_periodic) / n,
+        "process_contacts": len(comm_tasks) / n,
+        "department_involvement": len(all_depts) / n,
+        "department_share": dept_share_count / n,
+        "role_usage": len(all_roles) / 7,
+        "user_involvement": sum(len(t.job_tasks) for t in tasks) / n,
+        "process_hand_offs": (handoffs / pairs) if pairs else 0.0,
+        "knock_outs": knock_out_branches / n,
+        "managerial_layers": ((max(levels) - min(levels) + 1) / 6) if levels else 0.0,
+        "it_automation": sum(1 for t in tasks if _is_automated(t.name, t.activity_type)) / n,
+        "it_comm": 1.0 if not comm_tasks else sum(1 for t in comm_tasks if _is_automated(t.name, t.activity_type)) / len(comm_tasks),
+        "process_versions": 1,
+        "process_size": n,
+    }
+
+--- [14] MARKDOWN ---
+## Dataset conversion
+
+Converts a raw Signavio BPMN diagram into a process schema record.
+
+--- [15] CODE ---
+DEFAULT_JOB_TITLES = ("Process Owner", "Department Manager", "Analyst", "Coordinator",
+                      "Specialist", "Clerk", "Supervisor")
+
+
+import xml.etree.ElementTree as ET
+
+
+def _synth_job(rng: random.Random, job_id: int, cfg) -> dict:
+    title = rng.choice(cfg.default_job_titles)
+    return {
+        "job_id": job_id, "jobCode": f"SYN-J-{job_id}", "job_level_id": rng.randint(1, 6),
+        "hourlyRate": rng.randint(*cfg.hourly_rate_range), "maxHoursPerDay": 8,
+        "description": f"Synthetic role: {title}", "name": title,
+        "capacity_buffer": str(rng.choice([5, 10, 15, 20])), "days_per_week": "5",
+        "hours_per_day": "8", "currencyType": cfg.default_currency,
+    }
+
+
+def _build_bpmn_xml(resolved: dict, process_name: str, process_code: str) -> str:
+    ET.register_namespace("bpmn", "http://www.omg.org/spec/BPMN/20100524/MODEL")
+    ns = "http://www.omg.org/spec/BPMN/20100524/MODEL"
+    definitions = ET.Element(f"{{{ns}}}definitions", {
+        "id": f"Definitions_{process_code}", "targetNamespace": "http://synthetic.local/bpmn",
+    })
+    process_el = ET.SubElement(definitions, f"{{{ns}}}process", {
+        "id": f"Process_{process_code}", "name": process_name, "isExecutable": "false",
+    })
+    for rid, shape in resolved["shapes"].items():
+        if shape["type"] == "Task":
+            ET.SubElement(process_el, f"{{{ns}}}task", {"id": rid, "name": shape["name"]})
+        elif shape["type"] in ("StartEvent", "EndEvent"):
+            tag = "startEvent" if shape["type"] == "StartEvent" else "endEvent"
+            ET.SubElement(process_el, f"{{{ns}}}{tag}", {"id": rid, "name": shape["name"]})
+    for gw_id in resolved["split_gateways"]:
+        gtype = resolved["gateway_type_of"][gw_id]
+        tag = {"EXCLUSIVE": "exclusiveGateway", "PARALLEL": "parallelGateway",
+               "INCLUSIVE": "inclusiveGateway", "EVENT_BASED": "eventBasedGateway"}[gtype]
+        ET.SubElement(process_el, f"{{{ns}}}{tag}", {"id": gw_id, "name": resolved["shapes"][gw_id]["name"]})
+    return ET.tostring(definitions, encoding="utf-8", xml_declaration=True).decode("utf-8")
+
+
+def convert_to_schema(row: dict, process_id: int, cfg):
+    resolved = resolve_connectivity(row["model"])
+    ordered_ids, reachable_gateways = build_ordered_task_list(resolved)
+
+    task_id_of = {rid: i + 1 for i, rid in enumerate(ordered_ids)}
+    gateway_pk_of = {rid: 1000 + i for i, rid in enumerate(sorted(reachable_gateways))}
+
+    def kind_id(kind, ident):
+        return task_id_of[ident] if kind == "task" else gateway_pk_of[ident] if kind == "gateway" else None
+
+    process_code = f"SYN-P-{process_id}"
+    rng = random.Random(cfg.synth_seed ^ process_id)
+
+    process_tasks = []
+    job_id = 1
+    for order, rid in enumerate(ordered_ids, start=1):
+        shape = resolved["shapes"][rid]
+        task_id = task_id_of[rid]
+        next_ref = resolved["task_next"][rid]
+        attrs = derive(shape["name"])
+
+        proc_time = rng.randint(*cfg.process_time_range_min)
+        rework_frac = round(rng.uniform(*cfg.rework_time_fraction_range), 2)
+        n_jobs = rng.choice([1, 1, 1, 2])
+        job_tasks = []
+        for _ in range(n_jobs):
+            job = _synth_job(rng, job_id, cfg)
+            job_tasks.append({
+                "job_id": job["job_id"], "task_id": task_id, "role": rng.choice(["R", "A", "C", "I"]),
+                "time_allocation_percentage": round(rng.uniform(1, 20), 2), "job": job,
+            })
+            job_id += 1
+
+        process_tasks.append({
+            "process_task_id": 6000 + order, "process_id": process_id, "task_id": task_id, "order": order,
+            "child_process_id": None, "value_classification": attrs["value_classification"],
+            "value_rationale": None, "bva_business_goal": None, "value_source": "derived",
+            "task": {
+                "task_id": task_id, "task_code": f"SYN-T-{process_id}-{order}",
+                "task_company_id": None, "task_name": shape["name"] or f"Task {task_id}",
+                "task_overview": "", "status_id": 1, "task_version": 0,
+                "expected_process_time": proc_time, "expected_rework_time": round(proc_time * rework_frac),
+                "expected_waiting_time": rng.choice([None, rng.randint(1, 30)]),
+                "frequency_interval": 1,
+                "frequency_period": "WEEK" if attrs["is_periodic"] else "DAY",
+                "occurrences": "1", "jobTasks": job_tasks,
+                "_activity_type": attrs["activity_type"], "_is_periodic": attrs["is_periodic"],
+                "_is_batch": attrs["is_batch"],
+                "_next_task_id": kind_id(*next_ref) if next_ref[0] == "task" else None,
+                "_next_gateway_id": kind_id(*next_ref) if next_ref[0] == "gateway" else None,
+                "_connects_to_end": next_ref[0] == "end",
+            },
+            "child_process": None,
+        })
+
+    gateways = []
+    for gw_id in sorted(reachable_gateways):
+        gw_pk = gateway_pk_of[gw_id]
+        pred = resolved["gateway_predecessor"][gw_id]
+        branches = resolved["gateway_branches"][gw_id]
+        n = len(branches)
+        raw_probs = [rng.random() + 0.1 for _ in range(n)]
+        total = sum(raw_probs)
+        probs = [round(p / total, 2) for p in raw_probs]
+
+        branch_records = []
+        for i, b in enumerate(branches):
+            branch_records.append({
+                "id": i + 1, "gateway_pk_id": gw_pk, "is_default": i == 0,
+                "condition": b["label"] or f"branch_{i + 1}", "probability": probs[i],
+                "target_task_id": kind_id(b["kind"], b["target"]) if b["kind"] == "task" else None,
+                "target_gateway_id": kind_id(b["kind"], b["target"]) if b["kind"] == "gateway" else None,
+                "connect_to_end": b["kind"] == "end",
+                "end_event_name": b["target"] if b["kind"] == "end" else None,
+                "end_task_id": None,
+            })
+
+        conv = resolved["gateway_convergence"].get(gw_id)
+        gateways.append({
+            "gateway_pk_id": gw_pk, "gateway_type": resolved["gateway_type_of"][gw_id],
+            "name": resolved["shapes"][gw_id]["name"] or f"Gateway {gw_pk}",
+            "after_task_id": kind_id(*pred) if pred and pred[0] == "task" else None,
+            "after_gateway_id": kind_id(*pred) if pred and pred[0] == "gateway" else None,
+            "converge_at_task_id": kind_id(*conv) if conv and conv[0] == "task" else None,
+            "converge_gateway_name": "",
+            "converge_to_end": bool(conv and conv[0] == "end"),
+            "converge_at_gateway_id": kind_id(*conv) if conv and conv[0] == "gateway" else None,
+            "branches": branch_records,
+        })
+
+    bpmn_xml = _build_bpmn_xml(resolved, row["name"] or process_code, process_code)
+    total_time = sum(pt["task"]["expected_process_time"] for pt in process_tasks)
+
+    return {
+        "process_id": process_id, "company_id": 900_000 + process_id,
+        "created_at": row["datetime"], "updated_at": row["datetime"],
+        "capacity_requirement_minutes": total_time, "parent_process_id": None, "parent_task_id": None,
+        "process_code": process_code, "process_name": row["name"] or process_code,
+        "process_overview": row["description"] or "<p>No description provided in source data.</p>",
+        "process_category_id": cfg.default_process_category_id, "process_status_id": 1, "process_version": 0,
+        "bpmn_xml": bpmn_xml, "created_by": None, "updated_by": None, "PROCESS_STATUS": "CREATED",
+        "bpmn_xml_updated_at": row["datetime"],
+        "company": {
+            "company_id": 900_000 + process_id, "companyCode": f"SYN-{process_id}",
+            "name": cfg.default_org_name, "created_by": None, "org_type_id": 1,
+        },
+        "process": None,
+        "creator": {"user_id": None, "name": "Synthetic Pipeline"},
+        "processCategory": {
+            "id": cfg.default_process_category_id, "description": "Auto-assigned category for synthetic dataset",
+            "name": cfg.default_process_category_name,
+        },
+        "gateways": gateways, "process_task": process_tasks,
+        "_source": {
+            "revision_id": row["revision_id"], "model_id": row["model_id"],
+            "organization_id": row["organization_id"],
+        },
+    }
+
+--- [16] MARKDOWN ---
+## Validation
+
+Structural and content validation for generated process records.
+
+--- [17] CODE ---
+import xml.etree.ElementTree as ET
+
+
+REQUIRED_TOP_LEVEL = ["process_id", "process_code", "process_name", "bpmn_xml", "gateways", "process_task"]
+
+
+def validate_record(record: dict, min_tasks: int = 2) -> list[str]:
+    problems = []
+
+    for key in REQUIRED_TOP_LEVEL:
+        if key not in record or record[key] in (None, ""):
+            problems.append(f"missing/empty field: {key}")
+
+    if not record.get("process_task"):
+        problems.append("process_task list is empty")
+    else:
+        if len(record["process_task"]) < min_tasks:
+            problems.append(f"only {len(record['process_task'])} task(s), below min_tasks={min_tasks}")
+        for pt in record["process_task"]:
+            task = pt.get("task", {})
+            if task.get("expected_process_time", 0) <= 0:
+                problems.append(f"task {task.get('task_code')} has non-positive process time")
+            if not task.get("jobTasks"):
+                problems.append(f"task {task.get('task_code')} has no job assignments")
+            has_next = any([task.get("_next_task_id") is not None,
+                             task.get("_next_gateway_id") is not None,
+                             task.get("_connects_to_end")])
+            if not has_next:
+                problems.append(f"task {task.get('task_code')} has no recorded successor")
+
+    for gw in record.get("gateways", []):
+        probs = [b["probability"] for b in gw.get("branches", [])]
+        if probs and abs(sum(probs) - 1.0) > 0.05:
+            problems.append(f"gateway {gw.get('name')} branch probabilities sum to {sum(probs):.2f}")
+
+    try:
+        ET.fromstring(record["bpmn_xml"])
+    except (ET.ParseError, KeyError) as exc:
+        problems.append(f"invalid bpmn_xml: {exc}")
+
+    try:
+        gb = GraphBuilder(record)
+        paths = PathEnumerator(gb).enumerate_structured_paths()
+        if not paths:
+            problems.append("no paths could be enumerated from this process graph")
+    except Exception as exc:
+        problems.append(f"graph is not traversable: {exc}")
+
+    return problems
+
+--- [18] MARKDOWN ---
+## Redesign heuristics
+
+The 7 redesign heuristics: qualify, select_target, apply, and the orchestrator.
+
+--- [19] CODE ---
+def _tasks_by_order(record):
+    return sorted(record["process_task"], key=lambda pt: pt["order"])
+
+
+def _job_names(pt):
+    return [(jt.get("job") or {}).get("name", "") for jt in pt["task"].get("jobTasks", [])]
+
+
+def _find_task(record, task_id):
+    for pt in record["process_task"]:
+        if pt["task_id"] == task_id:
+            return pt
+    return None
+
+
+def _relink_predecessors(record, removed_task_id, new_next_task_id, new_next_gateway_id, new_connects_to_end):
+    for pt in record["process_task"]:
+        t = pt["task"]
+        if t.get("_next_task_id") == removed_task_id:
+            t["_next_task_id"] = new_next_task_id
+            t["_next_gateway_id"] = new_next_gateway_id
+            t["_connects_to_end"] = new_connects_to_end
+    for gw in record["gateways"]:
+        if gw.get("after_task_id") == removed_task_id:
+            pass  # gateways after an eliminated task keep their position; only task->task links are relinked here
+
+
+# ---------------------------------------------------------------------------
+# 1. Task Elimination
+# ---------------------------------------------------------------------------
+
+def qualify_elimination(m):
+    return m["level_of_control"] > 0.2
+
+
+MIN_TASKS = 2
+
+
+def apply_elimination(record):
+    if len(record["process_task"]) <= MIN_TASKS:
+        return record, [], "Process too small to safely eliminate a task without dropping below the minimum."
+
+    candidates = [pt for pt in record["process_task"] if pt["task"].get("_activity_type") == "check"]
+    if not candidates:
+        return record, [], "No control/check tasks found despite qualifying measure."
+
+    target = candidates[0]
+    tid = target["task_id"]
+    t = target["task"]
+    next_task_id = t.get("_next_task_id")
+    next_gateway_id = t.get("_next_gateway_id")
+    connects_to_end = t.get("_connects_to_end", False)
+
+    _relink_predecessors(record, tid, next_task_id, next_gateway_id, connects_to_end)
+    record["process_task"] = [pt for pt in record["process_task"] if pt["task_id"] != tid]
+
+    reason = f"Task '{t['task_name']}' is a control/check task adding no direct customer value; removed per task elimination heuristic."
+    return record, [{"task_id": tid, "task_name": t["task_name"]}], reason
+
+
+# ---------------------------------------------------------------------------
+# 2. Task Composition
+# ---------------------------------------------------------------------------
+
+def qualify_composition(m):
+    return m["parallelism"] < 0.25 and m["process_hand_offs"] < 0.5 and m["process_versions"] < 2
+
+
+def apply_composition(record):
+    if len(record["process_task"]) <= MIN_TASKS:
+        return record, [], "Process too small to safely compose two tasks without dropping below the minimum."
+
+    ordered = _tasks_by_order(record)
+    gateway_after_ids = {gw["after_task_id"] for gw in record["gateways"] if gw.get("after_task_id") is not None}
+
+    for pt in ordered:
+        t = pt["task"]
+        nxt_id = t.get("_next_task_id")
+        if nxt_id is None or pt["task_id"] in gateway_after_ids:
+            continue
+        nxt_pt = _find_task(record, nxt_id)
+        if nxt_pt is None:
+            continue
+        if set(_job_names(pt)) & set(_job_names(nxt_pt)) and _job_names(pt):
+            nxt_t = nxt_pt["task"]
+            t["expected_process_time"] += nxt_t["expected_process_time"]
+            t["expected_rework_time"] += nxt_t["expected_rework_time"]
+            t["task_name"] = f"{t['task_name']} + {nxt_t['task_name']}"
+            t["_next_task_id"] = nxt_t.get("_next_task_id")
+            t["_next_gateway_id"] = nxt_t.get("_next_gateway_id")
+            t["_connects_to_end"] = nxt_t.get("_connects_to_end", False)
+
+            _relink_predecessors(record, nxt_id, pt["task_id"], None, False)
+            for gw in record["gateways"]:
+                if gw.get("after_task_id") == nxt_id:
+                    gw["after_task_id"] = pt["task_id"]
+
+            record["process_task"] = [p for p in record["process_task"] if p["task_id"] != nxt_id]
+            reason = f"Adjacent tasks '{t['task_name']}' share the same role with low hand-off risk; composed into one task."
+            return record, [{"task_id": pt["task_id"], "task_name": t["task_name"]}], reason
+
+    return record, [], "No adjacent same-role task pair found despite qualifying measure."
+
+
+# ---------------------------------------------------------------------------
+# 3. Knock-Out
+# ---------------------------------------------------------------------------
+
+def qualify_knockout(m):
+    return m["knock_outs"] > 0
+
+
+def apply_knockout(record):
+    for gw in record["gateways"]:
+        if gw["gateway_type"] not in ("EXCLUSIVE", "EVENT_BASED"):
+            continue
+        if not any(b.get("connect_to_end") for b in gw["branches"]):
+            continue
+        original_order = [b["condition"] for b in gw["branches"]]
+        gw["branches"].sort(key=lambda b: -b["probability"])
+        if [b["condition"] for b in gw["branches"]] == original_order:
+            continue
+        reason = f"Gateway '{gw['name']}' branches reordered by descending termination probability to minimize average effort."
+        return record, [{"gateway_pk_id": gw["gateway_pk_id"], "gateway_name": gw["name"]}], reason
+
+    return record, [], "No reorderable knock-out gateway found despite qualifying measure."
+
+
+# ---------------------------------------------------------------------------
+# 4. Parallelism
+# ---------------------------------------------------------------------------
+
+def qualify_parallelism(m):
+    return m["parallelism"] < 0.1
+
+
+def apply_parallelism(record):
+    import copy as _copy
+
+    ordered = _tasks_by_order(record)
+    gateway_after_ids = {gw["after_task_id"] for gw in record["gateways"] if gw.get("after_task_id") is not None}
+
+    for pt in ordered:
+        t = pt["task"]
+        nxt_id = t.get("_next_task_id")
+        if nxt_id is None or pt["task_id"] in gateway_after_ids:
+            continue
+        nxt_pt = _find_task(record, nxt_id)
+        if nxt_pt is None:
+            continue
+        if set(_job_names(pt)) & set(_job_names(nxt_pt)):
+            continue  # same role -> not independent, skip
+
+        trial = _copy.deepcopy(record)
+        trial_pt = _find_task(trial, pt["task_id"])
+        trial_nxt_pt = _find_task(trial, nxt_id)
+        trial_t = trial_pt["task"]
+
+        after_pt_next = trial_nxt_pt["task"].get("_next_task_id")
+        after_pt_next_gw = trial_nxt_pt["task"].get("_next_gateway_id")
+        after_pt_connects_end = trial_nxt_pt["task"].get("_connects_to_end", False)
+
+        existing_ids = [gw["gateway_pk_id"] for gw in trial["gateways"]]
+        new_gw_id = (max(existing_ids) + 1) if existing_ids else 1000
+
+        trial_t["_next_task_id"] = None
+        trial_t["_next_gateway_id"] = new_gw_id
+        trial_t["_connects_to_end"] = False
+
+        new_gateway = {
+            "gateway_pk_id": new_gw_id, "gateway_type": "PARALLEL",
+            "name": f"Parallel split after {trial_t['task_name']}",
+            "after_task_id": trial_pt["task_id"], "after_gateway_id": None,
+            "converge_at_task_id": after_pt_next, "converge_gateway_name": "",
+            "converge_to_end": after_pt_connects_end,
+            "converge_at_gateway_id": after_pt_next_gw,
+            "branches": [
+                {"id": 1, "gateway_pk_id": new_gw_id, "is_default": True, "condition": "branch_1",
+                 "probability": 1.0, "target_task_id": trial_nxt_pt["task_id"], "target_gateway_id": None,
+                 "connect_to_end": False, "end_event_name": None, "end_task_id": None},
+            ],
+        }
+        trial["gateways"].append(new_gateway)
+        trial_nxt_pt["task"]["_next_task_id"] = after_pt_next
+        trial_nxt_pt["task"]["_next_gateway_id"] = after_pt_next_gw
+        trial_nxt_pt["task"]["_connects_to_end"] = after_pt_connects_end
+
+        try:
+            gb = GraphBuilder(trial)
+            paths = PathEnumerator(gb).enumerate_structured_paths()
+            if not paths:
+                continue
+        except Exception:
+            continue  # this candidate produces an unsupported structure -- try the next one
+
+        reason = (f"Tasks '{pt['task']['task_name']}' and '{nxt_pt['task']['task_name']}' use different "
+                  f"roles with no dependency; placed in parallel to reduce cycle time.")
+        return trial, [{"task_id": pt["task_id"]}, {"task_id": nxt_pt["task_id"]}], reason
+
+    return record, [], "No safe independent adjacent task pair found despite qualifying measure."
+
+    return record, [], "No independent adjacent task pair found despite qualifying measure."
+
+
+# ---------------------------------------------------------------------------
+# 5. Case-Based Work
+# ---------------------------------------------------------------------------
+
+def qualify_case_based(m):
+    return m["batch"] > 0 or m["periodic"] > 0
+
+
+def apply_case_based(record):
+    for pt in record["process_task"]:
+        t = pt["task"]
+        if t.get("_is_batch") or t.get("_is_periodic"):
+            t["_is_batch"] = False
+            t["_is_periodic"] = False
+            t["frequency_period"] = "DAY"
+            old_wait = t.get("expected_waiting_time") or 0
+            t["expected_waiting_time"] = round(old_wait * 0.3) if old_wait else 0
+            reason = f"Task '{t['task_name']}' was batch/periodically processed; converted to case-based handling to cut waiting time."
+            return record, [{"task_id": pt["task_id"], "task_name": t["task_name"]}], reason
+
+    return record, [], "No batch/periodic task found despite qualifying measure."
+
+
+# ---------------------------------------------------------------------------
+# 6. Numerical Involvement
+# ---------------------------------------------------------------------------
+
+def qualify_numerical_involvement(m):
+    return m["department_involvement"] > 0.25 or m["user_involvement"] > 1 or m["role_usage"] < 0.5
+
+
+def apply_numerical_involvement(record):
+    for pt in record["process_task"]:
+        job_tasks = pt["task"].get("jobTasks", [])
+        if len(job_tasks) > 1:
+            primary = max(job_tasks, key=lambda jt: jt.get("time_allocation_percentage", 0))
+            pt["task"]["jobTasks"] = [primary]
+            reason = f"Task '{pt['task']['task_name']}' had multiple role assignments; consolidated to a single owning role."
+            return record, [{"task_id": pt["task_id"], "task_name": pt["task"]["task_name"]}], reason
+
+    return record, [], "No task with multiple role assignments found despite qualifying measure."
+
+
+# ---------------------------------------------------------------------------
+# 7. Task Automation
+# ---------------------------------------------------------------------------
+
+def qualify_automation(m):
+    return m["it_automation"] < 0.5 or (m["it_comm"] < 0.5 and m["level_of_control"] > 0.2)
+
+
+def apply_automation(record):
+    for pt in record["process_task"]:
+        t = pt["task"]
+        activity_type = t.get("_activity_type")
+        if activity_type in ("communication", "check") and not _is_automated(t["task_name"], activity_type):
+            t["expected_process_time"] = max(1, round(t["expected_process_time"] * 0.4))
+            for jt in t.get("jobTasks", []):
+                jt["time_allocation_percentage"] = round(jt.get("time_allocation_percentage", 0) * 0.4, 2)
+            reason = f"Task '{t['task_name']}' is a manual {activity_type} task; automated to reduce processing time and labor cost."
+            return record, [{"task_id": pt["task_id"], "task_name": t["task_name"]}], reason
+
+    return record, [], "No automatable task found despite qualifying measure."
+
+
+HEURISTICS = [
+    (1, "parallelism", qualify_parallelism, apply_parallelism),
+    (2, "task_elimination", qualify_elimination, apply_elimination),
+    (3, "task_automation", qualify_automation, apply_automation),
+    (4, "task_composition", qualify_composition, apply_composition),
+    (5, "case_based_work", qualify_case_based, apply_case_based),
+    (6, "numerical_involvement", qualify_numerical_involvement, apply_numerical_involvement),
+    (7, "knock_out", qualify_knockout, apply_knockout),
+]
+
+APPLICATION_ORDER = ["task_elimination", "task_composition", "knock_out", "parallelism",
+                     "case_based_work", "numerical_involvement", "task_automation"]
+
+
+def redesign_process(as_is_record: dict) -> dict:
+    working = copy.deepcopy(as_is_record)
+    trace = []
+    by_name = {name: (hid, qualify, apply_fn) for hid, name, qualify, apply_fn in HEURISTICS}
+
+    for name in APPLICATION_ORDER:
+        hid, qualify, apply_fn = by_name[name]
+        measures = compute_measures(working)
+        if qualify(measures):
+            working, targets, reason = apply_fn(working)
+            applied = bool(targets)
+            trace.append({
+                "heuristicId": hid, "heuristicName": name, "isApplied": applied,
+                "taskApplied": targets, "reasonApplied": reason if applied else None,
+            })
+        else:
+            trace.append({
+                "heuristicId": hid, "heuristicName": name, "isApplied": False,
+                "taskApplied": [], "reasonApplied": None,
+            })
+
+    return {"as-is": as_is_record, "to-be": working, "redesignTrace": trace}
+
+--- [20] MARKDOWN ---
+## Load, filter, convert, save
+
+Streams the CSV, filters to valid English BPMN 2.0, converts each row using the modules above, validates, and reservoir-samples to disk one record at a time. Checkpoints after every file for crash recovery.
+
+--- [21] CODE ---
+REQUIRED_COLUMNS = ["Revision ID", "Model ID", "Organization ID", "Datetime",
+                    "Model JSON", "Description", "Name", "Type", "Namespace"]
+
+
+def _is_valid_bpmn_json(raw_json, cfg):
+    if not raw_json or not isinstance(raw_json, str):
+        return None
+    try:
+        model = json.loads(raw_json)
+    except (json.JSONDecodeError, TypeError):
+        return None
+    stencilset = model.get("stencilset", {}) or {}
+    namespace = (stencilset.get("namespace") or "") + (stencilset.get("url") or "")
+    if cfg.required_stencilset_substring not in namespace.lower():
+        return None
+    if model.get("stencil", {}).get("id") != "BPMNDiagram":
+        return None
+    return model
+
+
+def _extract_language(model, name, description, cfg):
+    declared = (model.get("properties", {}) or {}).get("language")
+    text = f"{name or ''} {description or ''}".strip()
+    if not LANGDETECT_AVAILABLE or len(text) < 3:
+        return declared
+    try:
+        code_ = detect(text)
+    except Exception:
+        return declared
+    detected = "English" if code_ == "en" else code_
+    return detected if declared == cfg.target_language else detected
+
+
+def _count_tasks(model):
+    count = 0
+
+    def walk(shapes):
+        nonlocal count
+        for shape in shapes or []:
+            if (shape.get("stencil") or {}).get("id") == "Task":
+                count += 1
+            walk(shape.get("childShapes"))
+
+    walk(model.get("childShapes"))
+    return count
+
+--- [22] CODE ---
+def process_dataset(cfg: Config, resume: bool = True) -> dict:
+    input_path = Path(cfg.input_path)
+    csv_files = sorted(input_path.glob(cfg.csv_glob)) if input_path.is_dir() else [input_path]
+    if not csv_files:
+        raise FileNotFoundError(f"No CSV files found at {cfg.input_path}")
+
+    slots_dir = cfg.output_path / "_reservoir_slots"
+    slots_dir.mkdir(parents=True, exist_ok=True)
+    checkpoint_path = cfg.output_path / "pipeline_checkpoint.pkl"
+
+    if resume and checkpoint_path.exists():
+        with open(checkpoint_path, "rb") as f:
+            ckpt = pickle.load(f)
+        stats, rng, processed_files, eligible_count = ckpt["stats"], ckpt["rng"], ckpt["processed_files"], ckpt["eligible_count"]
+        logger.info("resuming: %d files done, %d eligible so far", len(processed_files), eligible_count)
+    else:
+        stats = {"scanned": 0, "bad_json": 0, "wrong_language": 0, "excluded_variant": 0,
+                  "size_out_of_range": 0, "passed_filter": 0, "conversion_failures": 0,
+                  "validation_failures": 0, "conversion_error_samples": [], "validation_error_samples": []}
+        rng = random.Random(cfg.random_seed)
+        processed_files = set()
+        eligible_count = 0
+        for f in slots_dir.glob("slot_*.json"):
+            f.unlink()
+        for dirname in (cfg.train_dirname, cfg.eval_dirname):
+            out_dir = cfg.output_path / dirname
+            if out_dir.exists():
+                for f in out_dir.glob("*.json"):
+                    f.unlink()
+        logger.info("Fresh run: cleared existing train/eval output before scanning.")
+
+    remaining = [p for p in csv_files if str(p) not in processed_files]
+
+    for csv_path in remaining:
+        try:
+            reader = pd.read_csv(csv_path, sep=cfg.csv_sep, encoding=cfg.csv_encoding,
+                                  usecols=lambda c: c in REQUIRED_COLUMNS,
+                                  chunksize=cfg.chunksize, dtype=str, on_bad_lines="skip")
+        except Exception as exc:
+            logger.warning("skipping unreadable file %s: %s", csv_path.name, exc)
+            processed_files.add(str(csv_path))
+            continue
+
+        for chunk in tqdm(reader, desc=f"Processing {csv_path.name}", unit="chunk"):
+            chunk = chunk.fillna("")
+            for _, row in chunk.iterrows():
+                stats["scanned"] += 1
+                name = row.get("Name") or ""
+                description = row.get("Description") or ""
+
+                if any(m in name.lower() for m in cfg.excluded_name_markers):
+                    stats["excluded_variant"] = stats.get("excluded_variant", 0) + 1
+                    continue
+
+                model = _is_valid_bpmn_json(row.get("Model JSON"), cfg)
+                if model is None:
+                    stats["bad_json"] += 1
+                    continue
+
+                if _extract_language(model, name, description, cfg) != cfg.target_language:
+                    stats["wrong_language"] += 1
+                    continue
+
+                n_tasks = _count_tasks(model)
+                if not (cfg.min_tasks <= n_tasks <= cfg.max_tasks):
+                    stats["size_out_of_range"] += 1
+                    continue
+
+                stats["passed_filter"] += 1
+                raw_row = {"revision_id": row.get("Revision ID"), "model_id": row.get("Model ID"),
+                           "organization_id": row.get("Organization ID"), "datetime": row.get("Datetime"),
+                           "name": name, "description": description, "model": model}
+
+                process_id = 100_000 + stats["scanned"]
+                try:
+                    record = convert_to_schema(raw_row, process_id, cfg)
+                except Exception as exc:
+                    stats["conversion_failures"] += 1
+                    if len(stats["conversion_error_samples"]) < 10:
+                        stats["conversion_error_samples"].append({"name": name, "error": str(exc)})
+                    continue
+
+                problems = validate_record(record, min_tasks=cfg.min_tasks)
+                if problems:
+                    stats["validation_failures"] += 1
+                    if len(stats["validation_error_samples"]) < 10:
+                        stats["validation_error_samples"].append({"process_id": process_id, "problems": problems})
+                    continue
+
+                eligible_count += 1
+                if eligible_count <= cfg.sample_size:
+                    slot_index = eligible_count - 1
+                else:
+                    j = rng.randint(0, eligible_count - 1)
+                    if j >= cfg.sample_size:
+                        continue
+                    slot_index = j
+
+                with open(slots_dir / f"slot_{slot_index:05d}.json", "w", encoding="utf-8") as f:
+                    json.dump(record, f, indent=2, ensure_ascii=False)
+
+        processed_files.add(str(csv_path))
+        logger.info("finished %s | scanned=%d passed=%d eligible=%d reservoir=%d/%d",
+                    csv_path.name, stats["scanned"], stats["passed_filter"], eligible_count,
+                    min(eligible_count, cfg.sample_size), cfg.sample_size)
+
+        with open(checkpoint_path, "wb") as f:
+            pickle.dump({"stats": stats, "rng": rng, "processed_files": processed_files,
+                         "eligible_count": eligible_count}, f)
+        gc.collect()
+
+    stats["eligible_total"] = eligible_count
+    stats["reservoir_size"] = min(eligible_count, cfg.sample_size)
+    if eligible_count < cfg.sample_size:
+        logger.warning("only %d eligible records found (< sample_size=%d)", eligible_count, cfg.sample_size)
+    return stats
+
+--- [23] MARKDOWN ---
+## Split, save, report
+
+--- [24] CODE ---
+def finalize_split_and_report(cfg: Config, stats: dict) -> dict:
+    slots_dir = cfg.output_path / "_reservoir_slots"
+    slot_files = sorted(slots_dir.glob("slot_*.json"))
+
+    rng = random.Random(cfg.random_seed)
+    shuffled = slot_files[:]
+    rng.shuffle(shuffled)
+    split_idx = round(len(shuffled) * cfg.train_ratio)
+    train_files, eval_files = shuffled[:split_idx], shuffled[split_idx:]
+
+    manifest = {"train": [], "eval": []}
+    n_tasks_list, n_gateways_list, proc_times = [], [], []
+
+    for split_name, files in (("train", train_files), ("eval", eval_files)):
+        out_dir = cfg.output_path / getattr(cfg, f"{split_name}_dirname")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        for slot_path in tqdm(files, desc=f"Saving {split_name}", unit="file"):
+            with open(slot_path, encoding="utf-8") as f:
+                record = json.load(f)
+            filename = f"{record['process_code']}.json"
+            shutil.move(str(slot_path), str(out_dir / filename))
+            manifest[split_name].append(filename)
+            n_tasks_list.append(len(record["process_task"]))
+            n_gateways_list.append(len(record["gateways"]))
+            proc_times.extend(pt["task"]["expected_process_time"] for pt in record["process_task"])
+
+    def avg(vals):
+        return round(sum(vals) / len(vals), 2) if vals else 0
+
+    metadata = {
+        "config": {k: (str(v) if isinstance(v, Path) else v) for k, v in vars(cfg).items()},
+        "counts": {"train": len(manifest["train"]), "eval": len(manifest["eval"]),
+                   "total": len(manifest["train"]) + len(manifest["eval"])},
+        "manifest": manifest, "generated_at": pd.Timestamp.now(tz="UTC").isoformat(),
+    }
+    with open(cfg.output_path / cfg.metadata_filename, "w", encoding="utf-8") as f:
+        json.dump(metadata, f, indent=2)
+
+    report = {
+        "scan_and_conversion_stats": {k: v for k, v in stats.items() if not k.endswith("_samples")},
+        "split_counts": metadata["counts"],
+        "dataset_characteristics": {
+            "avg_tasks_per_process": avg(n_tasks_list),
+            "min_tasks_per_process": min(n_tasks_list, default=0),
+            "max_tasks_per_process": max(n_tasks_list, default=0),
+            "avg_gateways_per_process": avg(n_gateways_list),
+            "avg_task_process_time_minutes": avg(proc_times),
+        },
+        "sample_conversion_errors": stats.get("conversion_error_samples", []),
+        "sample_validation_errors": stats.get("validation_error_samples", []),
+    }
+    with open(cfg.output_path / cfg.stats_filename, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+
+    shutil.rmtree(slots_dir, ignore_errors=True)
+    (cfg.output_path / "pipeline_checkpoint.pkl").unlink(missing_ok=True)
+
+    print(f"scanned={stats['scanned']} passed_filter={stats['passed_filter']} "
+          f"conversion_failures={stats['conversion_failures']} validation_failures={stats['validation_failures']}")
+    print(f"train={metadata['counts']['train']} eval={metadata['counts']['eval']}")
+    print(f"avg_tasks={report['dataset_characteristics']['avg_tasks_per_process']} "
+          f"avg_gateways={report['dataset_characteristics']['avg_gateways_per_process']}")
+    print(f"report: {cfg.output_path / cfg.stats_filename}")
+    return report
+
+
+def run_pipeline(cfg: Config, resume: bool = True) -> dict:
+    stats = process_dataset(cfg, resume=resume)
+    if stats.get("reservoir_size", 0) == 0:
+        logger.error("no eligible records produced")
+        return {}
+    return finalize_split_and_report(cfg, stats)
+
+--- [25] MARKDOWN ---
+## Apply redesign heuristics to your dataset
+
+--- [26] CODE ---
+def apply_redesign_to_dataset(cfg: Config):
+    results = {"total": 0, "already_done": 0, "redesigned": 0, "failed": 0, "failed_files": []}
+
+    for split in (cfg.train_dirname, cfg.eval_dirname):
+        split_dir = cfg.output_path / split
+        files = sorted(split_dir.glob("*.json"))
+        for f in tqdm(files, desc=f"Redesigning {split}", unit="file"):
+            results["total"] += 1
+            try:
+                with open(f, encoding="utf-8") as fh:
+                    data = json.load(fh)
+
+                if "as-is" in data and "to-be" in data:
+                    results["already_done"] += 1
+                    continue
+
+                combined = redesign_process(data)
+                problems = validate_record(combined["to-be"])
+                if problems:
+                    raise ValueError(f"to-be failed validation: {problems}")
+                with open(f, "w", encoding="utf-8") as fh:
+                    json.dump(combined, fh, indent=2, ensure_ascii=False)
+                results["redesigned"] += 1
+            except Exception as exc:
+                results["failed"] += 1
+                results["failed_files"].append({"file": f.name, "error": str(exc)})
+
+    total = results["total"]
+    already_done = results["already_done"]
+    redesigned = results["redesigned"]
+    failed = results["failed"]
+    print(f"total={total} already_done={already_done} redesigned={redesigned} failed={failed}")
+    if results["failed_files"]:
+        print("sample failures:")
+        for item in results["failed_files"][:5]:
+            fname = item["file"]
+            err = item["error"]
+            print(f"  {fname}: {err}")
+    return results
+
+--- [27] MARKDOWN ---
+## Self-test
+
+--- [28] CODE ---
+import csv as _csv
+
+
+def _flow(fid, target, label=""):
+    return {"resourceId": fid, "properties": {"name": label}, "stencil": {"id": "SequenceFlow"},
+            "outgoing": [], "target": {"resourceId": target}, "childShapes": []}
+
+
+def _test_bpmn_model(lang="English", n_tasks=3):
+    shapes = [{"resourceId": "start1", "properties": {"name": "Start"},
+               "stencil": {"id": "StartNoneEvent"}, "outgoing": [{"resourceId": "f_start"}], "childShapes": []},
+              _flow("f_start", "task1")]
+    for i in range(1, n_tasks + 1):
+        nxt = f"task{i+1}" if i < n_tasks else "gw1"
+        fid = f"f_task{i}"
+        shapes.append({"resourceId": f"task{i}", "properties": {"name": f"Task {i}"},
+                       "stencil": {"id": "Task"}, "outgoing": [{"resourceId": fid}], "childShapes": []})
+        shapes.append(_flow(fid, nxt))
+    shapes += [
+        {"resourceId": "gw1", "properties": {"name": "Decision?", "gatewaytype": "XOR"},
+         "stencil": {"id": "Exclusive_Databased_Gateway"},
+         "outgoing": [{"resourceId": "sf1"}, {"resourceId": "sf2"}], "childShapes": []},
+        _flow("sf1", "end1", "Yes"),
+        _flow("sf2", "end1", "No"),
+        {"resourceId": "end1", "properties": {"name": "End"}, "stencil": {"id": "EndNoneEvent"},
+         "outgoing": [], "childShapes": []},
+    ]
+    return {"resourceId": "canvas", "properties": {"language": lang}, "stencil": {"id": "BPMNDiagram"},
+            "stencilset": {"namespace": "http://b3mn.org/stencilset/bpmn2.0#"}, "childShapes": shapes}
+
+
+def _build_test_csv(path, n_rows=5, prefix=""):
+    rows, kept = [], 0
+    for i in range(n_rows):
+        rows.append({"Revision ID": f"rev{prefix}{i}", "Model ID": f"mod{prefix}{i}", "Organization ID": f"org{i}",
+                     "Datetime": "2020-01-01 10:00:00", "Model JSON": json.dumps(_test_bpmn_model("English", 3 + i % 2)),
+                     "Description": "test process", "Name": f"Test Process {prefix}{i}", "Type": "",
+                     "Namespace": "http://b3mn.org/stencilset/bpmn2.0#"})
+        kept += 1
+    if prefix == "":
+        rows.append({"Revision ID": "reves", "Model ID": "modes", "Organization ID": "orges",
+                     "Datetime": "2020-01-01 10:00:00", "Model JSON": json.dumps(_test_bpmn_model("English", 3)),
+                     "Description": "Elaborar productos para el cliente final", "Name": "Elaborar productos",
+                     "Type": "", "Namespace": "http://b3mn.org/stencilset/bpmn2.0#"})
+        rows.append({"Revision ID": "revmap", "Model ID": "modmap", "Organization ID": "orgmap",
+                     "Datetime": "2020-01-01 10:00:00",
+                     "Model JSON": json.dumps({"resourceId": "canvas", "stencil": {"id": "Diagram"},
+                                               "stencilset": {"namespace": "http://www.signavio.com/stencilsets/processmap#"},
+                                               "childShapes": []}),
+                     "Description": "", "Name": "Process Map", "Type": "",
+                     "Namespace": "http://www.signavio.com/stencilsets/processmap#"})
+        rows.append({"Revision ID": "revbad", "Model ID": "modbad", "Organization ID": "orgbad",
+                     "Datetime": "2020-01-01 10:00:00", "Model JSON": "{not valid json",
+                     "Description": "", "Name": "Bad Process", "Type": "", "Namespace": ""})
+        rows.append({"Revision ID": "revchor", "Model ID": "modchor", "Organization ID": "orgchor",
+                     "Datetime": "2020-01-01 10:00:00", "Model JSON": json.dumps(_test_bpmn_model("English", 2)),
+                     "Description": "", "Name": "My Choreography Process", "Type": "",
+                     "Namespace": "http://b3mn.org/stencilset/bpmn2.0#"})
+        dangling = _test_bpmn_model("English", 2)
+        for shape in dangling["childShapes"]:
+            if shape["resourceId"] == "task2":
+                shape["outgoing"] = []
+        rows.append({"Revision ID": "revdangle", "Model ID": "moddangle", "Organization ID": "orgd",
+                     "Datetime": "2020-01-01 10:00:00", "Model JSON": json.dumps(dangling),
+                     "Description": "A process ending abruptly, for testing purposes",
+                     "Name": "Abrupt Ending Process For Testing", "Type": "",
+                     "Namespace": "http://b3mn.org/stencilset/bpmn2.0#"})
+        kept += 1
+        with_wait = _test_bpmn_model("English", 2)
+        for shape in with_wait["childShapes"]:
+            if shape["resourceId"] == "task1":
+                shape["outgoing"] = [{"resourceId": "f_wait"}]
+        with_wait["childShapes"].append({"resourceId": "f_wait", "properties": {"name": ""},
+                                          "stencil": {"id": "SequenceFlow"}, "outgoing": [],
+                                          "target": {"resourceId": "wait1"}, "childShapes": []})
+        with_wait["childShapes"].append({"resourceId": "wait1", "properties": {"name": "Wait"},
+                                          "stencil": {"id": "IntermediateTimerEvent"},
+                                          "outgoing": [{"resourceId": "f_wait2"}], "childShapes": []})
+        with_wait["childShapes"].append({"resourceId": "f_wait2", "properties": {"name": ""},
+                                          "stencil": {"id": "SequenceFlow"}, "outgoing": [],
+                                          "target": {"resourceId": "task2"}, "childShapes": []})
+        rows.append({"Revision ID": "revwait", "Model ID": "modwait", "Organization ID": "orgw",
+                     "Datetime": "2020-01-01 10:00:00", "Model JSON": json.dumps(with_wait),
+                     "Description": "A process with an intermediate wait event, for testing purposes",
+                     "Name": "Process With Intermediate Wait Event", "Type": "",
+                     "Namespace": "http://b3mn.org/stencilset/bpmn2.0#"})
+        kept += 1
+
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = _csv.DictWriter(f, fieldnames=["Revision ID", "Model ID", "Organization ID", "Datetime",
+                                                 "Model JSON", "Description", "Name", "Type", "Namespace"])
+        writer.writeheader()
+        writer.writerows(rows)
+    return kept
+
+
+def _xml_is_valid(xml_string):
+    import xml.etree.ElementTree as ET
+    try:
+        ET.fromstring(xml_string)
+        return True
+    except ET.ParseError:
+        return False
+
+
+def run_self_test() -> bool:
+    tmp_dir = Path(tempfile.mkdtemp(prefix="bpmn_pipeline_selftest_"))
+    checks = []
+    try:
+        expected_0 = _build_test_csv(tmp_dir / "0.csv", n_rows=5, prefix="")
+        expected_1 = _build_test_csv(tmp_dir / "1.csv", n_rows=4, prefix="b")
+        total_expected = expected_0 + expected_1
+
+        test_cfg = make_config(input_path=tmp_dir, output_path=tmp_dir / "out", csv_sep=",",
+                                sample_size=100, chunksize=3)
+
+        original_convert = convert_to_schema
+        crash_marker = {"triggered": False}
+
+        def crashy_convert(raw_row, process_id, cfg):
+            if raw_row["name"].startswith("Test Process b2") and not crash_marker["triggered"]:
+                crash_marker["triggered"] = True
+                raise KeyboardInterrupt("simulated crash")
+            return original_convert(raw_row, process_id, cfg)
+
+        globals()["convert_to_schema"] = crashy_convert
+        crashed = False
+        try:
+            process_dataset(test_cfg, resume=True)
+        except KeyboardInterrupt:
+            crashed = True
+        finally:
+            globals()["convert_to_schema"] = original_convert
+
+        checks.append(("crash triggered", crashed))
+        checkpoint_path = test_cfg.output_path / "pipeline_checkpoint.pkl"
+        checks.append(("checkpoint exists after crash", checkpoint_path.exists()))
+        slots_dir = test_cfg.output_path / "_reservoir_slots"
+        slots_before = list(slots_dir.glob("slot_*.json")) if slots_dir.exists() else []
+        checks.append(("records saved before crash", len(slots_before) > 0))
+
+        report = run_pipeline(test_cfg, resume=True)
+        checks.append(("report non-empty after resume", bool(report)))
+
+        stats = report.get("scan_and_conversion_stats", {})
+        checks.append(("eligible_total matches expected", stats.get("eligible_total") == total_expected))
+        checks.append(("wrong_language caught mislabeled row", stats.get("wrong_language", 0) >= 1))
+        checks.append(("excluded_variant caught choreography", stats.get("excluded_variant", 0) == 1))
+        checks.append(("bad_json caught malformed/non-BPMN rows", stats.get("bad_json", 0) == 2))
+        checks.append(("dangling task tolerated, zero unexpected conversion failures",
+                       stats.get("conversion_failures", 0) == 0))
+        checks.append(("zero validation failures on valid rows", stats.get("validation_failures", 0) == 0))
+        checks.append(("split total matches eligible", report["split_counts"]["total"] == total_expected))
+        checks.append(("checkpoint cleaned up", not checkpoint_path.exists()))
+        checks.append(("slots dir cleaned up", not slots_dir.exists()))
+
+        train_dir = test_cfg.output_path / test_cfg.train_dirname
+        eval_dir = test_cfg.output_path / test_cfg.eval_dirname
+        saved = list(train_dir.glob("*.json")) + list(eval_dir.glob("*.json"))
+        checks.append(("output files on disk", len(saved) == total_expected))
+
+        if saved:
+            with open(saved[0], encoding="utf-8") as f:
+                sample = json.load(f)
+            checks.append(("saved record has required fields", all(k in sample for k in
+                          ["process_id", "process_code", "process_name", "bpmn_xml", "gateways", "process_task"])))
+            checks.append(("saved record passes validate_record", validate_record(sample) == []))
+
+        checks.append(("metadata.json written", (test_cfg.output_path / "metadata.json").exists()))
+        checks.append(("stats_report.json written", (test_cfg.output_path / "stats_report.json").exists()))
+
+        # Redesign smoke test on the freshly-generated files
+        redesign_results = apply_redesign_to_dataset(test_cfg)
+        checks.append(("redesign ran with zero failures on this test dataset", redesign_results["failed"] == 0))
+
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+
+    passed = all(p for _, p in checks)
+    for desc, p in checks:
+        print(f"[{'PASS' if p else 'FAIL'}] {desc}")
+    print("ALL PASSED" if passed else "FAILURES ABOVE")
+    return passed
+
+
+self_test_passed = run_self_test()
+
+--- [29] MARKDOWN ---
+## Run
+
+Run the cells below in order to build the dataset from your real CSV export.
+
+--- [30] CODE ---
+assert self_test_passed, "Self-test failed -- fix the pipeline before running on real data."
+report = run_pipeline(CONFIG)
+
+--- [31] CODE ---
+redesign_report = apply_redesign_to_dataset(CONFIG)
+
+--- [32] MARKDOWN ---
+## Notes
+
+- `NUM_PROCESSES_TO_SAMPLE` (top of notebook) controls the dataset size.
+- A fresh run of `run_pipeline(CONFIG)` clears existing `train`/`eval` output first; resumed runs after a crash do not.
+- `apply_redesign_to_dataset` is idempotent -- files already redesigned (`as-is`/`to-be`/`redesignTrace` present) are skipped on re-run.
+- Known limitation: processes containing cycles/loops are rejected during validation (`graph is not traversable`), by design -- expected cycle time across an unbounded loop is a separate, larger modeling question not yet implemented.
+- Everything needed is in this single notebook file -- no separate `.py` files required.
+
+--- [33] MARKDOWN ---
+## Final Dataset Stats 
+
+--- [34] CODE ---
+from pathlib import Path
+
+train_dir = CONFIG.output_path / "train"
+eval_dir = CONFIG.output_path / "eval"
+
+train_files = sorted(train_dir.glob("*.json"))
+eval_files = sorted(eval_dir.glob("*.json"))
+
+print(f"Train processes: {len(train_files)}")
+print(f"Eval processes:  {len(eval_files)}")
+print(f"Total processes: {len(train_files) + len(eval_files)}")
+
+--- [35] CODE ---
+import json
+from pathlib import Path
+from IPython.display import display, JSON
+
+def preview_one_record(folder: Path, label: str, index: int = 0):
+    files = sorted(folder.glob("*.json"))
+
+    if not files:
+        print(f"[{label}] No files found in {folder}")
+        return None
+
+    if not (0 <= index < len(files)):
+        raise IndexError(f"Index {index} is out of range. Valid range: 0 to {len(files)-1}")
+
+    chosen = files[index]
+
+    with open(chosen, "r", encoding="utf-8") as f:
+        record = json.load(f)
+
+    print(f"\n{'='*80}")
+    print(f"[{label}] File #{index}: {chosen.name}")
+    print(f"({len(files)} files total in {folder.name}/)")
+    print(f"{'='*80}")
+
+    # Collapsible JSON viewer
+    display(JSON(record))
+
+    keys = list(record.keys())
+    print(f"\n[{label}] Top-level keys: {keys}")
+
+    for expected in ("as-is", "to-be", "redesignTrace"):
+        status = "✓" if expected in record else "✗ MISSING"
+        print(f"  {expected}: {status}")
+
+    return record
+
+--- [36] CODE ---
+from collections.abc import Mapping
+
+def process_overview(record):
+    print("\n" + "=" * 70)
+    print("PROCESS OVERVIEW")
+    print("=" * 70)
+
+    for name in ("as-is", "to-be"):
+        process = record.get(name, {})
+
+        process_tasks = process.get("process_task", [])
+        gateways = process.get("gateways", [])
+
+        # Unique jobs
+        job_ids = set()
+
+        for pt in process_tasks:
+            task = pt.get("task", {})
+            for jt in task.get("jobTasks", []):
+                if "job_id" in jt:
+                    job_ids.add(jt["job_id"])
+
+        print(f"\n{name.upper()}")
+        print(f"  Tasks     : {len(process_tasks)}")
+        print(f"  Jobs      : {len(job_ids)}")
+        print(f"  Gateways  : {len(gateways)}")
+
+    redesign = record.get("redesignTrace", [])
+
+    print("\nOTHER")
+    print(f"  Redesign Heuristics : {len(redesign)}")
+    print(f"  Applied Heuristics  : {sum(h.get('isApplied', False) for h in redesign)}")
+
+    print("=" * 70)
+
+import uuid
+from IPython.display import HTML, display
+
+def view_bpmn(bpmn_xml: str, height: int = 500, title: str = "BPMN Diagram"):
+    """
+    Renders a BPMN 2.0 XML string as an interactive diagram inline in Jupyter,
+    using bpmn-js (NavigatedViewer) loaded from CDN.
+    """
+    container_id = f"bpmn-canvas-{uuid.uuid4().hex}"
+    # Escape for safe embedding inside a JS template literal
+    escaped_xml = bpmn_xml.replace("\\", "\\\\").replace("`", "\\`").replace("${", "\\${")
+
+    html = f"""
+    <div style="border:1px solid #ddd; border-radius:6px; margin-bottom:8px;">
+      <div style="background:#f5f5f5; padding:6px 10px; font-family:sans-serif; font-size:13px; color:#333; border-bottom:1px solid #ddd;">
+        {title}
+      </div>
+      <div id="{container_id}" style="height:{height}px; width:100%;"></div>
+    </div>
+
+    <script src="https://unpkg.com/bpmn-js@17/dist/bpmn-navigated-viewer.production.min.js"></script>
+    <script>
+      (function() {{
+        function renderDiagram() {{
+          if (typeof BpmnJS === "undefined") {{
+            setTimeout(renderDiagram, 150);
+            return;
+          }}
+          var viewer = new BpmnJS({{ container: '#{container_id}' }});
+          var xml = `{escaped_xml}`;
+          viewer.importXML(xml).then(function() {{
+            viewer.get('canvas').zoom('fit-viewport');
+          }}).catch(function(err) {{
+            document.getElementById('{container_id}').innerHTML =
+              '<pre style="color:red; padding:10px;">Failed to render BPMN: ' + err.message + '</pre>';
+          }});
+        }}
+        renderDiagram();
+      }})();
+    </script>
+    """
+    display(HTML(html))
+
+--- [37] MARKDOWN ---
+## Printing 1 process from train folder 
+
+--- [38] CODE ---
+print("BPMNDiagram" in train_record["as-is"]["bpmn_xml"])
+#train_record = preview_one_record(train_dir, "TRAIN", index=0)
+#process_overview(train_record)
+#view_bpmn(train_record["as-is"]["bpmn_xml"], title="TRAIN — AS-IS")
+#view_bpmn(train_record["to-be"]["bpmn_xml"], title="TRAIN — TO-BE")
+
+--- [39] MARKDOWN ---
+## Printing 1 process from eval folder 
+
+--- [40] CODE ---
+eval_record = preview_one_record(train_dir, "TRAIN", index=0)
+process_overview(eval_record)
+
+--- [41] CODE ---
+
+
