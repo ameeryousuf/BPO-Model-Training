@@ -6,6 +6,7 @@ DATA_RAW = DATA_ROOT / "raw"
 DATA_CONVENTIONS = DATA_RAW / "sap_sam_2022" / "conventions"
 DATA_DATASET = DATA_RAW / "sap_sam_2022" / "models"
 DATA_INTERIM = DATA_ROOT / "interim"
+DATA_PROCESSED = DATA_ROOT / "processed"
 SRC_ROOT = PROJECT_ROOT / "src" / "sapsam"
 FIGURES_ROOT = PROJECT_ROOT / "reports" / "figures"
 

@@ -874,12 +874,34 @@ def _find_task(record, task_id):
 
 
 def _relink_predecessors(record, removed_task_id, new_next_task_id, new_next_gateway_id, new_connects_to_end):
+    """Rewrite every reference to `removed_task_id` -- from other tasks' _next_task_id,
+    and from any gateway's after_task_id / branch target_task_id / converge_at_task_id --
+    to point at whatever removed_task_id pointed to next instead. Without covering the
+    gateway cases too, apply_elimination/apply_composition could leave a gateway pointing
+    at a task_id no longer present in process_task, which crashes graph traversal / process
+    metrics computation downstream with a dangling-reference KeyError."""
     for pt in record["process_task"]:
         t = pt["task"]
         if t.get("_next_task_id") == removed_task_id:
             t["_next_task_id"] = new_next_task_id
             t["_next_gateway_id"] = new_next_gateway_id
             t["_connects_to_end"] = new_connects_to_end
+
+    for gw in record["gateways"]:
+        if gw.get("after_task_id") == removed_task_id:
+            gw["after_task_id"] = new_next_task_id
+            gw["after_gateway_id"] = new_next_gateway_id
+
+        if gw.get("converge_at_task_id") == removed_task_id:
+            gw["converge_at_task_id"] = new_next_task_id
+            gw["converge_at_gateway_id"] = new_next_gateway_id
+            gw["converge_to_end"] = bool(new_connects_to_end)
+
+        for b in gw.get("branches", []):
+            if b.get("target_task_id") == removed_task_id:
+                b["target_task_id"] = new_next_task_id
+                b["target_gateway_id"] = new_next_gateway_id
+                b["connect_to_end"] = bool(new_connects_to_end)
 
 
 def qualify_parallelism(m):
@@ -1014,10 +1036,9 @@ def apply_composition(record):
             t["_next_task_id"] = nxt_t.get("_next_task_id")
             t["_next_gateway_id"] = nxt_t.get("_next_gateway_id")
             t["_connects_to_end"] = nxt_t.get("_connects_to_end", False)
+            # _relink_predecessors now also fixes gateway after_task_id / branch
+            # target_task_id / converge_at_task_id, so no separate gateway patch is needed here.
             _relink_predecessors(record, nxt_id, pt["task_id"], None, False)
-            for gw in record["gateways"]:
-                if gw.get("after_task_id") == nxt_id:
-                    gw["after_task_id"] = pt["task_id"]
             record["process_task"] = [p for p in record["process_task"] if p["task_id"] != nxt_id]
             reason = f"Adjacent tasks '{t['task_name']}' share the same role with low hand-off risk; composed into one task."
             return record, [{"task_id": pt["task_id"], "task_name": t["task_name"]}], reason
